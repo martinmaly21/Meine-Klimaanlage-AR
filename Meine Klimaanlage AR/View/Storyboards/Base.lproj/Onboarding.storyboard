@@ -34,7 +34,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nk5-a1-LA8">
                                 <rect key="frame" x="83" y="782.5" width="248" height="49.5"/>
-                                <color key="backgroundColor" name="LightBlue"/>
+                                <color key="backgroundColor" name="PrimaryBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Nk5-a1-LA8" secondAttribute="height" multiplier="5:1" id="tVg-Ed-SvB"/>
                                 </constraints>
@@ -48,7 +48,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1C-00-ON0">
                                 <rect key="frame" x="83" y="724.5" width="248" height="50"/>
-                                <color key="backgroundColor" name="LightBlue"/>
+                                <color key="backgroundColor" name="PrimaryBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="s1C-00-ON0" secondAttribute="height" multiplier="5:1" id="yrL-1S-RaO"/>
                                 </constraints>
@@ -113,7 +113,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="w0m-ju-Nho">
-                                                <rect key="frame" x="15" y="15" width="384" height="256.5"/>
+                                                <rect key="frame" x="15" y="15" width="384" height="266.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vv-iY-sqv">
                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="20.5"/>
@@ -141,7 +141,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="R3M-3b-UIQ">
-                                                        <rect key="frame" x="0.0" y="109.5" width="384" height="69"/>
+                                                        <rect key="frame" x="0.0" y="109.5" width="384" height="109"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v27-a9-cXX">
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="20.5"/>
@@ -154,18 +154,17 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJM-qr-oZ6">
+                                                                <rect key="frame" x="0.0" y="79" width="384" height="30"/>
+                                                                <state key="normal" title="Forgot Password?">
+                                                                    <color key="titleColor" name="HighlightBlue"/>
+                                                                </state>
+                                                            </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJM-qr-oZ6">
-                                                        <rect key="frame" x="0.0" y="188.5" width="384" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="iCw-PE-AOf"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUW-gO-p5d">
-                                                        <rect key="frame" x="0.0" y="218.5" width="384" height="38"/>
-                                                        <color key="backgroundColor" name="LightBlue"/>
+                                                        <rect key="frame" x="0.0" y="228.5" width="384" height="38"/>
+                                                        <color key="backgroundColor" name="PrimaryBlue"/>
                                                         <state key="normal" title="Log In">
                                                             <color key="titleColor" name="PrimaryTextLight"/>
                                                         </state>
@@ -214,7 +213,10 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="LightBlue">
+        <namedColor name="HighlightBlue">
+            <color red="0.082352941176470587" green="0.63137254901960782" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryBlue">
             <color red="0.396078431372549" green="0.63921568627450975" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryTextDark">
