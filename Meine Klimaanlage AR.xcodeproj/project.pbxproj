@@ -12,7 +12,7 @@
 		5B4FDFB8248D79160079B653 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4FDFB7248D79160079B653 /* .gitignore */; };
 		5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0D8248D701F0072002A /* AppDelegate.swift */; };
 		5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DA248D701F0072002A /* SceneDelegate.swift */; };
-		5B69D0DD248D701F0072002A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DC248D701F0072002A /* ViewController.swift */; };
+		5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DC248D701F0072002A /* LogInOrCreateAccountViewController.swift */; };
 		5B69D0E0248D701F0072002A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0DE248D701F0072002A /* Main.storyboard */; };
 		5B69D0E2248D70200072002A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0E1248D70200072002A /* Assets.xcassets */; };
 		5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0E3248D70200072002A /* LaunchScreen.storyboard */; };
@@ -27,7 +27,7 @@
 		5B69D0D5248D701F0072002A /* Meine Klimaanlage AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meine Klimaanlage AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B69D0D8248D701F0072002A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B69D0DA248D701F0072002A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5B69D0DC248D701F0072002A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5B69D0DC248D701F0072002A /* LogInOrCreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInOrCreateAccountViewController.swift; sourceTree = "<group>"; };
 		5B69D0DF248D701F0072002A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B69D0E1248D70200072002A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B69D0E4248D70200072002A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 			children = (
 				5B69D0D8248D701F0072002A /* AppDelegate.swift */,
 				5B69D0DA248D701F0072002A /* SceneDelegate.swift */,
-				5B69D0DC248D701F0072002A /* ViewController.swift */,
+				5B69D0DC248D701F0072002A /* LogInOrCreateAccountViewController.swift */,
 				5B69D0DE248D701F0072002A /* Main.storyboard */,
 				5B69D0E1248D70200072002A /* Assets.xcassets */,
 				5B69D0E3248D70200072002A /* LaunchScreen.storyboard */,
@@ -218,7 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B69D0DD248D701F0072002A /* ViewController.swift in Sources */,
+				5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */,
 				5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */,
 				5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */,
 			);
