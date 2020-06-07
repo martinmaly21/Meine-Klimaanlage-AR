@@ -85,8 +85,8 @@
 		5B0A8A41248D8F0D00CA4141 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				5B69D0DE248D701F0072002A /* Onboarding.storyboard */,
 				5B69D0E3248D70200072002A /* LaunchScreen.storyboard */,
+				5B69D0DE248D701F0072002A /* Onboarding.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
