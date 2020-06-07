@@ -1,24 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eVy-bQ-gae">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="7qo-cI-kwI">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <navigationController id="eVy-bQ-gae" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fj0-iX-tHE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="HWL-Gb-GWI" kind="relationship" relationship="rootViewController" id="O03-zt-3ab"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ub-ZY-64z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-115" y="317"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="I1k-ji-Ipe">
+            <objects>
+                <viewController id="HWL-Gb-GWI" customClass="ViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bpy-nj-EAg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nk5-a1-LA8">
+                                <rect key="frame" x="83" y="782.5" width="248" height="49.5"/>
+                                <color key="backgroundColor" name="LightGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Nk5-a1-LA8" secondAttribute="height" multiplier="5:1" id="tVg-Ed-SvB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <state key="normal" title="Create Account"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1C-00-ON0">
+                                <rect key="frame" x="83" y="724.5" width="248" height="50"/>
+                                <color key="backgroundColor" name="LightGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="s1C-00-ON0" secondAttribute="height" multiplier="5:1" id="yrL-1S-RaO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <state key="normal" title="Sign Up"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Nk5-a1-LA8" firstAttribute="centerX" secondItem="A7Q-Cz-Pbv" secondAttribute="centerX" id="EUd-Ug-cF5"/>
+                            <constraint firstItem="s1C-00-ON0" firstAttribute="width" secondItem="Nk5-a1-LA8" secondAttribute="width" id="NMk-As-bwW"/>
+                            <constraint firstItem="s1C-00-ON0" firstAttribute="centerX" secondItem="A7Q-Cz-Pbv" secondAttribute="centerX" id="cN8-6k-0bW"/>
+                            <constraint firstItem="Nk5-a1-LA8" firstAttribute="top" secondItem="s1C-00-ON0" secondAttribute="bottom" constant="8" id="dxW-5S-wCB"/>
+                            <constraint firstItem="Nk5-a1-LA8" firstAttribute="width" secondItem="bpy-nj-EAg" secondAttribute="width" multiplier="0.6" id="k46-rN-f53"/>
+                            <constraint firstItem="A7Q-Cz-Pbv" firstAttribute="bottom" secondItem="Nk5-a1-LA8" secondAttribute="bottom" constant="30" id="mPs-4z-jAY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="A7Q-Cz-Pbv"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lov-iu-CFj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mw7-1E-Hah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="730" y="317"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="LightGrey">
+            <color red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
