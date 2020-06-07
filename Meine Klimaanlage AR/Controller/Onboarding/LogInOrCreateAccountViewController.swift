@@ -16,11 +16,13 @@ class LogInOrCreateAccountViewController: UIViewController {
         super.viewDidLoad()
         setUpUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
 
     private func setUpUI() {
-        //hide navigation bar
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        
         //round corners of buttons
         signUpButton.layer.cornerRadius = signUpButton.frame.height / 2
         createAccountButton.layer.cornerRadius = createAccountButton.frame.height / 2

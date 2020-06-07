@@ -159,6 +159,9 @@
                                                                 <state key="normal" title="Forgot Password?">
                                                                     <color key="titleColor" name="HighlightBlue"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="userDidPressForgotPassword:" destination="m8l-1x-rCu" eventType="touchUpInside" id="gwZ-HR-Epc"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -168,6 +171,9 @@
                                                         <state key="normal" title="Log In">
                                                             <color key="titleColor" name="PrimaryTextLight"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="userDidPressLogin:" destination="m8l-1x-rCu" eventType="touchUpInside" id="QcY-NQ-bvQ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
