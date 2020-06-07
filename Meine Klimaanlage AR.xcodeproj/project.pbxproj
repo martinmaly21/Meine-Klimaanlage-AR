@@ -57,6 +57,55 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5B0A8A3E248D8EA700CA4141 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B0A8A41248D8F0D00CA4141 /* Storyboards */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B0A8A3F248D8EFB00CA4141 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5B0A8A42248D8F2A00CA4141 /* Onboarding */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5B0A8A40248D8F0000CA4141 /* Model  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model ";
+			sourceTree = "<group>";
+		};
+		5B0A8A41248D8F0D00CA4141 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5B69D0DE248D701F0072002A /* Onboarding.storyboard */,
+				5B69D0E3248D70200072002A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5B0A8A42248D8F2A00CA4141 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				5B69D0DC248D701F0072002A /* LogInOrCreateAccountViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		5B0A8A43248D8F3800CA4141 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				5B69D0D8248D701F0072002A /* AppDelegate.swift */,
+				5B69D0DA248D701F0072002A /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		5B69D0CC248D701F0072002A = {
 			isa = PBXGroup;
 			children = (
@@ -79,15 +128,14 @@
 		5B69D0D7248D701F0072002A /* Meine Klimaanlage AR */ = {
 			isa = PBXGroup;
 			children = (
-				5B69D0D8248D701F0072002A /* AppDelegate.swift */,
-				5B69D0DA248D701F0072002A /* SceneDelegate.swift */,
-				5B69D0DC248D701F0072002A /* LogInOrCreateAccountViewController.swift */,
-				5B69D0DE248D701F0072002A /* Onboarding.storyboard */,
-				5B69D0E1248D70200072002A /* Assets.xcassets */,
-				5B69D0E3248D70200072002A /* LaunchScreen.storyboard */,
+				5B0A8A43248D8F3800CA4141 /* Delegate */,
+				5B0A8A40248D8F0000CA4141 /* Model  */,
+				5B0A8A3F248D8EFB00CA4141 /* Controller */,
+				5B0A8A3E248D8EA700CA4141 /* View */,
 				5B69D0E6248D70200072002A /* Info.plist */,
 				5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */,
 				5B0A8A37248D88A900CA4141 /* Colors.xcassets */,
+				5B69D0E1248D70200072002A /* Assets.xcassets */,
 			);
 			path = "Meine Klimaanlage AR";
 			sourceTree = "<group>";
