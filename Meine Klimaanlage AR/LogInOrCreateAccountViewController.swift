@@ -9,12 +9,18 @@
 import UIKit
 
 class LogInOrCreateAccountViewController: UIViewController {
-
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var createAccountButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setUpUI()
     }
 
+    private func setUpUI() {
+        signUpButton.layer.cornerRadius = signUpButton.frame.height / 2
+        createAccountButton.layer.cornerRadius = createAccountButton.frame.height / 2
+    }
 
 }
 

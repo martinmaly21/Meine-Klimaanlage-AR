@@ -63,6 +63,10 @@
                         <viewLayoutGuide key="safeArea" id="A7Q-Cz-Pbv"/>
                     </view>
                     <navigationItem key="navigationItem" id="lov-iu-CFj"/>
+                    <connections>
+                        <outlet property="createAccountButton" destination="Nk5-a1-LA8" id="FQv-oW-7kB"/>
+                        <outlet property="signUpButton" destination="s1C-00-ON0" id="fjc-pC-n4F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mw7-1E-Hah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
