@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B4FDFB8248D79160079B653 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4FDFB7248D79160079B653 /* .gitignore */; };
 		5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0D8248D701F0072002A /* AppDelegate.swift */; };
 		5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DA248D701F0072002A /* SceneDelegate.swift */; };
 		5B69D0DD248D701F0072002A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DC248D701F0072002A /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		0A38C807304FB2807B48D88C /* Pods-Meine Klimaanlage AR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meine Klimaanlage AR.release.xcconfig"; path = "Target Support Files/Pods-Meine Klimaanlage AR/Pods-Meine Klimaanlage AR.release.xcconfig"; sourceTree = "<group>"; };
+		5B4FDFB7248D79160079B653 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5B69D0D5248D701F0072002A /* Meine Klimaanlage AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meine Klimaanlage AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B69D0D8248D701F0072002A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B69D0DA248D701F0072002A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,13 +50,13 @@
 				FD30A9AE9F1D8D594F3D962A /* Pods-Meine Klimaanlage AR.debug.xcconfig */,
 				0A38C807304FB2807B48D88C /* Pods-Meine Klimaanlage AR.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		5B69D0CC248D701F0072002A = {
 			isa = PBXGroup;
 			children = (
+				5B4FDFB7248D79160079B653 /* .gitignore */,
 				5B69D0D7248D701F0072002A /* Meine Klimaanlage AR */,
 				5B69D0D6248D701F0072002A /* Products */,
 				28EA317FD8298FA9E9CBC212 /* Pods */,
@@ -151,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B4FDFB8248D79160079B653 /* .gitignore in Resources */,
 				5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */,
 				5B69D0E2248D70200072002A /* Assets.xcassets in Resources */,
 				5B69D0E0248D701F0072002A /* Main.storyboard in Resources */,
