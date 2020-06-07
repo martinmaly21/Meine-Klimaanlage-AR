@@ -13,7 +13,7 @@
 		5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0D8248D701F0072002A /* AppDelegate.swift */; };
 		5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DA248D701F0072002A /* SceneDelegate.swift */; };
 		5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DC248D701F0072002A /* LogInOrCreateAccountViewController.swift */; };
-		5B69D0E0248D701F0072002A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0DE248D701F0072002A /* Main.storyboard */; };
+		5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0DE248D701F0072002A /* Onboarding.storyboard */; };
 		5B69D0E2248D70200072002A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0E1248D70200072002A /* Assets.xcassets */; };
 		5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0E3248D70200072002A /* LaunchScreen.storyboard */; };
 		A5BDCB9A0FD47B151970EB4E /* Pods_Meine_Klimaanlage_AR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */; };
@@ -28,7 +28,7 @@
 		5B69D0D8248D701F0072002A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B69D0DA248D701F0072002A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5B69D0DC248D701F0072002A /* LogInOrCreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInOrCreateAccountViewController.swift; sourceTree = "<group>"; };
-		5B69D0DF248D701F0072002A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B69D0DF248D701F0072002A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
 		5B69D0E1248D70200072002A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B69D0E4248D70200072002A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B69D0E6248D70200072002A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 				5B69D0D8248D701F0072002A /* AppDelegate.swift */,
 				5B69D0DA248D701F0072002A /* SceneDelegate.swift */,
 				5B69D0DC248D701F0072002A /* LogInOrCreateAccountViewController.swift */,
-				5B69D0DE248D701F0072002A /* Main.storyboard */,
+				5B69D0DE248D701F0072002A /* Onboarding.storyboard */,
 				5B69D0E1248D70200072002A /* Assets.xcassets */,
 				5B69D0E3248D70200072002A /* LaunchScreen.storyboard */,
 				5B69D0E6248D70200072002A /* Info.plist */,
@@ -165,7 +165,7 @@
 				5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */,
 				5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */,
 				5B69D0E2248D70200072002A /* Assets.xcassets in Resources */,
-				5B69D0E0248D701F0072002A /* Main.storyboard in Resources */,
+				5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,12 +227,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5B69D0DE248D701F0072002A /* Main.storyboard */ = {
+		5B69D0DE248D701F0072002A /* Onboarding.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5B69D0DF248D701F0072002A /* Base */,
 			);
-			name = Main.storyboard;
+			name = Onboarding.storyboard;
 			sourceTree = "<group>";
 		};
 		5B69D0E3248D70200072002A /* LaunchScreen.storyboard */ = {
