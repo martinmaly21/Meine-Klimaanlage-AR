@@ -144,7 +144,7 @@
                                                                     <color key="titleColor" name="HighlightBlue"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="userDidPressForgotPassword:" destination="m8l-1x-rCu" eventType="touchUpInside" id="gwZ-HR-Epc"/>
+                                                                    <segue destination="yd7-pY-mcP" kind="show" id="wdd-MJ-cOq"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -333,6 +333,102 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udA-GD-Df3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2019" y="631"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="x3u-X3-wdT">
+            <objects>
+                <viewController id="yd7-pY-mcP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xF9-lf-SfV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWj-af-EbJ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Lq-cF-bNR">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tWr-Mg-HTX">
+                                                <rect key="frame" x="15" y="15" width="384" height="231.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaQ-rc-uX0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                        <color key="textColor" name="PrimaryTextDark"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qtg-8q-rWW">
+                                                        <rect key="frame" x="0.0" y="40" width="384" height="141.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your email and we’ll send you a recovery link if it matches an account in our system." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BY-oV-jKp">
+                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="61"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" name="SecondaryTextDark"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9O-Qs-8I6">
+                                                                <rect key="frame" x="0.0" y="71" width="384" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" name="SecondaryTextDark"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4jZ-la-6hf">
+                                                                <rect key="frame" x="0.0" y="101.5" width="384" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="TVT-G2-Qqq"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDn-xJ-d6O">
+                                                        <rect key="frame" x="0.0" y="191.5" width="384" height="40"/>
+                                                        <color key="backgroundColor" name="PrimaryBlue"/>
+                                                        <state key="normal" title="Send Recovery Link">
+                                                            <color key="titleColor" name="PrimaryTextLight"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="XDn-xJ-d6O" firstAttribute="height" secondItem="4jZ-la-6hf" secondAttribute="height" id="P3q-Hw-GN0"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="tWr-Mg-HTX" firstAttribute="leading" secondItem="9Lq-cF-bNR" secondAttribute="leading" constant="15" id="60o-vP-ZY1"/>
+                                            <constraint firstItem="tWr-Mg-HTX" firstAttribute="top" secondItem="9Lq-cF-bNR" secondAttribute="top" constant="15" id="XkJ-mp-SWx"/>
+                                            <constraint firstAttribute="trailing" secondItem="tWr-Mg-HTX" secondAttribute="trailing" constant="15" id="dP4-1L-2oj"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9Lq-cF-bNR" secondAttribute="trailing" id="LBT-cV-tMU"/>
+                                    <constraint firstItem="9Lq-cF-bNR" firstAttribute="top" secondItem="cWj-af-EbJ" secondAttribute="top" id="ODS-U4-ywn"/>
+                                    <constraint firstItem="9Lq-cF-bNR" firstAttribute="width" secondItem="cWj-af-EbJ" secondAttribute="width" id="U5F-fv-fXu"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Lq-cF-bNR" secondAttribute="bottom" id="gxc-QJ-LUI"/>
+                                    <constraint firstItem="9Lq-cF-bNR" firstAttribute="height" secondItem="cWj-af-EbJ" secondAttribute="height" id="qGT-E1-3Pa"/>
+                                    <constraint firstItem="9Lq-cF-bNR" firstAttribute="leading" secondItem="cWj-af-EbJ" secondAttribute="leading" id="tik-pJ-4eA"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="dNp-Yp-7tz"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="kyo-Pt-ftU"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fom-7Y-Qve" firstAttribute="trailing" secondItem="cWj-af-EbJ" secondAttribute="trailing" id="3UH-0Q-Mem"/>
+                            <constraint firstItem="cWj-af-EbJ" firstAttribute="leading" secondItem="fom-7Y-Qve" secondAttribute="leading" id="4WT-5i-fkX"/>
+                            <constraint firstItem="cWj-af-EbJ" firstAttribute="top" secondItem="fom-7Y-Qve" secondAttribute="top" id="AEO-MT-DsW"/>
+                            <constraint firstItem="fom-7Y-Qve" firstAttribute="bottom" secondItem="cWj-af-EbJ" secondAttribute="bottom" id="ouw-57-485"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fom-7Y-Qve"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RTh-Ds-TIz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZZ-DV-0ar" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2019" y="-950"/>
         </scene>
     </scenes>
     <resources>

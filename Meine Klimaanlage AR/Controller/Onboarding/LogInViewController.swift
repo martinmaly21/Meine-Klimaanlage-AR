@@ -20,10 +20,7 @@ class LogInViewController: UIViewController {
     }
     
     //MARK: - Actions
-    
-    @IBAction func userDidPressForgotPassword(_ sender: Any) {
-    }
-    
+
     @IBAction func userDidPressLogin(_ sender: Any) {
     }
 }
