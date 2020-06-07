@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="730" y="317"/>
         </scene>
-        <!--View Controller-->
+        <!--Create An Account View Controller-->
         <scene sceneID="XWb-Ri-OQo">
             <objects>
-                <viewController id="OWF-Yt-0z6" sceneMemberID="viewController">
+                <viewController id="OWF-Yt-0z6" customClass="CreateAnAccountViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wT8-y7-4Vw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="1750" y="582"/>
         </scene>
-        <!--View Controller-->
+        <!--Log In View Controller-->
         <scene sceneID="g4E-ZU-owa">
             <objects>
-                <viewController id="m8l-1x-rCu" sceneMemberID="viewController">
+                <viewController id="m8l-1x-rCu" customClass="LogInViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JFr-P4-RNi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
