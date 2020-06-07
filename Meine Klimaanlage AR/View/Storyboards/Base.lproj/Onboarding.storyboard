@@ -196,10 +196,23 @@
                         <viewLayoutGuide key="safeArea" id="NXm-UU-uCr"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZMw-p3-cPy"/>
+                    <connections>
+                        <segue destination="yQ4-Z8-hJV" kind="showDetail" identifier="logInSegue" id="9HS-Kf-wKe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWo-Ga-zsd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2019" y="-79"/>
+        </scene>
+        <!--Root-->
+        <scene sceneID="LOx-a4-2hz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Root" id="yQ4-Z8-hJV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ReS-Cu-gV5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vyx-RY-3Te" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3441" y="191"/>
         </scene>
         <!--Create An Account View Controller-->
         <scene sceneID="GsW-ws-83R">
@@ -329,6 +342,9 @@
                         <viewLayoutGuide key="safeArea" id="vDR-9b-vNQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="lfF-0f-Gga"/>
+                    <connections>
+                        <segue destination="yQ4-Z8-hJV" kind="show" identifier="signUpSegue" id="ltG-9e-7Dn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udA-GD-Df3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -454,4 +470,7 @@
             <color red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9HS-Kf-wKe"/>
+    </inferredMetricsTieBreakers>
 </document>

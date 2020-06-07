@@ -22,5 +22,6 @@ class LogInViewController: UIViewController {
     //MARK: - Actions
 
     @IBAction func userDidPressLogin(_ sender: Any) {
+        performSegue(withIdentifier: "logInSegue", sender: self)
     }
 }
