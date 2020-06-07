@@ -334,10 +334,10 @@
             </objects>
             <point key="canvasLocation" x="2019" y="631"/>
         </scene>
-        <!--View Controller-->
+        <!--Forgot Password View Controller-->
         <scene sceneID="x3u-X3-wdT">
             <objects>
-                <viewController id="yd7-pY-mcP" sceneMemberID="viewController">
+                <viewController id="yd7-pY-mcP" customClass="ForgotPasswordViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xF9-lf-SfV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -388,6 +388,9 @@
                                                         <state key="normal" title="Send Recovery Link">
                                                             <color key="titleColor" name="PrimaryTextLight"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="userPressedSendRecoveryLink:" destination="yd7-pY-mcP" eventType="touchUpInside" id="gNV-ZJ-Pya"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>

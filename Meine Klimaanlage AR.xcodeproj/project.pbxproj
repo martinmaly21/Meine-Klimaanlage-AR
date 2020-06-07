@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */; };
 		5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A37248D88A900CA4141 /* Colors.xcassets */; };
+		5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */; };
 		5B4FDFB8248D79160079B653 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4FDFB7248D79160079B653 /* .gitignore */; };
 		5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0D8248D701F0072002A /* AppDelegate.swift */; };
 		5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DA248D701F0072002A /* SceneDelegate.swift */; };
@@ -26,6 +27,7 @@
 		0A38C807304FB2807B48D88C /* Pods-Meine Klimaanlage AR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meine Klimaanlage AR.release.xcconfig"; path = "Target Support Files/Pods-Meine Klimaanlage AR/Pods-Meine Klimaanlage AR.release.xcconfig"; sourceTree = "<group>"; };
 		5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B0A8A37248D88A900CA4141 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		5B4FDFB7248D79160079B653 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5B69D0D5248D701F0072002A /* Meine Klimaanlage AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meine Klimaanlage AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B69D0D8248D701F0072002A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				5B69D0DC248D701F0072002A /* LogInOrCreateAccountViewController.swift */,
 				5B8667D1248D9662003A3B5D /* LogInViewController.swift */,
 				5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */,
+				5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */,
+				5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */,
 				5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */,
 				5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */,
 				5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */,
