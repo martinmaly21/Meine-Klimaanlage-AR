@@ -11,8 +11,6 @@
 		5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A37248D88A900CA4141 /* Colors.xcassets */; };
 		5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */; };
 		5B2C5B10248DB249001B6898 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B0F248DB249001B6898 /* Root.storyboard */; };
-		5B2C5B15248DBA4D001B6898 /* AirConditioningBrandsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B13248DBA4D001B6898 /* AirConditioningBrandsTableViewCell.swift */; };
-		5B2C5B16248DBA4D001B6898 /* AirConditioningBrandsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B14248DBA4D001B6898 /* AirConditioningBrandsTableViewCell.xib */; };
 		5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B19248DBB80001B6898 /* HomeViewController.swift */; };
 		5B2C5B1C248DBB8B001B6898 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B1B248DBB8B001B6898 /* ProfileViewController.swift */; };
 		5B4FDFB8248D79160079B653 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4FDFB7248D79160079B653 /* .gitignore */; };
@@ -34,8 +32,6 @@
 		5B0A8A37248D88A900CA4141 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		5B2C5B0F248DB249001B6898 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
-		5B2C5B13248DBA4D001B6898 /* AirConditioningBrandsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirConditioningBrandsTableViewCell.swift; sourceTree = "<group>"; };
-		5B2C5B14248DBA4D001B6898 /* AirConditioningBrandsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirConditioningBrandsTableViewCell.xib; sourceTree = "<group>"; };
 		5B2C5B19248DBB80001B6898 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5B2C5B1B248DBB8B001B6898 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5B4FDFB7248D79160079B653 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -134,8 +130,6 @@
 		5B2C5B11248DBA01001B6898 /* Collection View Cells */ = {
 			isa = PBXGroup;
 			children = (
-				5B2C5B13248DBA4D001B6898 /* AirConditioningBrandsTableViewCell.swift */,
-				5B2C5B14248DBA4D001B6898 /* AirConditioningBrandsTableViewCell.xib */,
 			);
 			path = "Collection View Cells";
 			sourceTree = "<group>";
@@ -272,7 +266,6 @@
 				5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */,
 				5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */,
 				5B2C5B10248DB249001B6898 /* Root.storyboard in Resources */,
-				5B2C5B16248DBA4D001B6898 /* AirConditioningBrandsTableViewCell.xib in Resources */,
 				5B69D0E2248D70200072002A /* Assets.xcassets in Resources */,
 				5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */,
 			);
@@ -328,7 +321,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */,
-				5B2C5B15248DBA4D001B6898 /* AirConditioningBrandsTableViewCell.swift in Sources */,
 				5B2C5B1C248DBB8B001B6898 /* ProfileViewController.swift in Sources */,
 				5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */,
 				5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */,
