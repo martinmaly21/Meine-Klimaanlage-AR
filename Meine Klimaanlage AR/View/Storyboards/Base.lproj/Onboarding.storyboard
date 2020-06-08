@@ -226,7 +226,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ef-Vi-oeh">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="382"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xxt-6P-LhZ">
                                                 <rect key="frame" x="15" y="15" width="384" height="352"/>
@@ -314,6 +314,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="xxt-6P-LhZ" secondAttribute="bottom" constant="15" id="2Q7-hY-t5C"/>
                                             <constraint firstItem="xxt-6P-LhZ" firstAttribute="top" secondItem="5ef-Vi-oeh" secondAttribute="top" constant="15" id="3gP-LI-PZs"/>
                                             <constraint firstItem="xxt-6P-LhZ" firstAttribute="leading" secondItem="5ef-Vi-oeh" secondAttribute="leading" constant="15" id="5WJ-V8-cmr"/>
                                             <constraint firstAttribute="trailing" secondItem="xxt-6P-LhZ" secondAttribute="trailing" constant="15" id="sD5-Ak-4Cc"/>
@@ -321,7 +322,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="5ef-Vi-oeh" firstAttribute="height" secondItem="5Vk-gz-ySl" secondAttribute="height" id="8Yj-yX-KA3"/>
+                                    <constraint firstItem="5ef-Vi-oeh" firstAttribute="height" secondItem="5Vk-gz-ySl" secondAttribute="height" priority="250" id="8Yj-yX-KA3"/>
                                     <constraint firstItem="5ef-Vi-oeh" firstAttribute="top" secondItem="5Vk-gz-ySl" secondAttribute="top" id="CUe-Ud-jxu"/>
                                     <constraint firstAttribute="bottom" secondItem="5ef-Vi-oeh" secondAttribute="bottom" id="ERB-iW-Nxh"/>
                                     <constraint firstAttribute="trailing" secondItem="5ef-Vi-oeh" secondAttribute="trailing" id="RdR-TU-iP5"/>
