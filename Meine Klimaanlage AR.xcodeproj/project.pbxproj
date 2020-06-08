@@ -15,6 +15,8 @@
 		5B2C5B1C248DBB8B001B6898 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B1B248DBB8B001B6898 /* ProfileViewController.swift */; };
 		5B2C5B1F248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B1D248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift */; };
 		5B2C5B20248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B1E248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib */; };
+		5B2C5B23248DBD9A001B6898 /* ACUnitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B21248DBD9A001B6898 /* ACUnitTableViewCell.swift */; };
+		5B2C5B24248DBD9A001B6898 /* ACUnitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */; };
 		5B4FDFB8248D79160079B653 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4FDFB7248D79160079B653 /* .gitignore */; };
 		5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0D8248D701F0072002A /* AppDelegate.swift */; };
 		5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DA248D701F0072002A /* SceneDelegate.swift */; };
@@ -38,6 +40,8 @@
 		5B2C5B1B248DBB8B001B6898 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5B2C5B1D248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitBrandsTableViewCell.swift; sourceTree = "<group>"; };
 		5B2C5B1E248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitBrandsTableViewCell.xib; sourceTree = "<group>"; };
+		5B2C5B21248DBD9A001B6898 /* ACUnitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitTableViewCell.swift; sourceTree = "<group>"; };
+		5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitTableViewCell.xib; sourceTree = "<group>"; };
 		5B4FDFB7248D79160079B653 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5B69D0D5248D701F0072002A /* Meine Klimaanlage AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meine Klimaanlage AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B69D0D8248D701F0072002A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +82,7 @@
 		5B0A8A3E248D8EA700CA4141 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5B2C5B11248DBA01001B6898 /* Collection View Cells */,
+				5B2C5B11248DBA01001B6898 /* Table View Cells */,
 				5B0A8A41248D8F0D00CA4141 /* Storyboards */,
 			);
 			path = View;
@@ -131,13 +135,15 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
-		5B2C5B11248DBA01001B6898 /* Collection View Cells */ = {
+		5B2C5B11248DBA01001B6898 /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
 				5B2C5B1D248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift */,
 				5B2C5B1E248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib */,
+				5B2C5B21248DBD9A001B6898 /* ACUnitTableViewCell.swift */,
+				5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */,
 			);
-			path = "Collection View Cells";
+			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
 		5B2C5B17248DBB41001B6898 /* Home */ = {
@@ -267,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B2C5B24248DBD9A001B6898 /* ACUnitTableViewCell.xib in Resources */,
 				5B4FDFB8248D79160079B653 /* .gitignore in Resources */,
 				5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */,
 				5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */,
@@ -337,6 +344,7 @@
 				5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */,
 				5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */,
 				5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */,
+				5B2C5B23248DBD9A001B6898 /* ACUnitTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
