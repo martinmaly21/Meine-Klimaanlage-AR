@@ -136,7 +136,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2qC-UL-oua">
                                                                 <rect key="frame" x="0.0" y="30.5" width="384" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJM-qr-oZ6">
                                                                 <rect key="frame" x="0.0" y="80.5" width="384" height="30"/>
@@ -201,6 +201,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="ZMw-p3-cPy"/>
                     <connections>
+                        <outlet property="emailTextField" destination="Hbx-gN-aph" id="c9x-AV-FRU"/>
+                        <outlet property="logInButton" destination="WUW-gO-p5d" id="PHP-Uo-SMb"/>
+                        <outlet property="passwordTextField" destination="2qC-UL-oua" id="4X2-OG-Bq6"/>
+                        <outlet property="scrollView" destination="8Fk-JY-oU8" id="zMm-3T-NVL"/>
                         <segue destination="yQ4-Z8-hJV" kind="showDetail" identifier="logInSegue" id="9HS-Kf-wKe"/>
                     </connections>
                 </viewController>
@@ -481,6 +485,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ltG-9e-7Dn"/>
+        <segue reference="9HS-Kf-wKe"/>
     </inferredMetricsTieBreakers>
 </document>
