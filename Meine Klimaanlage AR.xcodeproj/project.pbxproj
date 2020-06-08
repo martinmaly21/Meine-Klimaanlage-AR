@@ -17,6 +17,7 @@
 		5B2C5B20248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B1E248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib */; };
 		5B2C5B23248DBD9A001B6898 /* ACUnitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B21248DBD9A001B6898 /* ACUnitTableViewCell.swift */; };
 		5B2C5B24248DBD9A001B6898 /* ACUnitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */; };
+		5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B29248DC768001B6898 /* ErrorManager.swift */; };
 		5B4FDFB8248D79160079B653 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4FDFB7248D79160079B653 /* .gitignore */; };
 		5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0D8248D701F0072002A /* AppDelegate.swift */; };
 		5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DA248D701F0072002A /* SceneDelegate.swift */; };
@@ -42,6 +43,7 @@
 		5B2C5B1E248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitBrandsTableViewCell.xib; sourceTree = "<group>"; };
 		5B2C5B21248DBD9A001B6898 /* ACUnitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitTableViewCell.swift; sourceTree = "<group>"; };
 		5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitTableViewCell.xib; sourceTree = "<group>"; };
+		5B2C5B29248DC768001B6898 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		5B4FDFB7248D79160079B653 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5B69D0D5248D701F0072002A /* Meine Klimaanlage AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meine Klimaanlage AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B69D0D8248D701F0072002A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				5B8667CF248D900D003A3B5D /* NetworkManager.swift */,
+				5B2C5B29248DC768001B6898 /* ErrorManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */,
 				5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */,
 				5B2C5B1F248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift in Sources */,
+				5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */,
 				5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */,
 				5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */,
 				5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */,
