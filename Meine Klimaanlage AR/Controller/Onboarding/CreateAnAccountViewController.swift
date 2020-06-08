@@ -95,8 +95,11 @@ class CreateAnAccountViewController: UIViewController {
         
         if notification.name == UIResponder.keyboardWillHideNotification {
             scrollView.contentInset = .zero
+            scrollView.scrollIndicatorInsets = .zero
         } else {
-            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+            let inset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+            scrollView.contentInset = inset
+            scrollView.scrollIndicatorInsets = inset
         }
     }
     
