@@ -3,27 +3,61 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */; };
+		5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A37248D88A900CA4141 /* Colors.xcassets */; };
+		5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */; };
+		5B2C5B10248DB249001B6898 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B0F248DB249001B6898 /* Root.storyboard */; };
+		5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B19248DBB80001B6898 /* HomeViewController.swift */; };
+		5B2C5B1C248DBB8B001B6898 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B1B248DBB8B001B6898 /* ProfileViewController.swift */; };
+		5B2C5B1F248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B1D248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift */; };
+		5B2C5B20248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B1E248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib */; };
+		5B2C5B23248DBD9A001B6898 /* ACUnitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B21248DBD9A001B6898 /* ACUnitTableViewCell.swift */; };
+		5B2C5B24248DBD9A001B6898 /* ACUnitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */; };
+		5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B29248DC768001B6898 /* ErrorManager.swift */; };
+		5B4FDFB8248D79160079B653 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4FDFB7248D79160079B653 /* .gitignore */; };
 		5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0D8248D701F0072002A /* AppDelegate.swift */; };
 		5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DA248D701F0072002A /* SceneDelegate.swift */; };
-		5B69D0DD248D701F0072002A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DC248D701F0072002A /* ViewController.swift */; };
-		5B69D0E0248D701F0072002A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0DE248D701F0072002A /* Main.storyboard */; };
+		5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DC248D701F0072002A /* LogInOrCreateAccountViewController.swift */; };
+		5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0DE248D701F0072002A /* Onboarding.storyboard */; };
 		5B69D0E2248D70200072002A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0E1248D70200072002A /* Assets.xcassets */; };
 		5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0E3248D70200072002A /* LaunchScreen.storyboard */; };
+		5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667CF248D900D003A3B5D /* NetworkManager.swift */; };
+		5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D1248D9662003A3B5D /* LogInViewController.swift */; };
+		5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */; };
+		A5BDCB9A0FD47B151970EB4E /* Pods_Meine_Klimaanlage_AR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A38C807304FB2807B48D88C /* Pods-Meine Klimaanlage AR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meine Klimaanlage AR.release.xcconfig"; path = "Target Support Files/Pods-Meine Klimaanlage AR/Pods-Meine Klimaanlage AR.release.xcconfig"; sourceTree = "<group>"; };
+		5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B0A8A37248D88A900CA4141 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		5B2C5B0F248DB249001B6898 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
+		5B2C5B19248DBB80001B6898 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5B2C5B1B248DBB8B001B6898 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5B2C5B1D248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitBrandsTableViewCell.swift; sourceTree = "<group>"; };
+		5B2C5B1E248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitBrandsTableViewCell.xib; sourceTree = "<group>"; };
+		5B2C5B21248DBD9A001B6898 /* ACUnitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitTableViewCell.swift; sourceTree = "<group>"; };
+		5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitTableViewCell.xib; sourceTree = "<group>"; };
+		5B2C5B29248DC768001B6898 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		5B4FDFB7248D79160079B653 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5B69D0D5248D701F0072002A /* Meine Klimaanlage AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meine Klimaanlage AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B69D0D8248D701F0072002A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B69D0DA248D701F0072002A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5B69D0DC248D701F0072002A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5B69D0DF248D701F0072002A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B69D0DC248D701F0072002A /* LogInOrCreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInOrCreateAccountViewController.swift; sourceTree = "<group>"; };
+		5B69D0DF248D701F0072002A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
 		5B69D0E1248D70200072002A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B69D0E4248D70200072002A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B69D0E6248D70200072002A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B8667CF248D900D003A3B5D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5B8667D1248D9662003A3B5D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnAccountViewController.swift; sourceTree = "<group>"; };
+		F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meine_Klimaanlage_AR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD30A9AE9F1D8D594F3D962A /* Pods-Meine Klimaanlage AR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meine Klimaanlage AR.debug.xcconfig"; path = "Target Support Files/Pods-Meine Klimaanlage AR/Pods-Meine Klimaanlage AR.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +65,113 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5BDCB9A0FD47B151970EB4E /* Pods_Meine_Klimaanlage_AR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28EA317FD8298FA9E9CBC212 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD30A9AE9F1D8D594F3D962A /* Pods-Meine Klimaanlage AR.debug.xcconfig */,
+				0A38C807304FB2807B48D88C /* Pods-Meine Klimaanlage AR.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5B0A8A3E248D8EA700CA4141 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B2C5B11248DBA01001B6898 /* Table View Cells */,
+				5B0A8A41248D8F0D00CA4141 /* Storyboards */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B0A8A3F248D8EFB00CA4141 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5B0A8A42248D8F2A00CA4141 /* Onboarding */,
+				5B2C5B17248DBB41001B6898 /* Home */,
+				5B2C5B18248DBB4B001B6898 /* Profile */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5B0A8A40248D8F0000CA4141 /* Model  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model ";
+			sourceTree = "<group>";
+		};
+		5B0A8A41248D8F0D00CA4141 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5B69D0E3248D70200072002A /* LaunchScreen.storyboard */,
+				5B69D0DE248D701F0072002A /* Onboarding.storyboard */,
+				5B2C5B0F248DB249001B6898 /* Root.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5B0A8A42248D8F2A00CA4141 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				5B69D0DC248D701F0072002A /* LogInOrCreateAccountViewController.swift */,
+				5B8667D1248D9662003A3B5D /* LogInViewController.swift */,
+				5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */,
+				5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		5B0A8A43248D8F3800CA4141 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				5B69D0D8248D701F0072002A /* AppDelegate.swift */,
+				5B69D0DA248D701F0072002A /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		5B2C5B11248DBA01001B6898 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5B2C5B1D248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift */,
+				5B2C5B1E248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib */,
+				5B2C5B21248DBD9A001B6898 /* ACUnitTableViewCell.swift */,
+				5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */,
+			);
+			path = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		5B2C5B17248DBB41001B6898 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5B2C5B19248DBB80001B6898 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5B2C5B18248DBB4B001B6898 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5B2C5B1B248DBB8B001B6898 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		5B69D0CC248D701F0072002A = {
 			isa = PBXGroup;
 			children = (
+				5B4FDFB7248D79160079B653 /* .gitignore */,
 				5B69D0D7248D701F0072002A /* Meine Klimaanlage AR */,
 				5B69D0D6248D701F0072002A /* Products */,
+				28EA317FD8298FA9E9CBC212 /* Pods */,
+				691F658D58C5A07437E906C1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +186,34 @@
 		5B69D0D7248D701F0072002A /* Meine Klimaanlage AR */ = {
 			isa = PBXGroup;
 			children = (
-				5B69D0D8248D701F0072002A /* AppDelegate.swift */,
-				5B69D0DA248D701F0072002A /* SceneDelegate.swift */,
-				5B69D0DC248D701F0072002A /* ViewController.swift */,
-				5B69D0DE248D701F0072002A /* Main.storyboard */,
-				5B69D0E1248D70200072002A /* Assets.xcassets */,
-				5B69D0E3248D70200072002A /* LaunchScreen.storyboard */,
+				5B8667CE248D8FF7003A3B5D /* Manager */,
+				5B0A8A43248D8F3800CA4141 /* Delegate */,
+				5B0A8A40248D8F0000CA4141 /* Model  */,
+				5B0A8A3F248D8EFB00CA4141 /* Controller */,
+				5B0A8A3E248D8EA700CA4141 /* View */,
 				5B69D0E6248D70200072002A /* Info.plist */,
+				5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */,
+				5B0A8A37248D88A900CA4141 /* Colors.xcassets */,
+				5B69D0E1248D70200072002A /* Assets.xcassets */,
 			);
 			path = "Meine Klimaanlage AR";
+			sourceTree = "<group>";
+		};
+		5B8667CE248D8FF7003A3B5D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5B8667CF248D900D003A3B5D /* NetworkManager.swift */,
+				5B2C5B29248DC768001B6898 /* ErrorManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		691F658D58C5A07437E906C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +223,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B69D0E9248D70200072002A /* Build configuration list for PBXNativeTarget "Meine Klimaanlage AR" */;
 			buildPhases = (
+				9A459F1A61AE8F3A0F5EE0A9 /* [CP] Check Pods Manifest.lock */,
 				5B69D0D1248D701F0072002A /* Sources */,
 				5B69D0D2248D701F0072002A /* Frameworks */,
 				5B69D0D3248D701F0072002A /* Resources */,
+				7526A24CBE70C67FA9A67388 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,34 +276,91 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B2C5B24248DBD9A001B6898 /* ACUnitTableViewCell.xib in Resources */,
+				5B4FDFB8248D79160079B653 /* .gitignore in Resources */,
 				5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */,
+				5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */,
+				5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */,
+				5B2C5B10248DB249001B6898 /* Root.storyboard in Resources */,
 				5B69D0E2248D70200072002A /* Assets.xcassets in Resources */,
-				5B69D0E0248D701F0072002A /* Main.storyboard in Resources */,
+				5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */,
+				5B2C5B20248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7526A24CBE70C67FA9A67388 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Meine Klimaanlage AR/Pods-Meine Klimaanlage AR-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Meine Klimaanlage AR/Pods-Meine Klimaanlage AR-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Meine Klimaanlage AR/Pods-Meine Klimaanlage AR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A459F1A61AE8F3A0F5EE0A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Meine Klimaanlage AR-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5B69D0D1248D701F0072002A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B69D0DD248D701F0072002A /* ViewController.swift in Sources */,
+				5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */,
+				5B2C5B1C248DBB8B001B6898 /* ProfileViewController.swift in Sources */,
+				5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */,
+				5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */,
 				5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */,
+				5B2C5B1F248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift in Sources */,
+				5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */,
+				5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */,
+				5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */,
+				5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */,
 				5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */,
+				5B2C5B23248DBD9A001B6898 /* ACUnitTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5B69D0DE248D701F0072002A /* Main.storyboard */ = {
+		5B69D0DE248D701F0072002A /* Onboarding.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5B69D0DF248D701F0072002A /* Base */,
 			);
-			name = Main.storyboard;
+			name = Onboarding.storyboard;
 			sourceTree = "<group>";
 		};
 		5B69D0E3248D70200072002A /* LaunchScreen.storyboard */ = {
@@ -282,6 +490,7 @@
 		};
 		5B69D0EA248D70200072002A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD30A9AE9F1D8D594F3D962A /* Pods-Meine Klimaanlage AR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +509,7 @@
 		};
 		5B69D0EB248D70200072002A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A38C807304FB2807B48D88C /* Pods-Meine Klimaanlage AR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
