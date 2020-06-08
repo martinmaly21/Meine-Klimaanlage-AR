@@ -76,23 +76,23 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @objc func didTapScreen() {
-           view.endEditing(true)
-       }
-       
-       @objc func adjustForKeyboard(notification: Notification) {
-           guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-           
-           let keyboardScreenEndFrame = keyboardValue.cgRectValue
-           let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-           
-           if notification.name == UIResponder.keyboardWillHideNotification {
-               scrollView.contentInset = .zero
-               scrollView.scrollIndicatorInsets = .zero
-           } else {
-               let inset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
-               scrollView.contentInset = inset
-               scrollView.scrollIndicatorInsets = inset
-           }
-       }
+        view.endEditing(true)
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = .zero
+            scrollView.scrollIndicatorInsets = .zero
+        } else {
+            let inset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+            scrollView.contentInset = inset
+            scrollView.scrollIndicatorInsets = inset
+        }
+    }
 }
- 
+
