@@ -345,6 +345,7 @@
                     <navigationItem key="navigationItem" id="lfF-0f-Gga"/>
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="ryp-ei-gKM" id="vRR-MF-Xxp"/>
+                        <outlet property="createAccountButton" destination="T8t-rq-o9O" id="IAn-NV-zHv"/>
                         <outlet property="emailTextField" destination="myi-KI-JH6" id="CPz-Xr-dLr"/>
                         <outlet property="passwordTextField" destination="Dse-kR-ybt" id="Nmn-ri-MWZ"/>
                         <outlet property="scrollView" destination="5Vk-gz-ySl" id="qtj-IU-6di"/>

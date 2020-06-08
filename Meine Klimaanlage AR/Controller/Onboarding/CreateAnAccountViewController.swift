@@ -14,9 +14,11 @@ class CreateAnAccountViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var createAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUI()
         addGestureRecognizers()
         addNotificationObserver()
     }
@@ -24,6 +26,10 @@ class CreateAnAccountViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func setUpUI() {
+        createAccountButton.layer.cornerRadius = createAccountButton.frame.height / 2
     }
     
     private func addGestureRecognizers() {
@@ -49,9 +55,9 @@ class CreateAnAccountViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func userPressedCreateAccount(_ sender: Any) {
-        guard let email = emailTextField.text,
-            let password = passwordTextField.text,
-            let confirmationPassword = confirmPasswordTextField.text else {
+        guard let email = emailTextField.text, !email.isEmpty,
+            let password = passwordTextField.text, !password.isEmpty,
+            let confirmationPassword = confirmPasswordTextField.text, !confirmationPassword.isEmpty else {
                 ErrorManager.showOnboardingError(with: .missingfields, on: self)
                 return
         }
