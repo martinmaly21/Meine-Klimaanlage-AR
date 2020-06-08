@@ -376,7 +376,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Lq-cF-bNR">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="261.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tWr-Mg-HTX">
                                                 <rect key="frame" x="15" y="15" width="384" height="231.5"/>
@@ -433,6 +433,7 @@
                                             <constraint firstItem="tWr-Mg-HTX" firstAttribute="leading" secondItem="9Lq-cF-bNR" secondAttribute="leading" constant="15" id="60o-vP-ZY1"/>
                                             <constraint firstItem="tWr-Mg-HTX" firstAttribute="top" secondItem="9Lq-cF-bNR" secondAttribute="top" constant="15" id="XkJ-mp-SWx"/>
                                             <constraint firstAttribute="trailing" secondItem="tWr-Mg-HTX" secondAttribute="trailing" constant="15" id="dP4-1L-2oj"/>
+                                            <constraint firstAttribute="bottom" secondItem="tWr-Mg-HTX" secondAttribute="bottom" constant="15" id="eIC-a1-REc"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -441,7 +442,7 @@
                                     <constraint firstItem="9Lq-cF-bNR" firstAttribute="top" secondItem="cWj-af-EbJ" secondAttribute="top" id="ODS-U4-ywn"/>
                                     <constraint firstItem="9Lq-cF-bNR" firstAttribute="width" secondItem="cWj-af-EbJ" secondAttribute="width" id="U5F-fv-fXu"/>
                                     <constraint firstAttribute="bottom" secondItem="9Lq-cF-bNR" secondAttribute="bottom" id="gxc-QJ-LUI"/>
-                                    <constraint firstItem="9Lq-cF-bNR" firstAttribute="height" secondItem="cWj-af-EbJ" secondAttribute="height" id="qGT-E1-3Pa"/>
+                                    <constraint firstItem="9Lq-cF-bNR" firstAttribute="height" secondItem="cWj-af-EbJ" secondAttribute="height" priority="250" id="qGT-E1-3Pa"/>
                                     <constraint firstItem="9Lq-cF-bNR" firstAttribute="leading" secondItem="cWj-af-EbJ" secondAttribute="leading" id="tik-pJ-4eA"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="dNp-Yp-7tz"/>
