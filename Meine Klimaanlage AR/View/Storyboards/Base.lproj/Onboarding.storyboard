@@ -54,7 +54,7 @@
                                     <constraint firstAttribute="width" secondItem="s1C-00-ON0" secondAttribute="height" multiplier="5:1" id="yrL-1S-RaO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                                <state key="normal" title="Sign Up">
+                                <state key="normal" title="Sign In">
                                     <color key="titleColor" name="PrimaryTextLight"/>
                                 </state>
                                 <connections>
