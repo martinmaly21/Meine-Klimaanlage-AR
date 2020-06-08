@@ -349,7 +349,7 @@
                         <outlet property="emailTextField" destination="myi-KI-JH6" id="CPz-Xr-dLr"/>
                         <outlet property="passwordTextField" destination="Dse-kR-ybt" id="Nmn-ri-MWZ"/>
                         <outlet property="scrollView" destination="5Vk-gz-ySl" id="qtj-IU-6di"/>
-                        <segue destination="yQ4-Z8-hJV" kind="show" identifier="signUpSegue" id="ltG-9e-7Dn"/>
+                        <segue destination="yQ4-Z8-hJV" kind="showDetail" identifier="signUpSegue" id="ltG-9e-7Dn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udA-GD-Df3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
