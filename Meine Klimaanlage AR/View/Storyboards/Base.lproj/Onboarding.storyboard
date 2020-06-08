@@ -274,7 +274,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dse-kR-ybt">
                                                                 <rect key="frame" x="0.0" y="30.5" width="384" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" textContentType="password"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -290,7 +290,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ryp-ei-gKM">
                                                                 <rect key="frame" x="0.0" y="30.5" width="384" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" textContentType="password"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -346,6 +346,7 @@
                         <outlet property="confirmPasswordTextField" destination="ryp-ei-gKM" id="vRR-MF-Xxp"/>
                         <outlet property="emailTextField" destination="myi-KI-JH6" id="CPz-Xr-dLr"/>
                         <outlet property="passwordTextField" destination="Dse-kR-ybt" id="Nmn-ri-MWZ"/>
+                        <outlet property="scrollView" destination="5Vk-gz-ySl" id="qtj-IU-6di"/>
                         <segue destination="yQ4-Z8-hJV" kind="show" identifier="signUpSegue" id="ltG-9e-7Dn"/>
                     </connections>
                 </viewController>
