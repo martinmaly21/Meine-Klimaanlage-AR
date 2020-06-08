@@ -94,7 +94,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zcx-25-Bvw">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="311"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="w0m-ju-Nho">
                                                 <rect key="frame" x="15" y="15" width="384" height="281"/>
@@ -140,6 +140,9 @@
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJM-qr-oZ6">
                                                                 <rect key="frame" x="0.0" y="80.5" width="384" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="4nQ-yr-n2x"/>
+                                                                </constraints>
                                                                 <state key="normal" title="Forgot Password?">
                                                                     <color key="titleColor" name="HighlightBlue"/>
                                                                 </state>
@@ -170,6 +173,7 @@
                                         <constraints>
                                             <constraint firstItem="w0m-ju-Nho" firstAttribute="leading" secondItem="Zcx-25-Bvw" secondAttribute="leading" constant="15" id="K6r-VH-idL"/>
                                             <constraint firstItem="w0m-ju-Nho" firstAttribute="top" secondItem="Zcx-25-Bvw" secondAttribute="top" constant="15" id="SgZ-Id-Qyw"/>
+                                            <constraint firstAttribute="bottom" secondItem="w0m-ju-Nho" secondAttribute="bottom" constant="15" id="d3h-gK-T8H"/>
                                             <constraint firstAttribute="trailing" secondItem="w0m-ju-Nho" secondAttribute="trailing" constant="15" id="dHK-ty-0f3"/>
                                         </constraints>
                                     </view>
@@ -179,7 +183,7 @@
                                     <constraint firstItem="Zcx-25-Bvw" firstAttribute="width" secondItem="8Fk-JY-oU8" secondAttribute="width" id="MoC-FN-fLt"/>
                                     <constraint firstItem="Zcx-25-Bvw" firstAttribute="top" secondItem="8Fk-JY-oU8" secondAttribute="top" id="OfV-0a-S16"/>
                                     <constraint firstAttribute="bottom" secondItem="Zcx-25-Bvw" secondAttribute="bottom" id="QbN-UZ-Y5T"/>
-                                    <constraint firstItem="Zcx-25-Bvw" firstAttribute="height" secondItem="8Fk-JY-oU8" secondAttribute="height" id="YrE-Es-DxE"/>
+                                    <constraint firstItem="Zcx-25-Bvw" firstAttribute="height" secondItem="8Fk-JY-oU8" secondAttribute="height" priority="250" id="YrE-Es-DxE"/>
                                     <constraint firstItem="Zcx-25-Bvw" firstAttribute="leading" secondItem="8Fk-JY-oU8" secondAttribute="leading" id="vC3-cz-Y6d"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="xkD-Zd-XO4"/>
