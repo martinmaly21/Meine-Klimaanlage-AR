@@ -7,11 +7,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="LHS-Js-qrL">
             <objects>
                 <navigationController id="MY4-LV-bkY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="BxK-eH-dCL"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="BxK-eH-dCL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mvJ-jQ-ORI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -24,14 +24,26 @@
             </objects>
             <point key="canvasLocation" x="-103" y="-636"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="nky-2U-WHg">
             <objects>
-                <viewController id="ppZ-Ua-U00" sceneMemberID="viewController">
+                <viewController id="ppZ-Ua-U00" customClass="HomeViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZyH-Rx-sEN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itD-Po-Qi3">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="itD-Po-Qi3" firstAttribute="top" secondItem="dsY-Jy-0wM" secondAttribute="top" id="ELo-ce-i7H"/>
+                            <constraint firstItem="dsY-Jy-0wM" firstAttribute="bottom" secondItem="itD-Po-Qi3" secondAttribute="bottom" id="aWN-fa-J6M"/>
+                            <constraint firstItem="dsY-Jy-0wM" firstAttribute="trailing" secondItem="itD-Po-Qi3" secondAttribute="trailing" id="lNl-55-dIW"/>
+                            <constraint firstItem="itD-Po-Qi3" firstAttribute="leading" secondItem="dsY-Jy-0wM" secondAttribute="leading" id="nCc-6Q-bY1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dsY-Jy-0wM"/>
                     </view>
                     <navigationItem key="navigationItem" id="AhT-UE-w9T"/>
@@ -40,11 +52,11 @@
             </objects>
             <point key="canvasLocation" x="848" y="-636"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="N5Q-am-xbR">
             <objects>
                 <navigationController id="YGS-dY-GRb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Zhw-oK-dot"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="Zhw-oK-dot"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zRm-xR-Ybb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -57,14 +69,26 @@
             </objects>
             <point key="canvasLocation" x="-102" y="62"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="lbP-h2-bse">
             <objects>
-                <viewController id="0vy-et-8zt" sceneMemberID="viewController">
+                <viewController id="0vy-et-8zt" customClass="ProfileViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u4X-wv-5xR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-3a-WRk">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YuN-3a-WRk" firstAttribute="top" secondItem="WUG-aU-KCE" secondAttribute="top" id="MZq-d4-LTc"/>
+                            <constraint firstItem="YuN-3a-WRk" firstAttribute="leading" secondItem="WUG-aU-KCE" secondAttribute="leading" id="PBc-vH-oON"/>
+                            <constraint firstItem="WUG-aU-KCE" firstAttribute="bottom" secondItem="YuN-3a-WRk" secondAttribute="bottom" id="rJB-Y1-Rtf"/>
+                            <constraint firstItem="WUG-aU-KCE" firstAttribute="trailing" secondItem="YuN-3a-WRk" secondAttribute="trailing" id="zo1-LD-VIP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WUG-aU-KCE"/>
                     </view>
                     <navigationItem key="navigationItem" id="piE-Pz-9dW"/>
@@ -92,4 +116,8 @@
             <point key="canvasLocation" x="-977" y="-274"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="house" catalog="system" width="64" height="54"/>
+        <image name="person" catalog="system" width="64" height="58"/>
+    </resources>
 </document>
