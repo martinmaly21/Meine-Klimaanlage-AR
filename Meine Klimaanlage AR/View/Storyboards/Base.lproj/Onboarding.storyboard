@@ -459,6 +459,11 @@
                         <viewLayoutGuide key="safeArea" id="fom-7Y-Qve"/>
                     </view>
                     <navigationItem key="navigationItem" id="RTh-Ds-TIz"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="4jZ-la-6hf" id="j3X-zC-h4n"/>
+                        <outlet property="recoveryLinkButton" destination="XDn-xJ-d6O" id="OjL-57-wTb"/>
+                        <outlet property="scrollView" destination="cWj-af-EbJ" id="lq7-eS-V1R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZZ-DV-0ar" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
