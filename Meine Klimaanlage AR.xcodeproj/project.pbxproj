@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B00FABE2496E5A400215489 /* ETHEREAWandgerätBaureiheZScene.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FABD2496E5A300215489 /* ETHEREAWandgerätBaureiheZScene.rcproject */; };
 		5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */; };
 		5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A37248D88A900CA4141 /* Colors.xcassets */; };
 		5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		0A38C807304FB2807B48D88C /* Pods-Meine Klimaanlage AR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meine Klimaanlage AR.release.xcconfig"; path = "Target Support Files/Pods-Meine Klimaanlage AR/Pods-Meine Klimaanlage AR.release.xcconfig"; sourceTree = "<group>"; };
+		5B00FABD2496E5A300215489 /* ETHEREAWandgerätBaureiheZScene.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = "ETHEREAWandgerätBaureiheZScene.rcproject"; sourceTree = "<group>"; };
 		5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B0A8A37248D88A900CA4141 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 				0A38C807304FB2807B48D88C /* Pods-Meine Klimaanlage AR.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		5B00FABC2496E59400215489 /* ARScenes */ = {
+			isa = PBXGroup;
+			children = (
+				5B00FABD2496E5A300215489 /* ETHEREAWandgerätBaureiheZScene.rcproject */,
+			);
+			path = ARScenes;
 			sourceTree = "<group>";
 		};
 		5B0A8A3E248D8EA700CA4141 /* View */ = {
@@ -186,6 +196,7 @@
 		5B69D0D7248D701F0072002A /* Meine Klimaanlage AR */ = {
 			isa = PBXGroup;
 			children = (
+				5B00FABC2496E59400215489 /* ARScenes */,
 				5B8667CE248D8FF7003A3B5D /* Manager */,
 				5B0A8A43248D8F3800CA4141 /* Delegate */,
 				5B0A8A40248D8F0000CA4141 /* Model  */,
@@ -349,6 +360,7 @@
 				5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */,
 				5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */,
 				5B2C5B23248DBD9A001B6898 /* ACUnitTableViewCell.swift in Sources */,
+				5B00FABE2496E5A400215489 /* ETHEREAWandgerätBaureiheZScene.rcproject in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
