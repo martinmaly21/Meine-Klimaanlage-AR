@@ -35,6 +35,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itD-Po-Qi3">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ppZ-Ua-U00" id="Fog-vi-61B"/>
+                                    <outlet property="delegate" destination="ppZ-Ua-U00" id="ifa-UU-t8F"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -48,6 +52,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="AhT-UE-w9T"/>
                     <connections>
+                        <outlet property="tableViewController" destination="itD-Po-Qi3" id="rtZ-x2-dU0"/>
                         <segue destination="ZII-kx-kvR" kind="show" identifier="ACUnitSegue" id="ehD-dd-ZX4"/>
                     </connections>
                 </viewController>

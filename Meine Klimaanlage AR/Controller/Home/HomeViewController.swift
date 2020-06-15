@@ -9,7 +9,12 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    //MARK: - UI
+    @IBOutlet weak var tableViewController: UITableView!
+    
+     //MARK: - Data
+    let brands = ["Daiken","Mitsubishi Motors","Panasonic"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,4 +32,15 @@ class HomeViewController: UIViewController {
     }
     */
 
+}
+
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
 }
