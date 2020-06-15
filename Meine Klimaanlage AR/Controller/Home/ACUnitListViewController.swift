@@ -58,6 +58,10 @@ extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
         cell.setUpCell(with: units[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ARSegue", sender: self)
+    }
 }
 
 extension ACUnitListViewController: ACUnitDetailPageTableHeaderViewDelegate {

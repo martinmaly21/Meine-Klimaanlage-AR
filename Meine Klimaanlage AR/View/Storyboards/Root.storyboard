@@ -89,11 +89,39 @@
                     <navigationItem key="navigationItem" id="j1s-X4-Jz3"/>
                     <connections>
                         <outlet property="tableView" destination="gO7-Wj-he6" id="ceG-33-Rzj"/>
+                        <segue destination="MUS-v7-xnL" kind="show" identifier="ARSegue" id="LWS-Tm-yDX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fc-un-HIx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1837.68115942029" y="-636.16071428571422"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="q4V-VV-mbs">
+            <objects>
+                <viewController id="MUS-v7-xnL" customClass="ARViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IVr-a5-wGc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcF-ce-Dnu">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </arView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qcF-ce-Dnu" firstAttribute="leading" secondItem="qsc-Tc-tIV" secondAttribute="leading" id="DpD-BR-6p1"/>
+                            <constraint firstItem="qcF-ce-Dnu" firstAttribute="top" secondItem="qsc-Tc-tIV" secondAttribute="top" id="IDI-S6-Qcy"/>
+                            <constraint firstItem="qsc-Tc-tIV" firstAttribute="trailing" secondItem="qcF-ce-Dnu" secondAttribute="trailing" id="QL9-rg-R18"/>
+                            <constraint firstItem="qsc-Tc-tIV" firstAttribute="bottom" secondItem="qcF-ce-Dnu" secondAttribute="bottom" id="hTe-BP-sOv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qsc-Tc-tIV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="v4S-1k-b73"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zy7-SW-UQE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2971" y="-636"/>
         </scene>
         <!--Profile-->
         <scene sceneID="N5Q-am-xbR">
