@@ -9,16 +9,18 @@
 import UIKit
 
 class ACUnitTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var ACUnitBrandLabel: UILabel!
+    
+    public var unit: ACUnit!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        accessoryType = .disclosureIndicator
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    public func setUpCell(with unit: ACUnit) {
+        self.unit = unit
+        
+        ACUnitBrandLabel.text = unit.name
     }
-    
 }

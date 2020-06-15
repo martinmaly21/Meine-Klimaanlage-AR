@@ -14,6 +14,7 @@
 		5B00FAC724970B7B00215489 /* ACUnitEnvironmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FAC624970B7B00215489 /* ACUnitEnvironmentType.swift */; };
 		5B00FACA24970CE300215489 /* ACUnitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FAC824970CE300215489 /* ACUnitListViewController.swift */; };
 		5B00FACD24970F2100215489 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FACC24970F2100215489 /* ExtensionManager.swift */; };
+		5B00FACF2497214700215489 /* ACUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FACE2497214700215489 /* ACUnit.swift */; };
 		5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */; };
 		5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A37248D88A900CA4141 /* Colors.xcassets */; };
 		5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */; };
@@ -47,6 +48,7 @@
 		5B00FAC624970B7B00215489 /* ACUnitEnvironmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ACUnitEnvironmentType.swift; path = "Meine Klimaanlage AR/View/Table View Header/ACUnitEnvironmentType.swift"; sourceTree = SOURCE_ROOT; };
 		5B00FAC824970CE300215489 /* ACUnitListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitListViewController.swift; sourceTree = "<group>"; };
 		5B00FACC24970F2100215489 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
+		5B00FACE2497214700215489 /* ACUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ACUnit.swift; path = "Meine Klimaanlage AR/Manager/ACUnit.swift"; sourceTree = SOURCE_ROOT; };
 		5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B0A8A37248D88A900CA4141 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				5B00FABF249703C600215489 /* ACBrand.swift */,
 				5B00FAC624970B7B00215489 /* ACUnitEnvironmentType.swift */,
+				5B00FACE2497214700215489 /* ACUnit.swift */,
 			);
 			path = "Model ";
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				5B00FACA24970CE300215489 /* ACUnitListViewController.swift in Sources */,
 				5B2C5B1C248DBB8B001B6898 /* ProfileViewController.swift in Sources */,
 				5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */,
+				5B00FACF2497214700215489 /* ACUnit.swift in Sources */,
 				5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */,
 				5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */,
 				5B00FAC32497082800215489 /* ACUnitDetailPageTableHeaderView.swift in Sources */,
