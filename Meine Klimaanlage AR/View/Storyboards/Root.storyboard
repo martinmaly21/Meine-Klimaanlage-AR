@@ -104,8 +104,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcF-ce-Dnu">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcF-ce-Dnu">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                             </arView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -113,11 +113,14 @@
                             <constraint firstItem="qcF-ce-Dnu" firstAttribute="leading" secondItem="qsc-Tc-tIV" secondAttribute="leading" id="DpD-BR-6p1"/>
                             <constraint firstItem="qcF-ce-Dnu" firstAttribute="top" secondItem="qsc-Tc-tIV" secondAttribute="top" id="IDI-S6-Qcy"/>
                             <constraint firstItem="qsc-Tc-tIV" firstAttribute="trailing" secondItem="qcF-ce-Dnu" secondAttribute="trailing" id="QL9-rg-R18"/>
-                            <constraint firstItem="qsc-Tc-tIV" firstAttribute="bottom" secondItem="qcF-ce-Dnu" secondAttribute="bottom" id="hTe-BP-sOv"/>
+                            <constraint firstAttribute="bottom" secondItem="qcF-ce-Dnu" secondAttribute="bottom" id="hTe-BP-sOv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qsc-Tc-tIV"/>
                     </view>
                     <navigationItem key="navigationItem" id="v4S-1k-b73"/>
+                    <connections>
+                        <outlet property="arView" destination="qcF-ce-Dnu" id="60Z-Nr-0K6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zy7-SW-UQE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,24 +7,36 @@
 //
 
 import UIKit
+import RealityKit
 
 class ARViewController: UIViewController {
-
+    @IBOutlet weak var arView: ARView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpUI()
+        guard let anchor = try? ETHEREAWandgerätBaureiheZScene.loadScene() else {
+            assertionFailure()
+            return
+        }
+        arView.scene.anchors.append(anchor)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = true
     }
-    */
-
+    
+    
+    private func setUpUI() {
+        tabBarController?.tabBar.isHidden = true
+        
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: nil)
+        navigationItem.leftBarButtonItem = cancelButton
+        
+        let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: nil)
+        saveButton.isEnabled = false
+        navigationItem.rightBarButtonItem = saveButton
+    }
+    
 }

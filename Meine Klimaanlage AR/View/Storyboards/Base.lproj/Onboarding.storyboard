@@ -172,7 +172,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUW-gO-p5d">
                                                         <rect key="frame" x="0.0" y="241" width="384" height="40"/>
                                                         <color key="backgroundColor" name="PrimaryBlue"/>
-                                                        <state key="normal" title="Log In">
+                                                        <state key="normal" title="Sign In">
                                                             <color key="titleColor" name="PrimaryTextLight"/>
                                                         </state>
                                                         <connections>
