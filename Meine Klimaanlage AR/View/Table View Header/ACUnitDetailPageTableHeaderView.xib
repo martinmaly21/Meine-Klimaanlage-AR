@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ACUnitDetailPageTableHeaderView" customModule="Meine_Klimaanlage_AR" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="232"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="daikin_logo" translatesAutoresizingMaskIntoConstraints="NO" id="DCr-yO-oIp">
+                    <rect key="frame" x="20" y="20" width="374" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="bga-DV-xjl"/>
+                    </constraints>
+                </imageView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="prj-ZH-wym">
+                    <rect key="frame" x="20" y="140" width="374" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="pBl-ml-Cco"/>
+                    </constraints>
+                    <segments>
+                        <segment title="Exterior"/>
+                        <segment title="Interior"/>
+                    </segments>
+                    <connections>
+                        <action selector="segmentedControllerDidChange:" destination="iN0-l3-epB" eventType="valueChanged" id="IcB-jt-Qim"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="DCr-yO-oIp" secondAttribute="trailing" constant="20" id="3MD-8R-Z2F"/>
+                <constraint firstItem="DCr-yO-oIp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="3Og-ai-3h4"/>
+                <constraint firstItem="prj-ZH-wym" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6Wo-Kp-xTM"/>
+                <constraint firstItem="prj-ZH-wym" firstAttribute="top" secondItem="DCr-yO-oIp" secondAttribute="bottom" constant="20" id="fKl-Eq-Nvt"/>
+                <constraint firstItem="DCr-yO-oIp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="iHH-Z2-FTS"/>
+                <constraint firstItem="prj-ZH-wym" firstAttribute="width" secondItem="DCr-yO-oIp" secondAttribute="width" id="yT1-vp-QOt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="ACUnitHeaderImageView" destination="DCr-yO-oIp" id="syE-vQ-JHf"/>
+                <outlet property="ACUnitHeaderSegmentedControl" destination="prj-ZH-wym" id="ah2-Kw-fhy"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="-73.660714285714278"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="daikin_logo" width="5000" height="1093"/>
+    </resources>
+</document>

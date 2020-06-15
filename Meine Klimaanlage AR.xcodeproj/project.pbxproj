@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5B00FABE2496E5A400215489 /* ETHEREAWandgerätBaureiheZScene.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FABD2496E5A300215489 /* ETHEREAWandgerätBaureiheZScene.rcproject */; };
 		5B00FAC0249703C600215489 /* ACBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FABF249703C600215489 /* ACBrand.swift */; };
+		5B00FAC32497082800215489 /* ACUnitDetailPageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FAC22497082800215489 /* ACUnitDetailPageTableHeaderView.swift */; };
+		5B00FAC52497087600215489 /* ACUnitDetailPageTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B00FAC42497087600215489 /* ACUnitDetailPageTableHeaderView.xib */; };
+		5B00FAC724970B7B00215489 /* ACUnitEnvironmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FAC624970B7B00215489 /* ACUnitEnvironmentType.swift */; };
 		5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */; };
 		5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A37248D88A900CA4141 /* Colors.xcassets */; };
 		5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */; };
@@ -37,6 +40,9 @@
 		0A38C807304FB2807B48D88C /* Pods-Meine Klimaanlage AR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meine Klimaanlage AR.release.xcconfig"; path = "Target Support Files/Pods-Meine Klimaanlage AR/Pods-Meine Klimaanlage AR.release.xcconfig"; sourceTree = "<group>"; };
 		5B00FABD2496E5A300215489 /* ETHEREAWandgerätBaureiheZScene.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = "ETHEREAWandgerätBaureiheZScene.rcproject"; sourceTree = "<group>"; };
 		5B00FABF249703C600215489 /* ACBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACBrand.swift; sourceTree = SOURCE_ROOT; };
+		5B00FAC22497082800215489 /* ACUnitDetailPageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitDetailPageTableHeaderView.swift; sourceTree = "<group>"; };
+		5B00FAC42497087600215489 /* ACUnitDetailPageTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitDetailPageTableHeaderView.xib; sourceTree = "<group>"; };
+		5B00FAC624970B7B00215489 /* ACUnitEnvironmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ACUnitEnvironmentType.swift; path = "Meine Klimaanlage AR/View/Table View Header/ACUnitEnvironmentType.swift"; sourceTree = SOURCE_ROOT; };
 		5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B0A8A37248D88A900CA4141 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -93,9 +99,19 @@
 			path = ARScenes;
 			sourceTree = "<group>";
 		};
+		5B00FAC1249707C900215489 /* Table View Header */ = {
+			isa = PBXGroup;
+			children = (
+				5B00FAC22497082800215489 /* ACUnitDetailPageTableHeaderView.swift */,
+				5B00FAC42497087600215489 /* ACUnitDetailPageTableHeaderView.xib */,
+			);
+			path = "Table View Header";
+			sourceTree = "<group>";
+		};
 		5B0A8A3E248D8EA700CA4141 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B00FAC1249707C900215489 /* Table View Header */,
 				5B2C5B11248DBA01001B6898 /* Table View Cells */,
 				5B0A8A41248D8F0D00CA4141 /* Storyboards */,
 			);
@@ -116,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				5B00FABF249703C600215489 /* ACBrand.swift */,
+				5B00FAC624970B7B00215489 /* ACUnitEnvironmentType.swift */,
 			);
 			path = "Model ";
 			sourceTree = "<group>";
@@ -292,6 +309,7 @@
 			files = (
 				5B2C5B24248DBD9A001B6898 /* ACUnitTableViewCell.xib in Resources */,
 				5B4FDFB8248D79160079B653 /* .gitignore in Resources */,
+				5B00FAC52497087600215489 /* ACUnitDetailPageTableHeaderView.xib in Resources */,
 				5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */,
 				5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */,
 				5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */,
@@ -352,10 +370,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */,
+				5B00FAC724970B7B00215489 /* ACUnitEnvironmentType.swift in Sources */,
 				5B2C5B1C248DBB8B001B6898 /* ProfileViewController.swift in Sources */,
 				5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */,
 				5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */,
 				5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */,
+				5B00FAC32497082800215489 /* ACUnitDetailPageTableHeaderView.swift in Sources */,
 				5B2C5B1F248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift in Sources */,
 				5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */,
 				5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */,
