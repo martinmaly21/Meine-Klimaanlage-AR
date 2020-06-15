@@ -14,6 +14,7 @@ class ACUnitBrandsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
     }
 
     public func setUpCell(with brand: ACBrand) {
