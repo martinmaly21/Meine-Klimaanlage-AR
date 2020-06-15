@@ -10,13 +10,16 @@ import UIKit
 
 class ACUnitBrandsTableViewCell: UITableViewCell {
     @IBOutlet weak var brandImageView: UIImageView!
+    public var brand: ACBrand!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    public func setUpCell(with brand: String) {
-        let parsedBrand = brand.replacingOccurrences(of: " ", with: "_").lowercased()
+    public func setUpCell(with brand: ACBrand) {
+        self.brand = brand
+        
+        let parsedBrand = brand.rawValue.replacingOccurrences(of: " ", with: "_").lowercased()
         brandImageView.image = UIImage(named: "\(parsedBrand)_logo")
     }
 }

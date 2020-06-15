@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
      //MARK: - Data
-    let brands = ["Daikin","Mitsubishi Motors","Panasonic"]
+    let brands: [ACBrand] = [.daikin, .mitsubishiMotors, .panasonic]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,13 @@ class HomeViewController: UIViewController {
     
     private func registerTableViewCells() {
         tableView.register(UINib(nibName: "ACUnitBrandsTableViewCell", bundle: nil), forCellReuseIdentifier: "ACUnitBrandsTableViewCell")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ACUnitSegue", let sender = sender as? ACUnitBrandsTableViewCell {
+            
+            segue.destination.title = sender.brand.rawValue
+        }
     }
 }
 
@@ -43,5 +50,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.setUpCell(with: brands[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let selectedCell = tableView.cellForRow(at: indexPath) else { return }
+        
+        if brands[indexPath.row] == .panasonic {
+            performSegue(withIdentifier: "ACUnitSegue", sender: selectedCell)
+        } else {
+            return
+        }
+    }
+    
     
 }
