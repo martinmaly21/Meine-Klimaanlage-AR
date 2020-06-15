@@ -14,7 +14,11 @@ class ACUnitListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.register(UINib(nibName: "ACUnitDetailPageTableHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ACUnitDetailPageTableHeaderView")
+        
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ACUnitDetailPageTableHeaderView")
+        
+        tableView.tableHeaderView = view
         // Do any additional setup after loading the view.
     }
 

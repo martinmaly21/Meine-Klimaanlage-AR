@@ -12,7 +12,7 @@ protocol ACUnitDetailPageTableHeaderViewDelegate: class {
     func userChangedACUnitEnvironmentType(with newType: ACUnitEnvironmentType)
 }
 
-class ACUnitDetailPageTableHeaderView: UIView {
+class ACUnitDetailPageTableHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var ACUnitHeaderImageView: UIImageView!
     @IBOutlet weak var ACUnitHeaderSegmentedControl: UISegmentedControl!
     public weak var delegate: ACUnitDetailPageTableHeaderViewDelegate?
