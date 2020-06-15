@@ -18,7 +18,7 @@ class ACUnitDetailPageTableHeaderView: UIView {
     public weak var delegate: ACUnitDetailPageTableHeaderViewDelegate?
     
     @IBAction func segmentedControllerDidChange(_ sender: UISegmentedControl) {
-        let newACUnitEnvironmentType: ACUnitEnvironmentType = sender.selectedSegmentIndex == 0 ? .exterior : .interior
+        let newACUnitEnvironmentType: ACUnitEnvironmentType = sender.selectedSegmentIndex == 0 ? .interior : .exterior
         delegate?.userChangedACUnitEnvironmentType(with: newACUnitEnvironmentType)
     }
 }
