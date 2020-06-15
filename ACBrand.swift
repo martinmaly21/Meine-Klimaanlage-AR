@@ -7,9 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 enum ACBrand: String {
     case daikin = "Daikin"
     case mitsubishiMotors = "Mitsubishi Motors"
     case panasonic = "Panasonic"
+    
+    func getLogoImage() -> UIImage? {
+        let parsedBrand = rawValue.replacingOccurrences(of: " ", with: "_").lowercased()
+        return UIImage(named: "\(parsedBrand)_logo")
+    }
 }

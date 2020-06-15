@@ -19,8 +19,7 @@ class ACUnitBrandsTableViewCell: UITableViewCell {
 
     public func setUpCell(with brand: ACBrand) {
         self.brand = brand
-        
-        let parsedBrand = brand.rawValue.replacingOccurrences(of: " ", with: "_").lowercased()
-        brandImageView.image = UIImage(named: "\(parsedBrand)_logo")
+
+        brandImageView.image = brand.getLogoImage()
     }
 }

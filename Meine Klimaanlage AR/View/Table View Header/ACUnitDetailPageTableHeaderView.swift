@@ -17,6 +17,10 @@ class ACUnitDetailPageTableHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var ACUnitHeaderSegmentedControl: UISegmentedControl!
     public weak var delegate: ACUnitDetailPageTableHeaderViewDelegate?
     
+    public func setUpHeaderView(with brand: ACBrand) {
+        ACUnitHeaderImageView.image = brand.getLogoImage()
+    }
+    
     @IBAction func segmentedControllerDidChange(_ sender: UISegmentedControl) {
         let newACUnitEnvironmentType: ACUnitEnvironmentType = sender.selectedSegmentIndex == 0 ? .interior : .exterior
         delegate?.userChangedACUnitEnvironmentType(with: newACUnitEnvironmentType)

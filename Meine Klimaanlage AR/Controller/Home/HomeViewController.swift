@@ -29,9 +29,11 @@ class HomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ACUnitSegue", let sender = sender as? ACUnitBrandsTableViewCell {
-            
-            segue.destination.title = sender.brand.rawValue
+        if segue.identifier == "ACUnitSegue",
+            let sender = sender as? ACUnitBrandsTableViewCell,
+            let detailPage = segue.destination as? ACUnitListViewController {
+            detailPage.title = sender.brand.rawValue
+            detailPage.brand = sender.brand
         }
     }
 }
