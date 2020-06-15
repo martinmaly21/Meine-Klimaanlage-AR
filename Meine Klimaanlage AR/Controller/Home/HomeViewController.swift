@@ -10,37 +10,38 @@ import UIKit
 
 class HomeViewController: UIViewController {
     //MARK: - UI
-    @IBOutlet weak var tableViewController: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
      //MARK: - Data
-    let brands = ["Daiken","Mitsubishi Motors","Panasonic"]
+    let brands = ["Daikin","Mitsubishi Motors","Panasonic"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setUpUI() {
+        registerTableViewCells()
     }
-    */
-
+    
+    private func registerTableViewCells() {
+        tableView.register(UINib(nibName: "ACUnitBrandsTableViewCell", bundle: nil), forCellReuseIdentifier: "ACUnitBrandsTableViewCell")
+    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return brands.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "ACUnitBrandsTableViewCell"
+            ) as? ACUnitBrandsTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.setUpCell(with: brands[indexPath.row])
+        return cell
     }
     
 }

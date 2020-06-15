@@ -52,7 +52,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="AhT-UE-w9T"/>
                     <connections>
-                        <outlet property="tableViewController" destination="itD-Po-Qi3" id="rtZ-x2-dU0"/>
+                        <outlet property="tableView" destination="itD-Po-Qi3" id="rtZ-x2-dU0"/>
                         <segue destination="ZII-kx-kvR" kind="show" identifier="ACUnitSegue" id="ehD-dd-ZX4"/>
                     </connections>
                 </viewController>

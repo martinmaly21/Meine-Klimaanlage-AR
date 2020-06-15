@@ -9,16 +9,14 @@
 import UIKit
 
 class ACUnitBrandsTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var brandImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    public func setUpCell(with brand: String) {
+        let parsedBrand = brand.replacingOccurrences(of: " ", with: "_").lowercased()
+        brandImageView.image = UIImage(named: "\(parsedBrand)_logo")
     }
-    
 }
