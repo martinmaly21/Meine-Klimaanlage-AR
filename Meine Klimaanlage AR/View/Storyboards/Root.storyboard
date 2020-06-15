@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="848" y="-636"/>
         </scene>
-        <!--View Controller-->
+        <!--Unit List View Controller-->
         <scene sceneID="b2w-Ir-R9W">
             <objects>
-                <viewController id="ZII-kx-kvR" sceneMemberID="viewController">
+                <viewController id="ZII-kx-kvR" customClass="ACUnitListViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5qI-EQ-EAe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,6 +83,9 @@
                         <viewLayoutGuide key="safeArea" id="u7n-ga-uNy"/>
                     </view>
                     <navigationItem key="navigationItem" id="j1s-X4-Jz3"/>
+                    <connections>
+                        <outlet property="tableView" destination="gO7-Wj-he6" id="ceG-33-Rzj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fc-un-HIx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

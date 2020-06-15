@@ -24,8 +24,8 @@
                         <constraint firstAttribute="height" constant="28" id="pBl-ml-Cco"/>
                     </constraints>
                     <segments>
-                        <segment title="Exterior"/>
                         <segment title="Interior"/>
+                        <segment title="Exterior"/>
                     </segments>
                     <connections>
                         <action selector="segmentedControllerDidChange:" destination="iN0-l3-epB" eventType="valueChanged" id="IcB-jt-Qim"/>
