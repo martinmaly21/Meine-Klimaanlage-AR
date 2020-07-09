@@ -42,8 +42,6 @@ extension ARViewController: UIGestureRecognizerDelegate {
         statusViewController.cancelAllScheduledMessages()
 
         virtualObjectLoader.removeAllVirtualObjects()
-        addObjectButton.setImage(#imageLiteral(resourceName: "add"), for: [])
-        addObjectButton.setImage(#imageLiteral(resourceName: "addPressed"), for: [.highlighted])
 
         resetTracking()
 

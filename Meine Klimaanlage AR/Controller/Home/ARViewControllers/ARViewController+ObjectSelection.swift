@@ -126,8 +126,6 @@ extension ARViewController: VirtualObjectSelectionViewControllerDelegate {
         // Show progress indicator.
         spinner.startAnimating()
         
-        //addObjectButton.setImage(#imageLiteral(resourceName: "buttonring"), for: [])
-
         addObjectButton.isEnabled = false
         isRestartAvailable = false
     }
@@ -135,9 +133,6 @@ extension ARViewController: VirtualObjectSelectionViewControllerDelegate {
     func hideObjectLoadingUI() {
         // Hide progress indicator.
         spinner.stopAnimating()
-
-//        addObjectButton.setImage(#imageLiteral(resourceName: "add"), for: [])
-//        addObjectButton.setImage(#imageLiteral(resourceName: "addPressed"), for: [.highlighted])
 
         addObjectButton.isEnabled = true
         isRestartAvailable = true

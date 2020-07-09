@@ -71,6 +71,15 @@ class ARViewController: UIViewController {
         sceneView.scene.rootNode.addChildNode(focusSquare)
         
         
+        // Hook up status view controller callback(s).
+        statusViewController.restartExperienceHandler = { [unowned self] in
+            self.restartExperience()
+        }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showVirtualObjectSelectionViewController))
+        // Set the delegate to ensure this gesture is only used when there are no virtual objects in the scene.
+        tapGesture.delegate = self
+        sceneView.addGestureRecognizer(tapGesture)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -89,6 +98,8 @@ class ARViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = true
+        
+        session.pause()
     }
     
     
