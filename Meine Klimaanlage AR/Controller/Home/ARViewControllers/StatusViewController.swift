@@ -32,7 +32,7 @@ class StatusViewController: UIViewController {
     }
 
     // MARK: - IBOutlets
-    @IBOutlet weak var messagePanel: UIVisualEffectView!
+    @IBOutlet weak var messageLabelContainerView: UIView!
     
     @IBOutlet weak var messageLabel: UILabel!
     
@@ -123,15 +123,15 @@ class StatusViewController: UIViewController {
     
     private func setMessageHidden(_ hide: Bool, animated: Bool) {
         // The panel starts out hidden, so show it before animating opacity.
-        messagePanel.isHidden = false
+        messageLabelContainerView.isHidden = false
         
         guard animated else {
-            messagePanel.alpha = hide ? 0 : 1
+            messageLabelContainerView.alpha = hide ? 0 : 1
             return
         }
 
         UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState], animations: {
-            self.messagePanel.alpha = hide ? 0 : 1
+            self.messageLabelContainerView.alpha = hide ? 0 : 1
         }, completion: nil)
     }
 }
