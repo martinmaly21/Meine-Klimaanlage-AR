@@ -13,7 +13,15 @@ import ARKit
 class ARViewController: UIViewController {
 
     //MARK: - IBOutlets
-    @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var sceneView: VirtualObjectARView!
+    
+    @IBOutlet weak var addObjectButton: UIButton!
+    
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    @IBOutlet weak var upperControlsView: UIView!
     
     //MARK: - UI Elements
     internal let coachingOverlay = ARCoachingOverlayView()
@@ -21,6 +29,13 @@ class ARViewController: UIViewController {
     internal var focusSquare = FocusSquare()
     
     
+    /// The view controller that displays the status and "restart experience" UI.
+    lazy var statusViewController: StatusViewController = {
+        return children.lazy.compactMap({ $0 as? StatusViewController }).first!
+    }()
+    
+    /// The view controller that displays the virtual object selection menu.
+    var objectsViewController: VirtualObjectSelectionViewController?
     
     //MARK: - ARKit Configuration Properties
     
@@ -133,34 +148,24 @@ class ARViewController: UIViewController {
                    self.sceneView.pointOfView?.addChildNode(self.focusSquare)
                }
                addObjectButton.isHidden = true
-               objectsViewController?.dismiss(animated: false, completion: nil)
-           }
+            objectsViewController?.dismiss(animated: false, completion: nil)
+        }
     }
     
-    //       // MARK: - Error handling
-    //
-    //       func displayErrorMessage(title: String, message: String) {
-    //           // Blur the background.
-    //           blurView.isHidden = false
-    //
-    //           // Present an alert informing about the error that has occurred.
-    //           let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    //           let restartAction = UIAlertAction(title: "Restart Session", style: .default) { _ in
-    //               alertController.dismiss(animated: true, completion: nil)
-    //               self.blurView.isHidden = true
-    //               self.resetTracking()
-    //           }
-    //           alertController.addAction(restartAction)
-    //           present(alertController, animated: true, completion: nil)
-    //       }
-}
-
-
-
-extension ARViewController: ARSCNViewDelegate {
+    // MARK: - Error handling
     
-}
-
-extension ARViewController: ARSessionDelegate  {
-    
+    func displayErrorMessage(title: String, message: String) {
+        // Blur the background.
+        blurView.isHidden = false
+        
+        // Present an alert informing about the error that has occurred.
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let restartAction = UIAlertAction(title: "Restart Session", style: .default) { _ in
+            alertController.dismiss(animated: true, completion: nil)
+            self.blurView.isHidden = true
+            self.resetTracking()
+        }
+        alertController.addAction(restartAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }

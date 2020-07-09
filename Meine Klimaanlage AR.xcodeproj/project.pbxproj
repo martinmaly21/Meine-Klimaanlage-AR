@@ -37,6 +37,13 @@
 		5B7E6DD124B6AE250049CCB9 /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DD024B6AE250049CCB9 /* VirtualObjectARView.swift */; };
 		5B7E6DD324B6AE690049CCB9 /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DD224B6AE690049CCB9 /* VirtualObject.swift */; };
 		5B7E6DD524B6AE850049CCB9 /* VirtualObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DD424B6AE850049CCB9 /* VirtualObjectLoader.swift */; };
+		5B7E6DDD24B6BE220049CCB9 /* ARViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DDC24B6BE220049CCB9 /* ARViewController+ARSCNViewDelegate.swift */; };
+		5B7E6DDF24B6BE3A0049CCB9 /* ARViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DDE24B6BE3A0049CCB9 /* ARViewController+Actions.swift */; };
+		5B7E6DE124B6BE570049CCB9 /* ARViewController+ObjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DE024B6BE570049CCB9 /* ARViewController+ObjectSelection.swift */; };
+		5B7E6DE324B6BE8D0049CCB9 /* VirtualObjectInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DE224B6BE8D0049CCB9 /* VirtualObjectInteraction.swift */; };
+		5B7E6DE524B6BEEA0049CCB9 /* ThresholdPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DE424B6BEEA0049CCB9 /* ThresholdPanGesture.swift */; };
+		5B7E6DE724B6C04A0049CCB9 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DE624B6C04A0049CCB9 /* StatusViewController.swift */; };
+		5B7E6DE924B6C0650049CCB9 /* VirtualObjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DE824B6C0650049CCB9 /* VirtualObjectSelection.swift */; };
 		5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667CF248D900D003A3B5D /* NetworkManager.swift */; };
 		5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D1248D9662003A3B5D /* LogInViewController.swift */; };
 		5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */; };
@@ -79,6 +86,13 @@
 		5B7E6DD024B6AE250049CCB9 /* VirtualObjectARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
 		5B7E6DD224B6AE690049CCB9 /* VirtualObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
 		5B7E6DD424B6AE850049CCB9 /* VirtualObjectLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectLoader.swift; sourceTree = "<group>"; };
+		5B7E6DDC24B6BE220049CCB9 /* ARViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		5B7E6DDE24B6BE3A0049CCB9 /* ARViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewController+Actions.swift"; sourceTree = "<group>"; };
+		5B7E6DE024B6BE570049CCB9 /* ARViewController+ObjectSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewController+ObjectSelection.swift"; sourceTree = "<group>"; };
+		5B7E6DE224B6BE8D0049CCB9 /* VirtualObjectInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectInteraction.swift; sourceTree = "<group>"; };
+		5B7E6DE424B6BEEA0049CCB9 /* ThresholdPanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdPanGesture.swift; sourceTree = "<group>"; };
+		5B7E6DE624B6C04A0049CCB9 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		5B7E6DE824B6C0650049CCB9 /* VirtualObjectSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectSelection.swift; sourceTree = "<group>"; };
 		5B8667CF248D900D003A3B5D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5B8667D1248D9662003A3B5D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnAccountViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +272,8 @@
 				5B7E6DD024B6AE250049CCB9 /* VirtualObjectARView.swift */,
 				5B7E6DD224B6AE690049CCB9 /* VirtualObject.swift */,
 				5B7E6DD424B6AE850049CCB9 /* VirtualObjectLoader.swift */,
+				5B7E6DE224B6BE8D0049CCB9 /* VirtualObjectInteraction.swift */,
+				5B7E6DE424B6BEEA0049CCB9 /* ThresholdPanGesture.swift */,
 			);
 			path = ARModel;
 			sourceTree = "<group>";
@@ -276,7 +292,12 @@
 			isa = PBXGroup;
 			children = (
 				5B54CF35249728DA00A6BD85 /* ARViewController.swift */,
+				5B7E6DDC24B6BE220049CCB9 /* ARViewController+ARSCNViewDelegate.swift */,
+				5B7E6DDE24B6BE3A0049CCB9 /* ARViewController+Actions.swift */,
+				5B7E6DE024B6BE570049CCB9 /* ARViewController+ObjectSelection.swift */,
 				5BFA9EA424B6A174008FBB99 /* ARViewController+CoachingOverlay.swift */,
+				5B7E6DE624B6C04A0049CCB9 /* StatusViewController.swift */,
+				5B7E6DE824B6C0650049CCB9 /* VirtualObjectSelection.swift */,
 			);
 			path = ARViewControllers;
 			sourceTree = "<group>";
@@ -422,29 +443,36 @@
 			files = (
 				5BFA9EA524B6A174008FBB99 /* ARViewController+CoachingOverlay.swift in Sources */,
 				5BFA9EA824B6A583008FBB99 /* FocusSquare.swift in Sources */,
+				5B7E6DDF24B6BE3A0049CCB9 /* ARViewController+Actions.swift in Sources */,
 				5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */,
 				5B00FAC724970B7B00215489 /* ACUnitEnvironmentType.swift in Sources */,
 				5B00FACA24970CE300215489 /* ACUnitListViewController.swift in Sources */,
 				5B2C5B1C248DBB8B001B6898 /* ProfileViewController.swift in Sources */,
 				5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */,
+				5B7E6DE924B6C0650049CCB9 /* VirtualObjectSelection.swift in Sources */,
 				5B00FACF2497214700215489 /* ACUnit.swift in Sources */,
 				5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */,
+				5B7E6DE324B6BE8D0049CCB9 /* VirtualObjectInteraction.swift in Sources */,
 				5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */,
 				5B00FAC32497082800215489 /* ACUnitDetailPageTableHeaderView.swift in Sources */,
 				5B2C5B1F248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift in Sources */,
 				5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */,
 				5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */,
+				5B7E6DE124B6BE570049CCB9 /* ARViewController+ObjectSelection.swift in Sources */,
 				5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */,
 				5B00FAC0249703C600215489 /* ACBrand.swift in Sources */,
 				5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */,
 				5B7E6DD524B6AE850049CCB9 /* VirtualObjectLoader.swift in Sources */,
 				5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */,
+				5B7E6DDD24B6BE220049CCB9 /* ARViewController+ARSCNViewDelegate.swift in Sources */,
+				5B7E6DE524B6BEEA0049CCB9 /* ThresholdPanGesture.swift in Sources */,
 				5B2C5B23248DBD9A001B6898 /* ACUnitTableViewCell.swift in Sources */,
 				5B00FACD24970F2100215489 /* ExtensionManager.swift in Sources */,
 				5B7E6DD324B6AE690049CCB9 /* VirtualObject.swift in Sources */,
 				5B7E6DD124B6AE250049CCB9 /* VirtualObjectARView.swift in Sources */,
 				5B54CF36249728DA00A6BD85 /* ARViewController.swift in Sources */,
 				5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */,
+				5B7E6DE724B6C04A0049CCB9 /* StatusViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
