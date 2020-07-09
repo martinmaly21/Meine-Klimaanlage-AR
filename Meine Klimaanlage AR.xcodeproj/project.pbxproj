@@ -16,7 +16,6 @@
 		5B00FACF2497214700215489 /* ACUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FACE2497214700215489 /* ACUnit.swift */; };
 		5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */; };
 		5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A37248D88A900CA4141 /* Colors.xcassets */; };
-		5B1D7771249737C50058547A /* ETHEREAWandgerätBaureiheZScene.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D7770249737C50058547A /* ETHEREAWandgerätBaureiheZScene.rcproject */; };
 		5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */; };
 		5B2C5B10248DB249001B6898 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B0F248DB249001B6898 /* Root.storyboard */; };
 		5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B19248DBB80001B6898 /* HomeViewController.swift */; };
@@ -37,6 +36,7 @@
 		5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667CF248D900D003A3B5D /* NetworkManager.swift */; };
 		5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D1248D9662003A3B5D /* LogInViewController.swift */; };
 		5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */; };
+		5BFA9EA524B6A174008FBB99 /* ARViewController+CoachingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA9EA424B6A174008FBB99 /* ARViewController+CoachingOverlay.swift */; };
 		A5BDCB9A0FD47B151970EB4E /* Pods_Meine_Klimaanlage_AR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +51,6 @@
 		5B00FACE2497214700215489 /* ACUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ACUnit.swift; path = "Meine Klimaanlage AR/Manager/ACUnit.swift"; sourceTree = SOURCE_ROOT; };
 		5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B0A8A37248D88A900CA4141 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		5B1D7770249737C50058547A /* ETHEREAWandgerätBaureiheZScene.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = "ETHEREAWandgerätBaureiheZScene.rcproject"; sourceTree = "<group>"; };
 		5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		5B2C5B0F248DB249001B6898 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		5B2C5B19248DBB80001B6898 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		5B8667CF248D900D003A3B5D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5B8667D1248D9662003A3B5D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnAccountViewController.swift; sourceTree = "<group>"; };
+		5BFA9EA424B6A174008FBB99 /* ARViewController+CoachingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewController+CoachingOverlay.swift"; sourceTree = "<group>"; };
 		F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meine_Klimaanlage_AR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD30A9AE9F1D8D594F3D962A /* Pods-Meine Klimaanlage AR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meine Klimaanlage AR.debug.xcconfig"; path = "Target Support Files/Pods-Meine Klimaanlage AR/Pods-Meine Klimaanlage AR.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,7 +102,6 @@
 		5B00FABC2496E59400215489 /* ARScenes */ = {
 			isa = PBXGroup;
 			children = (
-				5B1D7770249737C50058547A /* ETHEREAWandgerätBaureiheZScene.rcproject */,
 			);
 			path = ARScenes;
 			sourceTree = "<group>";
@@ -119,6 +118,7 @@
 		5B0A8A3E248D8EA700CA4141 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5BFA9EA624B6A469008FBB99 /* ARViews */,
 				5B00FAC1249707C900215489 /* Table View Header */,
 				5B2C5B11248DBA01001B6898 /* Table View Cells */,
 				5B0A8A41248D8F0D00CA4141 /* Storyboards */,
@@ -192,7 +192,7 @@
 			children = (
 				5B2C5B19248DBB80001B6898 /* HomeViewController.swift */,
 				5B00FAC824970CE300215489 /* ACUnitListViewController.swift */,
-				5B54CF35249728DA00A6BD85 /* ARViewController.swift */,
+				5BFA9EA324B6A13B008FBB99 /* ARViewControllers */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -249,6 +249,22 @@
 				5B00FACC24970F2100215489 /* ExtensionManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		5BFA9EA324B6A13B008FBB99 /* ARViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B54CF35249728DA00A6BD85 /* ARViewController.swift */,
+				5BFA9EA424B6A174008FBB99 /* ARViewController+CoachingOverlay.swift */,
+			);
+			path = ARViewControllers;
+			sourceTree = "<group>";
+		};
+		5BFA9EA624B6A469008FBB99 /* ARViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ARViews;
 			sourceTree = "<group>";
 		};
 		691F658D58C5A07437E906C1 /* Frameworks */ = {
@@ -381,10 +397,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BFA9EA524B6A174008FBB99 /* ARViewController+CoachingOverlay.swift in Sources */,
 				5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */,
 				5B00FAC724970B7B00215489 /* ACUnitEnvironmentType.swift in Sources */,
 				5B00FACA24970CE300215489 /* ACUnitListViewController.swift in Sources */,
-				5B1D7771249737C50058547A /* ETHEREAWandgerätBaureiheZScene.rcproject in Sources */,
 				5B2C5B1C248DBB8B001B6898 /* ProfileViewController.swift in Sources */,
 				5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */,
 				5B00FACF2497214700215489 /* ACUnit.swift in Sources */,

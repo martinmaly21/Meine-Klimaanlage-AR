@@ -104,22 +104,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arView multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcF-ce-Dnu">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                            </arView>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCq-vN-57l">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </arscnView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="qcF-ce-Dnu" firstAttribute="leading" secondItem="qsc-Tc-tIV" secondAttribute="leading" id="DpD-BR-6p1"/>
-                            <constraint firstItem="qcF-ce-Dnu" firstAttribute="top" secondItem="qsc-Tc-tIV" secondAttribute="top" id="IDI-S6-Qcy"/>
-                            <constraint firstItem="qsc-Tc-tIV" firstAttribute="trailing" secondItem="qcF-ce-Dnu" secondAttribute="trailing" id="QL9-rg-R18"/>
-                            <constraint firstAttribute="bottom" secondItem="qcF-ce-Dnu" secondAttribute="bottom" id="hTe-BP-sOv"/>
+                            <constraint firstItem="qsc-Tc-tIV" firstAttribute="trailing" secondItem="dCq-vN-57l" secondAttribute="trailing" id="Ddh-d4-2LR"/>
+                            <constraint firstItem="dCq-vN-57l" firstAttribute="leading" secondItem="qsc-Tc-tIV" secondAttribute="leading" id="IcU-U0-hI3"/>
+                            <constraint firstItem="dCq-vN-57l" firstAttribute="top" secondItem="qsc-Tc-tIV" secondAttribute="top" id="RXq-gh-Tjj"/>
+                            <constraint firstItem="qsc-Tc-tIV" firstAttribute="bottom" secondItem="dCq-vN-57l" secondAttribute="bottom" id="Ztx-8N-SpY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qsc-Tc-tIV"/>
                     </view>
                     <navigationItem key="navigationItem" id="v4S-1k-b73"/>
                     <connections>
-                        <outlet property="arView" destination="qcF-ce-Dnu" id="60Z-Nr-0K6"/>
+                        <outlet property="sceneView" destination="dCq-vN-57l" id="YqJ-OA-gds"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zy7-SW-UQE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

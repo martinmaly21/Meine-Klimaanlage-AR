@@ -8,18 +8,30 @@
 
 import UIKit
 import RealityKit
+import ARKit
 
 class ARViewController: UIViewController {
-    @IBOutlet weak var arView: ARView!
+
+    //MARK: - IBOutlets
+    @IBOutlet weak var sceneView: ARSCNView!
+    
+    //MARK: - UI Elements
+    internal let coachingOverlay = ARCoachingOverlayView()
+    
+    //internal var focusSquare = FocusSquare()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        guard let anchor = try? ETHEREAWandgerätBaureiheZScene.loadScene() else {
-            assertionFailure()
-            return
-        }
-        arView.scene.anchors.append(anchor)
+        
+        
+        sceneView.delegate = self
+        sceneView.session.delegate = self
+        
+        //setup coaching overlay
+        setUpCoachingOverlay()
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -38,5 +50,16 @@ class ARViewController: UIViewController {
         saveButton.isEnabled = false
         navigationItem.rightBarButtonItem = saveButton
     }
+
+    
+}
+
+
+
+extension ARViewController: ARSCNViewDelegate {
+    
+}
+
+extension ARViewController: ARSessionDelegate  {
     
 }
