@@ -18,7 +18,7 @@ class ARViewController: UIViewController {
     //MARK: - UI Elements
     internal let coachingOverlay = ARCoachingOverlayView()
     
-    //internal var focusSquare = FocusSquare()
+    internal var focusSquare = FocusSquare()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,9 @@ class ARViewController: UIViewController {
         
         //setup coaching overlay
         setUpCoachingOverlay()
+        
+        // Set up scene content.
+        sceneView.scene.rootNode.addChildNode(focusSquare)
         
         
     }

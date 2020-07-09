@@ -33,10 +33,12 @@
 		5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0DE248D701F0072002A /* Onboarding.storyboard */; };
 		5B69D0E2248D70200072002A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0E1248D70200072002A /* Assets.xcassets */; };
 		5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0E3248D70200072002A /* LaunchScreen.storyboard */; };
+		5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */; };
 		5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667CF248D900D003A3B5D /* NetworkManager.swift */; };
 		5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D1248D9662003A3B5D /* LogInViewController.swift */; };
 		5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */; };
 		5BFA9EA524B6A174008FBB99 /* ARViewController+CoachingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA9EA424B6A174008FBB99 /* ARViewController+CoachingOverlay.swift */; };
+		5BFA9EA824B6A583008FBB99 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA9EA724B6A583008FBB99 /* FocusSquare.swift */; };
 		A5BDCB9A0FD47B151970EB4E /* Pods_Meine_Klimaanlage_AR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,10 +72,12 @@
 		5B69D0E1248D70200072002A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B69D0E4248D70200072002A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B69D0E6248D70200072002A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
 		5B8667CF248D900D003A3B5D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5B8667D1248D9662003A3B5D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnAccountViewController.swift; sourceTree = "<group>"; };
 		5BFA9EA424B6A174008FBB99 /* ARViewController+CoachingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewController+CoachingOverlay.swift"; sourceTree = "<group>"; };
+		5BFA9EA724B6A583008FBB99 /* FocusSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meine_Klimaanlage_AR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD30A9AE9F1D8D594F3D962A /* Pods-Meine Klimaanlage AR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meine Klimaanlage AR.debug.xcconfig"; path = "Target Support Files/Pods-Meine Klimaanlage AR/Pods-Meine Klimaanlage AR.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -263,6 +267,8 @@
 		5BFA9EA624B6A469008FBB99 /* ARViews */ = {
 			isa = PBXGroup;
 			children = (
+				5BFA9EA724B6A583008FBB99 /* FocusSquare.swift */,
+				5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */,
 			);
 			path = ARViews;
 			sourceTree = "<group>";
@@ -398,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BFA9EA524B6A174008FBB99 /* ARViewController+CoachingOverlay.swift in Sources */,
+				5BFA9EA824B6A583008FBB99 /* FocusSquare.swift in Sources */,
 				5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */,
 				5B00FAC724970B7B00215489 /* ACUnitEnvironmentType.swift in Sources */,
 				5B00FACA24970CE300215489 /* ACUnitListViewController.swift in Sources */,
@@ -417,6 +424,7 @@
 				5B2C5B23248DBD9A001B6898 /* ACUnitTableViewCell.swift in Sources */,
 				5B00FACD24970F2100215489 /* ExtensionManager.swift in Sources */,
 				5B54CF36249728DA00A6BD85 /* ARViewController.swift in Sources */,
+				5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
