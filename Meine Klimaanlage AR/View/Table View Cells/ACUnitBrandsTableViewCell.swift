@@ -10,6 +10,8 @@ import UIKit
 
 class ACUnitBrandsTableViewCell: UITableViewCell {
     @IBOutlet weak var brandImageView: UIImageView!
+    @IBOutlet weak var containerView: UIView!
+    
     public var brand: ACBrand!
     
     override func awakeFromNib() {
@@ -21,5 +23,10 @@ class ACUnitBrandsTableViewCell: UITableViewCell {
         self.brand = brand
 
         brandImageView.image = brand.getLogoImage()
+        
+        containerView.layer.cornerRadius = 10
+        containerView.layer.borderColor = UIColor(named: "Border")?.cgColor
+        containerView.layer.borderWidth = 1
+        
     }
 }
