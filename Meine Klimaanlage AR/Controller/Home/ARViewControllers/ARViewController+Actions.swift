@@ -18,6 +18,11 @@ extension ARViewController: UIGestureRecognizerDelegate {
     
     /// Displays the `VirtualObjectSelectionViewController` from the `addObjectButton` or in response to a tap gesture in the `sceneView`.
     @IBAction func userPressedAddUnit() {
+        guard !acUnitHasBeenPlaced else {
+            acUnitWasConfirmed()
+            return
+        }
+        
         #warning("this shouldn't be called when user simply taps on the screen")
         // Ensure adding objects is an available action and we are not loading another object (to avoid concurrent modifications of the scene).
         guard addObjectButton.isEnabled && !virtualObjectLoader.isLoading else { return }

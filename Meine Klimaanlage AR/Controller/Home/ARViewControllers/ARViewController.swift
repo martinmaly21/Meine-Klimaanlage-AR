@@ -23,6 +23,10 @@ class ARViewController: UIViewController {
     
     @IBOutlet weak var upperControlsView: UIView!
     
+    @IBOutlet weak var instructionsContainerView: UIView!
+    
+    @IBOutlet weak var instructionsLabel: UILabel!
+    
     //MARK: - UI Elements
     internal let coachingOverlay = ARCoachingOverlayView()
     
@@ -46,6 +50,8 @@ class ARViewController: UIViewController {
      
      /// Marks if the AR experience is available for restart.
      var isRestartAvailable = true
+    
+     var acUnitHasBeenPlaced = false
      
      /// A serial queue used to coordinate adding or removing nodes from the scene.
      let updateQueue = DispatchQueue(label: "com.martinmaly.Meinde-Klimaanlage-AR")
@@ -184,5 +190,25 @@ class ARViewController: UIViewController {
         UIView.animate(withDuration: 0.5) {
             self.addObjectButton.alpha = isEnabled ? 1 : 0.25
         }
+    }
+    
+    internal func acUnitWasAdded() {
+        acUnitHasBeenPlaced = true
+        
+        sceneView.scene.rootNode.opacity = 0.5
+        
+        instructionsContainerView.isHidden = false
+        instructionsLabel.text = "Note: You can tap and drag around to position the AC Unit."
+        
+        addObjectButton.setTitle("Confirm Position", for: .normal)
+    }
+    
+    internal func acUnitWasConfirmed() {
+        guard !acUnitHasBeenPlaced else {
+            sceneView.scene.rootNode.opacity = 1
+            return
+        }
+        
+        addObjectButton.setTitle("Add Wire", for: .normal)
     }
 }

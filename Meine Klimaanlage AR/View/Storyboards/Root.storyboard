@@ -194,7 +194,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="nZi-pS-FKa"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="PrimaryTextDark"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
@@ -268,6 +268,30 @@
                                     <segue destination="NPm-Lw-FpL" kind="embed" id="cUQ-yn-Hc7"/>
                                 </connections>
                             </containerView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qlK-p5-JHZ">
+                                <rect key="frame" x="103.5" y="740" width="207" height="0.0"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uo3-xc-bC0">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="0.0"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" name="PrimaryTextDark"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="Uo3-xc-bC0" firstAttribute="leading" secondItem="qlK-p5-JHZ" secondAttribute="leading" id="3f3-cU-HwU"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uo3-xc-bC0" secondAttribute="trailing" id="9IR-n1-klP"/>
+                                    <constraint firstItem="Uo3-xc-bC0" firstAttribute="top" secondItem="qlK-p5-JHZ" secondAttribute="top" id="VYq-ON-Uah"/>
+                                    <constraint firstAttribute="bottom" secondItem="Uo3-xc-bC0" secondAttribute="bottom" id="dc5-lg-UCj"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIO-5c-9eR" userLabel="Add Object Button">
                                 <rect key="frame" x="103.5" y="750" width="207" height="48"/>
                                 <color key="backgroundColor" name="PrimaryBlue"/>
@@ -298,8 +322,11 @@
                             <constraint firstItem="cIO-5c-9eR" firstAttribute="centerX" secondItem="PE6-sg-PX9" secondAttribute="centerX" id="85D-r9-RN2"/>
                             <constraint firstItem="tty-HJ-oYV" firstAttribute="leading" secondItem="PE6-sg-PX9" secondAttribute="leading" id="Ct1-Td-xl5"/>
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="height" secondItem="cIO-5c-9eR" secondAttribute="height" constant="-5" id="D5Y-0p-Uwh"/>
+                            <constraint firstItem="qlK-p5-JHZ" firstAttribute="width" secondItem="17c-KA-mgx" secondAttribute="width" multiplier="0.5" priority="999" id="DlE-uf-ZaP"/>
+                            <constraint firstItem="cIO-5c-9eR" firstAttribute="top" secondItem="qlK-p5-JHZ" secondAttribute="bottom" constant="10" id="F1X-pb-RI3"/>
                             <constraint firstItem="tty-HJ-oYV" firstAttribute="top" secondItem="17c-KA-mgx" secondAttribute="top" id="F4q-8m-R1b"/>
                             <constraint firstItem="tJ9-iS-Cfe" firstAttribute="top" secondItem="PE6-sg-PX9" secondAttribute="top" id="FUG-xP-vWB"/>
+                            <constraint firstItem="qlK-p5-JHZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PE6-sg-PX9" secondAttribute="leading" constant="20" id="FZb-mm-bD7"/>
                             <constraint firstAttribute="trailing" secondItem="L9b-Iy-aJE" secondAttribute="trailing" id="KA9-HM-WFd"/>
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="centerY" secondItem="cIO-5c-9eR" secondAttribute="centerY" id="QvD-Xh-Hnl"/>
                             <constraint firstAttribute="bottom" secondItem="tty-HJ-oYV" secondAttribute="bottom" id="Svh-j4-rWa"/>
@@ -310,6 +337,8 @@
                             <constraint firstItem="cIO-5c-9eR" firstAttribute="width" secondItem="17c-KA-mgx" secondAttribute="width" multiplier="0.5" id="djL-CR-AyJ"/>
                             <constraint firstItem="L9b-Iy-aJE" firstAttribute="leading" secondItem="17c-KA-mgx" secondAttribute="leading" id="j67-Ag-81R"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="bottom" secondItem="cIO-5c-9eR" secondAttribute="bottom" constant="15" id="kC8-cX-E4d"/>
+                            <constraint firstItem="qlK-p5-JHZ" firstAttribute="centerX" secondItem="PE6-sg-PX9" secondAttribute="centerX" id="qaU-vV-qCM"/>
+                            <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qlK-p5-JHZ" secondAttribute="trailing" constant="20" id="yoI-9w-F9T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PE6-sg-PX9"/>
                     </view>
@@ -317,6 +346,8 @@
                     <connections>
                         <outlet property="addObjectButton" destination="cIO-5c-9eR" id="rSc-nR-Y98"/>
                         <outlet property="blurView" destination="L9b-Iy-aJE" id="Cvx-ML-4PM"/>
+                        <outlet property="instructionsContainerView" destination="qlK-p5-JHZ" id="T56-4U-zKA"/>
+                        <outlet property="instructionsLabel" destination="Uo3-xc-bC0" id="84Z-cA-Eo1"/>
                         <outlet property="sceneView" destination="tty-HJ-oYV" id="qf4-aX-7vn"/>
                         <outlet property="spinner" destination="vSR-OJ-rr1" id="Ytd-p7-npc"/>
                         <outlet property="upperControlsView" destination="tJ9-iS-Cfe" id="Ti7-ka-bJf"/>

@@ -25,6 +25,9 @@ extension ARViewController {
         virtualObject.raycast = trackedRaycast
         virtualObjectInteraction.selectedObject = virtualObject
         virtualObject.isHidden = false
+        
+        //HERE
+        acUnitWasAdded()
     }
     
     // - Tag: GetTrackedRaycast
