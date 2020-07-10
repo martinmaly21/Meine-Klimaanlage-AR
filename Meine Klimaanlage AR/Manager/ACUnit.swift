@@ -9,5 +9,6 @@
 import Foundation
 
 struct ACUnit {
-    let name: String
+    let displayName: String
+    let fileName: String
 }

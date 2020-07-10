@@ -21,6 +21,6 @@ class ACUnitTableViewCell: UITableViewCell {
     public func setUpCell(with unit: ACUnit) {
         self.unit = unit
         
-        ACUnitBrandLabel.text = unit.name
+        ACUnitBrandLabel.text = unit.displayName
     }
 }

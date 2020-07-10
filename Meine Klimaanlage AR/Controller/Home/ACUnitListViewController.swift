@@ -60,14 +60,14 @@ extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ARSegue", sender: self)
+        performSegue(withIdentifier: "ARSegue", sender: units[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        guard let arViewController = segue.destination as? ARViewController else { return }
+        guard let arViewController = segue.destination as? ARViewController, let ACUnit = sender as? ACUnit else { return }
         
-        
+        arViewController.ACUNit = ACUnit
         
     }
 }

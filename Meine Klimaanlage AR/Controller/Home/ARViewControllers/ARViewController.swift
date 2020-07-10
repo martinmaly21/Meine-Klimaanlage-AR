@@ -34,10 +34,9 @@ class ARViewController: UIViewController {
         return children.lazy.compactMap({ $0 as? StatusViewController }).first!
     }()
     
-    /// The view controller that displays the virtual object selection menu.
-    var objectsViewController: VirtualObjectSelectionViewController?
-    
     //MARK: - ARKit Configuration Properties
+    
+    public var ACUNit: ACUnit!
     
     /// A type which manages gesture manipulation of virtual content in the scene.
      lazy var virtualObjectInteraction = VirtualObjectInteraction(sceneView: sceneView, viewController: self)
@@ -49,7 +48,7 @@ class ARViewController: UIViewController {
      var isRestartAvailable = true
      
      /// A serial queue used to coordinate adding or removing nodes from the scene.
-     let updateQueue = DispatchQueue(label: "com.example.apple-samplecode.arkitexample.serialSceneKitQueue")
+     let updateQueue = DispatchQueue(label: "com.martinmaly.Meinde-Klimaanlage-AR")
      
      /// Convenience accessor for the session owned by ARSCNView.
      var session: ARSession {
@@ -76,7 +75,7 @@ class ARViewController: UIViewController {
             self.restartExperience()
         }
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showVirtualObjectSelectionViewController))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(userPressedAddUnit))
         // Set the delegate to ensure this gesture is only used when there are no virtual objects in the scene.
         tapGesture.delegate = self
         sceneView.addGestureRecognizer(tapGesture)
@@ -93,15 +92,12 @@ class ARViewController: UIViewController {
         resetTracking()
     }
     
-    
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = true
         
         session.pause()
     }
-    
     
     private func setUpUI() {
         tabBarController?.tabBar.isHidden = true
@@ -115,51 +111,50 @@ class ARViewController: UIViewController {
     }
     
     // MARK: - Session management
-       
-       /// Creates a new AR configuration to run on the `session`.
-       func resetTracking() {
-           virtualObjectInteraction.selectedObject = nil
-           
-           let configuration = ARWorldTrackingConfiguration()
-           configuration.planeDetection = [.horizontal, .vertical]
-           if #available(iOS 12.0, *) {
-               configuration.environmentTexturing = .automatic
-           }
-           session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-
-           statusViewController.scheduleMessage("FIND A SURFACE TO PLACE AN OBJECT", inSeconds: 7.5, messageType: .planeEstimation)
-       }
-
-       // MARK: - Focus Square
-
-       func updateFocusSquare(isObjectVisible: Bool) {
-           if isObjectVisible || coachingOverlay.isActive {
-               focusSquare.hide()
-           } else {
-               focusSquare.unhide()
-               statusViewController.scheduleMessage("TRY MOVING LEFT OR RIGHT", inSeconds: 5.0, messageType: .focusSquare)
-           }
-           
-           // Perform ray casting only when ARKit tracking is in a good state.
-           if let camera = session.currentFrame?.camera, case .normal = camera.trackingState,
-               let query = sceneView.getRaycastQuery(),
-               let result = sceneView.castRay(for: query).first {
-               
-               updateQueue.async {
-                   self.sceneView.scene.rootNode.addChildNode(self.focusSquare)
-                   self.focusSquare.state = .detecting(raycastResult: result, camera: camera)
-               }
-               if !coachingOverlay.isActive {
-                   addObjectButton.isHidden = false
-               }
-               statusViewController.cancelScheduledMessage(for: .focusSquare)
-           } else {
-               updateQueue.async {
-                   self.focusSquare.state = .initializing
-                   self.sceneView.pointOfView?.addChildNode(self.focusSquare)
-               }
-               addObjectButton.isHidden = true
-            objectsViewController?.dismiss(animated: false, completion: nil)
+    
+    /// Creates a new AR configuration to run on the `session`.
+    func resetTracking() {
+        virtualObjectInteraction.selectedObject = nil
+        
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = [.horizontal, .vertical]
+        if #available(iOS 12.0, *) {
+            configuration.environmentTexturing = .automatic
+        }
+        session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        
+        statusViewController.scheduleMessage("FIND A SURFACE TO PLACE AN OBJECT", inSeconds: 7.5, messageType: .planeEstimation)
+    }
+    
+    // MARK: - Focus Square
+    
+    func updateFocusSquare(isObjectVisible: Bool) {
+        if isObjectVisible || coachingOverlay.isActive {
+            focusSquare.hide()
+        } else {
+            focusSquare.unhide()
+            statusViewController.scheduleMessage("TRY MOVING LEFT OR RIGHT", inSeconds: 5.0, messageType: .focusSquare)
+        }
+        
+        // Perform ray casting only when ARKit tracking is in a good state.
+        if let camera = session.currentFrame?.camera, case .normal = camera.trackingState,
+            let query = sceneView.getRaycastQuery(),
+            let result = sceneView.castRay(for: query).first {
+            
+            updateQueue.async {
+                self.sceneView.scene.rootNode.addChildNode(self.focusSquare)
+                self.focusSquare.state = .detecting(raycastResult: result, camera: camera)
+            }
+            if !coachingOverlay.isActive {
+                addObjectButton.isHidden = false
+            }
+            statusViewController.cancelScheduledMessage(for: .focusSquare)
+        } else {
+            updateQueue.async {
+                self.focusSquare.state = .initializing
+                self.sceneView.pointOfView?.addChildNode(self.focusSquare)
+            }
+            addObjectButton.isHidden = true
         }
     }
     

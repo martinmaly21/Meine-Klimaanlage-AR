@@ -17,12 +17,28 @@ extension ARViewController: UIGestureRecognizerDelegate {
     // MARK: - Interface Actions
     
     /// Displays the `VirtualObjectSelectionViewController` from the `addObjectButton` or in response to a tap gesture in the `sceneView`.
-    @IBAction func showVirtualObjectSelectionViewController() {
+    @IBAction func userPressedAddUnit() {
+        #warning("this shouldn't be called when user simply taps on the screen")
         // Ensure adding objects is an available action and we are not loading another object (to avoid concurrent modifications of the scene).
         guard !addObjectButton.isHidden && !virtualObjectLoader.isLoading else { return }
         
         statusViewController.cancelScheduledMessage(for: .contentPlacement)
-        performSegue(withIdentifier: SegueIdentifier.showObjects.rawValue, sender: addObjectButton)
+        
+        if let filePath = Bundle.main.path(forResource: ACUNit.fileName, ofType: "scn", inDirectory: "ACUnits.scnassets") {
+            // ReferenceNode path -> ReferenceNode URL
+            let referenceURL = URL(fileURLWithPath: filePath)
+            
+            // let url = URL(fileReferenceLiteralResourceName: "Panasonic.scn")
+            let virtualObject = VirtualObject(url: referenceURL)!
+            
+            if let query = sceneView.getRaycastQuery(for: virtualObject.allowedAlignment),
+                let result = sceneView.castRay(for: query).first {
+                virtualObject.mostRecentInitialPlacementResult = result
+                virtualObject.raycastQuery = query
+            }
+            
+            virtualObjectSelectionViewController(didSelectObject: virtualObject)
+        }
     }
     
     /// Determines if the tap gesture for presenting the `VirtualObjectSelectionViewController` should be used.
@@ -50,43 +66,5 @@ extension ARViewController: UIGestureRecognizerDelegate {
             self.isRestartAvailable = true
             self.upperControlsView.isHidden = false
         }
-    }
-}
-
-extension ARViewController: UIPopoverPresentationControllerDelegate {
-    
-    // MARK: - UIPopoverPresentationControllerDelegate
-
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // All menus should be popovers (even on iPhone).
-        if let popoverController = segue.destination.popoverPresentationController, let button = sender as? UIButton {
-            popoverController.delegate = self
-            popoverController.sourceView = button
-            popoverController.sourceRect = button.bounds
-        }
-        
-        guard let identifier = segue.identifier,
-              let segueIdentifer = SegueIdentifier(rawValue: identifier),
-              segueIdentifer == .showObjects else { return }
-        
-        let objectsViewController = segue.destination as! VirtualObjectSelectionViewController
-        objectsViewController.virtualObjects = VirtualObject.availableObjects
-        objectsViewController.delegate = self
-        objectsViewController.sceneView = sceneView
-        self.objectsViewController = objectsViewController
-        
-        // Set all rows of currently placed objects to selected.
-        for object in virtualObjectLoader.loadedObjects {
-            guard let index = VirtualObject.availableObjects.firstIndex(of: object) else { continue }
-            objectsViewController.selectedVirtualObjectRows.insert(index)
-        }
-    }
-    
-    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        objectsViewController = nil
     }
 }

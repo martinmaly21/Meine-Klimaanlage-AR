@@ -16,13 +16,13 @@ class NetworkManager {
         switch brand {
         case .panasonic:
             if unitType == .exterior {
-                return [ACUnit(name: "Model 1")]
+                return [ACUnit(displayName: "Model 1", fileName: "Panasonic")]
             } else {
                 //exterior
-                let firstUnit = ACUnit(name: "Wandgerät Baureihe TZ")
+                let firstUnit = ACUnit(displayName: "Wandgerät Baureihe TZ", fileName: "Panasonic")
                 //this is the one i have the model for rn
-                let secondUnit = ACUnit(name: "ETHEREA Wandgerät Baureihe Z")
-                let thirdUnit = ACUnit(name: "Wandgerät Baureihe TKEA Professional")
+                let secondUnit = ACUnit(displayName: "ETHEREA Wandgerät Baureihe Z", fileName: "Panasonic")
+                let thirdUnit = ACUnit(displayName: "Wandgerät Baureihe TKEA Professional", fileName: "Panasonic")
                 return [firstUnit, secondUnit, thirdUnit]
             }
         default:
