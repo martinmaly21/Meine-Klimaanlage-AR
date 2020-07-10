@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController {
     //MARK: - UI
@@ -22,6 +23,11 @@ class HomeViewController: UIViewController {
     
     private func setUpUI() {
         registerTableViewCells()
+        
+        //set title
+        if let currentUserName = Auth.auth().currentUser?.displayName {
+            navigationItem.title = "Welcome \(currentUserName)!"
+        }
     }
     
     private func registerTableViewCells() {
