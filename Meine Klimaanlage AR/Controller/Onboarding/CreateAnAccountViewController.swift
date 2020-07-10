@@ -11,6 +11,7 @@ import FirebaseAuth
 
 class CreateAnAccountViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
@@ -55,7 +56,8 @@ class CreateAnAccountViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func userPressedCreateAccount(_ sender: Any) {
-        guard let email = emailTextField.text, !email.isEmpty,
+        guard let name = nameTextField.text, !name.isEmpty,
+            let email = emailTextField.text, !email.isEmpty,
             let password = passwordTextField.text, !password.isEmpty,
             let confirmationPassword = confirmPasswordTextField.text, !confirmationPassword.isEmpty else {
                 ErrorManager.showOnboardingError(with: .missingfields, on: self)
@@ -79,13 +81,27 @@ class CreateAnAccountViewController: UIViewController {
         
         Auth.auth().createUser(
             withEmail: email,
-            password: password) { (result, error) in
-                if let error = error {
-                    ErrorManager.showFirebaseError(with: error.localizedDescription, on: self)
-                } else {
-                    //user succesfully logged in
-                    self.performSegue(withIdentifier: "signUpSegue", sender: self)
-                }
+            password: password
+        ) { (result, error) in
+            guard error != nil, let user = result?.user else {
+                ErrorManager.showFirebaseError(with: error?.localizedDescription ?? "", on: self)
+                return
+            }
+            self.updateUserName(with: user, with: name)
+        }
+    }
+    
+    private func updateUserName(with user: User, with name: String) {
+        let profileChangeRequest = user.createProfileChangeRequest()
+        profileChangeRequest.displayName = name
+        
+        profileChangeRequest.commitChanges { error in
+            if let error = error {
+                ErrorManager.showFirebaseError(with: error.localizedDescription, on: self)
+            } else {
+                //user succesfully logged in
+                self.performSegue(withIdentifier: "signUpSegue", sender: self)
+            }
         }
     }
     
