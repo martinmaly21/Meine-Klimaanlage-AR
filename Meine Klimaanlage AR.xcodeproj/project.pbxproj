@@ -47,6 +47,8 @@
 		5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667CF248D900D003A3B5D /* NetworkManager.swift */; };
 		5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D1248D9662003A3B5D /* LogInViewController.swift */; };
 		5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */; };
+		5BAF8D0924B81A8D0022EC84 /* AppEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */; };
+		5BAF8D0E24B81B2E0022EC84 /* AppEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF8D0D24B81B2E0022EC84 /* AppEntryViewController.swift */; };
 		5BFA9EA524B6A174008FBB99 /* ARViewController+CoachingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA9EA424B6A174008FBB99 /* ARViewController+CoachingOverlay.swift */; };
 		5BFA9EA824B6A583008FBB99 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA9EA724B6A583008FBB99 /* FocusSquare.swift */; };
 		A5BDCB9A0FD47B151970EB4E /* Pods_Meine_Klimaanlage_AR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */; };
@@ -96,6 +98,8 @@
 		5B8667CF248D900D003A3B5D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5B8667D1248D9662003A3B5D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnAccountViewController.swift; sourceTree = "<group>"; };
+		5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppEntry.storyboard; sourceTree = "<group>"; };
+		5BAF8D0D24B81B2E0022EC84 /* AppEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntryViewController.swift; sourceTree = "<group>"; };
 		5BFA9EA424B6A174008FBB99 /* ARViewController+CoachingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewController+CoachingOverlay.swift"; sourceTree = "<group>"; };
 		5BFA9EA724B6A583008FBB99 /* FocusSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meine_Klimaanlage_AR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +157,7 @@
 		5B0A8A3F248D8EFB00CA4141 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5BAF8D0A24B81ADF0022EC84 /* Launch */,
 				5B0A8A42248D8F2A00CA4141 /* Onboarding */,
 				5B2C5B17248DBB41001B6898 /* Home */,
 				5B2C5B18248DBB4B001B6898 /* Profile */,
@@ -175,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				5B69D0E3248D70200072002A /* LaunchScreen.storyboard */,
+				5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */,
 				5B69D0DE248D701F0072002A /* Onboarding.storyboard */,
 				5B2C5B0F248DB249001B6898 /* Root.storyboard */,
 			);
@@ -297,6 +303,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		5BAF8D0A24B81ADF0022EC84 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				5BAF8D0D24B81B2E0022EC84 /* AppEntryViewController.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		5BFA9EA324B6A13B008FBB99 /* ARViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B2C5B24248DBD9A001B6898 /* ACUnitTableViewCell.xib in Resources */,
+				5BAF8D0924B81A8D0022EC84 /* AppEntry.storyboard in Resources */,
 				5B4FDFB8248D79160079B653 /* .gitignore in Resources */,
 				5B00FAC52497087600215489 /* ACUnitDetailPageTableHeaderView.xib in Resources */,
 				5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */,
@@ -452,6 +467,7 @@
 			files = (
 				5BFA9EA524B6A174008FBB99 /* ARViewController+CoachingOverlay.swift in Sources */,
 				5BFA9EA824B6A583008FBB99 /* FocusSquare.swift in Sources */,
+				5BAF8D0E24B81B2E0022EC84 /* AppEntryViewController.swift in Sources */,
 				5B7E6DDF24B6BE3A0049CCB9 /* ARViewController+Actions.swift in Sources */,
 				5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */,
 				5B00FAC724970B7B00215489 /* ACUnitEnvironmentType.swift in Sources */,
