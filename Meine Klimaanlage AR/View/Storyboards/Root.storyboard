@@ -226,6 +226,7 @@
                             <constraint firstAttribute="trailing" secondItem="Ppo-Yx-G8P" secondAttribute="trailing" constant="7" id="W94-gd-HfF"/>
                             <constraint firstItem="fcc-C4-Nts" firstAttribute="centerY" secondItem="vva-B7-aCh" secondAttribute="centerY" id="dWO-Rr-gnK"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="7Sm-sk-nkp"/>
                     </view>
                     <connections>
                         <outlet property="messageLabel" destination="5x0-FH-T64" id="RdA-qg-8FE"/>
@@ -267,10 +268,9 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIO-5c-9eR" userLabel="Add Object Button">
-                                <rect key="frame" x="163.5" y="750" width="87" height="48"/>
+                                <rect key="frame" x="103.5" y="750" width="207" height="48"/>
                                 <color key="backgroundColor" name="PrimaryBlue"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="87" id="WIv-FG-xlB"/>
                                     <constraint firstAttribute="height" constant="48" id="rK8-ZJ-6Sz"/>
                                 </constraints>
                                 <state key="normal" title="Add Unit">
@@ -286,7 +286,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="vSR-OJ-rr1">
-                                <rect key="frame" x="166" y="752.5" width="82" height="43"/>
+                                <rect key="frame" x="106" y="752.5" width="202" height="43"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -306,6 +306,7 @@
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="width" secondItem="cIO-5c-9eR" secondAttribute="width" constant="-5" id="Uyr-1e-u7C"/>
                             <constraint firstItem="tJ9-iS-Cfe" firstAttribute="leading" secondItem="PE6-sg-PX9" secondAttribute="leading" id="XsZ-lJ-Lwx"/>
                             <constraint firstItem="L9b-Iy-aJE" firstAttribute="top" secondItem="17c-KA-mgx" secondAttribute="top" id="cvD-tL-0cD"/>
+                            <constraint firstItem="cIO-5c-9eR" firstAttribute="width" secondItem="17c-KA-mgx" secondAttribute="width" multiplier="0.5" id="djL-CR-AyJ"/>
                             <constraint firstItem="L9b-Iy-aJE" firstAttribute="leading" secondItem="17c-KA-mgx" secondAttribute="leading" id="j67-Ag-81R"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="bottom" secondItem="cIO-5c-9eR" secondAttribute="bottom" constant="15" id="kC8-cX-E4d"/>
                         </constraints>

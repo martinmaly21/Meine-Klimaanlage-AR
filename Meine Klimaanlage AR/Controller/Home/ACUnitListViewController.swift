@@ -68,7 +68,6 @@ extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
         guard let arViewController = segue.destination as? ARViewController, let ACUnit = sender as? ACUnit else { return }
         
         arViewController.ACUNit = ACUnit
-        
     }
 }
 

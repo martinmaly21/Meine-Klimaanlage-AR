@@ -20,7 +20,7 @@ extension ARViewController: UIGestureRecognizerDelegate {
     @IBAction func userPressedAddUnit() {
         #warning("this shouldn't be called when user simply taps on the screen")
         // Ensure adding objects is an available action and we are not loading another object (to avoid concurrent modifications of the scene).
-        guard !addObjectButton.isHidden && !virtualObjectLoader.isLoading else { return }
+        guard addObjectButton.isEnabled && !virtualObjectLoader.isLoading else { return }
         
         statusViewController.cancelScheduledMessage(for: .contentPlacement)
         

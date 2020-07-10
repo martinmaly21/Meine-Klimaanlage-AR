@@ -100,6 +100,8 @@ class ARViewController: UIViewController {
     }
     
     private func setUpUI() {
+        title = ACUNit.displayName
+        
         tabBarController?.tabBar.isHidden = true
         
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: nil)
@@ -108,6 +110,8 @@ class ARViewController: UIViewController {
         let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: nil)
         saveButton.isEnabled = false
         navigationItem.rightBarButtonItem = saveButton
+        
+        addObjectButton.setTitle("Add \(ACUNit.displayName)", for: .normal)
     }
     
     // MARK: - Session management
@@ -146,7 +150,7 @@ class ARViewController: UIViewController {
                 self.focusSquare.state = .detecting(raycastResult: result, camera: camera)
             }
             if !coachingOverlay.isActive {
-                addObjectButton.isHidden = false
+                updateAddObjectButton(isEnabled: true)
             }
             statusViewController.cancelScheduledMessage(for: .focusSquare)
         } else {
@@ -154,7 +158,7 @@ class ARViewController: UIViewController {
                 self.focusSquare.state = .initializing
                 self.sceneView.pointOfView?.addChildNode(self.focusSquare)
             }
-            addObjectButton.isHidden = true
+            updateAddObjectButton(isEnabled: false)
         }
     }
     
@@ -173,5 +177,12 @@ class ARViewController: UIViewController {
         }
         alertController.addAction(restartAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    private func updateAddObjectButton(isEnabled: Bool) {
+        addObjectButton.isEnabled = isEnabled
+        UIView.animate(withDuration: 0.5) {
+            self.addObjectButton.alpha = isEnabled ? 1 : 0.25
+        }
     }
 }
