@@ -83,7 +83,7 @@ class CreateAnAccountViewController: UIViewController {
             withEmail: email,
             password: password
         ) { (result, error) in
-            guard error != nil, let user = result?.user else {
+            guard error == nil, let user = result?.user else {
                 ErrorManager.showFirebaseError(with: error?.localizedDescription ?? "", on: self)
                 return
             }
