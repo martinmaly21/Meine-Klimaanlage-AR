@@ -108,17 +108,6 @@ extension ARViewController {
         })
         displayObjectLoadingUI()
     }
-    
-//    func virtualObjectSelectionViewController(_: VirtualObjectSelectionViewController, didDeselectObject object: VirtualObject) {
-//        guard let objectIndex = virtualObjectLoader.loadedObjects.firstIndex(of: object) else {
-//            fatalError("Programmer error: Failed to lookup virtual object in scene.")
-//        }
-//        virtualObjectLoader.removeVirtualObject(at: objectIndex)
-//        virtualObjectInteraction.selectedObject = nil
-//        if let anchor = object.anchor {
-//            session.remove(anchor: anchor)
-//        }
-//    }
 
     // MARK: Object Loading UI
 
