@@ -67,7 +67,8 @@ extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
         super.prepare(for: segue, sender: sender)
         guard let beginQuoteViewController = segue.destination as? BeginQuoteViewController, let ACUnit = sender as? ACUnit else { return }
         
-        beginQuoteViewController.ACUnit = ACUnit
+        
+        beginQuoteViewController.quote = ACQuote(units: [ACUnit])
     }
 }
 

@@ -9,22 +9,22 @@
 import Foundation
 
 struct ACQuote {
-    let customerName: String
-    let employeeName: String
-    let appointmentDate: Date //maybe even a string
+    var customerName: String?
+    var employeeName: String?
+    var appointmentDate: String?
     
     var rohrleitungslangeLength: Double = 0
     var kabelkanalLength: Double =  0
     var kondensatleitungLength: Double = 0
     
     
-    var unitNames: [String]
+    var units: [ACUnit]
     
     var kondensatpumpe = false
     var dachdecker = false
     var dachdruchfuhrung = false
     
-    var price: Double
+    var price: Double?
     
-    var notes: String
+    var notes: String?
 }

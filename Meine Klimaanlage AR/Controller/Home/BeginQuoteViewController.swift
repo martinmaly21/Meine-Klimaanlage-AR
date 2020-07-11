@@ -15,7 +15,7 @@ class BeginQuoteViewController: UIViewController {
     @IBOutlet weak var employeeNameTextField: UITextField!
     @IBOutlet weak var appointmentDateTextField: UITextField!
     
-    public var ACUnit: ACUnit!
+    public var quote: ACQuote!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class BeginQuoteViewController: UIViewController {
     }
     
     private func setUpUI() {
-        unitNameLabel.text = ACUnit.displayName
+        unitNameLabel.text = quote.units.first?.displayName
 
         employeeNameTextField.text = Auth.auth().currentUser?.displayName
         
@@ -37,12 +37,17 @@ class BeginQuoteViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let arViewController = segue.destination as? ARViewController, let ACUnit = sender as? ACUnit {
-            arViewController.ACUNit = ACUnit
+        if let arViewController = segue.destination as? ARViewController {
+           
+            quote.customerName = customerNameTextField.text
+            quote.employeeName = employeeNameTextField.text
+            quote.appointmentDate = appointmentDateTextField.text
+            
+            arViewController.quote = quote
         }
     }
     
     @IBAction func didPressARMode(_ sender: Any) {
-        performSegue(withIdentifier: "ARsegue", sender: ACUnit)
+        performSegue(withIdentifier: "ARsegue", sender: nil)
     }
 }

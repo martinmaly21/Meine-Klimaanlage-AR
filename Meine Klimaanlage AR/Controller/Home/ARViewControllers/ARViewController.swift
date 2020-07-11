@@ -40,8 +40,6 @@ class ARViewController: UIViewController {
     
     //MARK: - ARKit Configuration Properties
     
-    public var ACUNit: ACUnit!
-    
     /// A type which manages gesture manipulation of virtual content in the scene.
      lazy var virtualObjectInteraction = VirtualObjectInteraction(sceneView: sceneView, viewController: self)
      
@@ -60,6 +58,13 @@ class ARViewController: UIViewController {
      var session: ARSession {
          return sceneView.session
      }
+    
+    //MARK: - Quote
+    public var quote: ACQuote!
+    
+    public var ACUnit: ACUnit! {
+        return quote.units.last!
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,9 +110,9 @@ class ARViewController: UIViewController {
     }
     
     private func setUpUI() {
-        title = ACUNit.displayName
+        title = ACUnit.displayName
         
-        addObjectButton.setTitle("Add \(ACUNit.displayName)", for: .normal)
+        addObjectButton.setTitle("Add \(ACUnit.displayName)", for: .normal)
     }
     
     // MARK: - Session management
