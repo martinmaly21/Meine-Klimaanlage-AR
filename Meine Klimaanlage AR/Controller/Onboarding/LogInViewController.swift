@@ -75,9 +75,6 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func userDidPressLogin(_ sender: Any) {
-            self.performSegue(withIdentifier: "logInSegue", sender: self)
-            return
-        
         guard let email = emailTextField.text, !email.isEmpty,
             let password = passwordTextField.text, !password.isEmpty else {
                 ErrorManager.showOnboardingError(with: .missingfields, on: self)
