@@ -108,15 +108,6 @@ class ARViewController: UIViewController {
     private func setUpUI() {
         title = ACUNit.displayName
         
-        tabBarController?.tabBar.isHidden = true
-        
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: nil)
-        navigationItem.leftBarButtonItem = cancelButton
-        
-        let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: nil)
-        saveButton.isEnabled = false
-        navigationItem.rightBarButtonItem = saveButton
-        
         addObjectButton.setTitle("Add \(ACUNit.displayName)", for: .normal)
     }
     
