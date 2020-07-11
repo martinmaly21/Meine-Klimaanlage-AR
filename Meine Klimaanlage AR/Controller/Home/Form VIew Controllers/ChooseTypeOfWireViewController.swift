@@ -10,12 +10,13 @@ import UIKit
 
 class ChooseTypeOfWireViewController: UIViewController {
     @IBOutlet var wireTypeButtons: [UIButton]!
-    @IBOutlet weak var wireLocationButtons: UIButton!
+    @IBOutlet var wireLocationButtons: [UIButton]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Choose Wire"
     }
-    
     
     @IBAction func didPressWireType(_ sender: UIButton) {
         for button in wireTypeButtons {
@@ -29,7 +30,7 @@ class ChooseTypeOfWireViewController: UIViewController {
     
     
     @IBAction func didPressWireLocation(_ sender: UIButton) {
-        for button in wireTypeButtons {
+        for button in wireLocationButtons {
             button.backgroundColor = .clear
             button.setTitleColor(UIColor(named: "PrimaryBlue"), for: .normal)
         }
