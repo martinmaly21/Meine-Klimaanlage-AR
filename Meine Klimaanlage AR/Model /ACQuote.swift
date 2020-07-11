@@ -7,14 +7,16 @@
 //
 
 import Foundation
+import UIKit
 
 struct ACQuote {
     var customerName: String?
     var employeeName: String?
     var appointmentDate: String?
     
-    var wires: [Wire]?
+    var wires: [Wire]  = []
     var units: [ACUnit]
+    var screenshots: [UIImage] = []
     
     var kondensatpumpe = false
     var dachdecker = false

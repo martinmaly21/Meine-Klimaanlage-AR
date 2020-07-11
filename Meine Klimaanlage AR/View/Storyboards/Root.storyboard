@@ -317,15 +317,11 @@
                                 <rect key="frame" x="19" y="792" width="376" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcW-CX-aDH">
-                                        <rect key="frame" x="0.0" y="0.0" width="188" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="376" height="30"/>
                                         <state key="normal" title="Add wire"/>
                                         <connections>
                                             <action selector="userPressedAddWire" destination="9ZS-nu-leL" eventType="touchUpInside" id="bkM-YJ-H6s"/>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgr-2O-6GL">
-                                        <rect key="frame" x="188" y="0.0" width="188" height="30"/>
-                                        <state key="normal" title="Finish Wire"/>
                                     </button>
                                 </subviews>
                             </stackView>

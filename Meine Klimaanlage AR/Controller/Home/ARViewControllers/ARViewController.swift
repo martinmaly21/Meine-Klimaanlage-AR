@@ -69,14 +69,22 @@ class ARViewController: UIViewController {
     var wirePoints: [SCNVector3] = []
     
     //MARK: - Quote
-    public var quote: ACQuote!
+    public var quote: ACQuote! 
     
     public var currentACUnit: ACUnit! {
         return quote.units.last!
     }
     
     public var currentWire: Wire? {
-        return quote.wires?.last
+        get {
+            return quote.wires.last!
+        }
+        set {
+            if let wire = newValue {
+                quote.wires.removeLast()
+                quote.wires.append(wire)
+            }
+        }
     }
     
     override func viewDidLoad() {

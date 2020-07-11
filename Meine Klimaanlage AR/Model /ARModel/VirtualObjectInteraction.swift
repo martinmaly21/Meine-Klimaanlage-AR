@@ -137,7 +137,12 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
             let firstPoint = mostRecentPoints.first,
             let lastPoint = mostRecentPoints.last {
             addLineBetween(start: firstPoint, end: lastPoint)
-            addDistanceText(distance: SCNVector3.distanceFrom(vector: firstPoint, toVector: lastPoint), at: lastPoint)
+            let distance = SCNVector3.distanceFrom(vector: firstPoint, toVector: lastPoint)
+            
+            viewController.currentWire?.wireLength += distance
+            
+            
+            addDistanceText(distance: distance, at: lastPoint)
         } else {
             viewController.instructionsLabel.text = "Tap where  you would like the wire to end."
         }

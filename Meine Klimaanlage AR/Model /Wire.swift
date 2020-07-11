@@ -22,5 +22,5 @@ enum WireLocation {
 struct Wire {
     var wireType: WireType
     var wireLocation: WireLocation
-    var wireLength: Double = 0
+    var wireLength: Float = 0
 }
