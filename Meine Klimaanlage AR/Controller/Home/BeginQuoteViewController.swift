@@ -48,6 +48,13 @@ class BeginQuoteViewController: UIViewController {
     }
     
     @IBAction func didPressARMode(_ sender: Any) {
+        guard let customerName = customerNameTextField.text, !customerName.isEmpty,
+            let employeeName = employeeNameTextField.text, !employeeName.isEmpty,
+            let appointmentDate = appointmentDateTextField.text, !appointmentDate.isEmpty else {
+                ErrorManager.showMissingFieldsForQuoteError(on: self)
+                return
+        }
+        
         performSegue(withIdentifier: "ARsegue", sender: nil)
     }
 }

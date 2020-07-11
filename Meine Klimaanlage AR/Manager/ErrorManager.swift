@@ -62,6 +62,20 @@ class ErrorManager {
         
         viewController.present(errorController, animated: true, completion: nil)
     }
+    
+    //App errors
+    static func showMissingFieldsForQuoteError(on viewController: UIViewController) {
+        let errorController = UIAlertController(
+            title: "Error",
+            message: "You must fill out all fields to proceed.",
+            preferredStyle: .alert
+        )
+        
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        errorController.addAction(okayAction)
+        
+        viewController.present(errorController, animated: true, completion: nil)
+    }
 }
 
 
