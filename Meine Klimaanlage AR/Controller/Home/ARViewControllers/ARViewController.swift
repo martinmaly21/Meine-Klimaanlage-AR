@@ -27,6 +27,10 @@ class ARViewController: UIViewController {
     
     @IBOutlet weak var instructionsLabel: UILabel!
     
+    @IBOutlet weak var wireButtonStackView: UIStackView!
+    @IBOutlet weak var addWireButton: UIButton!
+    
+    
     //MARK: - UI Elements
     internal let coachingOverlay = ARCoachingOverlayView()
     
@@ -199,11 +203,11 @@ class ARViewController: UIViewController {
     }
     
     internal func acUnitWasConfirmed() {
-        guard !acUnitHasBeenPlaced else {
-            sceneView.scene.rootNode.opacity = 1
-            return
-        }
+        sceneView.scene.rootNode.opacity = 1
         
-        addObjectButton.setTitle("Add Wire", for: .normal)
+        instructionsContainerView.isHidden = true
+        addObjectButton.isHidden = true
+        
+        wireButtonStackView.isHidden = false
     }
 }

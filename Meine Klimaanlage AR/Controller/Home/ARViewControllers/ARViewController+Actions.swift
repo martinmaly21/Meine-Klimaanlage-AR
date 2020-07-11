@@ -46,6 +46,13 @@ extension ARViewController: UIGestureRecognizerDelegate {
         }
     }
     
+    @IBAction func userPressedAddWire() {
+        let chooseWireVC = ChooseTypeOfWireViewController()
+        let navigationController = UINavigationController(rootViewController: chooseWireVC)
+        
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
     /// Determines if the tap gesture for presenting the `VirtualObjectSelectionViewController` should be used.
     func gestureRecognizerShouldBegin(_: UIGestureRecognizer) -> Bool {
         return virtualObjectLoader.loadedObjects.isEmpty

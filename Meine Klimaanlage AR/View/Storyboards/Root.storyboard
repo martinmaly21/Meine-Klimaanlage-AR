@@ -269,11 +269,11 @@
                                 </connections>
                             </containerView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qlK-p5-JHZ">
-                                <rect key="frame" x="103.5" y="789" width="207" height="0.0"/>
+                                <rect key="frame" x="103.5" y="779" width="207" height="0.0"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uo3-xc-bC0">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="0.0"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <color key="textColor" name="PrimaryTextDark"/>
                                         <nil key="highlightedColor"/>
@@ -313,17 +313,34 @@
                             <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="vSR-OJ-rr1">
                                 <rect key="frame" x="106" y="801.5" width="202" height="43"/>
                             </activityIndicatorView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aGi-IP-aqe">
+                                <rect key="frame" x="19" y="792" width="376" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcW-CX-aDH">
+                                        <rect key="frame" x="0.0" y="0.0" width="188" height="30"/>
+                                        <state key="normal" title="Add wire"/>
+                                        <connections>
+                                            <action selector="userPressedAddWire" destination="9ZS-nu-leL" eventType="touchUpInside" id="bkM-YJ-H6s"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgr-2O-6GL">
+                                        <rect key="frame" x="188" y="0.0" width="188" height="30"/>
+                                        <state key="normal" title="TODO"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="centerX" secondItem="cIO-5c-9eR" secondAttribute="centerX" id="1nQ-81-RE6"/>
+                            <constraint firstItem="aGi-IP-aqe" firstAttribute="leading" secondItem="PE6-sg-PX9" secondAttribute="leading" constant="19" id="3fe-E0-FTj"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" secondItem="tJ9-iS-Cfe" secondAttribute="trailing" id="5S3-Ek-t2q"/>
                             <constraint firstAttribute="bottom" secondItem="L9b-Iy-aJE" secondAttribute="bottom" id="7ST-RG-64l"/>
                             <constraint firstItem="cIO-5c-9eR" firstAttribute="centerX" secondItem="PE6-sg-PX9" secondAttribute="centerX" id="85D-r9-RN2"/>
                             <constraint firstItem="tty-HJ-oYV" firstAttribute="leading" secondItem="PE6-sg-PX9" secondAttribute="leading" id="Ct1-Td-xl5"/>
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="height" secondItem="cIO-5c-9eR" secondAttribute="height" constant="-5" id="D5Y-0p-Uwh"/>
                             <constraint firstItem="qlK-p5-JHZ" firstAttribute="width" secondItem="17c-KA-mgx" secondAttribute="width" multiplier="0.5" priority="999" id="DlE-uf-ZaP"/>
-                            <constraint firstItem="cIO-5c-9eR" firstAttribute="top" secondItem="qlK-p5-JHZ" secondAttribute="bottom" constant="10" id="F1X-pb-RI3"/>
+                            <constraint firstItem="cIO-5c-9eR" firstAttribute="top" secondItem="qlK-p5-JHZ" secondAttribute="bottom" constant="20" id="F1X-pb-RI3"/>
                             <constraint firstItem="tty-HJ-oYV" firstAttribute="top" secondItem="17c-KA-mgx" secondAttribute="top" id="F4q-8m-R1b"/>
                             <constraint firstItem="tJ9-iS-Cfe" firstAttribute="top" secondItem="PE6-sg-PX9" secondAttribute="top" id="FUG-xP-vWB"/>
                             <constraint firstItem="qlK-p5-JHZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PE6-sg-PX9" secondAttribute="leading" constant="20" id="FZb-mm-bD7"/>
@@ -338,6 +355,8 @@
                             <constraint firstItem="L9b-Iy-aJE" firstAttribute="leading" secondItem="17c-KA-mgx" secondAttribute="leading" id="j67-Ag-81R"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="bottom" secondItem="cIO-5c-9eR" secondAttribute="bottom" constant="15" id="kC8-cX-E4d"/>
                             <constraint firstItem="qlK-p5-JHZ" firstAttribute="centerX" secondItem="PE6-sg-PX9" secondAttribute="centerX" id="qaU-vV-qCM"/>
+                            <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" secondItem="aGi-IP-aqe" secondAttribute="trailing" constant="19" id="qaf-5t-NfJ"/>
+                            <constraint firstItem="PE6-sg-PX9" firstAttribute="bottom" secondItem="aGi-IP-aqe" secondAttribute="bottom" constant="40" id="veN-5u-HDM"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qlK-p5-JHZ" secondAttribute="trailing" constant="20" id="yoI-9w-F9T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PE6-sg-PX9"/>
@@ -345,12 +364,14 @@
                     <navigationItem key="navigationItem" id="xYl-nr-ZMc"/>
                     <connections>
                         <outlet property="addObjectButton" destination="cIO-5c-9eR" id="rSc-nR-Y98"/>
+                        <outlet property="addWireButton" destination="JcW-CX-aDH" id="h4X-bR-km3"/>
                         <outlet property="blurView" destination="L9b-Iy-aJE" id="Cvx-ML-4PM"/>
                         <outlet property="instructionsContainerView" destination="qlK-p5-JHZ" id="T56-4U-zKA"/>
                         <outlet property="instructionsLabel" destination="Uo3-xc-bC0" id="84Z-cA-Eo1"/>
                         <outlet property="sceneView" destination="tty-HJ-oYV" id="qf4-aX-7vn"/>
                         <outlet property="spinner" destination="vSR-OJ-rr1" id="Ytd-p7-npc"/>
                         <outlet property="upperControlsView" destination="tJ9-iS-Cfe" id="Ti7-ka-bJf"/>
+                        <outlet property="wireButtonStackView" destination="aGi-IP-aqe" id="4tn-OP-cEg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5h-fi-VUW" sceneMemberID="firstResponder"/>

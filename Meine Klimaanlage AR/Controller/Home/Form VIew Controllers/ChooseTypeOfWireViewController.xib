@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseTypeOfWireViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target">
             <connections>
+                <outlet property="view" destination="m67-by-BqW" id="Y85-OF-dcs"/>
                 <outlet property="wireLocationButtons" destination="C3S-lM-XI8" id="jvY-P2-KQH"/>
                 <outletCollection property="wireTypeButtons" destination="3FK-Ej-I2e" collectionClass="NSMutableArray" id="HOn-jb-Zu1"/>
                 <outletCollection property="wireTypeButtons" destination="3gm-U4-Ry2" collectionClass="NSMutableArray" id="3lh-M4-cT5"/>
