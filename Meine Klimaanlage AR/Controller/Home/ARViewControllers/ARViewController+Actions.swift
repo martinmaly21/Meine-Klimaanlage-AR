@@ -55,6 +55,10 @@ extension ARViewController: UIGestureRecognizerDelegate {
         self.present(navigationController, animated: true, completion: nil)
     }
     
+    @IBAction func didPressSaveUnit(_ sender: UIButton) {
+        
+    }
+    
 
     /// Determines if the tap gesture for presenting the `VirtualObjectSelectionViewController` should be used.
     func gestureRecognizerShouldBegin(_: UIGestureRecognizer) -> Bool {

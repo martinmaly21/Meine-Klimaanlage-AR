@@ -31,6 +31,7 @@ class ARViewController: UIViewController {
     
     @IBOutlet weak var addWireButton: UIButton!
     
+    @IBOutlet weak var saveUnitButton: UIButton!
     
     //MARK: - UI Elements
     internal let coachingOverlay = ARCoachingOverlayView()
@@ -69,7 +70,7 @@ class ARViewController: UIViewController {
     var wirePoints: [SCNVector3] = []
     
     //MARK: - Quote
-    public var quote: ACQuote! 
+    public var quote: ACQuote!
     
     public var currentACUnit: ACUnit! {
         return quote.units.last!

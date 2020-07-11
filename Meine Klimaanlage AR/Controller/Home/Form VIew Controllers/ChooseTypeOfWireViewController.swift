@@ -42,6 +42,7 @@ class ChooseTypeOfWireViewController: UIViewController {
             arViewController.userIsAddingWire = true
             
             arViewController.addWireButton.setTitle("Add another wire", for: .normal)
+            arViewController.saveUnitButton.isHidden = false
             
             dismiss(animated: true, completion: nil)
         }
