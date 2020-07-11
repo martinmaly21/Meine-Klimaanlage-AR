@@ -100,7 +100,6 @@ class ARViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = true
         
         session.pause()
     }
