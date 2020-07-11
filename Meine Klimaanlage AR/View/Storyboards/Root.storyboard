@@ -259,19 +259,10 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJ9-iS-Cfe">
-                                <rect key="frame" x="0.0" y="44" width="414" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="bdY-1c-oOm"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="NPm-Lw-FpL" kind="embed" id="cUQ-yn-Hc7"/>
-                                </connections>
-                            </containerView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qlK-p5-JHZ">
-                                <rect key="frame" x="103.5" y="779" width="207" height="0.0"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryK-ir-IwD">
+                                <rect key="frame" x="103.5" y="144" width="207" height="0.0"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uo3-xc-bC0">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlP-FK-yU8">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="0.0"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -281,10 +272,10 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="Uo3-xc-bC0" firstAttribute="leading" secondItem="qlK-p5-JHZ" secondAttribute="leading" id="3f3-cU-HwU"/>
-                                    <constraint firstAttribute="trailing" secondItem="Uo3-xc-bC0" secondAttribute="trailing" id="9IR-n1-klP"/>
-                                    <constraint firstItem="Uo3-xc-bC0" firstAttribute="top" secondItem="qlK-p5-JHZ" secondAttribute="top" id="VYq-ON-Uah"/>
-                                    <constraint firstAttribute="bottom" secondItem="Uo3-xc-bC0" secondAttribute="bottom" id="dc5-lg-UCj"/>
+                                    <constraint firstAttribute="bottom" secondItem="WlP-FK-yU8" secondAttribute="bottom" id="15Q-oP-lcH"/>
+                                    <constraint firstAttribute="trailing" secondItem="WlP-FK-yU8" secondAttribute="trailing" id="rSo-Ao-yYG"/>
+                                    <constraint firstItem="WlP-FK-yU8" firstAttribute="leading" secondItem="ryK-ir-IwD" secondAttribute="leading" id="szP-Ob-6Oo"/>
+                                    <constraint firstItem="WlP-FK-yU8" firstAttribute="top" secondItem="ryK-ir-IwD" secondAttribute="top" id="yAh-f0-nLW"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -292,6 +283,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJ9-iS-Cfe">
+                                <rect key="frame" x="0.0" y="44" width="414" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="bdY-1c-oOm"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="NPm-Lw-FpL" kind="embed" id="cUQ-yn-Hc7"/>
+                                </connections>
+                            </containerView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIO-5c-9eR" userLabel="Add Object Button">
                                 <rect key="frame" x="103.5" y="799" width="207" height="48"/>
                                 <color key="backgroundColor" name="PrimaryBlue"/>
@@ -325,7 +325,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgr-2O-6GL">
                                         <rect key="frame" x="188" y="0.0" width="188" height="30"/>
-                                        <state key="normal" title="TODO"/>
+                                        <state key="normal" title="Finish Wire"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -334,16 +334,14 @@
                         <constraints>
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="centerX" secondItem="cIO-5c-9eR" secondAttribute="centerX" id="1nQ-81-RE6"/>
                             <constraint firstItem="aGi-IP-aqe" firstAttribute="leading" secondItem="PE6-sg-PX9" secondAttribute="leading" constant="19" id="3fe-E0-FTj"/>
+                            <constraint firstItem="ryK-ir-IwD" firstAttribute="centerX" secondItem="PE6-sg-PX9" secondAttribute="centerX" id="4k5-S2-r9e"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" secondItem="tJ9-iS-Cfe" secondAttribute="trailing" id="5S3-Ek-t2q"/>
                             <constraint firstAttribute="bottom" secondItem="L9b-Iy-aJE" secondAttribute="bottom" id="7ST-RG-64l"/>
                             <constraint firstItem="cIO-5c-9eR" firstAttribute="centerX" secondItem="PE6-sg-PX9" secondAttribute="centerX" id="85D-r9-RN2"/>
                             <constraint firstItem="tty-HJ-oYV" firstAttribute="leading" secondItem="PE6-sg-PX9" secondAttribute="leading" id="Ct1-Td-xl5"/>
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="height" secondItem="cIO-5c-9eR" secondAttribute="height" constant="-5" id="D5Y-0p-Uwh"/>
-                            <constraint firstItem="qlK-p5-JHZ" firstAttribute="width" secondItem="17c-KA-mgx" secondAttribute="width" multiplier="0.5" priority="999" id="DlE-uf-ZaP"/>
-                            <constraint firstItem="cIO-5c-9eR" firstAttribute="top" secondItem="qlK-p5-JHZ" secondAttribute="bottom" constant="20" id="F1X-pb-RI3"/>
                             <constraint firstItem="tty-HJ-oYV" firstAttribute="top" secondItem="17c-KA-mgx" secondAttribute="top" id="F4q-8m-R1b"/>
                             <constraint firstItem="tJ9-iS-Cfe" firstAttribute="top" secondItem="PE6-sg-PX9" secondAttribute="top" id="FUG-xP-vWB"/>
-                            <constraint firstItem="qlK-p5-JHZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PE6-sg-PX9" secondAttribute="leading" constant="20" id="FZb-mm-bD7"/>
                             <constraint firstAttribute="trailing" secondItem="L9b-Iy-aJE" secondAttribute="trailing" id="KA9-HM-WFd"/>
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="centerY" secondItem="cIO-5c-9eR" secondAttribute="centerY" id="QvD-Xh-Hnl"/>
                             <constraint firstAttribute="bottom" secondItem="tty-HJ-oYV" secondAttribute="bottom" id="Svh-j4-rWa"/>
@@ -354,10 +352,10 @@
                             <constraint firstItem="cIO-5c-9eR" firstAttribute="width" secondItem="17c-KA-mgx" secondAttribute="width" multiplier="0.5" id="djL-CR-AyJ"/>
                             <constraint firstItem="L9b-Iy-aJE" firstAttribute="leading" secondItem="17c-KA-mgx" secondAttribute="leading" id="j67-Ag-81R"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="bottom" secondItem="cIO-5c-9eR" secondAttribute="bottom" constant="15" id="kC8-cX-E4d"/>
-                            <constraint firstItem="qlK-p5-JHZ" firstAttribute="centerX" secondItem="PE6-sg-PX9" secondAttribute="centerX" id="qaU-vV-qCM"/>
+                            <constraint firstItem="ryK-ir-IwD" firstAttribute="width" secondItem="17c-KA-mgx" secondAttribute="width" multiplier="0.5" id="kbd-Bz-sfc"/>
+                            <constraint firstItem="ryK-ir-IwD" firstAttribute="top" secondItem="tJ9-iS-Cfe" secondAttribute="bottom" constant="15" id="nqV-va-Vdt"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" secondItem="aGi-IP-aqe" secondAttribute="trailing" constant="19" id="qaf-5t-NfJ"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="bottom" secondItem="aGi-IP-aqe" secondAttribute="bottom" constant="40" id="veN-5u-HDM"/>
-                            <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qlK-p5-JHZ" secondAttribute="trailing" constant="20" id="yoI-9w-F9T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PE6-sg-PX9"/>
                     </view>
@@ -366,8 +364,8 @@
                         <outlet property="addObjectButton" destination="cIO-5c-9eR" id="rSc-nR-Y98"/>
                         <outlet property="addWireButton" destination="JcW-CX-aDH" id="h4X-bR-km3"/>
                         <outlet property="blurView" destination="L9b-Iy-aJE" id="Cvx-ML-4PM"/>
-                        <outlet property="instructionsContainerView" destination="qlK-p5-JHZ" id="T56-4U-zKA"/>
-                        <outlet property="instructionsLabel" destination="Uo3-xc-bC0" id="84Z-cA-Eo1"/>
+                        <outlet property="instructionsContainerView" destination="ryK-ir-IwD" id="Ebj-7a-SLf"/>
+                        <outlet property="instructionsLabel" destination="WlP-FK-yU8" id="94u-VN-X7f"/>
                         <outlet property="sceneView" destination="tty-HJ-oYV" id="qf4-aX-7vn"/>
                         <outlet property="spinner" destination="vSR-OJ-rr1" id="Ytd-p7-npc"/>
                         <outlet property="upperControlsView" destination="tJ9-iS-Cfe" id="Ti7-ka-bJf"/>
@@ -376,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5h-fi-VUW" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3901" y="-636"/>
+            <point key="canvasLocation" x="3900.0000000000005" y="-636.16071428571422"/>
         </scene>
         <!--Begin Quote-->
         <scene sceneID="QB3-Xt-3kC">

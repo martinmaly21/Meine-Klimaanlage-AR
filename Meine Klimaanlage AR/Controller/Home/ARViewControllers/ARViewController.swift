@@ -28,6 +28,7 @@ class ARViewController: UIViewController {
     @IBOutlet weak var instructionsLabel: UILabel!
     
     @IBOutlet weak var wireButtonStackView: UIStackView!
+    
     @IBOutlet weak var addWireButton: UIButton!
     
     
@@ -45,23 +46,27 @@ class ARViewController: UIViewController {
     //MARK: - ARKit Configuration Properties
     
     /// A type which manages gesture manipulation of virtual content in the scene.
-     lazy var virtualObjectInteraction = VirtualObjectInteraction(sceneView: sceneView, viewController: self)
-     
-     /// Coordinates the loading and unloading of reference nodes for virtual objects.
-     let virtualObjectLoader = VirtualObjectLoader()
-     
-     /// Marks if the AR experience is available for restart.
-     var isRestartAvailable = true
+    lazy var virtualObjectInteraction = VirtualObjectInteraction(sceneView: sceneView, viewController: self)
     
-     var acUnitHasBeenPlaced = false
-     
-     /// A serial queue used to coordinate adding or removing nodes from the scene.
-     let updateQueue = DispatchQueue(label: "com.martinmaly.Meinde-Klimaanlage-AR")
-     
-     /// Convenience accessor for the session owned by ARSCNView.
-     var session: ARSession {
-         return sceneView.session
-     }
+    /// Coordinates the loading and unloading of reference nodes for virtual objects.
+    let virtualObjectLoader = VirtualObjectLoader()
+    
+    /// Marks if the AR experience is available for restart.
+    var isRestartAvailable = true
+    
+    var acUnitHasBeenPlaced = false
+    
+    var userIsAddingWire = false
+    
+    /// A serial queue used to coordinate adding or removing nodes from the scene.
+    let updateQueue = DispatchQueue(label: "com.martinmaly.Meinde-Klimaanlage-AR")
+    
+    /// Convenience accessor for the session owned by ARSCNView.
+    var session: ARSession {
+        return sceneView.session
+    }
+    
+    var wirePoints: [SCNVector3] = []
     
     //MARK: - Quote
     public var quote: ACQuote!
@@ -81,6 +86,11 @@ class ARViewController: UIViewController {
         
         sceneView.delegate = self
         sceneView.session.delegate = self
+        
+        sceneView.autoenablesDefaultLighting = true
+        sceneView.automaticallyUpdatesLighting = true
+
+        sceneView.debugOptions = .showFeaturePoints
         
         //setup coaching overlay
         setUpCoachingOverlay()

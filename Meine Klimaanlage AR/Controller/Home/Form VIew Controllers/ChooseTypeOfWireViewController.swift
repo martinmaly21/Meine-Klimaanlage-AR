@@ -34,6 +34,10 @@ class ChooseTypeOfWireViewController: UIViewController {
         if let arViewController = presentingViewController as? ARViewController {
             let wire = Wire(wireType: wireType, wireLocation: wireLocation)
             arViewController.quote.wires?.append(wire)
+          
+            arViewController.instructionsLabel.text = "Tap anywhere to begin drawing your first wire"
+            arViewController.instructionsContainerView.isHidden = false
+            arViewController.userIsAddingWire = true
             
             dismiss(animated: true, completion: nil)
         }

@@ -112,20 +112,74 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         gesture.rotation = 0
     }
     
+    
+    
     /// Handles the interaction when the user taps the screen.
     @objc
     func didTap(_ gesture: UITapGestureRecognizer) {
-        let touchLocation = gesture.location(in: sceneView)
+        guard viewController.userIsAddingWire else { return }
+        // Get 2D position of touch event on screen
+        let touchPosition = gesture.location(in: sceneView)
         
-        if let tappedObject = sceneView.virtualObject(at: touchLocation) {
-            
-            // If an object exists at the tap location, select it.
-            selectedObject = tappedObject
-        } else if let object = selectedObject {
-            
-            // Otherwise, move the selected object to its new position at the tap location.
-            setDown(object, basedOn: touchLocation)
+        // Translate those 2D points to 3D points using hitTest (existing plane)
+        let hitTestResults = sceneView.hitTest(touchPosition, types: .existingPlane)
+        
+        guard let hitTest = hitTestResults.first else {
+            return
         }
+        
+        addMarker(hitTestResult: hitTest)
+        
+    
+        let mostRecentPoints = Array(viewController.wirePoints.suffix(2))
+        
+        if mostRecentPoints.count == 2,
+            let firstPoint = mostRecentPoints.first,
+            let lastPoint = mostRecentPoints.last {
+            addLineBetween(start: firstPoint, end: lastPoint)
+            addDistanceText(distance: SCNVector3.distanceFrom(vector: firstPoint, toVector: lastPoint), at: lastPoint)
+        } else {
+            viewController.instructionsLabel.text = "Tap where  you would like the wire to end."
+        }
+    }
+    
+   
+    func addMarker(hitTestResult: ARHitTestResult) {
+        let geometry = SCNSphere(radius: 0.01)
+        geometry.firstMaterial?.diffuse.contents = UIColor(named: "PrimaryBlue")
+        let markerNode = SCNNode(geometry: geometry)
+
+        let vectorPoint = SCNVector3(
+            hitTestResult.worldTransform.columns.3.x,
+            hitTestResult.worldTransform.columns.3.y,
+            hitTestResult.worldTransform.columns.3.z
+        )
+        
+        viewController.wirePoints.append(vectorPoint)
+        
+        
+        markerNode.position = vectorPoint
+
+        sceneView.scene.rootNode.addChildNode(markerNode)
+    }
+    
+    func addLineBetween(start: SCNVector3, end: SCNVector3) {
+        let lineGeometry = SCNGeometry.lineFrom(vector: start, toVector: end)
+        let lineNode = SCNNode(geometry: lineGeometry)
+
+        sceneView.scene.rootNode.addChildNode(lineNode)
+    }
+    
+    func addDistanceText(distance: Float, at point: SCNVector3) {
+        let textGeometry = SCNText(string: "\(distance) meters", extrusionDepth: 1)
+        textGeometry.font = UIFont.systemFont(ofSize: 10)
+        textGeometry.firstMaterial?.diffuse.contents = UIColor.black
+
+        let textNode = SCNNode(geometry: textGeometry)
+        textNode.position = SCNVector3Make(point.x, point.y + 0.5, point.z);
+        textNode.scale = SCNVector3Make(0.005, 0.005, 0.005)
+
+        sceneView.scene.rootNode.addChildNode(textNode)
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
