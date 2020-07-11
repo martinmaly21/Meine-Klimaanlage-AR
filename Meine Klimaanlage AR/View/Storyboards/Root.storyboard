@@ -174,6 +174,7 @@
                                     <constraint firstAttribute="width" constant="163" id="Sbh-x8-GKk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.98080056910000002" green="0.17011302710000001" blue="0.3256888986" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="12"/>
                                 <state key="normal" title="  Restart Session" image="arrow.clockwise" catalog="system">
                                     <color key="titleColor" red="0.98080056910000002" green="0.17011302710000001" blue="0.3256888986" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -310,9 +311,6 @@
                                     <action selector="userPressedAddUnit" destination="9ZS-nu-leL" eventType="touchUpInside" id="7Sd-gH-EqL"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="vSR-OJ-rr1">
-                                <rect key="frame" x="106" y="776.5" width="202" height="43"/>
-                            </activityIndicatorView>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="aGi-IP-aqe">
                                 <rect key="frame" x="19" y="774" width="376" height="48"/>
                                 <subviews>
@@ -334,7 +332,7 @@
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8h-go-obl">
                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="48"/>
                                         <color key="backgroundColor" name="PrimaryBlue"/>
-                                        <state key="normal" title="Save Unit">
+                                        <state key="normal" title="Continue">
                                             <color key="titleColor" name="PrimaryTextLight"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -351,12 +349,35 @@
                                     <constraint firstAttribute="height" constant="48" id="tcd-Bi-rPL"/>
                                 </constraints>
                             </stackView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbZ-Wk-4MQ">
+                                <rect key="frame" x="15" y="774" width="384" height="48"/>
+                                <color key="backgroundColor" name="PrimaryBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Fg7-il-rXB"/>
+                                </constraints>
+                                <color key="tintColor" name="PrimaryTextLight"/>
+                                <state key="normal" title="  Capture" image="camera" catalog="system">
+                                    <color key="titleColor" name="PrimaryTextLight"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didPressCapture:" destination="9ZS-nu-leL" eventType="touchUpInside" id="phI-ya-g8g"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="vSR-OJ-rr1">
+                                <rect key="frame" x="106" y="776.5" width="202" height="43"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="centerX" secondItem="cIO-5c-9eR" secondAttribute="centerX" id="1nQ-81-RE6"/>
                             <constraint firstItem="aGi-IP-aqe" firstAttribute="leading" secondItem="PE6-sg-PX9" secondAttribute="leading" constant="19" id="3fe-E0-FTj"/>
                             <constraint firstItem="ryK-ir-IwD" firstAttribute="centerX" secondItem="PE6-sg-PX9" secondAttribute="centerX" id="4k5-S2-r9e"/>
+                            <constraint firstItem="PE6-sg-PX9" firstAttribute="bottom" secondItem="CbZ-Wk-4MQ" secondAttribute="bottom" constant="40" id="583-OB-bZb"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" secondItem="tJ9-iS-Cfe" secondAttribute="trailing" id="5S3-Ek-t2q"/>
                             <constraint firstAttribute="bottom" secondItem="L9b-Iy-aJE" secondAttribute="bottom" id="7ST-RG-64l"/>
                             <constraint firstItem="cIO-5c-9eR" firstAttribute="centerX" secondItem="PE6-sg-PX9" secondAttribute="centerX" id="85D-r9-RN2"/>
@@ -364,14 +385,17 @@
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="height" secondItem="cIO-5c-9eR" secondAttribute="height" constant="-5" id="D5Y-0p-Uwh"/>
                             <constraint firstItem="tty-HJ-oYV" firstAttribute="top" secondItem="17c-KA-mgx" secondAttribute="top" id="F4q-8m-R1b"/>
                             <constraint firstItem="tJ9-iS-Cfe" firstAttribute="top" secondItem="PE6-sg-PX9" secondAttribute="top" id="FUG-xP-vWB"/>
+                            <constraint firstItem="CbZ-Wk-4MQ" firstAttribute="leading" secondItem="PE6-sg-PX9" secondAttribute="leading" constant="15" id="JyR-b2-omL"/>
                             <constraint firstAttribute="trailing" secondItem="L9b-Iy-aJE" secondAttribute="trailing" id="KA9-HM-WFd"/>
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="centerY" secondItem="cIO-5c-9eR" secondAttribute="centerY" id="QvD-Xh-Hnl"/>
                             <constraint firstAttribute="bottom" secondItem="tty-HJ-oYV" secondAttribute="bottom" id="Svh-j4-rWa"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" secondItem="tty-HJ-oYV" secondAttribute="trailing" id="Td6-fE-IVz"/>
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="width" secondItem="cIO-5c-9eR" secondAttribute="width" constant="-5" id="Uyr-1e-u7C"/>
+                            <constraint firstItem="CbZ-Wk-4MQ" firstAttribute="centerX" secondItem="PE6-sg-PX9" secondAttribute="centerX" id="XdL-nO-puV"/>
                             <constraint firstItem="tJ9-iS-Cfe" firstAttribute="leading" secondItem="PE6-sg-PX9" secondAttribute="leading" id="XsZ-lJ-Lwx"/>
                             <constraint firstItem="L9b-Iy-aJE" firstAttribute="top" secondItem="17c-KA-mgx" secondAttribute="top" id="cvD-tL-0cD"/>
                             <constraint firstItem="cIO-5c-9eR" firstAttribute="width" secondItem="17c-KA-mgx" secondAttribute="width" multiplier="0.5" id="djL-CR-AyJ"/>
+                            <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" secondItem="CbZ-Wk-4MQ" secondAttribute="trailing" constant="15" id="gbZ-87-ca2"/>
                             <constraint firstItem="L9b-Iy-aJE" firstAttribute="leading" secondItem="17c-KA-mgx" secondAttribute="leading" id="j67-Ag-81R"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="bottom" secondItem="cIO-5c-9eR" secondAttribute="bottom" constant="40" id="kC8-cX-E4d"/>
                             <constraint firstItem="ryK-ir-IwD" firstAttribute="width" secondItem="17c-KA-mgx" secondAttribute="width" multiplier="0.5" id="kbd-Bz-sfc"/>
@@ -386,6 +410,7 @@
                         <outlet property="addObjectButton" destination="cIO-5c-9eR" id="rSc-nR-Y98"/>
                         <outlet property="addWireButton" destination="JcW-CX-aDH" id="h4X-bR-km3"/>
                         <outlet property="blurView" destination="L9b-Iy-aJE" id="Cvx-ML-4PM"/>
+                        <outlet property="captureButton" destination="CbZ-Wk-4MQ" id="7r0-GR-jG8"/>
                         <outlet property="instructionsContainerView" destination="ryK-ir-IwD" id="Ebj-7a-SLf"/>
                         <outlet property="instructionsLabel" destination="WlP-FK-yU8" id="94u-VN-X7f"/>
                         <outlet property="saveUnitButton" destination="Z8h-go-obl" id="Yx3-Te-GRA"/>
@@ -541,6 +566,7 @@
     <resources>
         <image name="arkit" catalog="system" width="128" height="128"/>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="camera" catalog="system" width="128" height="96"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="restartPressed" width="128" height="128"/>

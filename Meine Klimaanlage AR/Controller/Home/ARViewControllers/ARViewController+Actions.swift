@@ -56,10 +56,25 @@ extension ARViewController: UIGestureRecognizerDelegate {
     }
     
     @IBAction func didPressSaveUnit(_ sender: UIButton) {
+        instructionsLabel.text = "Place the AC UNit and all wires in view and then click 'Capture' to take a screenshot."
+        wireButtonStackView.isHidden = true
+        captureButton.isHidden = false
         
     }
     
-
+    @IBAction func didPressCapture(_ sender: UIButton)  {
+        //take screenshot
+        let capture = sceneView.snapshot()
+        quote.screenshots.append(capture)
+        
+        instructionsLabel.textColor = UIColor.green
+        instructionsLabel.text = "Success!"
+        
+        //TODO: show buttons: finsih or add another unit 
+        
+    }
+    
+    
     /// Determines if the tap gesture for presenting the `VirtualObjectSelectionViewController` should be used.
     func gestureRecognizerShouldBegin(_: UIGestureRecognizer) -> Bool {
         return virtualObjectLoader.loadedObjects.isEmpty

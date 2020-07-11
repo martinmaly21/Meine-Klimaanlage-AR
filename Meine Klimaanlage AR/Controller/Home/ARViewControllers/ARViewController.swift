@@ -33,6 +33,9 @@ class ARViewController: UIViewController {
     
     @IBOutlet weak var saveUnitButton: UIButton!
     
+    @IBOutlet weak var captureButton: UIButton!
+    
+    
     //MARK: - UI Elements
     internal let coachingOverlay = ARCoachingOverlayView()
     
