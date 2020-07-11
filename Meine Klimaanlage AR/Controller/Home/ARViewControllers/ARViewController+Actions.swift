@@ -29,7 +29,7 @@ extension ARViewController: UIGestureRecognizerDelegate {
         
         statusViewController.cancelScheduledMessage(for: .contentPlacement)
         
-        if let filePath = Bundle.main.path(forResource: ACUnit.fileName, ofType: "scn", inDirectory: "ACUnits.scnassets") {
+        if let filePath = Bundle.main.path(forResource: currentACUnit.fileName, ofType: "scn", inDirectory: "ACUnits.scnassets") {
             // ReferenceNode path -> ReferenceNode URL
             let referenceURL = URL(fileURLWithPath: filePath)
             

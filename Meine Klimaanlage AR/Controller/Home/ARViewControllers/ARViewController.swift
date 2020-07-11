@@ -66,8 +66,12 @@ class ARViewController: UIViewController {
     //MARK: - Quote
     public var quote: ACQuote!
     
-    public var ACUnit: ACUnit! {
+    public var currentACUnit: ACUnit! {
         return quote.units.last!
+    }
+    
+    public var currentWire: Wire? {
+        return quote.wires?.last
     }
     
     override func viewDidLoad() {
@@ -114,9 +118,9 @@ class ARViewController: UIViewController {
     }
     
     private func setUpUI() {
-        title = ACUnit.displayName
+        title = currentACUnit.displayName
         
-        addObjectButton.setTitle("Add \(ACUnit.displayName)", for: .normal)
+        addObjectButton.setTitle("Add \(currentACUnit.displayName)", for: .normal)
     }
     
     // MARK: - Session management

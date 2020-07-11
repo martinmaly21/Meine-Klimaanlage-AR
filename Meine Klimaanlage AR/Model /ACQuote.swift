@@ -13,11 +13,7 @@ struct ACQuote {
     var employeeName: String?
     var appointmentDate: String?
     
-    var rohrleitungslangeLength: Double = 0
-    var kabelkanalLength: Double =  0
-    var kondensatleitungLength: Double = 0
-    
-    
+    var wires: [Wire]?
     var units: [ACUnit]
     
     var kondensatpumpe = false

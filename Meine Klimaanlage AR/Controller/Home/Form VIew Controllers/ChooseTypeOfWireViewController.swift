@@ -12,10 +12,31 @@ class ChooseTypeOfWireViewController: UIViewController {
     @IBOutlet var wireTypeButtons: [UIButton]!
     @IBOutlet var wireLocationButtons: [UIButton]!
     
+    private let wireTypes: [WireType] = [.kundenname, .verkäufer, .kondensatleitung]
+    private let wireLocations: [WireLocation] = [.insideWall, .outsideWall]
+    
+    private var wireType = WireType.kundenname
+    private var wireLocation = WireLocation.insideWall
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpNavBar()
+    }
+    
+    private func setUpNavBar(){
         self.title = "Choose Wire"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Choose", style: .done, target: self, action: #selector(didPressSave))
+    }
+    
+    @objc func didPressSave() {
+    
+        if let arViewController = presentingViewController as? ARViewController {
+            let wire = Wire(wireType: wireType, wireLocation: wireLocation)
+            arViewController.quote.wires?.append(wire)
+            
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func didPressWireType(_ sender: UIButton) {
@@ -26,8 +47,9 @@ class ChooseTypeOfWireViewController: UIViewController {
         
         sender.backgroundColor = UIColor(named: "PrimaryBlue")
         sender.setTitleColor(UIColor(named: "PrimaryTextLight"), for: .normal)
+        
+        wireType = wireTypes[sender.tag]
     }
-    
     
     @IBAction func didPressWireLocation(_ sender: UIButton) {
         for button in wireLocationButtons {
@@ -37,5 +59,7 @@ class ChooseTypeOfWireViewController: UIViewController {
         
         sender.backgroundColor = UIColor(named: "PrimaryBlue")
         sender.setTitleColor(UIColor(named: "PrimaryTextLight"), for: .normal)
+        
+        wireLocation = wireLocations[sender.tag]
     }
 }
