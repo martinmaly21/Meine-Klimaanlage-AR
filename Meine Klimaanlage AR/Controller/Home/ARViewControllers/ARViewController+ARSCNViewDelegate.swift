@@ -28,7 +28,7 @@ extension ARViewController: ARSCNViewDelegate, ARSessionDelegate {
             self.statusViewController.cancelScheduledMessage(for: .planeEstimation)
             self.statusViewController.showMessage("SURFACE DETECTED")
             if self.virtualObjectLoader.loadedObjects.isEmpty {
-                self.statusViewController.scheduleMessage("TAP + TO PLACE AN OBJECT", inSeconds: 7.5, messageType: .contentPlacement)
+                self.statusViewController.scheduleMessage("TAP BLUE BUTTON TO PLACE AN OBJECT", inSeconds: 7.5, messageType: .contentPlacement)
             }
         }
     }

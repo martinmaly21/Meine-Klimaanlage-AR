@@ -128,7 +128,7 @@ class ARViewController: UIViewController {
         }
         session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         
-        statusViewController.scheduleMessage("FIND A SURFACE TO PLACE AN OBJECT", inSeconds: 7.5, messageType: .planeEstimation)
+        statusViewController.scheduleMessage("FIND A SURFACE TO PLACE THE AC UNIT", inSeconds: 7.5, messageType: .planeEstimation)
     }
     
     // MARK: - Focus Square

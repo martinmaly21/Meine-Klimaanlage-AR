@@ -15,7 +15,7 @@ extension ARViewController {
      - Tag: PlaceVirtualObject */
     func placeVirtualObject(_ virtualObject: VirtualObject) {
         guard focusSquare.state != .initializing, let query = virtualObject.raycastQuery else {
-            self.statusViewController.showMessage("CANNOT PLACE OBJECT\nTry moving left or right.")
+            self.statusViewController.showMessage("CANNOT PLACE AC UNIT\nTry moving left or right.")
             return
         }
        
