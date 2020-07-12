@@ -83,6 +83,10 @@ extension ARViewController: UIGestureRecognizerDelegate {
     
     @IBAction func didPressFinish(_ sender: UIButton) {
         //present end view controller
+        let vc = QuoteSummaryViewController()
+        let navigationController = UINavigationController(rootViewController: vc)
+        
+        present(navigationController, animated: true, completion: nil)
     }
     
     /// Determines if the tap gesture for presenting the `VirtualObjectSelectionViewController` should be used.

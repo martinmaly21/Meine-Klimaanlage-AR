@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuoteSummaryViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="Mbk-P1-8SW" id="iGY-4g-Rdc"/>
                 <outlet property="view" destination="9RX-BG-Plf" id="xiv-EU-6RX"/>
             </connections>
         </placeholder>
@@ -21,6 +22,10 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="939"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <color key="separatorColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="8fq-0h-mY3"/>
+                        <outlet property="delegate" destination="-1" id="FwU-yq-cNN"/>
+                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

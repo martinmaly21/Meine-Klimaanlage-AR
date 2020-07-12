@@ -397,6 +397,7 @@
                     <constraint firstItem="ndy-ZH-vCc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="FwI-XV-pk4"/>
                     <constraint firstItem="ndy-ZH-vCc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="oca-eF-fuE"/>
                     <constraint firstAttribute="trailing" secondItem="ndy-ZH-vCc" secondAttribute="trailing" constant="15" id="p8l-Gj-MIL"/>
+                    <constraint firstAttribute="bottom" secondItem="ndy-ZH-vCc" secondAttribute="bottom" constant="37" id="rll-es-l7K"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
