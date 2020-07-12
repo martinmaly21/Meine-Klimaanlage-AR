@@ -13,16 +13,18 @@ struct ACQuote {
     var customerName: String?
     var employeeName: String?
     var appointmentDate: String?
+    var price: Double?
     
     var wires: [Wire]  = []
     var units: [ACUnit]
     var screenshots: [UIImage] = []
     
-    var kondensatpumpe = false
+    var wifi = false
+    var elZul = false
+    var uv = false
     var dachdecker = false
     var dachdruchfuhrung = false
-    
-    var price: Double?
+    var kondensatpumpe = false
     
     var notes: String?
 }

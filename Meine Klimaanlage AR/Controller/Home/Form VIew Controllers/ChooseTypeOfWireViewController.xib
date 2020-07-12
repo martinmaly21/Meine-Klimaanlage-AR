@@ -44,7 +44,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FK-Ej-I2e">
                                                     <rect key="frame" x="0.0" y="0.0" width="121.5" height="80"/>
                                                     <color key="backgroundColor" name="PrimaryBlue"/>
-                                                    <state key="normal" title="Kundenname">
+                                                    <state key="normal" title="Rohrleitungslänge">
                                                         <color key="titleColor" name="PrimaryTextLight"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -58,7 +58,7 @@
                                                 </button>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gm-U4-Ry2">
                                                     <rect key="frame" x="131.5" y="0.0" width="121" height="80"/>
-                                                    <state key="normal" title="Verkäufer">
+                                                    <state key="normal" title="Kabelkanal">
                                                         <color key="titleColor" name="PrimaryBlue"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>

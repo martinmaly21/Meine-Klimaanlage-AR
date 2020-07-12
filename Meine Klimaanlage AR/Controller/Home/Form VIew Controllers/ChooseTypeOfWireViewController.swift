@@ -12,10 +12,10 @@ class ChooseTypeOfWireViewController: UIViewController {
     @IBOutlet var wireTypeButtons: [UIButton]!
     @IBOutlet var wireLocationButtons: [UIButton]!
     
-    private let wireTypes: [WireType] = [.kundenname, .verkäufer, .kondensatleitung]
+    private let wireTypes: [WireType] = [.rohrleitungslänge, .kabelkanal, .kondensatleitung]
     private let wireLocations: [WireLocation] = [.insideWall, .outsideWall]
     
-    private var wireType = WireType.kundenname
+    private var wireType = WireType.rohrleitungslänge
     private var wireLocation = WireLocation.insideWall
     
     override func viewDidLoad() {

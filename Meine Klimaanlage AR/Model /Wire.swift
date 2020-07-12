@@ -9,8 +9,8 @@
 import Foundation
 
 enum WireType {
-    case kundenname
-    case verkäufer
+    case rohrleitungslänge
+    case kabelkanal
     case kondensatleitung
 }
 

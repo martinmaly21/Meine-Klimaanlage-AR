@@ -42,6 +42,8 @@ extension QuoteSummaryViewController: UITableViewDelegate, UITableViewDataSource
             return UITableViewCell()
         }
         
+        cell.setUpCell(with: quote)
+        
         return cell
     }
 }
