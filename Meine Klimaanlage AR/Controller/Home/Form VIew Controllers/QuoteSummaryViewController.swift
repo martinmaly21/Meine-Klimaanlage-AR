@@ -27,7 +27,7 @@ class QuoteSummaryViewController: UIViewController {
     }
 
     private func setUpTableView() {
-        tableView.register(UINib(nibName: "PreviewQuoteTableViewCell", bundle: nil), forCellReuseIdentifier: "PreviewQuoteTableViewCell")
+        tableView.register(UINib(nibName: "QuoteSummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "QuoteSummaryTableViewCell")
     }
 
 }
@@ -38,7 +38,7 @@ extension QuoteSummaryViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PreviewQuoteTableViewCell") as? PreviewQuoteTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PreviewQuoteTableViewCell") as? QuoteSummaryTableViewCell else {
             return UITableViewCell()
         }
         

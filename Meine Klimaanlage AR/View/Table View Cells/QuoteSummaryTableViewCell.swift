@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PreviewQuoteTableViewCell: UITableViewCell {
+class QuoteSummaryTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
