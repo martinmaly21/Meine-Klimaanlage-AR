@@ -100,6 +100,7 @@ class QuoteSummaryTableViewCell: UITableViewCell {
             
             wireLength.font = UIFont.systemFont(ofSize: 17)
             wireLength.textColor = UIColor(named: "PrimaryBlue")
+            wireLength.textAlignment = .right
             stackView.addArrangedSubview(wireLength)
             
             #warning("handle multiple units here (i.e. picking the same unit twice)")
@@ -129,6 +130,7 @@ class QuoteSummaryTableViewCell: UITableViewCell {
             
             quantityTextField.font = UIFont.systemFont(ofSize: 17)
             quantityTextField.textColor = UIColor(named: "PrimaryBlue")
+            quantityTextField.textAlignment = .right
             stackView.addArrangedSubview(quantityTextField)
         
             #warning("handle multiple units here (i.e. picking the same unit twice)")
