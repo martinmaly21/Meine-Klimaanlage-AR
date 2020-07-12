@@ -92,7 +92,8 @@ class QuoteSummaryTableViewCell: UITableViewCell {
             stackView.addArrangedSubview(wireLength)
             
             #warning("handle multiple units here (i.e. picking the same unit twice)")
-            wireLength.text = "\(wire.wireLength.rounded()) meters"
+            let length = String(format: "%.2", wire.wireLength)
+            wireLength.text = "\(length) meters"
             
             #warning("handle wire location (outside/inside)")
             
