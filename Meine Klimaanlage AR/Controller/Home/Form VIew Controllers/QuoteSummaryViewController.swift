@@ -38,7 +38,7 @@ extension QuoteSummaryViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PreviewQuoteTableViewCell") as? QuoteSummaryTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteSummaryTableViewCell") as? QuoteSummaryTableViewCell else {
             return UITableViewCell()
         }
         
