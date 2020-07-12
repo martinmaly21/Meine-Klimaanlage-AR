@@ -30,8 +30,10 @@ class ChooseTypeOfWireViewController: UIViewController {
     }
     
     @objc func didPressSave() {
-    
-        if let arViewController = presentingViewController as? ARViewController {
+        
+        if let arViewController = (
+            (presentingViewController as? UITabBarController)?.selectedViewController as? UINavigationController
+            )?.topViewController as? ARViewController {
             let wire = Wire(wireType: wireType, wireLocation: wireLocation)
             
             

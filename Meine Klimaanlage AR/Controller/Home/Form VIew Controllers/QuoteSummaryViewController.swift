@@ -11,9 +11,19 @@ import UIKit
 class QuoteSummaryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    public var quote: ACQuote!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
         setUpTableView()
+    }
+    
+    private func updateUI() {
+        self.title = "Quote Summary"
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationItem.setHidesBackButton(true, animated: true)
     }
 
     private func setUpTableView() {

@@ -145,6 +145,9 @@ class ARViewController: UIViewController {
         title = currentACUnit.displayName
         
         addObjectButton.setTitle("Add \(currentACUnit.displayName)", for: .normal)
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        tabBarController?.tabBar.isHidden = true
     }
     
     // MARK: - Session management
