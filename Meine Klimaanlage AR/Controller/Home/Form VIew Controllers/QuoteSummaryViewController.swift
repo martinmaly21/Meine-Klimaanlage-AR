@@ -43,7 +43,37 @@ extension QuoteSummaryViewController: UITableViewDelegate, UITableViewDataSource
         }
         
         cell.setUpCell(with: quote)
+        cell.quoteSummaryCellDelegate = self
         
         return cell
+    }
+}
+
+extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
+    func userPressedPhoto(with image: UIImage) {
+        imageTapped(with: image)
+    }
+    
+    @IBAction func imageTapped(with image: UIImage) {
+        let newImageView = UIImageView(image: image)
+        newImageView.frame = UIScreen.main.bounds
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        let swipe = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        newImageView.addGestureRecognizer(swipe)
+        
+        self.view.addSubview(newImageView)
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        sender.view?.removeFromSuperview()
     }
 }

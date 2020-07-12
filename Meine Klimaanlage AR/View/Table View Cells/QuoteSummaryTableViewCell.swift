@@ -8,9 +8,15 @@
 
 import UIKit
 
+
+protocol QuoteSummaryCellDelegate: class {
+    func userPressedPhoto(with image: UIImage)
+}
+
 class QuoteSummaryTableViewCell: UITableViewCell {
    
     public var quote: ACQuote!
+    public weak var quoteSummaryCellDelegate: QuoteSummaryCellDelegate?
     //MARK: - IBOutlets
     
     @IBOutlet weak var customerNameTextField: UITextField!
@@ -35,11 +41,21 @@ class QuoteSummaryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpUI()
+        
     }
-
-  
+    
+    
     private func setUpUI() {
         selectionStyle = .none
+        
+        screenshotsCollectionView.delegate = self
+        screenshotsCollectionView.dataSource = self
+        
+        screenshotsCollectionView.register(
+            UINib(
+                nibName: "ScreenshotCollectionViewCell", bundle: nil
+            ), forCellWithReuseIdentifier: "ScreenshotCollectionViewCell"
+        )
     }
     
     
@@ -52,11 +68,6 @@ class QuoteSummaryTableViewCell: UITableViewCell {
         
         addWires(with:quote.wires)
         addUnits(with: quote.units)
-        
-        
-        //other
-        
-        
     }
     
     private func addWires(with wires: [Wire]) {
@@ -134,13 +145,27 @@ class QuoteSummaryTableViewCell: UITableViewCell {
     }
 }
 
-extension QuoteSummaryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension QuoteSummaryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return quote.screenshots.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.height, height: collectionView.frame.height)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScreenshotCollectionViewCell", for: indexPath) as? ScreenshotCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.setUpCellI(with: quote.screenshots[indexPath.row])
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        quoteSummaryCellDelegate?.userPressedPhoto(with: quote.screenshots[indexPath.row])
     }
 }
 

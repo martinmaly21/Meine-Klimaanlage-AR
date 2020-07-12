@@ -47,7 +47,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="tMZ-Tj-gVk"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="-1" id="WhV-9i-Ae1"/>
                                                         </connections>
@@ -69,7 +69,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="dkf-Ic-cpf"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="-1" id="Od0-d7-4fO"/>
                                                         </connections>
@@ -154,12 +154,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ByB-U4-bgW">
-                                                <rect key="frame" x="0.0" y="35" width="290" height="100"/>
+                                                <rect key="frame" x="0.0" y="35" width="290" height="150"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="h1W-MH-nah"/>
+                                                    <constraint firstAttribute="height" constant="150" id="h1W-MH-nah"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FqE-Ze-YIX">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FqE-Ze-YIX">
                                                     <size key="itemSize" width="128" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -171,13 +171,13 @@
                                                 </connections>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKV-yb-z7e">
-                                                <rect key="frame" x="0.0" y="140" width="290" height="30"/>
+                                                <rect key="frame" x="0.0" y="190" width="290" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 <color key="textColor" name="PrimaryTextDark"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bCL-fu-IK2">
-                                                <rect key="frame" x="0.0" y="175" width="290" height="180"/>
+                                                <rect key="frame" x="0.0" y="225" width="290" height="180"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jVJ-Nq-mOS">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="30"/>
@@ -284,13 +284,13 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ivy-Ly-jik">
-                                                <rect key="frame" x="0.0" y="360" width="290" height="30"/>
+                                                <rect key="frame" x="0.0" y="410" width="290" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 <color key="textColor" name="PrimaryTextDark"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add any other notes..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dnc-5l-56X">
-                                                <rect key="frame" x="0.0" y="395" width="290" height="191"/>
+                                                <rect key="frame" x="0.0" y="445" width="290" height="141"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>

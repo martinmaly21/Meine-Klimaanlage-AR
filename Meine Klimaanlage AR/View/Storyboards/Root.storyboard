@@ -505,7 +505,7 @@
                                                                     <constraint firstAttribute="height" constant="40" id="Ld4-m1-H0v"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>

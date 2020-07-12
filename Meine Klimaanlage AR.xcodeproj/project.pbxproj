@@ -53,6 +53,8 @@
 		5BDD140424BB7F8E003A3A98 /* QuoteSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140224BB7F8E003A3A98 /* QuoteSummaryViewController.xib */; };
 		5BDD140724BB8414003A3A98 /* QuoteSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD140524BB8414003A3A98 /* QuoteSummaryTableViewCell.swift */; };
 		5BDD140824BB8414003A3A98 /* QuoteSummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140624BB8414003A3A98 /* QuoteSummaryTableViewCell.xib */; };
+		5BDD140F24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD140D24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift */; };
+		5BDD141024BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140E24BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib */; };
 		5BE8198724BA1E3000C538FF /* ACQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198624BA1E3000C538FF /* ACQuote.swift */; };
 		5BE8198B24BA21E000C538FF /* BeginQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */; };
 		5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */; };
@@ -113,6 +115,8 @@
 		5BDD140224BB7F8E003A3A98 /* QuoteSummaryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteSummaryViewController.xib; sourceTree = "<group>"; };
 		5BDD140524BB8414003A3A98 /* QuoteSummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		5BDD140624BB8414003A3A98 /* QuoteSummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteSummaryTableViewCell.xib; sourceTree = "<group>"; };
+		5BDD140D24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionViewCell.swift; sourceTree = "<group>"; };
+		5BDD140E24BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenshotCollectionViewCell.xib; sourceTree = "<group>"; };
 		5BE8198624BA1E3000C538FF /* ACQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACQuote.swift; sourceTree = "<group>"; };
 		5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginQuoteViewController.swift; sourceTree = "<group>"; };
 		5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTypeOfWireViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				5BFA9EA624B6A469008FBB99 /* ARViews */,
 				5B00FAC1249707C900215489 /* Table View Header */,
 				5B2C5B11248DBA01001B6898 /* Table View Cells */,
+				5BDD140C24BBAB72003A3A98 /* Collection View Cells */,
 				5B0A8A41248D8F0D00CA4141 /* Storyboards */,
 			);
 			path = View;
@@ -335,6 +340,15 @@
 			path = Launch;
 			sourceTree = "<group>";
 		};
+		5BDD140C24BBAB72003A3A98 /* Collection View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5BDD140D24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift */,
+				5BDD140E24BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib */,
+			);
+			path = "Collection View Cells";
+			sourceTree = "<group>";
+		};
 		5BE8198C24BA2BC500C538FF /* Form VIew Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +462,7 @@
 				5BE8199024BA2C0800C538FF /* ChooseTypeOfWireViewController.xib in Resources */,
 				5B2C5B10248DB249001B6898 /* Root.storyboard in Resources */,
 				5B69D0E2248D70200072002A /* Assets.xcassets in Resources */,
+				5BDD141024BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib in Resources */,
 				5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */,
 				5B2C5B20248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib in Resources */,
 				5B7E6DEC24B6C87D0049CCB9 /* ACUnits.scnassets in Resources */,
@@ -528,6 +543,7 @@
 				5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */,
 				5B00FAC0249703C600215489 /* ACBrand.swift in Sources */,
 				5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */,
+				5BDD140F24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift in Sources */,
 				5B7E6DD524B6AE850049CCB9 /* VirtualObjectLoader.swift in Sources */,
 				5BDD140324BB7F8E003A3A98 /* QuoteSummaryViewController.swift in Sources */,
 				5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */,
