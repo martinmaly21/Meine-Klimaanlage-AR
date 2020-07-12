@@ -368,6 +368,44 @@
                                     <action selector="didPressCapture:" destination="9ZS-nu-leL" eventType="touchUpInside" id="phI-ya-g8g"/>
                                 </connections>
                             </button>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cRR-Qn-J78">
+                                <rect key="frame" x="15" y="774" width="384" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3OI-61-oip">
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="48"/>
+                                        <color key="backgroundColor" name="PrimaryBlue"/>
+                                        <state key="normal" title="Add another unit">
+                                            <color key="titleColor" name="PrimaryTextLight"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressAddAnotherUnit:" destination="9ZS-nu-leL" eventType="touchUpInside" id="edN-AM-5Ct"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1t-3C-0ty">
+                                        <rect key="frame" x="197" y="0.0" width="187" height="48"/>
+                                        <color key="backgroundColor" name="PrimaryBlue"/>
+                                        <state key="normal" title="Finish">
+                                            <color key="titleColor" name="PrimaryTextLight"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressFinish:" destination="9ZS-nu-leL" eventType="touchUpInside" id="gq8-lU-oYb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="8EF-hm-kcf"/>
+                                </constraints>
+                            </stackView>
                             <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="vSR-OJ-rr1">
                                 <rect key="frame" x="106" y="776.5" width="202" height="43"/>
                             </activityIndicatorView>
@@ -388,25 +426,30 @@
                             <constraint firstItem="CbZ-Wk-4MQ" firstAttribute="leading" secondItem="PE6-sg-PX9" secondAttribute="leading" constant="15" id="JyR-b2-omL"/>
                             <constraint firstAttribute="trailing" secondItem="L9b-Iy-aJE" secondAttribute="trailing" id="KA9-HM-WFd"/>
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="centerY" secondItem="cIO-5c-9eR" secondAttribute="centerY" id="QvD-Xh-Hnl"/>
+                            <constraint firstItem="cRR-Qn-J78" firstAttribute="leading" secondItem="PE6-sg-PX9" secondAttribute="leading" constant="15" id="S23-fL-nYP"/>
                             <constraint firstAttribute="bottom" secondItem="tty-HJ-oYV" secondAttribute="bottom" id="Svh-j4-rWa"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" secondItem="tty-HJ-oYV" secondAttribute="trailing" id="Td6-fE-IVz"/>
                             <constraint firstItem="vSR-OJ-rr1" firstAttribute="width" secondItem="cIO-5c-9eR" secondAttribute="width" constant="-5" id="Uyr-1e-u7C"/>
+                            <constraint firstItem="PE6-sg-PX9" firstAttribute="bottom" secondItem="cRR-Qn-J78" secondAttribute="bottom" constant="40" id="WzD-jY-3ka"/>
                             <constraint firstItem="CbZ-Wk-4MQ" firstAttribute="centerX" secondItem="PE6-sg-PX9" secondAttribute="centerX" id="XdL-nO-puV"/>
                             <constraint firstItem="tJ9-iS-Cfe" firstAttribute="leading" secondItem="PE6-sg-PX9" secondAttribute="leading" id="XsZ-lJ-Lwx"/>
                             <constraint firstItem="L9b-Iy-aJE" firstAttribute="top" secondItem="17c-KA-mgx" secondAttribute="top" id="cvD-tL-0cD"/>
                             <constraint firstItem="cIO-5c-9eR" firstAttribute="width" secondItem="17c-KA-mgx" secondAttribute="width" multiplier="0.5" id="djL-CR-AyJ"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" secondItem="CbZ-Wk-4MQ" secondAttribute="trailing" constant="15" id="gbZ-87-ca2"/>
+                            <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" secondItem="cRR-Qn-J78" secondAttribute="trailing" constant="15" id="hog-2N-N5F"/>
                             <constraint firstItem="L9b-Iy-aJE" firstAttribute="leading" secondItem="17c-KA-mgx" secondAttribute="leading" id="j67-Ag-81R"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="bottom" secondItem="cIO-5c-9eR" secondAttribute="bottom" constant="40" id="kC8-cX-E4d"/>
                             <constraint firstItem="ryK-ir-IwD" firstAttribute="width" secondItem="17c-KA-mgx" secondAttribute="width" multiplier="0.5" id="kbd-Bz-sfc"/>
                             <constraint firstItem="ryK-ir-IwD" firstAttribute="top" secondItem="tJ9-iS-Cfe" secondAttribute="bottom" constant="15" id="nqV-va-Vdt"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="trailing" secondItem="aGi-IP-aqe" secondAttribute="trailing" constant="19" id="qaf-5t-NfJ"/>
+                            <constraint firstItem="cRR-Qn-J78" firstAttribute="centerX" secondItem="PE6-sg-PX9" secondAttribute="centerX" id="tDQ-6V-p2K"/>
                             <constraint firstItem="PE6-sg-PX9" firstAttribute="bottom" secondItem="aGi-IP-aqe" secondAttribute="bottom" constant="40" id="veN-5u-HDM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PE6-sg-PX9"/>
                     </view>
                     <navigationItem key="navigationItem" id="xYl-nr-ZMc"/>
                     <connections>
+                        <outlet property="addAnotherUnitOrFinishStackView" destination="cRR-Qn-J78" id="2JL-dY-BDe"/>
                         <outlet property="addObjectButton" destination="cIO-5c-9eR" id="rSc-nR-Y98"/>
                         <outlet property="addWireButton" destination="JcW-CX-aDH" id="h4X-bR-km3"/>
                         <outlet property="blurView" destination="L9b-Iy-aJE" id="Cvx-ML-4PM"/>

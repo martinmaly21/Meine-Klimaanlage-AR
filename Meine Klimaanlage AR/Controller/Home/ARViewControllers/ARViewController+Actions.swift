@@ -70,10 +70,20 @@ extension ARViewController: UIGestureRecognizerDelegate {
         instructionsLabel.textColor = UIColor.green
         instructionsLabel.text = "Success!"
         
-        //TODO: show buttons: finsih or add another unit 
+        //hide capture button
+        captureButton.isHidden = true
+        
+        //show buttons: finsih or add another unit
+        addAnotherUnitOrFinishStackView.isHidden = false
+    }
+    
+    @IBAction func didPressAddAnotherUnit(_ sender: UIButton) {
         
     }
     
+    @IBAction func didPressFinish(_ sender: UIButton) {
+        //present end view controller
+    }
     
     /// Determines if the tap gesture for presenting the `VirtualObjectSelectionViewController` should be used.
     func gestureRecognizerShouldBegin(_: UIGestureRecognizer) -> Bool {
