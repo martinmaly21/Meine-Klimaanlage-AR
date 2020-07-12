@@ -96,7 +96,7 @@ class QuoteSummaryTableViewCell: UITableViewCell {
             
             #warning("handle wire location (outside/inside)")
             
-            unitsStackView.addArrangedSubview(stackView)
+            wiresStackView.addArrangedSubview(stackView)
         }
     }
     
