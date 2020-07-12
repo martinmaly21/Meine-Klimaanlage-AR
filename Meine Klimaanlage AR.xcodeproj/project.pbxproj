@@ -49,6 +49,10 @@
 		5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */; };
 		5BAF8D0924B81A8D0022EC84 /* AppEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */; };
 		5BAF8D0E24B81B2E0022EC84 /* AppEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF8D0D24B81B2E0022EC84 /* AppEntryViewController.swift */; };
+		5BDD140324BB7F8E003A3A98 /* QuoteSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD140124BB7F8E003A3A98 /* QuoteSummaryViewController.swift */; };
+		5BDD140424BB7F8E003A3A98 /* QuoteSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140224BB7F8E003A3A98 /* QuoteSummaryViewController.xib */; };
+		5BDD140724BB8414003A3A98 /* PreviewQuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD140524BB8414003A3A98 /* PreviewQuoteTableViewCell.swift */; };
+		5BDD140824BB8414003A3A98 /* PreviewQuoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140624BB8414003A3A98 /* PreviewQuoteTableViewCell.xib */; };
 		5BE8198724BA1E3000C538FF /* ACQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198624BA1E3000C538FF /* ACQuote.swift */; };
 		5BE8198B24BA21E000C538FF /* BeginQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */; };
 		5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */; };
@@ -105,6 +109,10 @@
 		5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnAccountViewController.swift; sourceTree = "<group>"; };
 		5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppEntry.storyboard; sourceTree = "<group>"; };
 		5BAF8D0D24B81B2E0022EC84 /* AppEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntryViewController.swift; sourceTree = "<group>"; };
+		5BDD140124BB7F8E003A3A98 /* QuoteSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteSummaryViewController.swift; sourceTree = "<group>"; };
+		5BDD140224BB7F8E003A3A98 /* QuoteSummaryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteSummaryViewController.xib; sourceTree = "<group>"; };
+		5BDD140524BB8414003A3A98 /* PreviewQuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewQuoteTableViewCell.swift; sourceTree = "<group>"; };
+		5BDD140624BB8414003A3A98 /* PreviewQuoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewQuoteTableViewCell.xib; sourceTree = "<group>"; };
 		5BE8198624BA1E3000C538FF /* ACQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACQuote.swift; sourceTree = "<group>"; };
 		5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginQuoteViewController.swift; sourceTree = "<group>"; };
 		5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTypeOfWireViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +234,8 @@
 				5B2C5B1E248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib */,
 				5B2C5B21248DBD9A001B6898 /* ACUnitTableViewCell.swift */,
 				5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */,
+				5BDD140524BB8414003A3A98 /* PreviewQuoteTableViewCell.swift */,
+				5BDD140624BB8414003A3A98 /* PreviewQuoteTableViewCell.xib */,
 			);
 			path = "Table View Cells";
 			sourceTree = "<group>";
@@ -330,6 +340,8 @@
 			children = (
 				5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */,
 				5BE8198E24BA2C0800C538FF /* ChooseTypeOfWireViewController.xib */,
+				5BDD140124BB7F8E003A3A98 /* QuoteSummaryViewController.swift */,
+				5BDD140224BB7F8E003A3A98 /* QuoteSummaryViewController.xib */,
 			);
 			path = "Form VIew Controllers";
 			sourceTree = "<group>";
@@ -430,6 +442,8 @@
 				5B00FAC52497087600215489 /* ACUnitDetailPageTableHeaderView.xib in Resources */,
 				5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */,
 				5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */,
+				5BDD140824BB8414003A3A98 /* PreviewQuoteTableViewCell.xib in Resources */,
+				5BDD140424BB7F8E003A3A98 /* QuoteSummaryViewController.xib in Resources */,
 				5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */,
 				5BE8199024BA2C0800C538FF /* ChooseTypeOfWireViewController.xib in Resources */,
 				5B2C5B10248DB249001B6898 /* Root.storyboard in Resources */,
@@ -490,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BFA9EA524B6A174008FBB99 /* ARViewController+CoachingOverlay.swift in Sources */,
+				5BDD140724BB8414003A3A98 /* PreviewQuoteTableViewCell.swift in Sources */,
 				5BFA9EA824B6A583008FBB99 /* FocusSquare.swift in Sources */,
 				5BAF8D0E24B81B2E0022EC84 /* AppEntryViewController.swift in Sources */,
 				5B7E6DDF24B6BE3A0049CCB9 /* ARViewController+Actions.swift in Sources */,
@@ -514,6 +529,7 @@
 				5B00FAC0249703C600215489 /* ACBrand.swift in Sources */,
 				5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */,
 				5B7E6DD524B6AE850049CCB9 /* VirtualObjectLoader.swift in Sources */,
+				5BDD140324BB7F8E003A3A98 /* QuoteSummaryViewController.swift in Sources */,
 				5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */,
 				5B7E6DDD24B6BE220049CCB9 /* ARViewController+ARSCNViewDelegate.swift in Sources */,
 				5B7E6DE524B6BEEA0049CCB9 /* ThresholdPanGesture.swift in Sources */,
