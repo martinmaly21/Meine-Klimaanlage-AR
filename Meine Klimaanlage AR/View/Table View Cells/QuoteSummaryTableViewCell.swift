@@ -18,6 +18,13 @@ protocol QuoteSummaryCellDelegate: class {
     func estimatedPriceUpdated(with estimatedPrice: String)
     func noteUpdated(with note: String)
     
+    func wifiUpdated()
+    func elZulUpdated()
+    func uvUpdated()
+    func dachdeckerUpdated()
+    func dachdruchführungUpdated()
+    func kondensatpumpeUpdated()
+    
     func userPressedSubmitQuote()
 }
 
@@ -147,7 +154,31 @@ class QuoteSummaryTableViewCell: UITableViewCell {
        
     }
     
+    @IBAction func otherButtonClicked(_ sender: UIButton) {
+        let isOn = sender.title(for: .normal) == "Yes"
+        sender.setTitle(isOn ? "No" : "Yes", for: .normal)
+    
+        switch sender {
+        case wifiButton:
+            quoteSummaryCellDelegate?.wifiUpdated()
+        case elZulButton:
+            quoteSummaryCellDelegate?.elZulUpdated()
+        case uvButton:
+            quoteSummaryCellDelegate?.uvUpdated()
+        case dachDeckerButton:
+            quoteSummaryCellDelegate?.dachdeckerUpdated()
+        case dachdruchführungButton:
+            quoteSummaryCellDelegate?.dachdruchführungUpdated()
+        case kondensatpumpeButton:
+            quoteSummaryCellDelegate?.kondensatpumpeUpdated()
+        default:
+            assertionFailure()
+        }
+    }
+    
+    
     @IBAction func sendQuoteButton(_ sender: UIButton) {
+        quoteSummaryCellDelegate?.userPressedSubmitQuote()
     }
 }
 

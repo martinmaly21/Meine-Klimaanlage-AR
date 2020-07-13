@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class QuoteSummaryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -50,13 +51,19 @@ extension QuoteSummaryViewController: UITableViewDelegate, UITableViewDataSource
 }
 
 extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
+
     func userPressedSubmitQuote() {
         guard quote.isComplete() else {
             ErrorManager.showMissingFieldsForQuoteError(on: self)
             return
         }
         
-        //present next VC
+        guard MFMailComposeViewController.canSendMail() else {
+            ErrorManager.showCannotOpenEmail(on: self)
+            return
+        }
+        
+        let composeVC = MFMailComposeViewController()
     }
     
     func customerNameUpdated(with customerName: String) {
@@ -77,6 +84,30 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
     
     func noteUpdated(with note: String) {
         quote.notes = note
+    }
+    
+    func wifiUpdated() {
+        quote.wifi.toggle()
+    }
+    
+    func elZulUpdated() {
+        quote.elZul.toggle()
+    }
+    
+    func uvUpdated() {
+        quote.uv.toggle()
+    }
+    
+    func dachdeckerUpdated() {
+        quote.dachdecker.toggle()
+    }
+    
+    func dachdruchführungUpdated() {
+        quote.dachdruchfuhrung.toggle()
+    }
+    
+    func kondensatpumpeUpdated() {
+        quote.kondensatpumpe.toggle()
     }
     
     func userPressedPhoto(with image: UIImage) {

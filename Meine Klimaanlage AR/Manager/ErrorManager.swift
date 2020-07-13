@@ -76,6 +76,19 @@ class ErrorManager {
         
         viewController.present(errorController, animated: true, completion: nil)
     }
+    
+    static func showCannotOpenEmail(on viewController: UIViewController) {
+        let errorController = UIAlertController(
+            title: "Error",
+            message: "Cannot open mail app. Have you set up your email with the mail app yet?",
+            preferredStyle: .alert
+        )
+        
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        errorController.addAction(okayAction)
+        
+        viewController.present(errorController, animated: true, completion: nil)
+    }
 }
 
 

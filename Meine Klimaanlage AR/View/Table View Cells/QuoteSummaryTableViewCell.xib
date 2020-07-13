@@ -193,6 +193,9 @@
                                                                 <state key="normal" title="No">
                                                                     <color key="titleColor" name="PrimaryBlue"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="otherButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yx4-1q-Ftd"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -210,6 +213,9 @@
                                                                 <state key="normal" title="No">
                                                                     <color key="titleColor" name="PrimaryBlue"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="otherButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SxV-yT-FzF"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -227,6 +233,9 @@
                                                                 <state key="normal" title="No">
                                                                     <color key="titleColor" name="PrimaryBlue"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="otherButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UgO-Oz-AHf"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -244,6 +253,9 @@
                                                                 <state key="normal" title="No">
                                                                     <color key="titleColor" name="PrimaryBlue"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="otherButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="knf-gJ-y9u"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -261,6 +273,9 @@
                                                                 <state key="normal" title="No">
                                                                     <color key="titleColor" name="PrimaryBlue"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="otherButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="58X-Ig-EZS"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -278,6 +293,9 @@
                                                                 <state key="normal" title="No">
                                                                     <color key="titleColor" name="PrimaryBlue"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="otherButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TnL-Ei-Yw1"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
