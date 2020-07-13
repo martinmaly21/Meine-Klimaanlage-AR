@@ -79,7 +79,7 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
         
         var unitsInformation = ""
         for unit in quote.units {
-            unitsInformation += "\(unit.displayName)\n (Quantity: \(unit.quantity))"
+            unitsInformation += "\(unit.displayName) (Quantity: \(unit.quantity))\n"
         }
         
         let messageBody = """
