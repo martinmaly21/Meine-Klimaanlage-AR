@@ -72,12 +72,14 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
         
         var wireInformation = ""
         for wire in quote.wires {
-            wireInformation += "\(wire.wireLength) meters of \(String(describing: wire.wireDisplayName)).\n"
+            let wireLength = String(format: "%.2f", Double(wire.wireLength))
+            let wireName = String(describing: wire.wireDisplayName)
+            wireInformation += "\(wireLength) meters of \(wireName).\n"
         }
         
         var unitsInformation = ""
         for unit in quote.units {
-            unitsInformation += "\(unit.displayName)\n"
+            unitsInformation += "\(unit.displayName)\n (Quantity: \(unit.quantity))"
         }
         
         let messageBody = """

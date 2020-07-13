@@ -11,4 +11,6 @@ import Foundation
 struct ACUnit {
     let displayName: String
     let fileName: String
+    
+    let quantity: Int = 1
 }
