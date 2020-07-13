@@ -50,6 +50,15 @@ extension QuoteSummaryViewController: UITableViewDelegate, UITableViewDataSource
 }
 
 extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
+    func userPressedSubmitQuote() {
+        guard quote.isComplete() else {
+            ErrorManager.showMissingFieldsForQuoteError(on: self)
+            return
+        }
+        
+        //present next VC
+    }
+    
     func customerNameUpdated(with customerName: String) {
         quote.customerName = customerName
     }

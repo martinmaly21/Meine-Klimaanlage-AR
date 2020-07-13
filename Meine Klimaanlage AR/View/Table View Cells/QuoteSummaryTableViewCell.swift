@@ -16,8 +16,9 @@ protocol QuoteSummaryCellDelegate: class {
     func employeeNameUpdated(with employeeName: String)
     func appointmentDateUpdated(with appointmentDate: String)
     func estimatedPriceUpdated(with estimatedPrice: String)
-    
     func noteUpdated(with note: String)
+    
+    func userPressedSubmitQuote()
 }
 
 class QuoteSummaryTableViewCell: UITableViewCell {

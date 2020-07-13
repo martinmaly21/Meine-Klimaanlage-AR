@@ -27,4 +27,17 @@ struct ACQuote {
     var kondensatpumpe = false
     
     var notes: String?
+    
+    func isComplete() -> Bool {
+        guard let customerName = customerName, !customerName.isEmpty,
+            let employeeName = employeeName, !employeeName.isEmpty,
+            let appointmentDate = appointmentDate, !appointmentDate.isEmpty,
+            !wires.isEmpty,
+            !units.isEmpty,
+            !screenshots.isEmpty else {
+                return false
+        }
+        
+        return true
+    }
 }
