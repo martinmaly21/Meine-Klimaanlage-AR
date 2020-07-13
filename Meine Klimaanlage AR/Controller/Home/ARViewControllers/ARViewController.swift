@@ -81,7 +81,7 @@ class ARViewController: UIViewController {
         return quote.units.last!
     }
     
-    public var currentWire: Wire? {
+    public var currentWire: ACWire? {
         get {
             return quote.wires.last!
         }

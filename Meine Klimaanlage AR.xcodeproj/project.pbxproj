@@ -55,11 +55,12 @@
 		5BDD140824BB8414003A3A98 /* QuoteSummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140624BB8414003A3A98 /* QuoteSummaryTableViewCell.xib */; };
 		5BDD140F24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD140D24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift */; };
 		5BDD141024BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140E24BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib */; };
+		5BDD141224BC07B4003A3A98 /* ConstantsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD141124BC07B4003A3A98 /* ConstantsManager.swift */; };
 		5BE8198724BA1E3000C538FF /* ACQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198624BA1E3000C538FF /* ACQuote.swift */; };
 		5BE8198B24BA21E000C538FF /* BeginQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */; };
 		5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */; };
 		5BE8199024BA2C0800C538FF /* ChooseTypeOfWireViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE8198E24BA2C0800C538FF /* ChooseTypeOfWireViewController.xib */; };
-		5BE8199224BA3E4D00C538FF /* Wire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8199124BA3E4D00C538FF /* Wire.swift */; };
+		5BE8199224BA3E4D00C538FF /* ACWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8199124BA3E4D00C538FF /* ACWire.swift */; };
 		5BFA9EA524B6A174008FBB99 /* ARViewController+CoachingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA9EA424B6A174008FBB99 /* ARViewController+CoachingOverlay.swift */; };
 		5BFA9EA824B6A583008FBB99 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA9EA724B6A583008FBB99 /* FocusSquare.swift */; };
 		A5BDCB9A0FD47B151970EB4E /* Pods_Meine_Klimaanlage_AR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */; };
@@ -117,11 +118,12 @@
 		5BDD140624BB8414003A3A98 /* QuoteSummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteSummaryTableViewCell.xib; sourceTree = "<group>"; };
 		5BDD140D24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionViewCell.swift; sourceTree = "<group>"; };
 		5BDD140E24BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenshotCollectionViewCell.xib; sourceTree = "<group>"; };
+		5BDD141124BC07B4003A3A98 /* ConstantsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsManager.swift; sourceTree = "<group>"; };
 		5BE8198624BA1E3000C538FF /* ACQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACQuote.swift; sourceTree = "<group>"; };
 		5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginQuoteViewController.swift; sourceTree = "<group>"; };
 		5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTypeOfWireViewController.swift; sourceTree = "<group>"; };
 		5BE8198E24BA2C0800C538FF /* ChooseTypeOfWireViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseTypeOfWireViewController.xib; sourceTree = "<group>"; };
-		5BE8199124BA3E4D00C538FF /* Wire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wire.swift; sourceTree = "<group>"; };
+		5BE8199124BA3E4D00C538FF /* ACWire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACWire.swift; sourceTree = "<group>"; };
 		5BFA9EA424B6A174008FBB99 /* ARViewController+CoachingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewController+CoachingOverlay.swift"; sourceTree = "<group>"; };
 		5BFA9EA724B6A583008FBB99 /* FocusSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meine_Klimaanlage_AR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,7 +198,7 @@
 				5B00FAC624970B7B00215489 /* ACUnitEnvironmentType.swift */,
 				5B00FACE2497214700215489 /* ACUnit.swift */,
 				5BE8198624BA1E3000C538FF /* ACQuote.swift */,
-				5BE8199124BA3E4D00C538FF /* Wire.swift */,
+				5BE8199124BA3E4D00C538FF /* ACWire.swift */,
 			);
 			path = "Model ";
 			sourceTree = "<group>";
@@ -328,6 +330,7 @@
 				5B8667CF248D900D003A3B5D /* NetworkManager.swift */,
 				5B2C5B29248DC768001B6898 /* ErrorManager.swift */,
 				5B00FACC24970F2100215489 /* ExtensionManager.swift */,
+				5BDD141124BC07B4003A3A98 /* ConstantsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -539,7 +542,7 @@
 				5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */,
 				5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */,
 				5B7E6DE124B6BE570049CCB9 /* ARViewController+ObjectSelection.swift in Sources */,
-				5BE8199224BA3E4D00C538FF /* Wire.swift in Sources */,
+				5BE8199224BA3E4D00C538FF /* ACWire.swift in Sources */,
 				5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */,
 				5B00FAC0249703C600215489 /* ACBrand.swift in Sources */,
 				5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */,
@@ -551,6 +554,7 @@
 				5B7E6DE524B6BEEA0049CCB9 /* ThresholdPanGesture.swift in Sources */,
 				5B2C5B23248DBD9A001B6898 /* ACUnitTableViewCell.swift in Sources */,
 				5B00FACD24970F2100215489 /* ExtensionManager.swift in Sources */,
+				5BDD141224BC07B4003A3A98 /* ConstantsManager.swift in Sources */,
 				5B7E6DD324B6AE690049CCB9 /* VirtualObject.swift in Sources */,
 				5B7E6DD124B6AE250049CCB9 /* VirtualObjectARView.swift in Sources */,
 				5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */,

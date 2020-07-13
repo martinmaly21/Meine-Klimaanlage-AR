@@ -34,7 +34,7 @@ class ChooseTypeOfWireViewController: UIViewController {
         if let arViewController = (
             (presentingViewController as? UITabBarController)?.selectedViewController as? UINavigationController
             )?.topViewController as? ARViewController {
-            let wire = Wire(wireType: wireType, wireLocation: wireLocation)
+            let wire = ACWire(wireType: wireType, wireLocation: wireLocation)
             
             
             arViewController.quote.wires.append(wire)

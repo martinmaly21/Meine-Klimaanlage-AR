@@ -64,6 +64,46 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
         }
         
         let composeVC = MFMailComposeViewController()
+        
+        
+        composeVC.setToRecipients([Constants.quoteEmail])
+        #warning("need to change")
+        composeVC.setSubject("AC Quote")
+        
+        var wireInformation = ""
+        for wire in quote.wires {
+            wireInformation += "\(wire.wireLength) meters of \(String(describing: wire.wireDisplayName)).\n"
+        }
+        
+        var unitsInformation = ""
+        for unit in quote.units {
+            unitsInformation += "\(unit.displayName)\n"
+        }
+        
+        let messageBody = """
+        Customer's Name: \(quote.customerName ?? "")
+        Employee's Name: \(quote.employeeName ?? "")
+        Date of Appointment: \(quote.appointmentDate ?? "")
+        Estimated Price: \(quote.price ?? "") Euro
+        
+        Wire(s):
+        \(wireInformation)
+        AC Unit's:
+        \(unitsInformation)
+        Wifi: \(quote.wifi ? "Yes" : "No")
+        El. Zul.: \(quote.elZul ? "Yes" : "No")
+        UV: \(quote.uv ? "Yes" : "No")
+        Dachdecker: \(quote.dachdecker ? "Yes" : "No")
+        Dachdruchführung: \(quote.dachdruchfuhrung ? "Yes" : "No")
+        Kondensatpumpe: \(quote.kondensatpumpe ? "Yes" : "No")
+        
+        Notes:
+        \(quote.notes ?? "")
+        """
+        
+        composeVC.setMessageBody(messageBody, isHTML: false)
+        
+        self.present(composeVC, animated: true, completion: nil)
     }
     
     func customerNameUpdated(with customerName: String) {

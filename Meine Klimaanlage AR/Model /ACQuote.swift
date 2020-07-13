@@ -15,7 +15,7 @@ struct ACQuote {
     var appointmentDate: String?
     var price: String?
     
-    var wires: [Wire]  = []
+    var wires: [ACWire]  = []
     var units: [ACUnit]
     var screenshots: [UIImage] = []
     

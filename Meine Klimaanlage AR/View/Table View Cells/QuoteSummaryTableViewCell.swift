@@ -91,7 +91,7 @@ class QuoteSummaryTableViewCell: UITableViewCell {
         addUnits(with: quote.units)
     }
     
-    private func addWires(with wires: [Wire]) {
+    private func addWires(with wires: [ACWire]) {
          #warning("handle multiple wires here (i.e. picking the same wire twice)")
         for wire in wires {
             let stackView = UIStackView()
