@@ -58,6 +58,13 @@ class QuoteSummaryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         setUpUI()
         addGestureRecognizers()
+        
+        customerNameTextField.delegate = self
+        employeeNameTextField.delegate = self
+        appointmentDateTextField.delegate = self
+        estimatedPriceTextField.delegate = self
+        
+        noteTextField.delegate = self
     }
     
     
