@@ -57,7 +57,7 @@ class QuoteSummaryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpUI()
-        
+        addGestureRecognizers()
     }
     
     
@@ -72,6 +72,11 @@ class QuoteSummaryTableViewCell: UITableViewCell {
                 nibName: "ScreenshotCollectionViewCell", bundle: nil
             ), forCellWithReuseIdentifier: "ScreenshotCollectionViewCell"
         )
+    }
+    
+    private func addGestureRecognizers() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(userTappedToCloseKeyboard))
+        addGestureRecognizer(tapGesture)
     }
     
     
@@ -149,9 +154,10 @@ class QuoteSummaryTableViewCell: UITableViewCell {
             
             unitsStackView.addArrangedSubview(stackView)
         }
-        
-        
-       
+    }
+    
+    @objc func userTappedToCloseKeyboard() {
+        endEditing(true)
     }
     
     @IBAction func otherButtonClicked(_ sender: UIButton) {
