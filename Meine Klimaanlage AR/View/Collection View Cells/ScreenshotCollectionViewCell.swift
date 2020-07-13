@@ -11,7 +11,7 @@ import UIKit
 class ScreenshotCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var screenshotImageView: UIImageView!
     
-    public func setUpCellI(with image: UIImage) {
+    public func setUpCell(with image: UIImage) {
         screenshotImageView.image = image
     }
 

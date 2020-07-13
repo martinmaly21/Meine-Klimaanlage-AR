@@ -11,11 +11,19 @@ import UIKit
 
 protocol QuoteSummaryCellDelegate: class {
     func userPressedPhoto(with image: UIImage)
+    
+    func customerNameUpdated(with customerName: String)
+    func employeeNameUpdated(with employeeName: String)
+    func appointmentDateUpdated(with appointmentDate: String)
+    func estimatedPriceUpdated(with estimatedPrice: String)
+    
+    func noteUpdated(with note: String)
 }
 
 class QuoteSummaryTableViewCell: UITableViewCell {
    
-    public var quote: ACQuote!
+    public var screenshots: [UIImage]!
+    
     public weak var quoteSummaryCellDelegate: QuoteSummaryCellDelegate?
     //MARK: - IBOutlets
     
@@ -60,7 +68,7 @@ class QuoteSummaryTableViewCell: UITableViewCell {
     
     
     public func setUpCell(with quote: ACQuote) {
-        self.quote = quote
+        self.screenshots = quote.screenshots
         
         customerNameTextField.text = quote.customerName
         employeeNameTextField.text = quote.employeeName
@@ -95,9 +103,7 @@ class QuoteSummaryTableViewCell: UITableViewCell {
             
             stackView.addArrangedSubview(wireLabel)
             
-            let wireLength = UITextField()
-            wireLength.delegate = self
-            
+            let wireLength = UILabel()
             wireLength.font = UIFont.systemFont(ofSize: 17)
             wireLength.textColor = UIColor(named: "PrimaryBlue")
             wireLength.textAlignment = .right
@@ -108,7 +114,6 @@ class QuoteSummaryTableViewCell: UITableViewCell {
             wireLength.text = "\(length) meters"
             
             #warning("handle wire location (outside/inside)")
-            
             wiresStackView.addArrangedSubview(stackView)
         }
     }
@@ -125,9 +130,7 @@ class QuoteSummaryTableViewCell: UITableViewCell {
             unitLabel.text = unit.displayName
             stackView.addArrangedSubview(unitLabel)
             
-            let quantityTextField = UITextField()
-            quantityTextField.delegate = self
-            
+            let quantityTextField = UILabel()
             quantityTextField.font = UIFont.systemFont(ofSize: 17)
             quantityTextField.textColor = UIColor(named: "PrimaryBlue")
             quantityTextField.textAlignment = .right
@@ -149,7 +152,7 @@ class QuoteSummaryTableViewCell: UITableViewCell {
 
 extension QuoteSummaryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return quote.screenshots.count
+        return screenshots.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -161,18 +164,32 @@ extension QuoteSummaryTableViewCell: UICollectionViewDelegate, UICollectionViewD
             return UICollectionViewCell()
         }
         
-        cell.setUpCellI(with: quote.screenshots[indexPath.row])
+        cell.setUpCell(with: screenshots[indexPath.row])
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        quoteSummaryCellDelegate?.userPressedPhoto(with: quote.screenshots[indexPath.row])
+        quoteSummaryCellDelegate?.userPressedPhoto(with: screenshots[indexPath.row])
     }
 }
 
 extension QuoteSummaryTableViewCell: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        //check textfield
+        guard let textFieldText = textField.text else { return }
+        switch textField {
+        case customerNameTextField:
+            quoteSummaryCellDelegate?.customerNameUpdated(with: textFieldText)
+        case employeeNameTextField:
+            quoteSummaryCellDelegate?.employeeNameUpdated(with: textFieldText)
+        case appointmentDateTextField:
+            quoteSummaryCellDelegate?.appointmentDateUpdated(with: textFieldText)
+        case estimatedPriceTextField:
+            quoteSummaryCellDelegate?.estimatedPriceUpdated(with: textFieldText)
+        case noteTextField:
+            quoteSummaryCellDelegate?.noteUpdated(with: textFieldText)
+        default:
+            assertionFailure()
+        }
     }
 }

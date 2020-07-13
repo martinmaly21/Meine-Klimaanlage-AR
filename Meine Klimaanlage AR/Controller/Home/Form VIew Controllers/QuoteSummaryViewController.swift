@@ -50,6 +50,26 @@ extension QuoteSummaryViewController: UITableViewDelegate, UITableViewDataSource
 }
 
 extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
+    func customerNameUpdated(with customerName: String) {
+        quote.customerName = customerName
+    }
+    
+    func employeeNameUpdated(with employeeName: String) {
+        quote.employeeName = employeeName
+    }
+    
+    func appointmentDateUpdated(with appointmentDate: String) {
+        quote.appointmentDate = appointmentDate
+    }
+    
+    func estimatedPriceUpdated(with estimatedPrice: String) {
+        quote.price = estimatedPrice
+    }
+    
+    func noteUpdated(with note: String) {
+        quote.notes = note
+    }
+    
     func userPressedPhoto(with image: UIImage) {
         imageTapped(with: image)
     }

@@ -13,7 +13,7 @@ struct ACQuote {
     var customerName: String?
     var employeeName: String?
     var appointmentDate: String?
-    var price: Double?
+    var price: String?
     
     var wires: [Wire]  = []
     var units: [ACUnit]
