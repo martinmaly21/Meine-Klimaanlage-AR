@@ -165,18 +165,18 @@
             <objects>
                 <viewController id="NPm-Lw-FpL" customClass="StatusViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vva-B7-aCh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ppo-Yx-G8P" userLabel="Restart Experience Button Icon">
-                                <rect key="frame" x="244" y="25.5" width="163" height="34"/>
+                                <rect key="frame" x="236" y="59" width="163" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="163" id="Sbh-x8-GKk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.98080056910000002" green="0.17011302710000001" blue="0.3256888986" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="12"/>
-                                <state key="normal" title="  Restart Session" image="arrow.clockwise" catalog="system">
+                                <state key="normal" title=" End Session">
                                     <color key="titleColor" red="0.98080056910000002" green="0.17011302710000001" blue="0.3256888986" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <state key="selected" image="restartPressed"/>
@@ -187,14 +187,24 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcc-C4-Nts">
-                                <rect key="frame" x="20" y="22.5" width="300" height="40"/>
+                                <rect key="frame" x="57" y="115" width="300" height="10"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5x0-FH-T64">
-                                        <rect key="frame" x="0.0" y="5" width="300" height="30"/>
+                                    <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWL-gF-jHS">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="10"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jZv-O3-WeP">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="10"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="regular"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </visualEffectView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5x0-FH-T64">
+                                        <rect key="frame" x="0.0" y="5" width="300" height="0.0"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="nZi-pS-FKa"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="PrimaryTextDark"/>
                                         <nil key="highlightedColor"/>
@@ -205,28 +215,33 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="5x0-FH-T64" firstAttribute="top" secondItem="fcc-C4-Nts" secondAttribute="top" constant="5" id="LIv-sP-Rxn"/>
                                     <constraint firstItem="5x0-FH-T64" firstAttribute="leading" secondItem="fcc-C4-Nts" secondAttribute="leading" id="RRd-RV-KTo"/>
                                     <constraint firstItem="5x0-FH-T64" firstAttribute="centerY" secondItem="fcc-C4-Nts" secondAttribute="centerY" id="UMn-Q0-bDa"/>
+                                    <constraint firstItem="SWL-gF-jHS" firstAttribute="leading" secondItem="fcc-C4-Nts" secondAttribute="leading" id="Uci-Ig-u8s"/>
                                     <constraint firstAttribute="trailing" secondItem="5x0-FH-T64" secondAttribute="trailing" id="Ure-xh-Q42"/>
-                                    <constraint firstAttribute="height" constant="40" id="vrh-fw-fuk"/>
+                                    <constraint firstAttribute="bottom" secondItem="SWL-gF-jHS" secondAttribute="bottom" id="fhF-eH-8qn"/>
+                                    <constraint firstAttribute="trailing" secondItem="SWL-gF-jHS" secondAttribute="trailing" id="l8y-0E-liC"/>
+                                    <constraint firstItem="SWL-gF-jHS" firstAttribute="top" secondItem="fcc-C4-Nts" secondAttribute="top" id="s9v-im-dQQ"/>
                                     <constraint firstAttribute="width" constant="300" id="xOw-en-8hk"/>
                                     <constraint firstItem="5x0-FH-T64" firstAttribute="centerX" secondItem="fcc-C4-Nts" secondAttribute="centerX" id="xkb-cS-2Yg"/>
+                                    <constraint firstAttribute="bottom" secondItem="5x0-FH-T64" secondAttribute="bottom" constant="5" id="yEr-Qo-xex"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
+                                        <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ppo-Yx-G8P" firstAttribute="centerY" secondItem="vva-B7-aCh" secondAttribute="centerY" id="0av-Pl-jEl"/>
-                            <constraint firstItem="fcc-C4-Nts" firstAttribute="leading" secondItem="vva-B7-aCh" secondAttribute="leading" constant="20" id="S5r-Ww-GEi"/>
-                            <constraint firstAttribute="trailing" secondItem="Ppo-Yx-G8P" secondAttribute="trailing" constant="7" id="W94-gd-HfF"/>
-                            <constraint firstItem="fcc-C4-Nts" firstAttribute="centerY" secondItem="vva-B7-aCh" secondAttribute="centerY" id="dWO-Rr-gnK"/>
+                            <constraint firstItem="fcc-C4-Nts" firstAttribute="centerX" secondItem="7Sm-sk-nkp" secondAttribute="centerX" id="8zJ-cH-hpj"/>
+                            <constraint firstItem="Ppo-Yx-G8P" firstAttribute="top" secondItem="7Sm-sk-nkp" secondAttribute="top" constant="15" id="Pax-u0-yPY"/>
+                            <constraint firstItem="7Sm-sk-nkp" firstAttribute="trailing" secondItem="Ppo-Yx-G8P" secondAttribute="trailing" constant="15" id="Rhc-7m-7yQ"/>
+                            <constraint firstItem="7Sm-sk-nkp" firstAttribute="bottom" secondItem="fcc-C4-Nts" secondAttribute="bottom" constant="5" id="znw-VQ-NdH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Sm-sk-nkp"/>
                     </view>
@@ -261,7 +276,7 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryK-ir-IwD">
-                                <rect key="frame" x="103.5" y="188" width="207" height="0.0"/>
+                                <rect key="frame" x="103.5" y="233" width="207" height="0.0"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlP-FK-yU8">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="0.0"/>
@@ -280,14 +295,14 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="15"/>
+                                        <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJ9-iS-Cfe">
-                                <rect key="frame" x="0.0" y="88" width="414" height="85"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="bdY-1c-oOm"/>
+                                    <constraint firstAttribute="height" constant="130" id="bdY-1c-oOm"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="NPm-Lw-FpL" kind="embed" id="cUQ-yn-Hc7"/>
@@ -608,7 +623,6 @@
     </scenes>
     <resources>
         <image name="arkit" catalog="system" width="128" height="128"/>
-        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="camera" catalog="system" width="128" height="96"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="person" catalog="system" width="128" height="117"/>
