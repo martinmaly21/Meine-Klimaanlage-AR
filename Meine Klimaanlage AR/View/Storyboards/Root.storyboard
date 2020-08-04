@@ -189,7 +189,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcc-C4-Nts">
                                 <rect key="frame" x="57" y="115" width="300" height="10"/>
                                 <subviews>
-                                    <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWL-gF-jHS">
+                                    <visualEffectView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWL-gF-jHS">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="10"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jZv-O3-WeP">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="10"/>
