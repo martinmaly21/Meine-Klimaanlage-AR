@@ -114,8 +114,8 @@ class ARViewController: UIViewController {
         
         
         // Hook up status view controller callback(s).
-        statusViewController.restartExperienceHandler = { [unowned self] in
-            self.restartExperience()
+        statusViewController.endExperienceHandler = { [unowned self] in
+            self.endSession()
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(userPressedAddUnit))
@@ -151,6 +151,12 @@ class ARViewController: UIViewController {
     }
     
     // MARK: - Session management
+    
+    func endSession() {
+        tabBarController?.tabBar.isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.popToRootViewController(animated: true)
+    }
     
     /// Creates a new AR configuration to run on the `session`.
     func resetTracking() {
