@@ -75,7 +75,6 @@ class LogInOrCreateAccountViewController: UIViewController {
     }
     
     /// Handle the display link timer.
-    ///
     /// - Parameter displayLink: The display link.
     @objc func handleDisplayLink(_ displayLink: CADisplayLink) {
         let elapsed = CACurrentMediaTime() - startTime
@@ -86,19 +85,14 @@ class LogInOrCreateAccountViewController: UIViewController {
     }
     
     /// Create the wave at a given elapsed time.
-    ///
-    /// You should customize this as you see fit.
-    ///
     /// - Parameter elapsed: How many seconds have elapsed.
     /// - Returns: The `UIBezierPath` for a particular point of time.
     private func wave(at elapsed: Double, for shapeLayerWithIndex: Int) -> UIBezierPath {
-        
         let elapsedTimeOffset: CGFloat = CGFloat(shapeLayerWithIndex) * 0.1
         let elapsed = CGFloat(elapsed) - elapsedTimeOffset
         
         let centerYOffset = CGFloat(shapeLayerWithIndex) * 8
         let centerY = view.bounds.midY - (centerYOffset)
-        
         
         let amplitude = 50 - abs(elapsed.remainder(dividingBy: 3)) * 35
         
@@ -117,10 +111,4 @@ class LogInOrCreateAccountViewController: UIViewController {
         
         return path
     }
-    
-    
-    
-    
-    
-    
 }
