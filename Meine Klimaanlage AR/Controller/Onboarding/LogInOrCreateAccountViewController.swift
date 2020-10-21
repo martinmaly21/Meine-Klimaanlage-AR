@@ -93,7 +93,7 @@ class LogInOrCreateAccountViewController: UIViewController {
         let elapsed = CGFloat(elapsed) - elapsedTimeOffset
         
         let centerYOffset = CGFloat(shapeLayerWithIndex) * 8
-        let centerY = (appTitleLabel.frame.maxY) + (appTitleLabel.frame.maxY) / 4 - (centerYOffset)
+        let centerY = (appTitleLabel.frame.maxY) + (appTitleLabel.frame.maxY) / 3.5 - (centerYOffset)
         
         
         let amplitude = 20 - abs(elapsed.remainder(dividingBy: 3)) * 50
