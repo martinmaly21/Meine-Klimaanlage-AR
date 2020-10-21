@@ -23,6 +23,8 @@ class ForgotPasswordViewController: UIViewController {
     
     private func setUpUI() {
         recoveryLinkButton.layer.cornerRadius = recoveryLinkButton.frame.height / 2
+        
+        emailTextField.becomeFirstResponder()
     }
     
     private func addGestureRecognizers() {

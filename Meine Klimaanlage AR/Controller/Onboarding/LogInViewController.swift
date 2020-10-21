@@ -24,6 +24,8 @@ class LogInViewController: UIViewController {
     
     private func setUpUI() {
         logInButton.layer.cornerRadius = logInButton.frame.height / 2
+        
+        emailTextField.becomeFirstResponder()
     }
     
     private func addGestureRecognizers() {

@@ -31,6 +31,8 @@ class CreateAnAccountViewController: UIViewController {
     
     private func setUpUI() {
         createAccountButton.layer.cornerRadius = createAccountButton.frame.height / 2
+        
+        nameTextField.becomeFirstResponder()
     }
     
     private func addGestureRecognizers() {
