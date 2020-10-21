@@ -28,9 +28,9 @@ class LogInOrCreateAccountViewController: UIViewController {
         //add 10 shape layers
         for _ in 0...9 {
             let shapeLayer = CAShapeLayer()
-            shapeLayer.strokeColor = Constants.Color.primaryBlue.withAlphaComponent(0.25).cgColor
+            shapeLayer.strokeColor = Constants.Color.primaryBlue.withAlphaComponent(0.4).cgColor
             shapeLayer.fillColor = UIColor.clear.cgColor
-            shapeLayer.lineWidth = 30
+            shapeLayer.lineWidth = 50
             shapeLayer.lineCap = .round
             
             shapeLayers.append(shapeLayer)
@@ -93,10 +93,9 @@ class LogInOrCreateAccountViewController: UIViewController {
         let elapsed = CGFloat(elapsed) - elapsedTimeOffset
         
         let centerYOffset = CGFloat(shapeLayerWithIndex) * 8
-        let centerY = (appTitleLabel.frame.maxY) + (appTitleLabel.frame.maxY) / 3.5 - (centerYOffset)
+        let centerY = (signUpButton.frame.minY) - 50 - (centerYOffset)
         
-        
-        let amplitude = 20 - abs(elapsed.remainder(dividingBy: 3)) * 50
+        let amplitude = 20 - abs(elapsed.remainder(dividingBy: 3)) * 40
         
         func f(_ x: CGFloat) -> CGFloat {
             return sin((x + elapsed) * 2 * .pi) * amplitude + centerY
