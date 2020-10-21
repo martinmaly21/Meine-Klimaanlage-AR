@@ -15,29 +15,30 @@ class LogInOrCreateAccountViewController: UIViewController {
     private weak var displayLink: CADisplayLink?
     private var startTime: CFTimeInterval = 0
     
-    /// The `CAShapeLayer` that will contain the animated path
-
-    private let shapeLayer: CAShapeLayer = {
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.strokeColor = UIColor.white.cgColor
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineWidth = 3
-        return shapeLayer
-    }()
+    private var shapeLayers: [CAShapeLayer] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addShapeLayers()
         setUpUI()
+    }
+    
+    private func addShapeLayers() {
+        //add 10 shape layers
+        for _ in 0...9 {
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.strokeColor = UIColor.blue.withAlphaComponent(0.3).cgColor
+            shapeLayer.fillColor = UIColor.clear.cgColor
+            shapeLayer.lineWidth = 30
+            shapeLayer.lineCap = .round
+            
+            shapeLayers.append(shapeLayer)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-         navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        view.layer.addSublayer(shapeLayer)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         startDisplayLink()
     }
     
@@ -45,69 +46,81 @@ class LogInOrCreateAccountViewController: UIViewController {
         super.viewDidDisappear(animated)
         stopDisplayLink()
     }
-
+    
     private func setUpUI() {
         //round corners of buttons
         signUpButton.layer.cornerRadius = signUpButton.frame.height / 2
         createAccountButton.layer.cornerRadius = createAccountButton.frame.height / 2
+        
+        //add wave animation
+        
+        for shapeLayer in shapeLayers {
+            view.layer.addSublayer(shapeLayer)
+        }
     }
     
     /// Start the display link
-
     private func startDisplayLink() {
         startTime = CACurrentMediaTime()
-        self.displayLink?.invalidate()
-        let displayLink = CADisplayLink(target: self, selector:#selector(handleDisplayLink(_:)))
+        displayLink?.invalidate()
+        
+        let displayLink = CADisplayLink(target: self, selector: #selector(handleDisplayLink(_:)))
         displayLink.add(to: .main, forMode: .common)
         self.displayLink = displayLink
     }
-
+    
     /// Stop the display link
-
     private func stopDisplayLink() {
         displayLink?.invalidate()
     }
     
-    
     /// Handle the display link timer.
     ///
     /// - Parameter displayLink: The display link.
-
     @objc func handleDisplayLink(_ displayLink: CADisplayLink) {
         let elapsed = CACurrentMediaTime() - startTime
-        shapeLayer.path = wave(at: elapsed).cgPath
-        shapeLayer.strokeColor = UIColor.blue.withAlphaComponent(0.3).cgColor
-        shapeLayer.lineWidth = 20
-        shapeLayer.lineCap = .round
+        
+        for (index, shapeLayer) in shapeLayers.enumerated() {
+            shapeLayer.path = wave(at: elapsed, for: index).cgPath
+        }
     }
-
+    
     /// Create the wave at a given elapsed time.
     ///
     /// You should customize this as you see fit.
     ///
     /// - Parameter elapsed: How many seconds have elapsed.
     /// - Returns: The `UIBezierPath` for a particular point of time.
-
-    private func wave(at elapsed: Double) -> UIBezierPath {
-        let elapsed = CGFloat(elapsed)
-        let centerY = view.bounds.midY
-        let amplitude = 50 - abs(elapsed.remainder(dividingBy: 3)) * 40
-
+    private func wave(at elapsed: Double, for shapeLayerWithIndex: Int) -> UIBezierPath {
+        
+        let elapsedTimeOffset: CGFloat = CGFloat(shapeLayerWithIndex) * 0.1
+        let elapsed = CGFloat(elapsed) - elapsedTimeOffset
+        
+        let centerYOffset = CGFloat(shapeLayerWithIndex) * 10
+        let centerY = view.bounds.midY - (centerYOffset)
+        
+        
+        let amplitude = 50 - abs(elapsed.remainder(dividingBy: 3)) * 20
+        
         func f(_ x: CGFloat) -> CGFloat {
             return sin((x + elapsed) * 4 * .pi) * amplitude + centerY
         }
-
+        
         let path = UIBezierPath()
         let steps = Int(view.bounds.width / 10)
-
+        
         path.move(to: CGPoint(x: 0, y: f(0)))
         for step in 1 ... steps {
             let x = CGFloat(step) / CGFloat(steps)
             path.addLine(to: CGPoint(x: x * view.bounds.width, y: f(x)))
         }
         
-
         return path
     }
-
+    
+    
+    
+    
+    
+    
 }
