@@ -11,6 +11,7 @@ import UIKit
 class LogInOrCreateAccountViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet weak var appTitleLabel: UILabel!
     
     private weak var displayLink: CADisplayLink?
     private var startTime: CFTimeInterval = 0
@@ -27,7 +28,7 @@ class LogInOrCreateAccountViewController: UIViewController {
         //add 10 shape layers
         for _ in 0...9 {
             let shapeLayer = CAShapeLayer()
-            shapeLayer.strokeColor = Constants.Color.primaryBlue.withAlphaComponent(0.4).cgColor
+            shapeLayer.strokeColor = Constants.Color.primaryBlue.withAlphaComponent(0.25).cgColor
             shapeLayer.fillColor = UIColor.clear.cgColor
             shapeLayer.lineWidth = 30
             shapeLayer.lineCap = .round
@@ -92,9 +93,10 @@ class LogInOrCreateAccountViewController: UIViewController {
         let elapsed = CGFloat(elapsed) - elapsedTimeOffset
         
         let centerYOffset = CGFloat(shapeLayerWithIndex) * 8
-        let centerY = view.bounds.midY - (centerYOffset)
+        let centerY = (appTitleLabel.frame.maxY) + (appTitleLabel.frame.maxY) / 4 - (centerYOffset)
         
-        let amplitude = 50 - abs(elapsed.remainder(dividingBy: 3)) * 35
+        
+        let amplitude = 20 - abs(elapsed.remainder(dividingBy: 3)) * 50
         
         func f(_ x: CGFloat) -> CGFloat {
             return sin((x + elapsed) * 2 * .pi) * amplitude + centerY
