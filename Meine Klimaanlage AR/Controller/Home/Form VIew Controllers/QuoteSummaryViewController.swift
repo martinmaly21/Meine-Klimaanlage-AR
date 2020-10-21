@@ -66,7 +66,7 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
         let composeVC = MFMailComposeViewController()
         
         
-        composeVC.setToRecipients([Constants.quoteEmail])
+        composeVC.setToRecipients([Constants.Quote.quoteEmail])
         #warning("need to change")
         composeVC.setSubject("AC Quote")
         

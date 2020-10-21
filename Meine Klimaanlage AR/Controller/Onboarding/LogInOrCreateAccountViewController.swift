@@ -27,7 +27,7 @@ class LogInOrCreateAccountViewController: UIViewController {
         //add 10 shape layers
         for _ in 0...9 {
             let shapeLayer = CAShapeLayer()
-            shapeLayer.strokeColor = UIColor.blue.withAlphaComponent(0.3).cgColor
+            shapeLayer.strokeColor = Constants.Color.primaryBlue.withAlphaComponent(0.4).cgColor
             shapeLayer.fillColor = UIColor.clear.cgColor
             shapeLayer.lineWidth = 30
             shapeLayer.lineCap = .round
@@ -96,14 +96,14 @@ class LogInOrCreateAccountViewController: UIViewController {
         let elapsedTimeOffset: CGFloat = CGFloat(shapeLayerWithIndex) * 0.1
         let elapsed = CGFloat(elapsed) - elapsedTimeOffset
         
-        let centerYOffset = CGFloat(shapeLayerWithIndex) * 10
+        let centerYOffset = CGFloat(shapeLayerWithIndex) * 8
         let centerY = view.bounds.midY - (centerYOffset)
         
         
-        let amplitude = 50 - abs(elapsed.remainder(dividingBy: 3)) * 20
+        let amplitude = 50 - abs(elapsed.remainder(dividingBy: 3)) * 35
         
         func f(_ x: CGFloat) -> CGFloat {
-            return sin((x + elapsed) * 4 * .pi) * amplitude + centerY
+            return sin((x + elapsed) * 2 * .pi) * amplitude + centerY
         }
         
         let path = UIBezierPath()
