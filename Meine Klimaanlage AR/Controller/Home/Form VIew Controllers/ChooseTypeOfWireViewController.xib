@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -41,7 +43,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="efo-Cu-t2L">
                                             <rect key="frame" x="0.0" y="48" width="384" height="80"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FK-Ej-I2e">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FK-Ej-I2e">
                                                     <rect key="frame" x="0.0" y="0.0" width="121.5" height="80"/>
                                                     <color key="backgroundColor" name="PrimaryBlue"/>
                                                     <state key="normal" title="Rohrleitungslänge">
@@ -56,7 +58,7 @@
                                                         <action selector="didPressWireType:" destination="-1" eventType="touchUpInside" id="ygd-Va-ua1"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gm-U4-Ry2">
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gm-U4-Ry2">
                                                     <rect key="frame" x="131.5" y="0.0" width="121" height="80"/>
                                                     <state key="normal" title="Kabelkanal">
                                                         <color key="titleColor" name="PrimaryBlue"/>
@@ -70,7 +72,7 @@
                                                         <action selector="didPressWireType:" destination="-1" eventType="touchUpInside" id="aBL-p9-gQE"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FO-Yb-pDH">
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FO-Yb-pDH">
                                                     <rect key="frame" x="262.5" y="0.0" width="121.5" height="80"/>
                                                     <state key="normal" title="Kondensatleitung">
                                                         <color key="titleColor" name="PrimaryBlue"/>
@@ -98,7 +100,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hHn-DW-5Wh">
                                             <rect key="frame" x="0.0" y="194" width="384" height="80"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNe-Nh-GCK">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNe-Nh-GCK">
                                                     <rect key="frame" x="0.0" y="0.0" width="187" height="80"/>
                                                     <color key="backgroundColor" name="PrimaryBlue"/>
                                                     <state key="normal" title="Inside Wall">
@@ -113,7 +115,7 @@
                                                         <action selector="didPressWireLocation:" destination="-1" eventType="touchUpInside" id="S48-F0-cz6"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3S-lM-XI8">
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3S-lM-XI8">
                                                     <rect key="frame" x="197" y="0.0" width="187" height="80"/>
                                                     <state key="normal" title="Outside Wall">
                                                         <color key="titleColor" name="PrimaryBlue"/>
@@ -135,7 +137,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="Due-6q-WiP" secondAttribute="bottom" constant="15" id="4kM-tS-9yk"/>
                                 <constraint firstItem="Due-6q-WiP" firstAttribute="leading" secondItem="k4I-oO-pJK" secondAttribute="leading" constant="15" id="I4f-Rm-znT"/>
@@ -156,14 +158,14 @@
                     <viewLayoutGuide key="frameLayoutGuide" id="Fxk-UP-aW4"/>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <viewLayoutGuide key="safeArea" id="PNn-gl-dz9"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="vMW-4J-WQ5" firstAttribute="leading" secondItem="PNn-gl-dz9" secondAttribute="leading" id="ONS-C1-wEF"/>
                 <constraint firstItem="vMW-4J-WQ5" firstAttribute="top" secondItem="PNn-gl-dz9" secondAttribute="top" id="gWv-mk-hgw"/>
                 <constraint firstItem="PNn-gl-dz9" firstAttribute="trailing" secondItem="vMW-4J-WQ5" secondAttribute="trailing" id="xf7-xL-G3D"/>
                 <constraint firstItem="PNn-gl-dz9" firstAttribute="bottom" secondItem="vMW-4J-WQ5" secondAttribute="bottom" id="ztZ-Sd-qUQ"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="PNn-gl-dz9"/>
             <point key="canvasLocation" x="133" y="344"/>
         </view>
     </objects>
@@ -177,5 +179,8 @@
         <namedColor name="PrimaryTextLight">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

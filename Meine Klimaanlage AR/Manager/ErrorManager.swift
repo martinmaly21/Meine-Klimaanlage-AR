@@ -38,7 +38,7 @@ class ErrorManager {
         case  .passwordsDontMatch:
             errorText = "The passwords you have entered don't match."
         case .passwordNotStrongEnough:
-            errorText = "The password you entered isn't strong enough. It must be at least 8 characters, contain one symbol, one number, and one upper case letter. "
+            errorText = "The password you entered isn't strong enough. It must be at least 8 characters, contain one symbol, one number, and one upper case letter."
         case .missingfields:
             errorText = "One or more of the fields is empty. Please fill them out, and try again."
         }
@@ -51,10 +51,10 @@ class ErrorManager {
         viewController.present(errorController, animated: true, completion: nil)
     }
     
-    static func showFirebaseError(with description: String, on viewController: UIViewController) {
+    static func showFirebaseError(on viewController: UIViewController) {
         let errorController = UIAlertController(
             title: "Error",
-            message: description,
+            message: "There was an error communicating with the database.",
             preferredStyle: .alert
         )
         
@@ -96,7 +96,7 @@ class ErrorManager {
         
         switch genericError {
         case .unknown:
-            errorText = "An unknown error occured."
+            errorText = "An unknown error occurred."
         case .noInernet:
             errorText = "It appears you have no internet connection. Please connect, and try again."
         case .signingOut:
