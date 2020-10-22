@@ -48,7 +48,6 @@ class ProfileViewController: UIViewController {
         ) { action in
             do {
                 try Auth.auth().signOut()
-                // signed out
             } catch {
                 ErrorManager.showGenericError(with: .signingOut, on: self)
             }

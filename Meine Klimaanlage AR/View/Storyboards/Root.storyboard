@@ -131,10 +131,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YGw-Tk-b88">
-                                                <rect key="frame" x="16.5" y="15" width="381" height="122"/>
+                                                <rect key="frame" x="16.5" y="15" width="381" height="131"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kms-M4-fa2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="381" height="51"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="381" height="55.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdc-bQ-CYH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="381" height="20.5"/>
@@ -146,9 +146,9 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngo-JA-uKm">
-                                                                <rect key="frame" x="0.0" y="30.5" width="381" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="30.5" width="381" height="25"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="20.5" id="Rci-zK-7qs"/>
+                                                                    <constraint firstAttribute="height" constant="25" id="Rci-zK-7qs"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <color key="textColor" name="PrimaryTextDark"/>
@@ -157,7 +157,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1rI-ny-Qfp">
-                                                        <rect key="frame" x="0.0" y="71" width="381" height="51"/>
+                                                        <rect key="frame" x="0.0" y="75.5" width="381" height="55.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVf-1s-EZa">
                                                                 <rect key="frame" x="0.0" y="0.0" width="381" height="20.5"/>
@@ -169,9 +169,9 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pe-HV-kMO">
-                                                                <rect key="frame" x="0.0" y="30.5" width="381" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="30.5" width="381" height="25"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="20.5" id="b2Z-XA-zNk"/>
+                                                                    <constraint firstAttribute="height" constant="25" id="b2Z-XA-zNk"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <color key="textColor" name="PrimaryTextDark"/>
