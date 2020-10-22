@@ -23,6 +23,7 @@ class AppEntryViewController: UIViewController {
             let storyboard = UIStoryboard(name: user == nil ? "Onboarding" : "Root", bundle: nil)
             if let vc = storyboard.instantiateInitialViewController() {
                 DispatchQueue.main.async {
+                    vc.modalTransitionStyle = .crossDissolve
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
