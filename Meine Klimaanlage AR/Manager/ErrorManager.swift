@@ -13,6 +13,7 @@ struct Errors {
     public enum GenericError {
         case unknown
         case noInernet
+        case signingOut
     }
     
     public enum OnboardingError {
@@ -81,6 +82,31 @@ class ErrorManager {
         let errorController = UIAlertController(
             title: "Error",
             message: "Cannot open mail app. Have you set up your email with the mail app yet?",
+            preferredStyle: .alert
+        )
+        
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        errorController.addAction(okayAction)
+        
+        viewController.present(errorController, animated: true, completion: nil)
+    }
+    
+    static func showGenericError(with genericError: Errors.GenericError, on viewController: UIViewController) {
+        let errorText: String
+        
+        switch genericError {
+        case .unknown:
+            errorText = "An unknown error occured."
+        case .noInernet:
+            errorText = "It appears you have no internet connection. Please connect, and try again."
+        case .signingOut:
+            errorText = "There was an error signing you out. Please try again."
+        }
+        
+        
+        let errorController = UIAlertController(
+            title: "Error",
+            message: errorText,
             preferredStyle: .alert
         )
         

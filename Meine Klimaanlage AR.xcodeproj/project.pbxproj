@@ -16,7 +16,7 @@
 		5B00FACF2497214700215489 /* ACUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FACE2497214700215489 /* ACUnit.swift */; };
 		5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */; };
 		5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A37248D88A900CA4141 /* Colors.xcassets */; };
-		5B12389625410B2200A809D9 /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12389525410B2200A809D9 /* OnboardingButton.swift */; };
+		5B12389625410B2200A809D9 /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12389525410B2200A809D9 /* ShadowButton.swift */; };
 		5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */; };
 		5B2C5B10248DB249001B6898 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B0F248DB249001B6898 /* Root.storyboard */; };
 		5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B19248DBB80001B6898 /* HomeViewController.swift */; };
@@ -78,7 +78,7 @@
 		5B00FACE2497214700215489 /* ACUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ACUnit.swift; path = "Meine Klimaanlage AR/Manager/ACUnit.swift"; sourceTree = SOURCE_ROOT; };
 		5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B0A8A37248D88A900CA4141 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		5B12389525410B2200A809D9 /* OnboardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
+		5B12389525410B2200A809D9 /* ShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
 		5B2C5B0D248D9D55001B6898 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		5B2C5B0F248DB249001B6898 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		5B2C5B19248DBB80001B6898 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -240,7 +240,7 @@
 		5B12389425410B0100A809D9 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				5B12389525410B2200A809D9 /* OnboardingButton.swift */,
+				5B12389525410B2200A809D9 /* ShadowButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -572,7 +572,7 @@
 				5B54CF36249728DA00A6BD85 /* ARViewController.swift in Sources */,
 				5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */,
 				5B7E6DE724B6C04A0049CCB9 /* StatusViewController.swift in Sources */,
-				5B12389625410B2200A809D9 /* OnboardingButton.swift in Sources */,
+				5B12389625410B2200A809D9 /* ShadowButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

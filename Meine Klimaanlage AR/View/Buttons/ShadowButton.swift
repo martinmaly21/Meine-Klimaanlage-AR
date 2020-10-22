@@ -1,5 +1,5 @@
 //
-//  OnboardingButton.swift
+//  ShadowButton.swift
 //  Meine Klimaanlage AR
 //
 //  Created by Martin Maly on 2020-10-21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OnboardingButton: UIButton {
+class ShadowButton: UIButton {
     
     override var isHighlighted: Bool {
         didSet {

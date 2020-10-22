@@ -15,7 +15,7 @@ struct Constants {
         static let quoteEmail = "martinmaly66@hotmail.com"
     }
     
-    struct Color {
+    enum Color {
         public static let border = UIColor(named: "Border")!
         public static let highlightBlue = UIColor(named: "HighlightBlue")!
         public static let primaryBlue = UIColor(named: "PrimaryBlue")!
@@ -26,6 +26,7 @@ struct Constants {
         public static let secondaryTextDark = UIColor(named: "SecondaryTextDark")!
         public static let tertiaryTextDark = UIColor(named: "TertiaryTextDark")!
         public static let shadow = UIColor(named: "Shadow")!
+        public static let primaryRed = UIColor(named: "PrimaryRed")!
     }
 }
 
