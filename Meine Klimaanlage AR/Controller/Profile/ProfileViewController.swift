@@ -24,9 +24,18 @@ class ProfileViewController: UIViewController {
         
         fullNameLabel.text = Auth.auth().currentUser?.displayName
         emailLabel.text = Auth.auth().currentUser?.email
+        
+        let logOutButton = UIBarButtonItem(
+            title: "Log Out",
+            style: .plain,
+            target: self,
+            action: #selector(didPressLogOut)
+        )
+        
+        navigationItem.rightBarButtonItem = logOutButton
     }
 
-    @IBAction func didPressLogOut(_ sender: Any) {
+    @objc func didPressLogOut() {
         let logOutAlert = UIAlertController(
             title: "Log Out",
             message: "Are you sure you'd like to log out?",
@@ -42,6 +51,15 @@ class ProfileViewController: UIViewController {
                 // signed out
             } catch {
                 ErrorManager.showGenericError(with: .signingOut, on: self)
+            }
+            
+            //show initial screen
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+            if let vc = storyboard.instantiateInitialViewController() {
+                DispatchQueue.main.async {
+                    vc.modalPresentationStyle = .overCurrentContext
+                    self.tabBarController?.present(vc, animated: true, completion: nil)
+                }
             }
         }
         
