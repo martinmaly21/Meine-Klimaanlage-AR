@@ -22,12 +22,10 @@ class HomeViewController: UIViewController {
     }
     
     private func setUpUI() {
-        registerTableViewCells()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Home"
         
-        //set title
-        if let currentUserName = Auth.auth().currentUser?.displayName {
-            navigationItem.title = "Welcome \(currentUserName)!"
-        }
+        registerTableViewCells()
     }
     
     private func registerTableViewCells() {
