@@ -30,6 +30,8 @@ class CreateAnAccountViewController: UIViewController {
     }
     
     private func setUpUI() {
+        title = "Get Started!"
+        
         createAccountButton.layer.cornerRadius = createAccountButton.frame.height / 2
         
         nameTextField.becomeFirstResponder()

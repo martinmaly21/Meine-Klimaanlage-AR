@@ -49,6 +49,9 @@ class LogInOrCreateAccountViewController: UIViewController {
     }
     
     private func setUpUI() {
+        //prefer large titles for navigation controller
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         //round corners of buttons
         signUpButton.layer.cornerRadius = signUpButton.frame.height / 2
         createAccountButton.layer.cornerRadius = createAccountButton.frame.height / 2

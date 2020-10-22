@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="730" y="317"/>
         </scene>
-        <!--Log In View Controller-->
+        <!--Welcome Back!-->
         <scene sceneID="g4E-ZU-owa">
             <objects>
-                <viewController id="m8l-1x-rCu" customClass="LogInViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Welcome Back!" id="m8l-1x-rCu" customClass="LogInViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JFr-P4-RNi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,19 +114,13 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zcx-25-Bvw">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="311"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="271"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="w0m-ju-Nho">
-                                                <rect key="frame" x="15" y="15" width="384" height="281"/>
+                                                <rect key="frame" x="15" y="15" width="384" height="241"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vv-iY-sqv">
-                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                        <color key="textColor" name="PrimaryTextDark"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="f2J-xO-2h6">
-                                                        <rect key="frame" x="0.0" y="40" width="384" height="70.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="70.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPz-WF-J9U">
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="20.5"/>
@@ -145,7 +139,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="R3M-3b-UIQ">
-                                                        <rect key="frame" x="0.0" y="120.5" width="384" height="110.5"/>
+                                                        <rect key="frame" x="0.0" y="80.5" width="384" height="110.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v27-a9-cXX">
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="20.5"/>
@@ -173,7 +167,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUW-gO-p5d">
-                                                        <rect key="frame" x="0.0" y="241" width="384" height="40"/>
+                                                        <rect key="frame" x="0.0" y="201" width="384" height="40"/>
                                                         <color key="backgroundColor" name="PrimaryBlue"/>
                                                         <state key="normal" title="Sign In">
                                                             <color key="titleColor" name="PrimaryTextLight"/>
@@ -254,19 +248,13 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ef-Vi-oeh">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="462.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="422.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xxt-6P-LhZ">
-                                                <rect key="frame" x="15" y="15" width="384" height="432.5"/>
+                                                <rect key="frame" x="15" y="15" width="384" height="392.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Started!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMJ-N2-3ev">
-                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                        <color key="textColor" name="PrimaryTextDark"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kqB-Sd-kte">
-                                                        <rect key="frame" x="0.0" y="40" width="384" height="70.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="70.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvX-cb-7zB">
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="20.5"/>
@@ -285,7 +273,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sq2-e5-PsN">
-                                                        <rect key="frame" x="0.0" y="120.5" width="384" height="101"/>
+                                                        <rect key="frame" x="0.0" y="80.5" width="384" height="101"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOT-L4-9aC">
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="20.5"/>
@@ -310,7 +298,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MnL-Qs-V8C">
-                                                        <rect key="frame" x="0.0" y="231.5" width="384" height="70.5"/>
+                                                        <rect key="frame" x="0.0" y="191.5" width="384" height="70.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ym-le-Hb5">
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="20.5"/>
@@ -326,7 +314,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="N12-D2-RqI">
-                                                        <rect key="frame" x="0.0" y="312" width="384" height="70.5"/>
+                                                        <rect key="frame" x="0.0" y="272" width="384" height="70.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCR-45-6mc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="20.5"/>
@@ -342,7 +330,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8t-rq-o9O">
-                                                        <rect key="frame" x="0.0" y="392.5" width="384" height="40"/>
+                                                        <rect key="frame" x="0.0" y="352.5" width="384" height="40"/>
                                                         <color key="backgroundColor" name="PrimaryBlue"/>
                                                         <state key="normal" title="Create Account">
                                                             <color key="titleColor" name="PrimaryTextLight"/>
@@ -416,19 +404,13 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Lq-cF-bNR">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="261.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="221.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tWr-Mg-HTX">
-                                                <rect key="frame" x="15" y="15" width="384" height="231.5"/>
+                                                <rect key="frame" x="15" y="15" width="384" height="191.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaQ-rc-uX0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                        <color key="textColor" name="PrimaryTextDark"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qtg-8q-rWW">
-                                                        <rect key="frame" x="0.0" y="40" width="384" height="141.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="141.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your email and we’ll send you a recovery link if it matches an account in our system." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BY-oV-jKp">
                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="61"/>
@@ -453,7 +435,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDn-xJ-d6O">
-                                                        <rect key="frame" x="0.0" y="191.5" width="384" height="40"/>
+                                                        <rect key="frame" x="0.0" y="151.5" width="384" height="40"/>
                                                         <color key="backgroundColor" name="PrimaryBlue"/>
                                                         <state key="normal" title="Send Recovery Link">
                                                             <color key="titleColor" name="PrimaryTextLight"/>
@@ -511,7 +493,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9HS-Kf-wKe"/>
+        <segue reference="ltG-9e-7Dn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="MeineKlimaanlage_logo" width="2732" height="2048"/>

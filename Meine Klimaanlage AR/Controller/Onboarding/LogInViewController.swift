@@ -23,6 +23,8 @@ class LogInViewController: UIViewController {
     }
     
     private func setUpUI() {
+        title = "Welcome Back!"
+        
         logInButton.layer.cornerRadius = logInButton.frame.height / 2
         
         emailTextField.becomeFirstResponder()
