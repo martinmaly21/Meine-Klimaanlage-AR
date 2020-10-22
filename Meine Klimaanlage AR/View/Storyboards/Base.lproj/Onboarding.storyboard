@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nk5-a1-LA8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nk5-a1-LA8" customClass="OnboardingButton" customModule="Meine_Klimaanlage_AR" customModuleProvider="target">
                                 <rect key="frame" x="82" y="782" width="250" height="50"/>
                                 <color key="backgroundColor" name="PrimaryBlue"/>
                                 <constraints>
@@ -49,7 +49,7 @@
                                     <segue destination="IE5-a2-O3D" kind="show" id="Qlx-ej-Y2A"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1C-00-ON0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1C-00-ON0" customClass="OnboardingButton" customModule="Meine_Klimaanlage_AR" customModuleProvider="target">
                                 <rect key="frame" x="82" y="724" width="250" height="50"/>
                                 <color key="backgroundColor" name="PrimaryBlue"/>
                                 <constraints>
@@ -166,7 +166,7 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUW-gO-p5d">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUW-gO-p5d" customClass="OnboardingButton" customModule="Meine_Klimaanlage_AR" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="201" width="384" height="40"/>
                                                         <color key="backgroundColor" name="PrimaryBlue"/>
                                                         <state key="normal" title="Sign In">
@@ -329,7 +329,7 @@
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8t-rq-o9O">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8t-rq-o9O" customClass="OnboardingButton" customModule="Meine_Klimaanlage_AR" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="352.5" width="384" height="40"/>
                                                         <color key="backgroundColor" name="PrimaryBlue"/>
                                                         <state key="normal" title="Create Account">
@@ -434,7 +434,7 @@
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDn-xJ-d6O">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDn-xJ-d6O" customClass="OnboardingButton" customModule="Meine_Klimaanlage_AR" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="151.5" width="384" height="40"/>
                                                         <color key="backgroundColor" name="PrimaryBlue"/>
                                                         <state key="normal" title="Send Recovery Link">
