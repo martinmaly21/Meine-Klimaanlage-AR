@@ -14,6 +14,8 @@
 		5B00FACA24970CE300215489 /* ACUnitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FAC824970CE300215489 /* ACUnitListViewController.swift */; };
 		5B00FACD24970F2100215489 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FACC24970F2100215489 /* ExtensionManager.swift */; };
 		5B00FACF2497214700215489 /* ACUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FACE2497214700215489 /* ACUnit.swift */; };
+		5B09157B2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0915792544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.swift */; };
+		5B09157C2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B09157A2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.xib */; };
 		5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */; };
 		5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A37248D88A900CA4141 /* Colors.xcassets */; };
 		5B12389625410B2200A809D9 /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12389525410B2200A809D9 /* ShadowButton.swift */; };
@@ -21,8 +23,6 @@
 		5B2C5B10248DB249001B6898 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B0F248DB249001B6898 /* Root.storyboard */; };
 		5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B19248DBB80001B6898 /* HomeViewController.swift */; };
 		5B2C5B1C248DBB8B001B6898 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B1B248DBB8B001B6898 /* ProfileViewController.swift */; };
-		5B2C5B1F248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B1D248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift */; };
-		5B2C5B20248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B1E248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib */; };
 		5B2C5B23248DBD9A001B6898 /* ACUnitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B21248DBD9A001B6898 /* ACUnitTableViewCell.swift */; };
 		5B2C5B24248DBD9A001B6898 /* ACUnitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */; };
 		5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B29248DC768001B6898 /* ErrorManager.swift */; };
@@ -76,6 +76,8 @@
 		5B00FAC824970CE300215489 /* ACUnitListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitListViewController.swift; sourceTree = "<group>"; };
 		5B00FACC24970F2100215489 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
 		5B00FACE2497214700215489 /* ACUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ACUnit.swift; path = "Meine Klimaanlage AR/Manager/ACUnit.swift"; sourceTree = SOURCE_ROOT; };
+		5B0915792544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitBrandsCollectionViewCell.swift; sourceTree = "<group>"; };
+		5B09157A2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitBrandsCollectionViewCell.xib; sourceTree = "<group>"; };
 		5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B0A8A37248D88A900CA4141 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5B12389525410B2200A809D9 /* ShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
@@ -83,8 +85,6 @@
 		5B2C5B0F248DB249001B6898 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
 		5B2C5B19248DBB80001B6898 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5B2C5B1B248DBB8B001B6898 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		5B2C5B1D248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitBrandsTableViewCell.swift; sourceTree = "<group>"; };
-		5B2C5B1E248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitBrandsTableViewCell.xib; sourceTree = "<group>"; };
 		5B2C5B21248DBD9A001B6898 /* ACUnitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitTableViewCell.swift; sourceTree = "<group>"; };
 		5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitTableViewCell.xib; sourceTree = "<group>"; };
 		5B2C5B29248DC768001B6898 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
@@ -248,8 +248,6 @@
 		5B2C5B11248DBA01001B6898 /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
-				5B2C5B1D248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift */,
-				5B2C5B1E248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib */,
 				5B2C5B21248DBD9A001B6898 /* ACUnitTableViewCell.swift */,
 				5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */,
 				5BDD140524BB8414003A3A98 /* QuoteSummaryTableViewCell.swift */,
@@ -359,6 +357,8 @@
 			children = (
 				5BDD140D24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift */,
 				5BDD140E24BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib */,
+				5B0915792544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.swift */,
+				5B09157A2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.xib */,
 			);
 			path = "Collection View Cells";
 			sourceTree = "<group>";
@@ -468,6 +468,7 @@
 				5BAF8D0924B81A8D0022EC84 /* AppEntry.storyboard in Resources */,
 				5B4FDFB8248D79160079B653 /* .gitignore in Resources */,
 				5B00FAC52497087600215489 /* ACUnitDetailPageTableHeaderView.xib in Resources */,
+				5B09157C2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.xib in Resources */,
 				5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */,
 				5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */,
 				5BDD140824BB8414003A3A98 /* QuoteSummaryTableViewCell.xib in Resources */,
@@ -478,7 +479,6 @@
 				5B69D0E2248D70200072002A /* Assets.xcassets in Resources */,
 				5BDD141024BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib in Resources */,
 				5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */,
-				5B2C5B20248DBC56001B6898 /* ACUnitBrandsTableViewCell.xib in Resources */,
 				5B7E6DEC24B6C87D0049CCB9 /* ACUnits.scnassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,7 +549,6 @@
 				5B7E6DE324B6BE8D0049CCB9 /* VirtualObjectInteraction.swift in Sources */,
 				5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */,
 				5B00FAC32497082800215489 /* ACUnitDetailPageTableHeaderView.swift in Sources */,
-				5B2C5B1F248DBC56001B6898 /* ACUnitBrandsTableViewCell.swift in Sources */,
 				5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */,
 				5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */,
 				5B7E6DE124B6BE570049CCB9 /* ARViewController+ObjectSelection.swift in Sources */,
@@ -558,6 +557,7 @@
 				5B00FAC0249703C600215489 /* ACBrand.swift in Sources */,
 				5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */,
 				5BDD140F24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift in Sources */,
+				5B09157B2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.swift in Sources */,
 				5B7E6DD524B6AE850049CCB9 /* VirtualObjectLoader.swift in Sources */,
 				5BDD140324BB7F8E003A3A98 /* QuoteSummaryViewController.swift in Sources */,
 				5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */,

@@ -11,10 +11,13 @@ import Firebase
 
 class HomeViewController: UIViewController {
     //MARK: - UI
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
      //MARK: - Data
     let brands: [ACBrand] = [.daikin, .mitsubishiMotors, .panasonic]
+    
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    private let itemsPerRow: CGFloat = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +28,16 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Home"
         
-        registerTableViewCells()
+        registerCollectionViewCells()
     }
     
-    private func registerTableViewCells() {
-        tableView.register(UINib(nibName: "ACUnitBrandsTableViewCell", bundle: nil), forCellReuseIdentifier: "ACUnitBrandsTableViewCell")
+    private func registerCollectionViewCells() {
+        collectionView.register(UINib(nibName: "ACUnitBrandsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ACUnitBrandsCollectionViewCell")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ACUnitSegue",
-            let sender = sender as? ACUnitBrandsTableViewCell,
+            let sender = sender as? ACUnitBrandsCollectionViewCell,
             let detailPage = segue.destination as? ACUnitListViewController {
             detailPage.title = sender.brand.rawValue
             detailPage.brand = sender.brand
@@ -42,23 +45,28 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return brands.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "ACUnitBrandsTableViewCell"
-            ) as? ACUnitBrandsTableViewCell else {
-            return UITableViewCell()
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "ACUnitBrandsCollectionViewCell",
+            for: indexPath
+            ) as? ACUnitBrandsCollectionViewCell else {
+            return UICollectionViewCell()
         }
         cell.setUpCell(with: brands[indexPath.row])
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let selectedCell = tableView.cellForRow(at: indexPath) else { return }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return brands.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedCell = collectionView.cellForItem(at: indexPath) else { return }
         
         if brands[indexPath.row] == .panasonic {
             performSegue(withIdentifier: "ACUnitSegue", sender: selectedCell)
@@ -66,6 +74,32 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             return
         }
     }
+}
+
+extension HomeViewController : UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+    let availableWidth = view.frame.width - paddingSpace
+    let widthPerItem = availableWidth / itemsPerRow
+
+    //+ 30 is for label
+    return CGSize(width: widthPerItem, height: widthPerItem + 40)
+  }
+
     
-    
+  //3
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      insetForSectionAt section: Int) -> UIEdgeInsets {
+    return sectionInsets
+  }
+
+  // 4
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return sectionInsets.left
+  }
 }
