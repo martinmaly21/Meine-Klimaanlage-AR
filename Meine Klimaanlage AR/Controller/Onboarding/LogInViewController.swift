@@ -89,7 +89,7 @@ class LogInViewController: UIViewController {
             withEmail: email,
             password: password) { (resultt, error) in
                 if let error = error {
-                    ErrorManager.showFirebaseError(with: error.localizedDescription, on: self)
+                    ErrorManager.showFirebaseError(with: "There was an error signing you in. Please try again.", on: self)
                 } else {
                     self.performSegue(withIdentifier: "logInSegue", sender: self)
                 }

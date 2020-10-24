@@ -60,7 +60,7 @@ class ForgotPasswordViewController: UIViewController {
         Auth.auth().sendPasswordReset(
         withEmail: email) { error in
             if let error = error {
-                ErrorManager.showFirebaseError(with: error.localizedDescription, on: self)
+                ErrorManager.showFirebaseError(with: "There was an error sending your password. Please try again.", on: self)
             } else {
                 let successAlert = UIAlertController(title: "Success", message: "A recovery link has been sent to \(email).", preferredStyle: .alert
                 )

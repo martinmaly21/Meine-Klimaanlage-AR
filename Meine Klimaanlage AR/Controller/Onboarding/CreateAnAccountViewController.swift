@@ -88,7 +88,7 @@ class CreateAnAccountViewController: UIViewController {
             password: password
         ) { (result, error) in
             guard error == nil, let user = result?.user else {
-                ErrorManager.showFirebaseError(with: error?.localizedDescription ?? "", on: self)
+                ErrorManager.showFirebaseError(with: "There was an error creating your account. Please try again.", on: self)
                 return
             }
             self.updateUserName(with: user, with: name)
@@ -101,7 +101,7 @@ class CreateAnAccountViewController: UIViewController {
         
         profileChangeRequest.commitChanges { error in
             if let error = error {
-                ErrorManager.showFirebaseError(with: error.localizedDescription, on: self)
+                ErrorManager.showFirebaseError(with: "There was an error creating your account. Please try again.", on: self)
             } else {
                 //user succesfully logged in
                 self.performSegue(withIdentifier: "signUpSegue", sender: self)

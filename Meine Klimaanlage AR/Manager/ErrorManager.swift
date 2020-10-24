@@ -51,10 +51,10 @@ class ErrorManager {
         viewController.present(errorController, animated: true, completion: nil)
     }
     
-    static func showFirebaseError(on viewController: UIViewController) {
+    static func showFirebaseError(with description: String, on viewController: UIViewController) {
         let errorController = UIAlertController(
             title: "Error",
-            message: "There was an error communicating with the database.",
+            message:description,
             preferredStyle: .alert
         )
         
