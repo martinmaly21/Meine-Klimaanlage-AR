@@ -17,7 +17,10 @@ class HomeViewController: UIViewController {
     let brands: [ACBrand] = [.daikin, .mitsubishiMotors, .panasonic]
     
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
-    private let itemsPerRow: CGFloat = 3
+    private var itemsPerRow: CGFloat {
+        let items = Int(view.frame.width / 250)
+        return CGFloat(items)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,18 +64,24 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return brands.count
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let selectedCell = collectionView.cellForItem(at: indexPath) else { return }
+        guard let selectedCell = collectionView.cellForItem(at: indexPath) as? ACUnitBrandsCollectionViewCell else { return }
         
         if brands[indexPath.row] == .panasonic {
             performSegue(withIdentifier: "ACUnitSegue", sender: selectedCell)
         } else {
             return
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        guard let selectedCell = collectionView.cellForItem(at: indexPath) as? ACUnitBrandsCollectionViewCell else { return }
+        selectedCell.highlightCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        guard let selectedCell = collectionView.cellForItem(at: indexPath) as? ACUnitBrandsCollectionViewCell else { return }
+        selectedCell.unHighlightCell()
     }
 }
 

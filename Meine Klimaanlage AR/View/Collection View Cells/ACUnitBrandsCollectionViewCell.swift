@@ -24,7 +24,6 @@ class ACUnitBrandsCollectionViewCell: UICollectionViewCell {
     public func setUpCell(with brand: ACBrand) {
         self.brand = brand
         
-        
         brandImageView.image = brand.getLogoImage()
         
         brandLabel.text = brand.rawValue
@@ -40,5 +39,47 @@ class ACUnitBrandsCollectionViewCell: UICollectionViewCell {
         
         brandImageContainerView.layer.cornerRadius = 10
     }
-
+    
+    public func highlightCell() {
+        removeShadow()
+        dimView()
+    }
+    
+    public func unHighlightCell() {
+        addShadow()
+        unDimView()
+    }
+    
+    private func addShadow() {
+        let animation = CABasicAnimation(keyPath: "shadowOpacity")
+        animation.fromValue = layer.shadowOpacity
+        animation.toValue = 0.3
+        animation.duration = 0.05
+        containerView.layer.add(animation, forKey: animation.keyPath)
+        containerView.layer.shadowOpacity = 0.3
+    }
+    
+    
+    private func removeShadow() {
+        let animation = CABasicAnimation(keyPath: "shadowOpacity")
+        animation.fromValue = layer.shadowOpacity
+        animation.toValue = 0.0
+        animation.duration = 0.05
+        containerView.layer.add(animation, forKey: animation.keyPath)
+        containerView.layer.shadowOpacity = 0.0
+    }
+    
+    private func dimView() {
+        UIView.animate(
+            withDuration: 0.05) {
+            self.containerView.backgroundColor = Constants.Color.highlightGrey
+        }
+    }
+    
+    private func unDimView() {
+        UIView.animate(
+            withDuration: 0.05) {
+            self.containerView.backgroundColor = UIColor.white
+        }
+    }
 }

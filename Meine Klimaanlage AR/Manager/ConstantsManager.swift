@@ -28,6 +28,7 @@ struct Constants {
         public static let shadow = UIColor(named: "Shadow")!
         public static let primaryRed = UIColor(named: "PrimaryRed")!
         public static let veryLightGrey = UIColor(named: "VeryLightGrey")!
+        public static let highlightGrey = UIColor(named: "HighlightGrey")!
     }
 }
 
