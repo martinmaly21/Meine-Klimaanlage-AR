@@ -59,7 +59,6 @@ class ACUnitBrandsCollectionViewCell: UICollectionViewCell {
         containerView.layer.shadowOpacity = 0.3
     }
     
-    
     private func removeShadow() {
         let animation = CABasicAnimation(keyPath: "shadowOpacity")
         animation.fromValue = layer.shadowOpacity

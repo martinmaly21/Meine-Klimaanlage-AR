@@ -79,8 +79,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gO7-Wj-he6">
-                                <rect key="frame" x="20" y="108" width="374" height="685"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" name="PrimaryWhiteBackground"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ZII-kx-kvR" id="EMI-gJ-Ic8"/>
                                     <outlet property="delegate" destination="ZII-kx-kvR" id="PLP-SF-F3I"/>
@@ -90,10 +90,10 @@
                         <viewLayoutGuide key="safeArea" id="u7n-ga-uNy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gO7-Wj-he6" firstAttribute="top" secondItem="u7n-ga-uNy" secondAttribute="top" constant="20" id="9hN-re-2bw"/>
-                            <constraint firstItem="gO7-Wj-he6" firstAttribute="leading" secondItem="u7n-ga-uNy" secondAttribute="leading" constant="20" id="CEo-e7-bWn"/>
-                            <constraint firstItem="u7n-ga-uNy" firstAttribute="bottom" secondItem="gO7-Wj-he6" secondAttribute="bottom" constant="20" id="Fue-jF-blf"/>
-                            <constraint firstItem="u7n-ga-uNy" firstAttribute="trailing" secondItem="gO7-Wj-he6" secondAttribute="trailing" constant="20" id="UEB-cl-hdp"/>
+                            <constraint firstItem="gO7-Wj-he6" firstAttribute="top" secondItem="u7n-ga-uNy" secondAttribute="top" id="9hN-re-2bw"/>
+                            <constraint firstItem="gO7-Wj-he6" firstAttribute="leading" secondItem="u7n-ga-uNy" secondAttribute="leading" id="CEo-e7-bWn"/>
+                            <constraint firstItem="u7n-ga-uNy" firstAttribute="bottom" secondItem="gO7-Wj-he6" secondAttribute="bottom" id="Fue-jF-blf"/>
+                            <constraint firstItem="u7n-ga-uNy" firstAttribute="trailing" secondItem="gO7-Wj-he6" secondAttribute="trailing" id="UEB-cl-hdp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="j1s-X4-Jz3"/>

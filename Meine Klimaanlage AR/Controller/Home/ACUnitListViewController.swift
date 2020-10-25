@@ -21,58 +21,61 @@ class ACUnitListViewController: UIViewController {
         getUnits()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //ensures large title when view appears
-        self.navigationController?.navigationBar.sizeToFit()
-    }
-    
     private func getUnits() {
         units = NetworkManager.getUnits(for: brand, with: currentACUnitEnvironmentType)
         tableView.reloadData()
     }
     
-    private func registerTableViewCellsAndHeader() {
-        tableView.register(UINib(nibName: "ACUnitDetailPageTableHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ACUnitDetailPageTableHeaderView")
-        
+    private func registerTableViewCells() {
+        tableView.register(UINib(nibName: "ACUnitDetailHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "ACUnitDetailHeaderTableViewCell")
         tableView.register(UINib(nibName: "ACUnitTableViewCell", bundle: nil), forCellReuseIdentifier: "ACUnitTableViewCell")
     }
     
     private func setUpUI() {
-        registerTableViewCellsAndHeader()
+        tableView.separatorStyle = .none
         
-        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ACUnitDetailPageTableHeaderView") as? ACUnitDetailPageTableHeaderView {
-            headerView.delegate = self
-            
-            headerView.setUpHeaderView(with: brand)
-            tableView.tableHeaderView = headerView
-        }
+        registerTableViewCells()
     }
 }
 
 extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return units.count
+        let numberOfHeaders = 1
+        return numberOfHeaders + units.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard indexPath.row != 0 else {
+            //header
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "ACUnitDetailHeaderTableViewCell"
+                ) as? ACUnitDetailHeaderTableViewCell else {
+                    return UITableViewCell()
+            }
+            cell.delegate = self
+            cell.setUpHeaderView(with: brand)
+            return cell
+        }
+        
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "ACUnitTableViewCell"
             ) as? ACUnitTableViewCell else {
                 return UITableViewCell()
         }
-        cell.setUpCell(with: units[indexPath.row])
+        //+ 1 to offset header
+        cell.setUpCell(with: units[indexPath.row - 1])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "newQuoteSegue", sender: units[indexPath.row])
+        guard indexPath.row != 0 else { return }
+        //+ 1 to offset header
+        performSegue(withIdentifier: "newQuoteSegue", sender: units[indexPath.row - 1])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard let beginQuoteViewController = segue.destination as? BeginQuoteViewController, let ACUnit = sender as? ACUnit else { return }
-        
         
         beginQuoteViewController.quote = ACQuote(units: [ACUnit])
     }

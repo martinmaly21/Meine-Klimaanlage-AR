@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		5B00FAC0249703C600215489 /* ACBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FABF249703C600215489 /* ACBrand.swift */; };
-		5B00FAC32497082800215489 /* ACUnitDetailPageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FAC22497082800215489 /* ACUnitDetailPageTableHeaderView.swift */; };
-		5B00FAC52497087600215489 /* ACUnitDetailPageTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B00FAC42497087600215489 /* ACUnitDetailPageTableHeaderView.xib */; };
 		5B00FAC724970B7B00215489 /* ACUnitEnvironmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FAC624970B7B00215489 /* ACUnitEnvironmentType.swift */; };
 		5B00FACA24970CE300215489 /* ACUnitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FAC824970CE300215489 /* ACUnitListViewController.swift */; };
 		5B00FACD24970F2100215489 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FACC24970F2100215489 /* ExtensionManager.swift */; };
 		5B00FACF2497214700215489 /* ACUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FACE2497214700215489 /* ACUnit.swift */; };
 		5B09157B2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0915792544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.swift */; };
 		5B09157C2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B09157A2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.xib */; };
+		5B09158225451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B09158025451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.swift */; };
+		5B09158325451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B09158125451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.xib */; };
 		5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */; };
 		5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B0A8A37248D88A900CA4141 /* Colors.xcassets */; };
 		5B12389625410B2200A809D9 /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12389525410B2200A809D9 /* ShadowButton.swift */; };
@@ -70,14 +70,14 @@
 /* Begin PBXFileReference section */
 		0A38C807304FB2807B48D88C /* Pods-Meine Klimaanlage AR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meine Klimaanlage AR.release.xcconfig"; path = "Target Support Files/Pods-Meine Klimaanlage AR/Pods-Meine Klimaanlage AR.release.xcconfig"; sourceTree = "<group>"; };
 		5B00FABF249703C600215489 /* ACBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACBrand.swift; sourceTree = SOURCE_ROOT; };
-		5B00FAC22497082800215489 /* ACUnitDetailPageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitDetailPageTableHeaderView.swift; sourceTree = "<group>"; };
-		5B00FAC42497087600215489 /* ACUnitDetailPageTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitDetailPageTableHeaderView.xib; sourceTree = "<group>"; };
 		5B00FAC624970B7B00215489 /* ACUnitEnvironmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ACUnitEnvironmentType.swift; path = "Meine Klimaanlage AR/View/Table View Header/ACUnitEnvironmentType.swift"; sourceTree = SOURCE_ROOT; };
 		5B00FAC824970CE300215489 /* ACUnitListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitListViewController.swift; sourceTree = "<group>"; };
 		5B00FACC24970F2100215489 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
 		5B00FACE2497214700215489 /* ACUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ACUnit.swift; path = "Meine Klimaanlage AR/Manager/ACUnit.swift"; sourceTree = SOURCE_ROOT; };
 		5B0915792544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitBrandsCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B09157A2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitBrandsCollectionViewCell.xib; sourceTree = "<group>"; };
+		5B09158025451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACUnitDetailHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		5B09158125451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitDetailHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B0A8A37248D88A900CA4141 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5B12389525410B2200A809D9 /* ShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
@@ -160,13 +160,13 @@
 			path = ARScenes;
 			sourceTree = "<group>";
 		};
-		5B00FAC1249707C900215489 /* Table View Header */ = {
+		5B09157F25451B98008249D7 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				5B00FAC22497082800215489 /* ACUnitDetailPageTableHeaderView.swift */,
-				5B00FAC42497087600215489 /* ACUnitDetailPageTableHeaderView.xib */,
+				5B09158025451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.swift */,
+				5B09158125451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.xib */,
 			);
-			path = "Table View Header";
+			path = Header;
 			sourceTree = "<group>";
 		};
 		5B0A8A3E248D8EA700CA4141 /* View */ = {
@@ -174,7 +174,6 @@
 			children = (
 				5B12389425410B0100A809D9 /* Buttons */,
 				5BFA9EA624B6A469008FBB99 /* ARViews */,
-				5B00FAC1249707C900215489 /* Table View Header */,
 				5B2C5B11248DBA01001B6898 /* Table View Cells */,
 				5BDD140C24BBAB72003A3A98 /* Collection View Cells */,
 				5B0A8A41248D8F0D00CA4141 /* Storyboards */,
@@ -248,6 +247,7 @@
 		5B2C5B11248DBA01001B6898 /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5B09157F25451B98008249D7 /* Header */,
 				5B2C5B21248DBD9A001B6898 /* ACUnitTableViewCell.swift */,
 				5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */,
 				5BDD140524BB8414003A3A98 /* QuoteSummaryTableViewCell.swift */,
@@ -467,11 +467,11 @@
 				5B2C5B24248DBD9A001B6898 /* ACUnitTableViewCell.xib in Resources */,
 				5BAF8D0924B81A8D0022EC84 /* AppEntry.storyboard in Resources */,
 				5B4FDFB8248D79160079B653 /* .gitignore in Resources */,
-				5B00FAC52497087600215489 /* ACUnitDetailPageTableHeaderView.xib in Resources */,
 				5B09157C2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.xib in Resources */,
 				5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */,
 				5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */,
 				5BDD140824BB8414003A3A98 /* QuoteSummaryTableViewCell.xib in Resources */,
+				5B09158325451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.xib in Resources */,
 				5BDD140424BB7F8E003A3A98 /* QuoteSummaryViewController.xib in Resources */,
 				5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */,
 				5BE8199024BA2C0800C538FF /* ChooseTypeOfWireViewController.xib in Resources */,
@@ -547,8 +547,8 @@
 				5BE8198B24BA21E000C538FF /* BeginQuoteViewController.swift in Sources */,
 				5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */,
 				5B7E6DE324B6BE8D0049CCB9 /* VirtualObjectInteraction.swift in Sources */,
+				5B09158225451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.swift in Sources */,
 				5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */,
-				5B00FAC32497082800215489 /* ACUnitDetailPageTableHeaderView.swift in Sources */,
 				5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */,
 				5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */,
 				5B7E6DE124B6BE570049CCB9 /* ARViewController+ObjectSelection.swift in Sources */,

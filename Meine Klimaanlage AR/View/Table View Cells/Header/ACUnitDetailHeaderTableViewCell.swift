@@ -1,8 +1,8 @@
 //
-//  ACUnitDetailPageTableHeaderView.swift
+//  ACUnitDetailHeaderTableViewCell.swift
 //  Meine Klimaanlage AR
 //
-//  Created by Martin Maly on 2020-06-14.
+//  Created by Martin Maly on 2020-10-24.
 //  Copyright © 2020 Tim Kohmann. All rights reserved.
 //
 
@@ -12,10 +12,15 @@ protocol ACUnitDetailPageTableHeaderViewDelegate: class {
     func userChangedACUnitEnvironmentType(with newType: ACUnitEnvironmentType)
 }
 
-class ACUnitDetailPageTableHeaderView: UITableViewHeaderFooterView {
+class ACUnitDetailHeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var ACUnitHeaderImageView: UIImageView!
     @IBOutlet weak var ACUnitHeaderSegmentedControl: UISegmentedControl!
     public weak var delegate: ACUnitDetailPageTableHeaderViewDelegate?
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        selectionStyle = .none
+    }
     
     public func setUpHeaderView(with brand: ACBrand) {
         ACUnitHeaderImageView.image = brand.getLogoImage()
@@ -25,4 +30,5 @@ class ACUnitDetailPageTableHeaderView: UITableViewHeaderFooterView {
         let newACUnitEnvironmentType: ACUnitEnvironmentType = sender.selectedSegmentIndex == 0 ? .interior : .exterior
         delegate?.userChangedACUnitEnvironmentType(with: newACUnitEnvironmentType)
     }
+    
 }
