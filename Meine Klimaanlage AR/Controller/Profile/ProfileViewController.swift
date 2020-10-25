@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
         containerView.layer.shadowOffset = CGSize(width: 2, height: 2)
         containerView.layer.shadowOpacity = 0.3
         
-        fullNameLabel.text = Auth.auth().currentUser?.displayName
+        fullNameLabel.text = Auth.auth().currentUser?.displayName ?? "No name provided"
         emailLabel.text = Auth.auth().currentUser?.email
         
         let logOutButton = UIBarButtonItem(
