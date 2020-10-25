@@ -12,6 +12,7 @@ import Firebase
 class ProfileViewController: UIViewController {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var containerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,15 @@ class ProfileViewController: UIViewController {
     private func setUpUI() {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Profile"
+        
+        containerView.layer.cornerRadius = 10
+        containerView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        containerView.layer.borderWidth = 1
+        
+        containerView.layer.shadowColor = Constants.Color.border.cgColor
+        containerView.layer.shadowRadius = 2
+        containerView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        containerView.layer.shadowOpacity = 0.3
         
         fullNameLabel.text = Auth.auth().currentUser?.displayName
         emailLabel.text = Auth.auth().currentUser?.email
