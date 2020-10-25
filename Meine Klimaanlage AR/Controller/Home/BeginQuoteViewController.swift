@@ -30,7 +30,7 @@ class BeginQuoteViewController: UIViewController {
         let currentDateTime = Date()
         
         let formatter = DateFormatter()
-        formatter.timeStyle = .medium
+        formatter.timeStyle = .short
         formatter.dateStyle = .long
         
         appointmentDateTextField.text = formatter.string(from: currentDateTime)
