@@ -40,8 +40,6 @@ class ACUnitTableViewCell: UITableViewCell {
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-//        super.setHighlighted(highlighted, animated: animated)
-        
         if highlighted {
             highlightCell()
         } else {
