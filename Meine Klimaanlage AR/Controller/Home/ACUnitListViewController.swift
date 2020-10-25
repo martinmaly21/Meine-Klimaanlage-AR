@@ -21,6 +21,12 @@ class ACUnitListViewController: UIViewController {
         getUnits()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //ensures large title when view appears
+        self.navigationController?.navigationBar.sizeToFit()
+    }
+    
     private func getUnits() {
         units = NetworkManager.getUnits(for: brand, with: currentACUnitEnvironmentType)
         tableView.reloadData()
