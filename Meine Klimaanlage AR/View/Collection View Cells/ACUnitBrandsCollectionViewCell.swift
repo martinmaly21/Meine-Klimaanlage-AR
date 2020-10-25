@@ -18,22 +18,25 @@ class ACUnitBrandsCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        clipsToBounds = false
     }
     
     public func setUpCell(with brand: ACBrand) {
         self.brand = brand
+        
         
         brandImageView.image = brand.getLogoImage()
         
         brandLabel.text = brand.rawValue
         
         containerView.layer.cornerRadius = 10
-        containerView.layer.borderColor = Constants.Color.border.cgColor
+        containerView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
         containerView.layer.borderWidth = 1
         
         containerView.layer.shadowColor = Constants.Color.border.cgColor
-        containerView.layer.shadowRadius = 5
-        containerView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        containerView.layer.shadowRadius = 2
+        containerView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        containerView.layer.shadowOpacity = 0.3
         
         brandImageContainerView.layer.cornerRadius = 10
     }

@@ -37,7 +37,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XHs-UE-loK">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="PrimaryWhiteBackground"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SXx-60-HqB">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -189,7 +189,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="PrimaryWhiteBackground"/>
                                         <constraints>
                                             <constraint firstItem="YGw-Tk-b88" firstAttribute="leading" secondItem="neV-a0-RgV" secondAttribute="leading" constant="16.5" id="AUz-6e-AXa"/>
                                             <constraint firstAttribute="trailing" secondItem="YGw-Tk-b88" secondAttribute="trailing" constant="16.5" id="l6f-qr-ZR6"/>
@@ -722,6 +722,9 @@
         </namedColor>
         <namedColor name="PrimaryTextLight">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryWhiteBackground">
+            <color red="0.93100000000000005" green="0.93100000000000005" blue="0.93100000000000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SecondaryTextDark">
             <color red="0.45098039215686275" green="0.45098039215686275" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

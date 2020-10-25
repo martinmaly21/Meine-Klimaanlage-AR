@@ -31,7 +31,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" name="VeryLightGrey"/>
+                                <color key="backgroundColor" red="0.71947860679804909" green="0.72660215736040601" blue="0.72660215736040601" alpha="0.063998287671232876" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="EUX-J8-yo2" secondAttribute="trailing" constant="5" id="2iO-kN-9LC"/>
                                     <constraint firstAttribute="bottom" secondItem="EUX-J8-yo2" secondAttribute="bottom" constant="5" id="gjl-sO-5Ex"/>
@@ -46,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="LightGrey"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xq0-Rs-yOx" firstAttribute="leading" secondItem="0eh-OI-E3b" secondAttribute="leading" id="8Q7-PC-Tyh"/>
                             <constraint firstItem="0eh-OI-E3b" firstAttribute="top" secondItem="aJa-xJ-pRL" secondAttribute="top" constant="16.5" id="R6q-yJ-s6X"/>
@@ -76,14 +76,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <namedColor name="LightGrey">
-            <color red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="PrimaryTextDark">
             <color red="0.29019607843137257" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="VeryLightGrey">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.20512057840824127" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
