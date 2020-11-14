@@ -93,7 +93,7 @@ class LogInOrCreateAccountViewController: UIViewController {
     /// - Returns: The `UIBezierPath` for a particular point of time.
     private func wave(at elapsed: Double, for shapeLayerWithIndex: Int) -> UIBezierPath {
         let elapsedTimeOffset: CGFloat = CGFloat(shapeLayerWithIndex) * 0.1
-        let elapsed = CGFloat(elapsed) - elapsedTimeOffset
+        let elapsed = CGFloat(elapsed / 6) - elapsedTimeOffset
         
         let centerYOffset = CGFloat(shapeLayerWithIndex) * 8
         let centerY = (signUpButton.frame.minY) - 50 - (centerYOffset)
