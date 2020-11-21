@@ -34,6 +34,7 @@
 		5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0DE248D701F0072002A /* Onboarding.storyboard */; };
 		5B69D0E2248D70200072002A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0E1248D70200072002A /* Assets.xcassets */; };
 		5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0E3248D70200072002A /* LaunchScreen.storyboard */; };
+		5B6DED482569CDC700FF66A5 /* ARQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DED472569CDC700FF66A5 /* ARQuoteViewController.swift */; };
 		5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */; };
 		5B7E6DD124B6AE250049CCB9 /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DD024B6AE250049CCB9 /* VirtualObjectARView.swift */; };
 		5B7E6DD324B6AE690049CCB9 /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DD224B6AE690049CCB9 /* VirtualObject.swift */; };
@@ -98,6 +99,7 @@
 		5B69D0E1248D70200072002A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B69D0E4248D70200072002A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B69D0E6248D70200072002A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B6DED472569CDC700FF66A5 /* ARQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARQuoteViewController.swift; sourceTree = "<group>"; };
 		5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
 		5B7E6DD024B6AE250049CCB9 /* VirtualObjectARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
 		5B7E6DD224B6AE690049CCB9 /* VirtualObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				5B2C5B19248DBB80001B6898 /* HomeViewController.swift */,
 				5B00FAC824970CE300215489 /* ACUnitListViewController.swift */,
 				5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */,
+				5B6DED462569CC2E00FF66A5 /* AugmentedReality */,
 				5BFA9EA324B6A13B008FBB99 /* ARViewControllers */,
 				5BE8198C24BA2BC500C538FF /* Form VIew Controllers */,
 			);
@@ -308,6 +311,14 @@
 				5B0A8A35248D840700CA4141 /* GoogleService-Info.plist */,
 			);
 			path = "Meine Klimaanlage AR";
+			sourceTree = "<group>";
+		};
+		5B6DED462569CC2E00FF66A5 /* AugmentedReality */ = {
+			isa = PBXGroup;
+			children = (
+				5B6DED472569CDC700FF66A5 /* ARQuoteViewController.swift */,
+			);
+			path = AugmentedReality;
 			sourceTree = "<group>";
 		};
 		5B7E6DCF24B6ADF40049CCB9 /* ARModel */ = {
@@ -572,6 +583,7 @@
 				5B54CF36249728DA00A6BD85 /* ARViewController.swift in Sources */,
 				5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */,
 				5B7E6DE724B6C04A0049CCB9 /* StatusViewController.swift in Sources */,
+				5B6DED482569CDC700FF66A5 /* ARQuoteViewController.swift in Sources */,
 				5B12389625410B2200A809D9 /* ShadowButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

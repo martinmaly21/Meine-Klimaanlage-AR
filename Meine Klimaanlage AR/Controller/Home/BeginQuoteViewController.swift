@@ -37,13 +37,14 @@ class BeginQuoteViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let arViewController = segue.destination as? ARViewController {
+        if let arViewController = segue.destination as? ARQuoteViewController {
            
             quote.customerName = customerNameTextField.text
             quote.employeeName = employeeNameTextField.text
             quote.appointmentDate = appointmentDateTextField.text
             
-            arViewController.quote = quote
+            #warning("TODO")
+//            arViewController.quote = quote
         }
     }
     
