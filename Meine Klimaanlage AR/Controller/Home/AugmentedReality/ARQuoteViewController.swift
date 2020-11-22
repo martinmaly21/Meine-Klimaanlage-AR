@@ -50,9 +50,16 @@ class ARQuoteViewController: UIViewController {
         sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin,
                                 ARSCNDebugOptions.showFeaturePoints]
         
-        let scene = SCNScene(named: "ACUnits.scnassets/Panasonic.scn")!
+        sceneView.autoenablesDefaultLighting = true
         
-        sceneView.scene = scene
+        let scene = SCNScene(named: "ACUnits.scnassets/Panasonic.scn")!
+        #warning("Why is this calleed 'GoodSizeMaterial'?")
+        let ACUnit = (scene.rootNode.childNode(withName: "GoodSizeMaterial", recursively: false))!
+        
+        ACUnit.position = SCNVector3(0, 0, 0)
+        ACUnit.scale = SCNVector3(0.2, 0.2, 0.2)
+        
+        sceneView.scene.rootNode.addChildNode(ACUnit)
     }
 }
 
