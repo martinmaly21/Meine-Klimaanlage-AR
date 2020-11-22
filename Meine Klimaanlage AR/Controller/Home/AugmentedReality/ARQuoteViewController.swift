@@ -93,6 +93,8 @@ class ARQuoteViewController: UIViewController {
     }
     
     private func hideUIElementsForSessionStart() {
+        addUnitButton.isUserInteractionEnabled = false
+        
         UIView.animate(
             withDuration: 0.3) {
             self.statusLabelVisualEffectView.alpha = 0
@@ -101,6 +103,8 @@ class ARQuoteViewController: UIViewController {
     }
     
     private func showUIElementsForCoachingFinished() {
+        addUnitButton.isUserInteractionEnabled = true
+        
         UIView.animate(
             withDuration: 0.3) {
             self.statusLabelVisualEffectView.alpha = 1
