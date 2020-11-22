@@ -135,13 +135,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		5B00FABC2496E59400215489 /* ARScenes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ARScenes;
-			sourceTree = "<group>";
-		};
 		5B09157F25451B98008249D7 /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,7 +299,6 @@
 				5B7E6DEB24B6C87D0049CCB9 /* ACUnits.scnassets */,
 				5B0A8A37248D88A900CA4141 /* Colors.xcassets */,
 				5B69D0E1248D70200072002A /* Assets.xcassets */,
-				5B00FABC2496E59400215489 /* ARScenes */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
