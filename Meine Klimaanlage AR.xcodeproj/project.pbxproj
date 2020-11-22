@@ -58,6 +58,7 @@
 		5BDD140F24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD140D24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift */; };
 		5BDD141024BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140E24BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib */; };
 		5BDD141224BC07B4003A3A98 /* ConstantsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD141124BC07B4003A3A98 /* ConstantsManager.swift */; };
+		5BDD77AF256ABBD700EACC68 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD77AE256ABBD700EACC68 /* AppState.swift */; };
 		5BE8198724BA1E3000C538FF /* ACQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198624BA1E3000C538FF /* ACQuote.swift */; };
 		5BE8198B24BA21E000C538FF /* BeginQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */; };
 		5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */; };
@@ -123,6 +124,7 @@
 		5BDD140D24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionViewCell.swift; sourceTree = "<group>"; };
 		5BDD140E24BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenshotCollectionViewCell.xib; sourceTree = "<group>"; };
 		5BDD141124BC07B4003A3A98 /* ConstantsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsManager.swift; sourceTree = "<group>"; };
+		5BDD77AE256ABBD700EACC68 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		5BE8198624BA1E3000C538FF /* ACQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACQuote.swift; sourceTree = "<group>"; };
 		5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginQuoteViewController.swift; sourceTree = "<group>"; };
 		5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTypeOfWireViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		5B0A8A40248D8F0000CA4141 /* Model  */ = {
 			isa = PBXGroup;
 			children = (
+				5BDD77AD256ABBC900EACC68 /* ARQuoteModel */,
 				5B7E6DCF24B6ADF40049CCB9 /* ARModel */,
 				5B00FABF249703C600215489 /* ACBrand.swift */,
 				5B00FAC624970B7B00215489 /* ACUnitEnvironmentType.swift */,
@@ -372,6 +375,14 @@
 				5B09157A2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.xib */,
 			);
 			path = "Collection View Cells";
+			sourceTree = "<group>";
+		};
+		5BDD77AD256ABBC900EACC68 /* ARQuoteModel */ = {
+			isa = PBXGroup;
+			children = (
+				5BDD77AE256ABBD700EACC68 /* AppState.swift */,
+			);
+			path = ARQuoteModel;
 			sourceTree = "<group>";
 		};
 		5BE8198C24BA2BC500C538FF /* Form VIew Controllers */ = {
@@ -579,6 +590,7 @@
 				5BDD141224BC07B4003A3A98 /* ConstantsManager.swift in Sources */,
 				5B7E6DD324B6AE690049CCB9 /* VirtualObject.swift in Sources */,
 				5B7E6DD124B6AE250049CCB9 /* VirtualObjectARView.swift in Sources */,
+				5BDD77AF256ABBD700EACC68 /* AppState.swift in Sources */,
 				5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */,
 				5B54CF36249728DA00A6BD85 /* ARViewController.swift in Sources */,
 				5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */,

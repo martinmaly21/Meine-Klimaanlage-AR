@@ -731,11 +731,38 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bbv-qm-qKR">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arscnView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hec-gS-PL1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sLY-fp-3Oc">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There’ll be stuff here soon!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljj-DG-Cdu">
+                                            <rect key="frame" x="18" y="21" width="378" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Ljj-DG-Cdu" secondAttribute="trailing" constant="10" id="5E4-U4-Mj0"/>
+                                        <constraint firstItem="Ljj-DG-Cdu" firstAttribute="centerY" secondItem="sLY-fp-3Oc" secondAttribute="centerY" id="A1d-qa-yRy"/>
+                                        <constraint firstItem="Ljj-DG-Cdu" firstAttribute="leading" secondItem="sLY-fp-3Oc" secondAttribute="leadingMargin" constant="10" id="p6I-2k-v5V"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4l4-7q-3DH"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="87a-4f-kcC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Hec-gS-PL1" firstAttribute="top" secondItem="4fV-sV-Pfi" secondAttribute="top" id="Dmp-Uw-cfu"/>
+                            <constraint firstItem="Hec-gS-PL1" firstAttribute="leading" secondItem="Bbv-qm-qKR" secondAttribute="leading" id="SPU-Im-X8Z"/>
                             <constraint firstItem="Bbv-qm-qKR" firstAttribute="leading" secondItem="87a-4f-kcC" secondAttribute="leading" id="YjX-jp-u6v"/>
+                            <constraint firstItem="Hec-gS-PL1" firstAttribute="trailing" secondItem="Bbv-qm-qKR" secondAttribute="trailing" id="iET-AK-Ded"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="trailing" secondItem="Bbv-qm-qKR" secondAttribute="trailing" id="igF-Hx-uSk"/>
                             <constraint firstItem="Bbv-qm-qKR" firstAttribute="top" secondItem="4fV-sV-Pfi" secondAttribute="top" id="kBO-bv-fBN"/>
                             <constraint firstAttribute="bottom" secondItem="Bbv-qm-qKR" secondAttribute="bottom" id="v8D-zE-6Mr"/>
@@ -744,6 +771,9 @@
                     <navigationItem key="navigationItem" id="5dg-4Y-xae"/>
                     <connections>
                         <outlet property="sceneView" destination="Bbv-qm-qKR" id="5cv-3x-rWb"/>
+                        <outlet property="statusLabel" destination="Ljj-DG-Cdu" id="hnm-r9-c39"/>
+                        <outlet property="statusLabelCenterYConstraint" destination="A1d-qa-yRy" id="9cY-fE-JCj"/>
+                        <outlet property="statusLabelHeightConstraint" destination="4l4-7q-3DH" id="dDE-Oe-zGK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mV2-97-klh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

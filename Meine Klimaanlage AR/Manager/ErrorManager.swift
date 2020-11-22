@@ -14,6 +14,7 @@ struct Errors {
         case unknown
         case noInernet
         case signingOut
+        case ARNotSupported
     }
     
     public enum OnboardingError {
@@ -101,6 +102,8 @@ class ErrorManager {
             errorText = "It appears you have no internet connection. Please connect, and try again."
         case .signingOut:
             errorText = "There was an error signing you out. Please try again."
+        case .ARNotSupported:
+            errorText = "AR is not supported on this device."
         }
         
         
