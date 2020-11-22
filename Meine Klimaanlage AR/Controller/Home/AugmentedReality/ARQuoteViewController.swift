@@ -21,10 +21,13 @@ class ARQuoteViewController: UIViewController {
     var statusMessage = ""
     var trackingStatus = ""
     
+    var planeDetectionType = ARWorldTrackingConfiguration.PlaneDetection.vertical
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
         setUpScene()
+        setUpCoachingOverlay()
         setUpARSession()
         addGestureRecognizers()
     }
@@ -52,20 +55,27 @@ class ARQuoteViewController: UIViewController {
     private func setUpScene() {
         sceneView.delegate = self
         sceneView.automaticallyUpdatesLighting = true
-        sceneView.showsStatistics = true
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         sceneView.preferredFramesPerSecond = 60
         sceneView.antialiasingMode = .multisampling2X
         sceneView.autoenablesDefaultLighting = true
+    }
+    
+    private func setUpCoachingOverlay() {
+        let coachingOverlay = ARCoachingOverlayView(frame: .zero)
+        view.addSubview(coachingOverlay)
         
-        //        let scene = SCNScene(named: "ACUnits.scnassets/Panasonic.scn")!
-        //        #warning("Why is this calleed 'GoodSizeMaterial'?")
-        //        let ACUnit = (scene.rootNode.childNode(withName: "GoodSizeMaterial", recursively: false))!
-        //
-        //        ACUnit.position = SCNVector3(0, 0, 0)
-        //        ACUnit.scale = SCNVector3(0.2, 0.2, 0.2)
-        //
-        //        sceneView.scene.rootNode.addChildNode(ACUnit)
+        coachingOverlay.translatesAutoresizingMaskIntoConstraints = false
+        coachingOverlay.topAnchor.constraint(equalTo: sceneView.topAnchor).isActive = true
+        coachingOverlay.bottomAnchor.constraint(equalTo: sceneView.bottomAnchor).isActive = true
+        coachingOverlay.leadingAnchor.constraint(equalTo: sceneView.leadingAnchor).isActive = true
+        coachingOverlay.trailingAnchor.constraint(equalTo: sceneView.trailingAnchor).isActive = true
+        
+        coachingOverlay.delegate = self
+        
+        coachingOverlay.goal = .verticalPlane
+        
+        coachingOverlay.session = sceneView.session
     }
     
     private func setUpARSession() {
@@ -86,7 +96,7 @@ class ARQuoteViewController: UIViewController {
         let configuration = ARWorldTrackingConfiguration()
         configuration.worldAlignment = .gravity
         //detect both horizontal and vertical planes
-        configuration.planeDetection = [.horizontal, .vertical]
+        configuration.planeDetection = planeDetectionType
         configuration.isLightEstimationEnabled = true
         
         return configuration
@@ -142,10 +152,9 @@ class ARQuoteViewController: UIViewController {
             for x in 0...screenDivisions {
                 let xCoord = CGFloat(x) / CGFloat(screenDivisions) * viewWidth
                 let point = CGPoint(x: xCoord, y: yCoord)
-                
-                // Perform hit test for planes.
-                
-                
+                //                 Perform hit test for planes.
+                let hitTest = sceneView.hitTest(point, types: [.existingPlaneUsingGeometry, .estimatedVerticalPlane])
+                return !hitTest.isEmpty
             }
         }
         return false
@@ -159,11 +168,7 @@ class ARQuoteViewController: UIViewController {
         
         planeNode.eulerAngles = SCNVector3(-Double.pi / 2, 0, 0)
         
-        if planeAnchor.alignment == .horizontal {
-            planeNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
-        } else {
-            planeNode.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
-        }
+        planeNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
         
         node.addChildNode(planeNode)
         
@@ -204,6 +209,24 @@ extension ARQuoteViewController: ARSCNViewDelegate {
         }
     }
     
+    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+        if anchor is ARPlaneAnchor {
+            let anchorNode = SCNNode()
+            anchorNode.name = "anchor"
+            return anchorNode
+        } else {
+            
+            //add unit
+            let scene = SCNScene(named: "ACUnits.scnassets/Panasonic.scn")!
+            #warning("Why is this calleed 'GoodSizeMaterial'?")
+            let ACUnit = (scene.rootNode.childNode(withName: "GoodSizeMaterial", recursively: false))!
+            ACUnit.eulerAngles = SCNVector3(CGFloat.pi * -0.5, 0.0, 0.0)
+            ACUnit.scale = SCNVector3(0.5, 0.5, 0.5)
+            return ACUnit
+          
+        }
+    }
+    
     // MARK: - AR session error management
     // ===================================
     
@@ -228,26 +251,36 @@ extension ARQuoteViewController: ARSCNViewDelegate {
 //MARK: - adding and removing ac units
 extension ARQuoteViewController {
     @objc
-    func  handleScreenTap() {
+    func  handleScreenTap(sender: UITapGestureRecognizer) {
+        let tapLocation = sender.location(in: sender.view)
         
+        guard let hitTestResult = sceneView.hitTest(tapLocation, types: [.existingPlaneUsingGeometry, .estimatedVerticalPlane]).first,
+              let planeAnchor = hitTestResult.anchor as? ARPlaneAnchor,
+              planeAnchor.alignment == .vertical else {
+            return
+        }
+        
+        let anchor = ARAnchor(transform: hitTestResult.worldTransform)
+        sceneView.session.add(anchor: anchor)
     }
     
     func addACUnit(hitTestResult: ARHitTestResult) {
+        let transform = hitTestResult.worldTransform
+        let positionColumn = transform.columns.3
+        let initialPostion = SCNVector3(positionColumn.x, positionColumn.y, positionColumn.z)
         
-        
+        //add unit
+        let scene = SCNScene(named: "ACUnits.scnassets/Panasonic.scn")!
+        #warning("Why is this calleed 'GoodSizeMaterial'?")
+        let ACUnit = (scene.rootNode.childNode(withName: "GoodSizeMaterial", recursively: false))!
+        ACUnit.position = initialPostion
+        ACUnit.scale = SCNVector3(0.2, 0.2, 0.2)
+        sceneView.scene.rootNode.addChildNode(ACUnit)
     }
 }
 
-#warning("do we need this??")
-extension ARQuoteViewController {
-    // MARK: - Utility methods
-    // =======================
-    
-//    // Extend the "+" operator so that it can add two SCNVector3s together.
-//    func +(left: SCNVector3, right: SCNVector3) -> SCNVector3 {
-//        return SCNVector3(left.x + right.x,
-//                          left.y + right.y,
-//                          left.z + right.z)
-//    }
-    
+extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
+    func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
+        //hide any ui while intializing
+    }
 }
