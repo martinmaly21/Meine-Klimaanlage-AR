@@ -12,9 +12,11 @@ import ARKit
 
 class ARQuoteViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var statusLabelVisualEffectView: UIVisualEffectView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var statusLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var statusLabelCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var addUnitButton: UIButton!
     
     //handling app state
     var appState: AppState = .lookingForSurface
@@ -50,6 +52,19 @@ class ARQuoteViewController: UIViewController {
             statusLabelHeightConstraint.constant += topSafeAreaInset
             statusLabelCenterYConstraint.constant = topSafeAreaInset / 2
         }
+        
+        addUnitButton.layer.cornerRadius = 40
+        addUnitButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        addUnitButton.layer.borderWidth = 1
+        
+        addUnitButton.layer.shadowColor = Constants.Color.border.cgColor
+        addUnitButton.layer.shadowRadius = 2
+        addUnitButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        addUnitButton.layer.shadowOpacity = 0.3
+        
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 120, weight: .bold, scale: .large)
+        let largeBoldDoc = UIImage(systemName: "plus.circle", withConfiguration: largeConfig)
+        addUnitButton.setImage(largeBoldDoc, for: .normal)
     }
     
     private func setUpScene() {
@@ -71,11 +86,26 @@ class ARQuoteViewController: UIViewController {
         coachingOverlay.leadingAnchor.constraint(equalTo: sceneView.leadingAnchor).isActive = true
         coachingOverlay.trailingAnchor.constraint(equalTo: sceneView.trailingAnchor).isActive = true
         
-        coachingOverlay.delegate = self
-        
         coachingOverlay.goal = .verticalPlane
-        
+        coachingOverlay.activatesAutomatically = true
+        coachingOverlay.delegate = self
         coachingOverlay.session = sceneView.session
+    }
+    
+    private func hideUIElementsForSessionStart() {
+        UIView.animate(
+            withDuration: 0.3) {
+            self.statusLabelVisualEffectView.alpha = 0
+            self.addUnitButton.alpha = 0
+        }
+    }
+    
+    private func showUIElementsForCoachingFinished() {
+        UIView.animate(
+            withDuration: 0.3) {
+            self.statusLabelVisualEffectView.alpha = 1
+            self.addUnitButton.alpha = 1
+        }
     }
     
     private func setUpARSession() {
@@ -132,7 +162,7 @@ class ARQuoteViewController: UIViewController {
             statusMessage = "Point your device towards one of the detected surfaces."
             sceneView.debugOptions = []
         case .readyToAddACUnit:
-            statusMessage = "Tap on the floor grid to place furniture; look at walls to place posters."
+            statusMessage = "Tap on the blue plus to place unit."
             sceneView.debugOptions = []
         }
         
@@ -264,6 +294,10 @@ extension ARQuoteViewController {
         sceneView.session.add(anchor: anchor)
     }
     
+    @IBAction func userPressedAddButton() {
+        print("Add")
+    }
+    
     func addACUnit(hitTestResult: ARHitTestResult) {
         let transform = hitTestResult.worldTransform
         let positionColumn = transform.columns.3
@@ -281,6 +315,14 @@ extension ARQuoteViewController {
 
 extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
     func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        //hide any ui while intializing
+        hideUIElementsForSessionStart()
+    }
+    
+    func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
+        showUIElementsForCoachingFinished()
+    }
+
+    func coachingOverlayViewDidRequestSessionReset(_ coachingOverlayView: ARCoachingOverlayView) {
+        //TODO: reset
     }
 }
