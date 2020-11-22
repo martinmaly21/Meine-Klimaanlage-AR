@@ -83,7 +83,13 @@ class ARQuoteViewController: UIViewController {
     
     
     private func createConfiguration() -> ARWorldTrackingConfiguration {
-        return ARWorldTrackingConfiguration()
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.worldAlignment = .gravity
+        //detect both horizontal and vertical planes
+        configuration.planeDetection = [.horizontal, .vertical]
+        configuration.isLightEstimationEnabled = true
+        
+        return configuration
     }
     
     private func addGestureRecognizers() {
@@ -94,13 +100,13 @@ class ARQuoteViewController: UIViewController {
     //helper methods
     func updateAppState() {
         guard appState == .pointToSurface ||
-                appState == .readyToFurnish
+                appState == .readyToAddACUnit
         else {
             return
         }
         
         if isAnyPlaneInView() {
-            appState = .readyToFurnish
+            appState = .readyToAddACUnit
         } else {
             appState = .pointToSurface
         }
@@ -115,7 +121,7 @@ class ARQuoteViewController: UIViewController {
         case .pointToSurface:
             statusMessage = "Point your device towards one of the detected surfaces."
             sceneView.debugOptions = []
-        case .readyToFurnish:
+        case .readyToAddACUnit:
             statusMessage = "Tap on the floor grid to place furniture; look at walls to place posters."
             sceneView.debugOptions = []
         }
@@ -144,6 +150,25 @@ class ARQuoteViewController: UIViewController {
         }
         return false
     }
+    
+    func drawPlaneNode(on node: SCNNode, for planeAnchor: ARPlaneAnchor) {
+        let planeNode = SCNNode(geometry: SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z)))
+        planeNode.position = SCNVector3(planeAnchor.center.x, planeAnchor.center.y, planeAnchor.center.z)
+        
+        planeNode.geometry?.firstMaterial?.isDoubleSided = true
+        
+        planeNode.eulerAngles = SCNVector3(-Double.pi / 2, 0, 0)
+        
+        if planeAnchor.alignment == .horizontal {
+            planeNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        } else {
+            planeNode.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+        }
+        
+        node.addChildNode(planeNode)
+        
+        appState = .readyToAddACUnit
+    }
 }
 
 extension ARQuoteViewController: ARSCNViewDelegate {
@@ -155,15 +180,28 @@ extension ARQuoteViewController: ARSCNViewDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        //
+        //arkit hss detected a plane
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        
+        drawPlaneNode(on: node, for: planeAnchor)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        //
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        
+        node.enumerateChildNodes { (childNode, _) in
+            childNode.removeFromParentNode()
+        }
+        
+        drawPlaneNode(on: node, for: planeAnchor)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
-        //
+        guard anchor is ARPlaneAnchor else { return }
+        
+        node.enumerateChildNodes { (childNode, _) in
+            childNode.removeFromParentNode()
+        }
     }
     
     // MARK: - AR session error management
