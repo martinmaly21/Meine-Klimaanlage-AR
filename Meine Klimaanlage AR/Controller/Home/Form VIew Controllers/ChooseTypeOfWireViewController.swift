@@ -33,20 +33,21 @@ class ChooseTypeOfWireViewController: UIViewController {
         
         if let arViewController = (
             (presentingViewController as? UITabBarController)?.selectedViewController as? UINavigationController
-            )?.topViewController as? ARViewController {
-            let wire = ACWire(wireType: wireType, wireLocation: wireLocation)
-            
-            
-            arViewController.quote.wires.append(wire)
-          
-            arViewController.instructionsLabel.text = "Tap anywhere (near the unit) to choose where first wire begins"
-            arViewController.instructionsContainerView.isHidden = false
-            arViewController.userIsAddingWire = true
-            
-            arViewController.addWireButton.setTitle("Add another wire", for: .normal)
-            arViewController.saveUnitButton.isHidden = false
-            
-            dismiss(animated: true, completion: nil)
+            )?.topViewController as? ARQuoteViewController {
+            //TODO
+//            let wire = ACWire(wireType: wireType, wireLocation: wireLocation)
+//
+//
+//            arViewController.quote.wires.append(wire)
+//
+//            arViewController.instructionsLabel.text = "Tap anywhere (near the unit) to choose where first wire begins"
+//            arViewController.instructionsContainerView.isHidden = false
+//            arViewController.userIsAddingWire = true
+//
+//            arViewController.addWireButton.setTitle("Add another wire", for: .normal)
+//            arViewController.saveUnitButton.isHidden = false
+//
+//            dismiss(animated: true, completion: nil)
         }
     }
     

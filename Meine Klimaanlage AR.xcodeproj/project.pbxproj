@@ -27,7 +27,6 @@
 		5B2C5B24248DBD9A001B6898 /* ACUnitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */; };
 		5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B29248DC768001B6898 /* ErrorManager.swift */; };
 		5B4FDFB8248D79160079B653 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4FDFB7248D79160079B653 /* .gitignore */; };
-		5B54CF36249728DA00A6BD85 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B54CF35249728DA00A6BD85 /* ARViewController.swift */; };
 		5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0D8248D701F0072002A /* AppDelegate.swift */; };
 		5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DA248D701F0072002A /* SceneDelegate.swift */; };
 		5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DC248D701F0072002A /* LogInOrCreateAccountViewController.swift */; };
@@ -36,15 +35,6 @@
 		5B69D0E5248D70200072002A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B69D0E3248D70200072002A /* LaunchScreen.storyboard */; };
 		5B6DED482569CDC700FF66A5 /* ARQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DED472569CDC700FF66A5 /* ARQuoteViewController.swift */; };
 		5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */; };
-		5B7E6DD124B6AE250049CCB9 /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DD024B6AE250049CCB9 /* VirtualObjectARView.swift */; };
-		5B7E6DD324B6AE690049CCB9 /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DD224B6AE690049CCB9 /* VirtualObject.swift */; };
-		5B7E6DD524B6AE850049CCB9 /* VirtualObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DD424B6AE850049CCB9 /* VirtualObjectLoader.swift */; };
-		5B7E6DDD24B6BE220049CCB9 /* ARViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DDC24B6BE220049CCB9 /* ARViewController+ARSCNViewDelegate.swift */; };
-		5B7E6DDF24B6BE3A0049CCB9 /* ARViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DDE24B6BE3A0049CCB9 /* ARViewController+Actions.swift */; };
-		5B7E6DE124B6BE570049CCB9 /* ARViewController+ObjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DE024B6BE570049CCB9 /* ARViewController+ObjectSelection.swift */; };
-		5B7E6DE324B6BE8D0049CCB9 /* VirtualObjectInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DE224B6BE8D0049CCB9 /* VirtualObjectInteraction.swift */; };
-		5B7E6DE524B6BEEA0049CCB9 /* ThresholdPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DE424B6BEEA0049CCB9 /* ThresholdPanGesture.swift */; };
-		5B7E6DE724B6C04A0049CCB9 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DE624B6C04A0049CCB9 /* StatusViewController.swift */; };
 		5B7E6DEC24B6C87D0049CCB9 /* ACUnits.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7E6DEB24B6C87D0049CCB9 /* ACUnits.scnassets */; };
 		5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667CF248D900D003A3B5D /* NetworkManager.swift */; };
 		5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D1248D9662003A3B5D /* LogInViewController.swift */; };
@@ -64,7 +54,6 @@
 		5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */; };
 		5BE8199024BA2C0800C538FF /* ChooseTypeOfWireViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE8198E24BA2C0800C538FF /* ChooseTypeOfWireViewController.xib */; };
 		5BE8199224BA3E4D00C538FF /* ACWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8199124BA3E4D00C538FF /* ACWire.swift */; };
-		5BFA9EA524B6A174008FBB99 /* ARViewController+CoachingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA9EA424B6A174008FBB99 /* ARViewController+CoachingOverlay.swift */; };
 		5BFA9EA824B6A583008FBB99 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA9EA724B6A583008FBB99 /* FocusSquare.swift */; };
 		A5BDCB9A0FD47B151970EB4E /* Pods_Meine_Klimaanlage_AR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */; };
 /* End PBXBuildFile section */
@@ -91,7 +80,6 @@
 		5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitTableViewCell.xib; sourceTree = "<group>"; };
 		5B2C5B29248DC768001B6898 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		5B4FDFB7248D79160079B653 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		5B54CF35249728DA00A6BD85 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		5B69D0D5248D701F0072002A /* Meine Klimaanlage AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meine Klimaanlage AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B69D0D8248D701F0072002A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B69D0DA248D701F0072002A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,15 +90,6 @@
 		5B69D0E6248D70200072002A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B6DED472569CDC700FF66A5 /* ARQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARQuoteViewController.swift; sourceTree = "<group>"; };
 		5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
-		5B7E6DD024B6AE250049CCB9 /* VirtualObjectARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
-		5B7E6DD224B6AE690049CCB9 /* VirtualObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
-		5B7E6DD424B6AE850049CCB9 /* VirtualObjectLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectLoader.swift; sourceTree = "<group>"; };
-		5B7E6DDC24B6BE220049CCB9 /* ARViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
-		5B7E6DDE24B6BE3A0049CCB9 /* ARViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewController+Actions.swift"; sourceTree = "<group>"; };
-		5B7E6DE024B6BE570049CCB9 /* ARViewController+ObjectSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewController+ObjectSelection.swift"; sourceTree = "<group>"; };
-		5B7E6DE224B6BE8D0049CCB9 /* VirtualObjectInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectInteraction.swift; sourceTree = "<group>"; };
-		5B7E6DE424B6BEEA0049CCB9 /* ThresholdPanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdPanGesture.swift; sourceTree = "<group>"; };
-		5B7E6DE624B6C04A0049CCB9 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		5B7E6DEB24B6C87D0049CCB9 /* ACUnits.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = ACUnits.scnassets; sourceTree = "<group>"; };
 		5B8667CF248D900D003A3B5D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5B8667D1248D9662003A3B5D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -130,7 +109,6 @@
 		5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTypeOfWireViewController.swift; sourceTree = "<group>"; };
 		5BE8198E24BA2C0800C538FF /* ChooseTypeOfWireViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseTypeOfWireViewController.xib; sourceTree = "<group>"; };
 		5BE8199124BA3E4D00C538FF /* ACWire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACWire.swift; sourceTree = "<group>"; };
-		5BFA9EA424B6A174008FBB99 /* ARViewController+CoachingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewController+CoachingOverlay.swift"; sourceTree = "<group>"; };
 		5BFA9EA724B6A583008FBB99 /* FocusSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		F7D70101EABCF50703354C2D /* Pods_Meine_Klimaanlage_AR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meine_Klimaanlage_AR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD30A9AE9F1D8D594F3D962A /* Pods-Meine Klimaanlage AR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meine Klimaanlage AR.debug.xcconfig"; path = "Target Support Files/Pods-Meine Klimaanlage AR/Pods-Meine Klimaanlage AR.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				5BDD77AD256ABBC900EACC68 /* ARQuoteModel */,
-				5B7E6DCF24B6ADF40049CCB9 /* ARModel */,
 				5B00FABF249703C600215489 /* ACBrand.swift */,
 				5B00FAC624970B7B00215489 /* ACUnitEnvironmentType.swift */,
 				5B00FACE2497214700215489 /* ACUnit.swift */,
@@ -268,7 +245,6 @@
 				5B00FAC824970CE300215489 /* ACUnitListViewController.swift */,
 				5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */,
 				5B6DED462569CC2E00FF66A5 /* AugmentedReality */,
-				5BFA9EA324B6A13B008FBB99 /* ARViewControllers */,
 				5BE8198C24BA2BC500C538FF /* Form VIew Controllers */,
 			);
 			path = Home;
@@ -322,18 +298,6 @@
 				5B6DED472569CDC700FF66A5 /* ARQuoteViewController.swift */,
 			);
 			path = AugmentedReality;
-			sourceTree = "<group>";
-		};
-		5B7E6DCF24B6ADF40049CCB9 /* ARModel */ = {
-			isa = PBXGroup;
-			children = (
-				5B7E6DD024B6AE250049CCB9 /* VirtualObjectARView.swift */,
-				5B7E6DD224B6AE690049CCB9 /* VirtualObject.swift */,
-				5B7E6DD424B6AE850049CCB9 /* VirtualObjectLoader.swift */,
-				5B7E6DE224B6BE8D0049CCB9 /* VirtualObjectInteraction.swift */,
-				5B7E6DE424B6BEEA0049CCB9 /* ThresholdPanGesture.swift */,
-			);
-			path = ARModel;
 			sourceTree = "<group>";
 		};
 		5B7E6DEA24B6C8420049CCB9 /* Resources */ = {
@@ -394,19 +358,6 @@
 				5BDD140224BB7F8E003A3A98 /* QuoteSummaryViewController.xib */,
 			);
 			path = "Form VIew Controllers";
-			sourceTree = "<group>";
-		};
-		5BFA9EA324B6A13B008FBB99 /* ARViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				5B54CF35249728DA00A6BD85 /* ARViewController.swift */,
-				5B7E6DDC24B6BE220049CCB9 /* ARViewController+ARSCNViewDelegate.swift */,
-				5B7E6DDE24B6BE3A0049CCB9 /* ARViewController+Actions.swift */,
-				5B7E6DE024B6BE570049CCB9 /* ARViewController+ObjectSelection.swift */,
-				5BFA9EA424B6A174008FBB99 /* ARViewController+CoachingOverlay.swift */,
-				5B7E6DE624B6C04A0049CCB9 /* StatusViewController.swift */,
-			);
-			path = ARViewControllers;
 			sourceTree = "<group>";
 		};
 		5BFA9EA624B6A469008FBB99 /* ARViews */ = {
@@ -554,11 +505,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BFA9EA524B6A174008FBB99 /* ARViewController+CoachingOverlay.swift in Sources */,
 				5BDD140724BB8414003A3A98 /* QuoteSummaryTableViewCell.swift in Sources */,
 				5BFA9EA824B6A583008FBB99 /* FocusSquare.swift in Sources */,
 				5BAF8D0E24B81B2E0022EC84 /* AppEntryViewController.swift in Sources */,
-				5B7E6DDF24B6BE3A0049CCB9 /* ARViewController+Actions.swift in Sources */,
 				5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */,
 				5BE8198724BA1E3000C538FF /* ACQuote.swift in Sources */,
 				5B00FAC724970B7B00215489 /* ACUnitEnvironmentType.swift in Sources */,
@@ -568,33 +517,24 @@
 				5B00FACF2497214700215489 /* ACUnit.swift in Sources */,
 				5BE8198B24BA21E000C538FF /* BeginQuoteViewController.swift in Sources */,
 				5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */,
-				5B7E6DE324B6BE8D0049CCB9 /* VirtualObjectInteraction.swift in Sources */,
 				5B09158225451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.swift in Sources */,
 				5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */,
 				5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */,
 				5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */,
-				5B7E6DE124B6BE570049CCB9 /* ARViewController+ObjectSelection.swift in Sources */,
 				5BE8199224BA3E4D00C538FF /* ACWire.swift in Sources */,
 				5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */,
 				5B00FAC0249703C600215489 /* ACBrand.swift in Sources */,
 				5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */,
 				5BDD140F24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift in Sources */,
 				5B09157B2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.swift in Sources */,
-				5B7E6DD524B6AE850049CCB9 /* VirtualObjectLoader.swift in Sources */,
 				5BDD140324BB7F8E003A3A98 /* QuoteSummaryViewController.swift in Sources */,
 				5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */,
-				5B7E6DDD24B6BE220049CCB9 /* ARViewController+ARSCNViewDelegate.swift in Sources */,
-				5B7E6DE524B6BEEA0049CCB9 /* ThresholdPanGesture.swift in Sources */,
 				5B2C5B23248DBD9A001B6898 /* ACUnitTableViewCell.swift in Sources */,
 				5B00FACD24970F2100215489 /* ExtensionManager.swift in Sources */,
 				5BDD141224BC07B4003A3A98 /* ConstantsManager.swift in Sources */,
-				5B7E6DD324B6AE690049CCB9 /* VirtualObject.swift in Sources */,
-				5B7E6DD124B6AE250049CCB9 /* VirtualObjectARView.swift in Sources */,
 				5BDD77AF256ABBD700EACC68 /* AppState.swift in Sources */,
 				5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */,
-				5B54CF36249728DA00A6BD85 /* ARViewController.swift in Sources */,
 				5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */,
-				5B7E6DE724B6C04A0049CCB9 /* StatusViewController.swift in Sources */,
 				5B6DED482569CDC700FF66A5 /* ARQuoteViewController.swift in Sources */,
 				5B12389625410B2200A809D9 /* ShadowButton.swift in Sources */,
 			);

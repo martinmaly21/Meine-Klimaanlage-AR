@@ -38,7 +38,6 @@ class ARQuoteViewController: UIViewController {
         setUpScene()
         setUpCoachingOverlay()
         setUpARSession()
-        addGestureRecognizers()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -141,11 +140,6 @@ class ARQuoteViewController: UIViewController {
         configuration.isLightEstimationEnabled = true
         
         return configuration
-    }
-    
-    private func addGestureRecognizers() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
-        sceneView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     //helper methods
@@ -292,11 +286,10 @@ extension ARQuoteViewController: ARSCNViewDelegate {
 
 //MARK: - adding and removing ac units
 extension ARQuoteViewController {
-    @objc
-    func  handleScreenTap(sender: UITapGestureRecognizer) {
-        let tapLocation = sender.location(in: sender.view)
+    @IBAction func userPressedAddButton() {
+        let center = sceneView.center
         
-        guard let hitTestResult = sceneView.hitTest(tapLocation, types: [.existingPlaneUsingGeometry, .estimatedVerticalPlane]).first,
+        guard let hitTestResult = sceneView.hitTest(center, types: [.existingPlaneUsingGeometry, .estimatedVerticalPlane]).first,
               let planeAnchor = hitTestResult.anchor as? ARPlaneAnchor,
               planeAnchor.alignment == .vertical else {
             return
@@ -304,10 +297,6 @@ extension ARQuoteViewController {
         
         let anchor = ARAnchor(transform: hitTestResult.worldTransform)
         sceneView.session.add(anchor: anchor)
-    }
-    
-    @IBAction func userPressedAddButton() {
-        print("Add")
     }
     
     func addACUnit(hitTestResult: ARHitTestResult) {
