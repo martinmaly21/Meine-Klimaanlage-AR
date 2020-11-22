@@ -23,6 +23,13 @@ class ARQuoteViewController: UIViewController {
     var statusMessage = ""
     var trackingStatus = ""
     
+    //data that is passed in
+    var quote: ACQuote!
+    
+    var currentACUnit: ACUnit! {
+        return quote.units.last!
+    }
+    
     var planeDetectionType = ARWorldTrackingConfiguration.PlaneDetection.vertical
     
     override func viewDidLoad() {
@@ -166,7 +173,7 @@ class ARQuoteViewController: UIViewController {
             statusMessage = "Point your device towards one of the detected surfaces."
             sceneView.debugOptions = []
         case .readyToAddACUnit:
-            statusMessage = "Tap on the blue plus to place unit."
+            statusMessage = "Tap on the blue plus to place \(currentACUnit.displayName)."
             sceneView.debugOptions = []
         }
         
