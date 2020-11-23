@@ -200,7 +200,7 @@ class ARQuoteViewController: UIViewController {
         case .ACUnitBeingAdded:
             statusMessage = "\(currentACUnit.displayName) is loading. Please wait."
         case .ACUnitAdded:
-            statusMessage = "\(currentACUnit.displayName) added!"
+            statusMessage = "\(currentACUnit.displayName) added! You can drag/rotate the unit to reposition it."
         }
         
         statusLabel.text = trackingStatus != "" ? "\(trackingStatus)" : "\(statusMessage)"
