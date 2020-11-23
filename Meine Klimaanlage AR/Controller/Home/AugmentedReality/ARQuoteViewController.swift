@@ -29,9 +29,10 @@ class ARQuoteViewController: UIViewController {
     //data that is passed in
     var quote: ACQuote!
     
-    var currentACUnit: ACUnit! {
-        return quote.units.last!
-    }
+    //    var currentACUnit: ACUnit! {
+    //        return quote.units.last!
+    //    }
+    var currentACUnit: ACUnit!
     
     var planeDetectionType = ARWorldTrackingConfiguration.PlaneDetection.vertical
     
@@ -46,8 +47,12 @@ class ARQuoteViewController: UIViewController {
     /// Coordinates the loading and unloading of reference nodes for virtual objects.
     let virtualObjectLoader = VirtualObjectLoader()
     
+    //    /// A type which manages gesture manipulation of virtual content in the scene.
+    //    lazy var virtualObjectInteraction = VirtualObjectInteraction(sceneView: sceneView, viewController: self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentACUnit = ACUnit(displayName: "Panasonic", fileName: "Panasonic")
         setUpUI()
         setUpScene()
         setUpCoachingOverlay()
@@ -173,10 +178,10 @@ class ARQuoteViewController: UIViewController {
             return
         }
         
-        if isAnyPlaneInView() {
-            appState = .readyToAddACUnit
-        } else {
+        if focusSquare.state == .initializing {
             appState = .pointToSurface
+        } else {
+            appState = .readyToAddACUnit
         }
     }
     
@@ -190,52 +195,19 @@ class ARQuoteViewController: UIViewController {
             statusMessage = "Point your device towards one of the detected surfaces."
             sceneView.debugOptions = []
         case .readyToAddACUnit:
-            statusMessage = "Tap on the blue plus to place unit."
-//            statusMessage = "Tap on the blue plus to place \(currentACUnit.displayName)."
+            statusMessage = "Tap on the blue plus to place \(currentACUnit.displayName)."
             sceneView.debugOptions = []
+        case .ACUnitBeingAdded:
+            statusMessage = "\(currentACUnit.displayName) is loading. Please wait."
+        case .ACUnitAdded:
+            statusMessage = "\(currentACUnit.displayName) added!"
         }
         
         statusLabel.text = trackingStatus != "" ? "\(trackingStatus)" : "\(statusMessage)"
     }
     
-    // We can’t check *every* point in the view to see if it contains one of
-    // the detected planes. Instead, we assume that the planes that will be detected
-    // will intersect with at least one point on a 5*5 grid spanning the entire view.
-    func isAnyPlaneInView() -> Bool {
-        let screenDivisions = 5 - 1
-        let viewWidth = view.bounds.size.width
-        let viewHeight = view.bounds.size.height
-        
-        for y in 0...screenDivisions {
-            let yCoord = CGFloat(y) / CGFloat(screenDivisions) * viewHeight
-            for x in 0...screenDivisions {
-                let xCoord = CGFloat(x) / CGFloat(screenDivisions) * viewWidth
-                let point = CGPoint(x: xCoord, y: yCoord)
-                //                 Perform hit test for planes.
-                let hitTest = sceneView.hitTest(point, types: [.existingPlaneUsingGeometry, .estimatedVerticalPlane])
-                return !hitTest.isEmpty
-            }
-        }
-        return false
-    }
-    
-    func drawPlaneNode(on node: SCNNode, for planeAnchor: ARPlaneAnchor) {
-        let planeNode = SCNNode(geometry: SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z)))
-        planeNode.position = SCNVector3(planeAnchor.center.x, planeAnchor.center.y, planeAnchor.center.z)
-        
-        planeNode.geometry?.firstMaterial?.isDoubleSided = true
-        
-        planeNode.eulerAngles = SCNVector3(-Double.pi / 2, 0, 0)
-        
-        planeNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red.withAlphaComponent(0.05)
-        
-        node.addChildNode(planeNode)
-        
-        appState = .readyToAddACUnit
-    }
-    
     // MARK: - Focus Square
-
+    
     func updateFocusSquare(isObjectVisible: Bool) {
         if isObjectVisible || coachingOverlay.isActive {
             focusSquare.hide()
@@ -245,8 +217,8 @@ class ARQuoteViewController: UIViewController {
         
         // Perform ray casting only when ARKit tracking is in a good state.
         if let camera = session.currentFrame?.camera, case .normal = camera.trackingState,
-            let query = sceneView.getRaycastQuery(),
-            let result = sceneView.castRay(for: query).first {
+           let query = sceneView.getRaycastQuery(),
+           let result = sceneView.castRay(for: query).first {
             
             updateQueue.async {
                 self.sceneView.scene.rootNode.addChildNode(self.focusSquare)
@@ -278,49 +250,6 @@ extension ARQuoteViewController: ARSCNViewDelegate {
         }
     }
     
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        //arkit hss detected a plane
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        
-        drawPlaneNode(on: node, for: planeAnchor)
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        
-        node.enumerateChildNodes { (childNode, _) in
-            childNode.removeFromParentNode()
-        }
-        
-        drawPlaneNode(on: node, for: planeAnchor)
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
-        guard anchor is ARPlaneAnchor else { return }
-        
-        node.enumerateChildNodes { (childNode, _) in
-            childNode.removeFromParentNode()
-        }
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        if anchor is ARPlaneAnchor {
-            let anchorNode = SCNNode()
-            anchorNode.name = "anchor"
-            return anchorNode
-        } else {
-            
-            //add unit
-            let scene = SCNScene(named: "ACUnits.scnassets/Panasonic.scn")!
-            #warning("Why is this calleed 'GoodSizeMaterial'?")
-            let ACUnit = (scene.rootNode.childNode(withName: "GoodSizeMaterial", recursively: false))!
-            ACUnit.eulerAngles = SCNVector3(CGFloat.pi * -0.5, 0.0, 0.0)
-            ACUnit.scale = SCNVector3(0.5, 0.5, 0.5)
-            return ACUnit
-          
-        }
-    }
-    
     // MARK: - AR session error management
     // ===================================
     
@@ -345,30 +274,103 @@ extension ARQuoteViewController: ARSCNViewDelegate {
 //MARK: - adding and removing ac units
 extension ARQuoteViewController {
     @IBAction func userPressedAddButton() {
-        let center = sceneView.center
+        // Ensure adding objects is an available action and we are not loading another object (to avoid concurrent modifications of the scene).
+        //do we need this?
+        guard !virtualObjectLoader.isLoading else { return }
         
-        guard let hitTestResult = sceneView.hitTest(center, types: [.existingPlaneUsingGeometry, .estimatedVerticalPlane]).first,
-              let planeAnchor = hitTestResult.anchor as? ARPlaneAnchor,
-              planeAnchor.alignment == .vertical else {
+        if let filePath = Bundle.main.path(forResource: currentACUnit.fileName, ofType: "scn", inDirectory: "ACUnits.scnassets") {
+            let referenceURL = URL(fileURLWithPath: filePath)
+            let virtualObject = VirtualObject(url: referenceURL)!
+            
+            #warning("TODO: this alignment will need to be changed")
+            if let query = sceneView.getRaycastQuery(for: .vertical),
+               let result = sceneView.castRay(for: query).first {
+                virtualObject.mostRecentInitialPlacementResult = result
+                virtualObject.raycastQuery = query
+            }
+            
+            virtualObjectLoader.loadVirtualObject(virtualObject, loadedHandler: { [unowned self] loadedObject in
+                do {
+                    let scene = try SCNScene(
+                        url: virtualObject.referenceURL,
+                        options: nil
+                    )
+                    self.sceneView.prepare(
+                        [scene],
+                        completionHandler: { _ in
+                            DispatchQueue.main.async {
+                                self.appState = .ACUnitAdded
+                                self.placeVirtualObject(loadedObject)
+                            }
+                        }
+                    )
+                } catch {
+                    fatalError("Failed to load SCNScene from object.referenceURL")
+                }
+                
+            }
+            )
+            appState = .ACUnitBeingAdded
+        }
+    }
+    
+    /** Adds the specified virtual object to the scene, placed at the world-space position
+     estimated by a hit test from the center of the screen.
+     - Tag: PlaceVirtualObject */
+    func placeVirtualObject(_ virtualObject: VirtualObject) {
+        guard focusSquare.state != .initializing, let query = virtualObject.raycastQuery else {
             return
         }
         
-        let anchor = ARAnchor(transform: hitTestResult.worldTransform)
-        sceneView.session.add(anchor: anchor)
+        let trackedRaycast = createTrackedRaycastAndSet3DPosition(
+            of: virtualObject,
+            from: query,
+            withInitialResult: virtualObject.mostRecentInitialPlacementResult
+        )
+        
+        virtualObject.raycast = trackedRaycast
+        virtualObject.isHidden = false
     }
     
-    func addACUnit(hitTestResult: ARHitTestResult) {
-        let transform = hitTestResult.worldTransform
-        let positionColumn = transform.columns.3
-        let initialPostion = SCNVector3(positionColumn.x, positionColumn.y, positionColumn.z)
+    // - Tag: GetTrackedRaycast
+    func createTrackedRaycastAndSet3DPosition(
+        of virtualObject: VirtualObject,
+        from query: ARRaycastQuery,
+        withInitialResult initialResult: ARRaycastResult? = nil
+    ) -> ARTrackedRaycast? {
+        if let initialResult = initialResult {
+            self.setTransform(of: virtualObject, with: initialResult)
+        }
         
-        //add unit
-        let scene = SCNScene(named: "ACUnits.scnassets/Panasonic.scn")!
-        #warning("Why is this calleed 'GoodSizeMaterial'?")
-        let ACUnit = (scene.rootNode.childNode(withName: "GoodSizeMaterial", recursively: false))!
-        ACUnit.position = initialPostion
-        ACUnit.scale = SCNVector3(0.2, 0.2, 0.2)
-        sceneView.scene.rootNode.addChildNode(ACUnit)
+        return session.trackedRaycast(query) { (results) in
+            self.setVirtualObject3DPosition(results, with: virtualObject)
+        }
+    }
+    
+    // - Tag: ProcessRaycastResults
+    private func setVirtualObject3DPosition(_ results: [ARRaycastResult], with virtualObject: VirtualObject) {
+        guard let result = results.first else {
+            fatalError("Unexpected case: the update handler is always supposed to return at least one result.")
+        }
+        
+        self.setTransform(of: virtualObject, with: result)
+        
+        // If the virtual object is not yet in the scene, add it.
+        if virtualObject.parent == nil {
+            self.sceneView.scene.rootNode.addChildNode(virtualObject)
+            virtualObject.shouldUpdateAnchor = true
+        }
+        
+        if virtualObject.shouldUpdateAnchor {
+            virtualObject.shouldUpdateAnchor = false
+            self.updateQueue.async {
+                self.sceneView.addOrUpdateAnchor(for: virtualObject)
+            }
+        }
+    }
+    
+    func setTransform(of virtualObject: VirtualObject, with result: ARRaycastResult) {
+        virtualObject.simdWorldTransform = result.worldTransform
     }
 }
 
@@ -380,7 +382,7 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
     func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
         showUIElementsForCoachingFinished()
     }
-
+    
     func coachingOverlayViewDidRequestSessionReset(_ coachingOverlayView: ARCoachingOverlayView) {
         //TODO: reset
     }

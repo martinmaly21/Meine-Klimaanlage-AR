@@ -23,19 +23,19 @@ class VirtualObjectARView: ARSCNView {
 //        }.first
 //    }
 //
-//    // - MARK: Object anchors
-//    /// - Tag: AddOrUpdateAnchor
-//    func addOrUpdateAnchor(for object: VirtualObject) {
-//        // If the anchor is not nil, remove it from the session.
-//        if let anchor = object.anchor {
-//            session.remove(anchor: anchor)
-//        }
-//
-//        // Create a new anchor with the object's current transform and add it to the session
-//        let newAnchor = ARAnchor(transform: object.simdWorldTransform)
-//        object.anchor = newAnchor
-//        session.add(anchor: newAnchor)
-//    }
+    // - MARK: Object anchors
+    /// - Tag: AddOrUpdateAnchor
+    func addOrUpdateAnchor(for object: VirtualObject) {
+        // If the anchor is not nil, remove it from the session.
+        if let anchor = object.anchor {
+            session.remove(anchor: anchor)
+        }
+
+        // Create a new anchor with the object's current transform and add it to the session
+        let newAnchor = ARAnchor(transform: object.simdWorldTransform)
+        object.anchor = newAnchor
+        session.add(anchor: newAnchor)
+    }
 }
 
 extension ARSCNView {

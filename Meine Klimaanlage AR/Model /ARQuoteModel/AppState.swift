@@ -12,4 +12,6 @@ enum AppState: Int16 {
     case lookingForSurface  // Just starting out; no surfaces detected yet
     case pointToSurface     // Surfaces detected, but device is not pointing to any of them
     case readyToAddACUnit     // Surfaces detected *and* device is pointing to at least one
+    case ACUnitBeingAdded
+    case ACUnitAdded
 }

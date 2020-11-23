@@ -35,23 +35,23 @@ class VirtualObject: SCNReferenceNode {
 //        }
 //    }
 //
-//    /// The object's corresponding ARAnchor.
-//    var anchor: ARAnchor?
-//
-//    /// The raycast query used when placing this object.
-//    var raycastQuery: ARRaycastQuery?
+    /// The object's corresponding ARAnchor.
+    var anchor: ARAnchor?
+
+    /// The raycast query used when placing this object.
+    var raycastQuery: ARRaycastQuery?
 
     /// The associated tracked raycast used to place this object.
     var raycast: ARTrackedRaycast?
 
-//    /// The most recent raycast result used for determining the initial location
-//    /// of the object after placement.
-//    var mostRecentInitialPlacementResult: ARRaycastResult?
-//
-//    /// Flag that indicates the associated anchor should be updated
-//    /// at the end of a pan gesture or when the object is repositioned.
-//    var shouldUpdateAnchor = false
-//
+    /// The most recent raycast result used for determining the initial location
+    /// of the object after placement.
+    var mostRecentInitialPlacementResult: ARRaycastResult?
+
+    /// Flag that indicates the associated anchor should be updated
+    /// at the end of a pan gesture or when the object is repositioned.
+    var shouldUpdateAnchor = false
+
     /// Stops tracking the object's position and orientation.
     /// - Tag: StopTrackedRaycasts
     func stopTrackedRaycast() {
