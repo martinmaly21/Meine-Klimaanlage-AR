@@ -250,6 +250,15 @@ extension ARQuoteViewController: ARSCNViewDelegate {
         }
     }
     
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        updateQueue.async {
+            if let objectAtAnchor = self.virtualObjectLoader.loadedObjects.first(where: { $0.anchor == anchor }) {
+                objectAtAnchor.simdPosition = anchor.transform.translation
+                objectAtAnchor.anchor = anchor
+            }
+        }
+    }
+    
     // MARK: - AR session error management
     // ===================================
     
