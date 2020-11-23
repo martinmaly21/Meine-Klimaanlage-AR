@@ -11,12 +11,15 @@ import ARKit
 
 
 class ARQuoteViewController: UIViewController {
-    @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet var sceneView: VirtualObjectARView!
     @IBOutlet weak var statusLabelVisualEffectView: UIVisualEffectView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var statusLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var statusLabelCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var addUnitButton: UIButton!
+    
+    var coachingOverlay = ARCoachingOverlayView()
+    var focusSquare = FocusSquare()
     
     //handling app state
     var appState: AppState = .lookingForSurface
@@ -32,11 +35,23 @@ class ARQuoteViewController: UIViewController {
     
     var planeDetectionType = ARWorldTrackingConfiguration.PlaneDetection.vertical
     
+    /// Convenience accessor for the session owned by ARSCNView.
+    var session: ARSession {
+        return sceneView.session
+    }
+    
+    /// A serial queue used to coordinate adding or removing nodes from the scene.
+    let updateQueue = DispatchQueue(label: "com.martinmaly.Meinde-Klimaanlage-AR")
+    
+    /// Coordinates the loading and unloading of reference nodes for virtual objects.
+    let virtualObjectLoader = VirtualObjectLoader()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
         setUpScene()
         setUpCoachingOverlay()
+        addFocusSquare()
         setUpARSession()
     }
     
@@ -80,10 +95,13 @@ class ARQuoteViewController: UIViewController {
         sceneView.preferredFramesPerSecond = 60
         sceneView.antialiasingMode = .multisampling2X
         sceneView.autoenablesDefaultLighting = true
+        
+        // Prevent the screen from being dimmed to avoid interuppting the AR experience.
+        UIApplication.shared.isIdleTimerDisabled = true
     }
     
     private func setUpCoachingOverlay() {
-        let coachingOverlay = ARCoachingOverlayView(frame: .zero)
+        coachingOverlay = ARCoachingOverlayView(frame: .zero)
         view.addSubview(coachingOverlay)
         
         coachingOverlay.translatesAutoresizingMaskIntoConstraints = false
@@ -96,6 +114,11 @@ class ARQuoteViewController: UIViewController {
         coachingOverlay.activatesAutomatically = true
         coachingOverlay.delegate = self
         coachingOverlay.session = sceneView.session
+    }
+    
+    private func addFocusSquare() {
+        // Set up scene content.
+        sceneView.scene.rootNode.addChildNode(focusSquare)
     }
     
     private func hideUIElementsForSessionStart() {
@@ -210,11 +233,46 @@ class ARQuoteViewController: UIViewController {
         
         appState = .readyToAddACUnit
     }
+    
+    // MARK: - Focus Square
+
+    func updateFocusSquare(isObjectVisible: Bool) {
+        if isObjectVisible || coachingOverlay.isActive {
+            focusSquare.hide()
+        } else {
+            focusSquare.unhide()
+        }
+        
+        // Perform ray casting only when ARKit tracking is in a good state.
+        if let camera = session.currentFrame?.camera, case .normal = camera.trackingState,
+            let query = sceneView.getRaycastQuery(),
+            let result = sceneView.castRay(for: query).first {
+            
+            updateQueue.async {
+                self.sceneView.scene.rootNode.addChildNode(self.focusSquare)
+                self.focusSquare.state = .detecting(raycastResult: result, camera: camera)
+            }
+            if !coachingOverlay.isActive {
+                addUnitButton.isHidden = false
+            }
+        } else {
+            updateQueue.async {
+                self.focusSquare.state = .initializing
+                self.sceneView.pointOfView?.addChildNode(self.focusSquare)
+            }
+            addUnitButton.isHidden = true
+        }
+    }
 }
 
 extension ARQuoteViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        let isAnyObjectInView = virtualObjectLoader.loadedObjects.contains { object in
+            return sceneView.isNode(object, insideFrustumOf: sceneView.pointOfView!)
+        }
+        
         DispatchQueue.main.async {
+            self.updateFocusSquare(isObjectVisible: isAnyObjectInView)
             self.updateAppState()
             self.updateStatusText()
         }

@@ -49,6 +49,9 @@
 		5BDD141024BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140E24BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib */; };
 		5BDD141224BC07B4003A3A98 /* ConstantsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD141124BC07B4003A3A98 /* ConstantsManager.swift */; };
 		5BDD77AF256ABBD700EACC68 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD77AE256ABBD700EACC68 /* AppState.swift */; };
+		5BDD77C8256B31BC00EACC68 /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD77C7256B31BC00EACC68 /* VirtualObject.swift */; };
+		5BDD77CC256B363000EACC68 /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD77CB256B363000EACC68 /* VirtualObjectARView.swift */; };
+		5BDD77CF256B511300EACC68 /* VirtualObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD77CE256B511300EACC68 /* VirtualObjectLoader.swift */; };
 		5BE8198724BA1E3000C538FF /* ACQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198624BA1E3000C538FF /* ACQuote.swift */; };
 		5BE8198B24BA21E000C538FF /* BeginQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */; };
 		5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */; };
@@ -104,6 +107,9 @@
 		5BDD140E24BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenshotCollectionViewCell.xib; sourceTree = "<group>"; };
 		5BDD141124BC07B4003A3A98 /* ConstantsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsManager.swift; sourceTree = "<group>"; };
 		5BDD77AE256ABBD700EACC68 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		5BDD77C7256B31BC00EACC68 /* VirtualObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
+		5BDD77CB256B363000EACC68 /* VirtualObjectARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
+		5BDD77CE256B511300EACC68 /* VirtualObjectLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectLoader.swift; sourceTree = "<group>"; };
 		5BE8198624BA1E3000C538FF /* ACQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACQuote.swift; sourceTree = "<group>"; };
 		5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginQuoteViewController.swift; sourceTree = "<group>"; };
 		5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTypeOfWireViewController.swift; sourceTree = "<group>"; };
@@ -337,6 +343,8 @@
 			isa = PBXGroup;
 			children = (
 				5BDD77AE256ABBD700EACC68 /* AppState.swift */,
+				5BDD77C7256B31BC00EACC68 /* VirtualObject.swift */,
+				5BDD77CE256B511300EACC68 /* VirtualObjectLoader.swift */,
 			);
 			path = ARQuoteModel;
 			sourceTree = "<group>";
@@ -357,6 +365,7 @@
 			children = (
 				5BFA9EA724B6A583008FBB99 /* FocusSquare.swift */,
 				5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */,
+				5BDD77CB256B363000EACC68 /* VirtualObjectARView.swift */,
 			);
 			path = ARViews;
 			sourceTree = "<group>";
@@ -499,12 +508,14 @@
 			files = (
 				5BDD140724BB8414003A3A98 /* QuoteSummaryTableViewCell.swift in Sources */,
 				5BFA9EA824B6A583008FBB99 /* FocusSquare.swift in Sources */,
+				5BDD77CF256B511300EACC68 /* VirtualObjectLoader.swift in Sources */,
 				5BAF8D0E24B81B2E0022EC84 /* AppEntryViewController.swift in Sources */,
 				5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */,
 				5BE8198724BA1E3000C538FF /* ACQuote.swift in Sources */,
 				5B00FAC724970B7B00215489 /* ACUnitEnvironmentType.swift in Sources */,
 				5B00FACA24970CE300215489 /* ACUnitListViewController.swift in Sources */,
 				5B2C5B1C248DBB8B001B6898 /* ProfileViewController.swift in Sources */,
+				5BDD77C8256B31BC00EACC68 /* VirtualObject.swift in Sources */,
 				5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */,
 				5B00FACF2497214700215489 /* ACUnit.swift in Sources */,
 				5BE8198B24BA21E000C538FF /* BeginQuoteViewController.swift in Sources */,
@@ -514,6 +525,7 @@
 				5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */,
 				5B2C5B1A248DBB80001B6898 /* HomeViewController.swift in Sources */,
 				5BE8199224BA3E4D00C538FF /* ACWire.swift in Sources */,
+				5BDD77CC256B363000EACC68 /* VirtualObjectARView.swift in Sources */,
 				5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */,
 				5B00FAC0249703C600215489 /* ACBrand.swift in Sources */,
 				5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */,

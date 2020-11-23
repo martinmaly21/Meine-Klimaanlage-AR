@@ -729,7 +729,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bbv-qm-qKR">
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bbv-qm-qKR" customClass="VirtualObjectARView" customModule="Meine_Klimaanlage_AR" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arscnView>
                             <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hec-gS-PL1">
@@ -790,7 +790,7 @@
                     <navigationItem key="navigationItem" id="5dg-4Y-xae"/>
                     <connections>
                         <outlet property="addUnitButton" destination="Frw-BM-lrL" id="2F2-1s-VDo"/>
-                        <outlet property="sceneView" destination="Bbv-qm-qKR" id="5cv-3x-rWb"/>
+                        <outlet property="sceneView" destination="Bbv-qm-qKR" id="Tlu-NU-4gN"/>
                         <outlet property="statusLabel" destination="Ljj-DG-Cdu" id="hnm-r9-c39"/>
                         <outlet property="statusLabelCenterYConstraint" destination="A1d-qa-yRy" id="9cY-fE-JCj"/>
                         <outlet property="statusLabelHeightConstraint" destination="4l4-7q-3DH" id="dDE-Oe-zGK"/>
