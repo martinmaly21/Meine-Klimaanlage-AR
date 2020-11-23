@@ -227,7 +227,7 @@ class ARQuoteViewController: UIViewController {
         
         planeNode.eulerAngles = SCNVector3(-Double.pi / 2, 0, 0)
         
-        planeNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        planeNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red.withAlphaComponent(0.05)
         
         node.addChildNode(planeNode)
         
