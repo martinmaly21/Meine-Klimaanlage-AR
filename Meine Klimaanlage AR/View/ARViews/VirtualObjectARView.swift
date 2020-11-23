@@ -13,16 +13,16 @@ class VirtualObjectARView: ARSCNView {
 
     // MARK: Position Testing
     
-//    /// Hit tests against the `sceneView` to find an object at the provided point.
-//    func virtualObject(at point: CGPoint) -> VirtualObject? {
-//        let hitTestOptions: [SCNHitTestOption: Any] = [.boundingBoxOnly: true]
-//        let hitTestResults = hitTest(point, options: hitTestOptions)
-//
-//        return hitTestResults.lazy.compactMap { result in
-//            return VirtualObject.existingObjectContainingNode(result.node)
-//        }.first
-//    }
-//
+    /// Hit tests against the `sceneView` to find an object at the provided point.
+    func virtualObject(at point: CGPoint) -> VirtualObject? {
+        let hitTestOptions: [SCNHitTestOption: Any] = [.boundingBoxOnly: true]
+        let hitTestResults = hitTest(point, options: hitTestOptions)
+
+        return hitTestResults.lazy.compactMap { result in
+            return VirtualObject.existingObjectContainingNode(result.node)
+        }.first
+    }
+
     // - MARK: Object anchors
     /// - Tag: AddOrUpdateAnchor
     func addOrUpdateAnchor(for object: VirtualObject) {

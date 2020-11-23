@@ -16,25 +16,25 @@ class VirtualObject: SCNReferenceNode {
 //    var modelName: String {
 //        return referenceURL.lastPathComponent.replacingOccurrences(of: ".scn", with: "")
 //    }
-//
-//    /// The alignments that are allowed for a virtual object.
-//    var allowedAlignment: ARRaycastQuery.TargetAlignment {
-//        //TODO: change this to adapt to type of object
-//        return .vertical
-//    }
-//
-//    /// Rotates the first child node of a virtual object.
-//    /// - Note: For correct rotation on horizontal and vertical surfaces, rotate around
-//    /// local y rather than world y.
-//    var objectRotation: Float {
-//        get {
-//            return childNodes.first!.eulerAngles.y
-//        }
-//        set (newValue) {
-//            childNodes.first!.eulerAngles.y = newValue
-//        }
-//    }
-//
+
+    /// The alignments that are allowed for a virtual object.
+    var allowedAlignment: ARRaycastQuery.TargetAlignment {
+        //TODO: change this to adapt to type of object
+        return .vertical
+    }
+
+    /// Rotates the first child node of a virtual object.
+    /// - Note: For correct rotation on horizontal and vertical surfaces, rotate around
+    /// local y rather than world y.
+    var objectRotation: Float {
+        get {
+            return childNodes.first!.eulerAngles.y
+        }
+        set (newValue) {
+            childNodes.first!.eulerAngles.y = newValue
+        }
+    }
+
     /// The object's corresponding ARAnchor.
     var anchor: ARAnchor?
 
@@ -78,15 +78,15 @@ extension VirtualObject {
 //        }
 //    }()
     
-    /// Returns a `VirtualObject` if one exists as an ancestor to the provided node.
-//    static func existingObjectContainingNode(_ node: SCNNode) -> VirtualObject? {
-//        if let virtualObjectRoot = node as? VirtualObject {
-//            return virtualObjectRoot
-//        }
-//
-//        guard let parent = node.parent else { return nil }
-//
-//        // Recurse up to check if the parent is a `VirtualObject`.
-//        return existingObjectContainingNode(parent)
-//    }
+    // Returns a `VirtualObject` if one exists as an ancestor to the provided node.
+    static func existingObjectContainingNode(_ node: SCNNode) -> VirtualObject? {
+        if let virtualObjectRoot = node as? VirtualObject {
+            return virtualObjectRoot
+        }
+
+        guard let parent = node.parent else { return nil }
+
+        // Recurse up to check if the parent is a `VirtualObject`.
+        return existingObjectContainingNode(parent)
+    }
 }

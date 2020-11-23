@@ -48,7 +48,7 @@ class ARQuoteViewController: UIViewController {
     let virtualObjectLoader = VirtualObjectLoader()
     
     //    /// A type which manages gesture manipulation of virtual content in the scene.
-    //    lazy var virtualObjectInteraction = VirtualObjectInteraction(sceneView: sceneView, viewController: self)
+    lazy var virtualObjectInteraction = VirtualObjectInteraction(sceneView: sceneView, viewController: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -262,6 +262,18 @@ extension ARQuoteViewController: ARSCNViewDelegate {
     // MARK: - AR session error management
     // ===================================
     
+    func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        switch camera.trackingState {
+        case .notAvailable, .limited:
+            #warning("TODO: update sttate")
+//            statusViewController.escalateFeedback(for: camera.trackingState, inSeconds: 3.0)
+        case .normal:
+            #warning("TODO: update sttate")
+//            statusViewController.cancelScheduledMessage(for: .trackingStateEscalation)
+//            showVirtualContent()
+        }
+    }
+    
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
         trackingStatus = "AR session failure: \(error)"
@@ -338,6 +350,7 @@ extension ARQuoteViewController {
         )
         
         virtualObject.raycast = trackedRaycast
+        virtualObjectInteraction.selectedObject = virtualObject
         virtualObject.isHidden = false
     }
     
@@ -353,6 +366,25 @@ extension ARQuoteViewController {
         
         return session.trackedRaycast(query) { (results) in
             self.setVirtualObject3DPosition(results, with: virtualObject)
+        }
+    }
+    
+    func createRaycastAndUpdate3DPosition(of virtualObject: VirtualObject, from query: ARRaycastQuery) {
+        guard let result = session.raycast(query).first else {
+            return
+        }
+        
+        if virtualObject.allowedAlignment == .any && self.virtualObjectInteraction.trackedObject == virtualObject {
+            
+            // If an object that's aligned to a surface is being dragged, then
+            // smoothen its orientation to avoid visible jumps, and apply only the translation directly.
+            virtualObject.simdWorldPosition = result.worldTransform.translation
+            
+            let previousOrientation = virtualObject.simdWorldTransform.orientation
+            let currentOrientation = result.worldTransform.orientation
+            virtualObject.simdWorldOrientation = simd_slerp(previousOrientation, currentOrientation, 0.1)
+        } else {
+            self.setTransform(of: virtualObject, with: result)
         }
     }
     
