@@ -17,6 +17,9 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var statusLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var statusLabelCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var addUnitButton: UIButton!
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var addWireButton: UIButton!
+    
     
     var coachingOverlay = ARCoachingOverlayView()
     var focusSquare = FocusSquare()
@@ -60,7 +63,7 @@ class ARQuoteViewController: UIViewController {
         setUpUI()
         setUpScene()
         setUpCoachingOverlay()
-        setUpCursors()
+        addFocusSquare()
         setUpARSession()
     }
     
@@ -83,6 +86,7 @@ class ARQuoteViewController: UIViewController {
             statusLabelCenterYConstraint.constant = topSafeAreaInset / 2
         }
         
+        //add unit button
         addUnitButton.layer.cornerRadius = 40
         addUnitButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
         addUnitButton.layer.borderWidth = 1
@@ -91,6 +95,26 @@ class ARQuoteViewController: UIViewController {
         addUnitButton.layer.shadowRadius = 2
         addUnitButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         addUnitButton.layer.shadowOpacity = 0.3
+        
+        //skip button
+        skipButton.layer.cornerRadius = 14
+        skipButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        skipButton.layer.borderWidth = 1
+        
+        skipButton.layer.shadowColor = Constants.Color.border.cgColor
+        skipButton.layer.shadowRadius = 2
+        skipButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        skipButton.layer.shadowOpacity = 0.3
+        
+        //add wire
+        addWireButton.layer.cornerRadius = 14
+        addWireButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        addWireButton.layer.borderWidth = 1
+        
+        addWireButton.layer.shadowColor = Constants.Color.border.cgColor
+        addWireButton.layer.shadowRadius = 2
+        addWireButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        addWireButton.layer.shadowOpacity = 0.3
         
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 120, weight: .bold, scale: .large)
         let largeBoldDoc = UIImage(systemName: "plus.circle", withConfiguration: largeConfig)
@@ -125,18 +149,10 @@ class ARQuoteViewController: UIViewController {
         coachingOverlay.session = sceneView.session
     }
     
-    private func setUpCursors() {
-        addFocusSquare()
-        addWireCursor()
-    }
-    
     private func addFocusSquare() {
         sceneView.scene.rootNode.addChildNode(focusSquare)
     }
     
-    private func addWireCursor() {
-        sceneView.scene.rootNode.addChildNode(wireCursor)
-    }
     
     private func hideUIElementsForSessionStart() {
         addUnitButton.isUserInteractionEnabled = false
@@ -257,6 +273,7 @@ class ARQuoteViewController: UIViewController {
            let result = sceneView.castRay(for: query).first {
             
             updateQueue.async {
+                self.wireCursor.renderingOrder = -100
                 self.sceneView.scene.rootNode.addChildNode(self.wireCursor)
                 self.wireCursor.state = .detecting(raycastResult: result, camera: camera)
             }
@@ -265,6 +282,7 @@ class ARQuoteViewController: UIViewController {
             }
         } else {
             updateQueue.async {
+                self.wireCursor.renderingOrder = -100
                 self.wireCursor.state = .initializing
                 self.sceneView.pointOfView?.addChildNode(self.wireCursor)
             }
@@ -328,6 +346,15 @@ extension ARQuoteViewController: ARSCNViewDelegate {
 
 //MARK: - adding and removing ac units
 extension ARQuoteViewController {
+    @IBAction func userPressedSkip() {
+        print("Skip wire!")
+    }
+    
+    @IBAction func userPressedAddWire() {
+        print("Add wire")
+        //present VC
+    }
+    
     @IBAction func userPressedAddButton() {
         // Ensure adding objects is an available action and we are not loading another object (to avoid concurrent modifications of the scene).
         //do we need this?
@@ -356,9 +383,7 @@ extension ARQuoteViewController {
                             DispatchQueue.main.async {
                                 self.placeVirtualObject(loadedObject)
                                 
-                                self.wireCursor.recentFocusSquarePositions = self.focusSquare.recentFocusSquarePositions
-                                
-                                self.appState = .addingWires
+                                self.userFinishedAddingObject()
                             }
                         }
                     )
@@ -370,6 +395,14 @@ extension ARQuoteViewController {
             )
             appState = .ACUnitBeingAdded
         }
+    }
+    
+    private func userFinishedAddingObject() {
+        self.wireCursor.recentFocusSquarePositions = self.focusSquare.recentFocusSquarePositions
+        self.appState = .addingWires
+        addUnitButton.isHidden = true
+        skipButton.isHidden = false
+        addWireButton.isHidden = false
     }
     
     /** Adds the specified virtual object to the scene, placed at the world-space position
