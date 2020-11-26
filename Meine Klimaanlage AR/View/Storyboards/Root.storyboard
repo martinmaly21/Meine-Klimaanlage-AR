@@ -756,14 +756,17 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXN-CU-R4i">
-                                <rect key="frame" x="250" y="72" width="144" height="44"/>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXN-CU-R4i">
+                                <rect key="frame" x="304" y="72" width="90" height="44"/>
                                 <color key="backgroundColor" name="PrimaryWhiteBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="bdH-um-h4U"/>
-                                    <constraint firstAttribute="width" constant="144" id="e7M-Bg-JpC"/>
+                                    <constraint firstAttribute="width" constant="90" id="e7M-Bg-JpC"/>
                                 </constraints>
-                                <state key="normal" title="Skip"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" name="PrimaryBlue"/>
+                                </state>
                                 <connections>
                                     <action selector="userPressedSkip" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="AQ0-W3-qVg"/>
                                 </connections>
@@ -784,18 +787,17 @@
                                     <action selector="userPressedAddButton" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="Sg3-45-t9U"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygG-fw-z5L">
-                                <rect key="frame" x="167" y="703" width="80" height="80"/>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygG-fw-z5L">
+                                <rect key="frame" x="107" y="733" width="200" height="50"/>
                                 <color key="backgroundColor" name="PrimaryWhiteBackground"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ygG-fw-z5L" secondAttribute="height" multiplier="1:1" id="cQS-Xf-vnu"/>
-                                    <constraint firstAttribute="width" constant="80" id="nBi-nu-Gpo"/>
+                                    <constraint firstAttribute="height" constant="50" id="hlu-5k-ABQ"/>
+                                    <constraint firstAttribute="width" constant="200" id="nBi-nu-Gpo"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
-                                <state key="normal" title="Add Wire">
+                                <state key="normal" title="Choose Wire">
                                     <color key="titleColor" name="PrimaryBlue"/>
-                                    <imageReference key="image" image="plus.circle" catalog="system" renderingMode="template"/>
                                 </state>
                                 <connections>
                                     <action selector="userPressedAddButton" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="zBQ-3S-sGX"/>
@@ -819,7 +821,6 @@
                             <constraint firstItem="OXN-CU-R4i" firstAttribute="top" secondItem="Hec-gS-PL1" secondAttribute="bottom" constant="12" id="uW5-uX-Z0i"/>
                             <constraint firstAttribute="bottom" secondItem="Bbv-qm-qKR" secondAttribute="bottom" id="v8D-zE-6Mr"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="ygG-fw-z5L" secondAttribute="bottom" constant="30" id="wCD-ki-lRr"/>
-                            <constraint firstItem="ygG-fw-z5L" firstAttribute="width" secondItem="ygG-fw-z5L" secondAttribute="height" multiplier="1:1" id="xha-md-jEI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5dg-4Y-xae"/>

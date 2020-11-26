@@ -174,6 +174,24 @@ class ARQuoteViewController: UIViewController {
         }
     }
     
+    private func showUIElementsForUnitPlaced() {
+        self.wireCursor.recentFocusSquarePositions = self.focusSquare.recentFocusSquarePositions
+        self.appState = .addingWires
+        
+        addUnitButton.isUserInteractionEnabled = false
+        addWireButton.isUserInteractionEnabled = true
+        skipButton.isUserInteractionEnabled = true
+        
+        UIView.animate(
+            withDuration: 0.3,
+            animations: {
+                self.addUnitButton.alpha = 0
+                self.skipButton.alpha = 1
+                self.addWireButton.alpha = 1
+            }
+        )
+    }
+    
     private func setUpARSession() {
         guard ARWorldTrackingConfiguration.isSupported else {
             ErrorManager.showGenericError(with: .ARNotSupported, on: self)
@@ -347,7 +365,7 @@ extension ARQuoteViewController: ARSCNViewDelegate {
 //MARK: - adding and removing ac units
 extension ARQuoteViewController {
     @IBAction func userPressedSkip() {
-        print("Skip wire!")
+        //show screenshot stuff
     }
     
     @IBAction func userPressedAddWire() {
@@ -382,8 +400,7 @@ extension ARQuoteViewController {
                         completionHandler: { _ in
                             DispatchQueue.main.async {
                                 self.placeVirtualObject(loadedObject)
-                                
-                                self.userFinishedAddingObject()
+                                self.showUIElementsForUnitPlaced()
                             }
                         }
                     )
@@ -395,14 +412,6 @@ extension ARQuoteViewController {
             )
             appState = .ACUnitBeingAdded
         }
-    }
-    
-    private func userFinishedAddingObject() {
-        self.wireCursor.recentFocusSquarePositions = self.focusSquare.recentFocusSquarePositions
-        self.appState = .addingWires
-        addUnitButton.isHidden = true
-        skipButton.isHidden = false
-        addWireButton.isHidden = false
     }
     
     /** Adds the specified virtual object to the scene, placed at the world-space position
