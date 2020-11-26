@@ -36,6 +36,9 @@ class ARQuoteViewController: UIViewController {
     var currentACUnit: ACUnit!
     
     var planeDetectionType = ARWorldTrackingConfiguration.PlaneDetection.vertical
+//    var planeDetectionTypes: ARWorldTrackingConfiguration.PlaneDetection {
+//        return currentACUnit.environmentType == .interior ? .vertical : .horizontal
+//    }
     
     /// Convenience accessor for the session owned by ARSCNView.
     var session: ARSession {
@@ -53,7 +56,7 @@ class ARQuoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentACUnit = ACUnit(displayName: "Panasonic", fileName: "Panasonic")
+        currentACUnit = ACUnit(displayName: "Panasonic", fileName: "Panasonic", environmentType: .interior)
         setUpUI()
         setUpScene()
         setUpCoachingOverlay()
