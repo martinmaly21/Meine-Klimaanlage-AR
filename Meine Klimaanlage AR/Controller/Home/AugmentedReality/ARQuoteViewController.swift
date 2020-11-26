@@ -20,6 +20,7 @@ class ARQuoteViewController: UIViewController {
     
     var coachingOverlay = ARCoachingOverlayView()
     var focusSquare = FocusSquare()
+    var wireCursor = WireCursor()
     
     //handling app state
     var appState: AppState = .lookingForSurface
@@ -56,7 +57,7 @@ class ARQuoteViewController: UIViewController {
         setUpUI()
         setUpScene()
         setUpCoachingOverlay()
-        addFocusSquare()
+        setUpCursors()
         setUpARSession()
     }
     
@@ -121,9 +122,17 @@ class ARQuoteViewController: UIViewController {
         coachingOverlay.session = sceneView.session
     }
     
+    private func setUpCursors() {
+        addFocusSquare()
+        addWireCursor()
+    }
+    
     private func addFocusSquare() {
-        // Set up scene content.
         sceneView.scene.rootNode.addChildNode(focusSquare)
+    }
+    
+    private func addWireCursor() {
+        sceneView.scene.rootNode.addChildNode(wireCursor)
     }
     
     private func hideUIElementsForSessionStart() {
@@ -170,26 +179,12 @@ class ARQuoteViewController: UIViewController {
         return configuration
     }
     
-    //helper methods
-    func updateAppState() {
-        guard appState == .pointToSurface ||
-                appState == .readyToAddACUnit
-        else {
-            return
-        }
-        
-        if focusSquare.state == .initializing {
-            appState = .pointToSurface
-        } else {
-            appState = .readyToAddACUnit
-        }
-    }
-    
     // Updates the status text displayed at the top of the screen.
     func updateStatusText() {
         switch appState {
         case .lookingForSurface:
-            statusMessage = "Scan the room with your device until the yellow dots appear."
+            #warning("Change this copy to be vertical or horizontal")
+            statusMessage = "Scan the room with your device until a vertical plane is detected."
             sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         case .pointToSurface:
             statusMessage = "Point your device towards one of the detected surfaces."
@@ -201,12 +196,25 @@ class ARQuoteViewController: UIViewController {
             statusMessage = "\(currentACUnit.displayName) is loading. Please wait."
         case .ACUnitAdded:
             statusMessage = "\(currentACUnit.displayName) added! You can drag/rotate the unit to reposition it."
+        case .addingWires:
+            statusMessage = "Tap on the plus to dictate where you'd like the wire to begin."
         }
         
         statusLabel.text = trackingStatus != "" ? "\(trackingStatus)" : "\(statusMessage)"
     }
     
-    // MARK: - Focus Square
+    // MARK: - Cursor stuff
+    
+    
+    func updateCursor(isObjectVisible: Bool) {
+        if appState == .addingWires {
+            focusSquare.hide()
+            updateWireCursor()
+        } else {
+            updateFocusSquare(isObjectVisible: isObjectVisible)
+        }
+    }
+    
     
     func updateFocusSquare(isObjectVisible: Bool) {
         if isObjectVisible || coachingOverlay.isActive {
@@ -221,6 +229,7 @@ class ARQuoteViewController: UIViewController {
            let result = sceneView.castRay(for: query).first {
             
             updateQueue.async {
+                self.appState = .readyToAddACUnit
                 self.sceneView.scene.rootNode.addChildNode(self.focusSquare)
                 self.focusSquare.state = .detecting(raycastResult: result, camera: camera)
             }
@@ -229,8 +238,31 @@ class ARQuoteViewController: UIViewController {
             }
         } else {
             updateQueue.async {
+                self.appState = .pointToSurface
                 self.focusSquare.state = .initializing
                 self.sceneView.pointOfView?.addChildNode(self.focusSquare)
+            }
+            addUnitButton.isHidden = true
+        }
+    }
+    
+    func updateWireCursor() {
+        // Perform ray casting only when ARKit tracking is in a good state.
+        if let camera = session.currentFrame?.camera, case .normal = camera.trackingState,
+           let query = sceneView.getRaycastQuery(),
+           let result = sceneView.castRay(for: query).first {
+            
+            updateQueue.async {
+                self.sceneView.scene.rootNode.addChildNode(self.wireCursor)
+                self.wireCursor.state = .detecting(raycastResult: result, camera: camera)
+            }
+            if !coachingOverlay.isActive {
+                addUnitButton.isHidden = false
+            }
+        } else {
+            updateQueue.async {
+                self.wireCursor.state = .initializing
+                self.sceneView.pointOfView?.addChildNode(self.wireCursor)
             }
             addUnitButton.isHidden = true
         }
@@ -244,8 +276,7 @@ extension ARQuoteViewController: ARSCNViewDelegate {
         }
         
         DispatchQueue.main.async {
-            self.updateFocusSquare(isObjectVisible: isAnyObjectInView)
-            self.updateAppState()
+            self.updateCursor(isObjectVisible: isAnyObjectInView)
             self.updateStatusText()
         }
     }
@@ -320,8 +351,8 @@ extension ARQuoteViewController {
                         [scene],
                         completionHandler: { _ in
                             DispatchQueue.main.async {
-                                self.appState = .ACUnitAdded
                                 self.placeVirtualObject(loadedObject)
+                                self.appState = .addingWires
                             }
                         }
                     )

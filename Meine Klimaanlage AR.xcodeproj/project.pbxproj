@@ -41,6 +41,7 @@
 		5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */; };
 		5BAF8D0924B81A8D0022EC84 /* AppEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */; };
 		5BAF8D0E24B81B2E0022EC84 /* AppEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF8D0D24B81B2E0022EC84 /* AppEntryViewController.swift */; };
+		5BC6BBBB256F532000945523 /* WireCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6BBBA256F532000945523 /* WireCursor.swift */; };
 		5BDD140324BB7F8E003A3A98 /* QuoteSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD140124BB7F8E003A3A98 /* QuoteSummaryViewController.swift */; };
 		5BDD140424BB7F8E003A3A98 /* QuoteSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140224BB7F8E003A3A98 /* QuoteSummaryViewController.xib */; };
 		5BDD140724BB8414003A3A98 /* QuoteSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD140524BB8414003A3A98 /* QuoteSummaryTableViewCell.swift */; };
@@ -101,6 +102,7 @@
 		5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnAccountViewController.swift; sourceTree = "<group>"; };
 		5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppEntry.storyboard; sourceTree = "<group>"; };
 		5BAF8D0D24B81B2E0022EC84 /* AppEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntryViewController.swift; sourceTree = "<group>"; };
+		5BC6BBBA256F532000945523 /* WireCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireCursor.swift; sourceTree = "<group>"; };
 		5BDD140124BB7F8E003A3A98 /* QuoteSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteSummaryViewController.swift; sourceTree = "<group>"; };
 		5BDD140224BB7F8E003A3A98 /* QuoteSummaryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteSummaryViewController.xib; sourceTree = "<group>"; };
 		5BDD140524BB8414003A3A98 /* QuoteSummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteSummaryTableViewCell.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				5BDD77F7256B6FF800EACC68 /* ARObjectManipulation */,
 				5BFA9EA724B6A583008FBB99 /* FocusSquare.swift */,
 				5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */,
+				5BC6BBBA256F532000945523 /* WireCursor.swift */,
 				5BDD77CB256B363000EACC68 /* VirtualObjectARView.swift */,
 			);
 			path = ARViews;
@@ -530,6 +533,7 @@
 				5B00FACA24970CE300215489 /* ACUnitListViewController.swift in Sources */,
 				5B2C5B1C248DBB8B001B6898 /* ProfileViewController.swift in Sources */,
 				5BDD77C8256B31BC00EACC68 /* VirtualObject.swift in Sources */,
+				5BC6BBBB256F532000945523 /* WireCursor.swift in Sources */,
 				5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */,
 				5B00FACF2497214700215489 /* ACUnit.swift in Sources */,
 				5BE8198B24BA21E000C538FF /* BeginQuoteViewController.swift in Sources */,
