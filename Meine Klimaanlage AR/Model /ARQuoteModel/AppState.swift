@@ -14,5 +14,6 @@ enum AppState: Int16 {
     case readyToAddACUnit     // Surfaces detected *and* device is pointing to at least one
     case ACUnitBeingAdded
     case ACUnitAdded
-    case addingWires
+    case chooseTypeOfWire
+    case addingWire
 }

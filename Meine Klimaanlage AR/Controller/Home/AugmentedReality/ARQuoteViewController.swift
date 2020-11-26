@@ -176,7 +176,7 @@ class ARQuoteViewController: UIViewController {
     
     private func showUIElementsForUnitPlaced() {
         self.wireCursor.recentFocusSquarePositions = self.focusSquare.recentFocusSquarePositions
-        self.appState = .addingWires
+        self.appState = .chooseTypeOfWire
         
         addUnitButton.isUserInteractionEnabled = false
         addWireButton.isUserInteractionEnabled = true
@@ -233,8 +233,10 @@ class ARQuoteViewController: UIViewController {
             statusMessage = "\(currentACUnit.displayName) is loading. Please wait."
         case .ACUnitAdded:
             statusMessage = "\(currentACUnit.displayName) added! You can drag/rotate the unit to reposition it."
-        case .addingWires:
-            statusMessage = "Tap on the plus to dictate where you'd like the wire to begin."
+        case .chooseTypeOfWire:
+            statusMessage = "Select the type of wire you'd like to add."
+        case .addingWire:
+            statusMessage = "Press the plus to place the wire, and then again whenver you want to add a corner. Tap 'finish' when you're done."
         }
         
         statusLabel.text = trackingStatus != "" ? "\(trackingStatus)" : "\(statusMessage)"
@@ -244,7 +246,7 @@ class ARQuoteViewController: UIViewController {
     
     
     func updateCursor(isObjectVisible: Bool) {
-        if appState == .addingWires {
+        if appState == .chooseTypeOfWire || appState == .addingWire {
             focusSquare.hide()
             updateWireCursor()
         } else {
@@ -374,8 +376,10 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedAddWire() {
-        print("Add wire")
-        //present VC
+        let chooseWireVC = ChooseTypeOfWireViewController()
+        let navigationController = UINavigationController(rootViewController: chooseWireVC)
+        
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func userPressedAddButton() {
