@@ -290,8 +290,14 @@ class ARQuoteViewController: UIViewController {
            let query = sceneView.getRaycastQuery(for: .any),
            let result = sceneView.castRay(for: query).first {
             
+            //this code allows wire cursor to be visible even if by dimming object in front
+            if let loadedObject = self.sceneView.virtualObject(at: self.sceneView.center) {
+                loadedObject.opacity = 0.3
+            } else {
+                virtualObjectLoader.loadedObjects.forEach({ $0.opacity = 1 })
+            }
+           
             updateQueue.async {
-                self.wireCursor.renderingOrder = -100
                 self.sceneView.scene.rootNode.addChildNode(self.wireCursor)
                 self.wireCursor.state = .detecting(raycastResult: result, camera: camera)
             }
@@ -300,7 +306,6 @@ class ARQuoteViewController: UIViewController {
             }
         } else {
             updateQueue.async {
-                self.wireCursor.renderingOrder = -100
                 self.wireCursor.state = .initializing
                 self.sceneView.pointOfView?.addChildNode(self.wireCursor)
             }
