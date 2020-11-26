@@ -226,9 +226,10 @@ class ARQuoteViewController: UIViewController {
             focusSquare.unhide()
         }
         
+        #warning("unhardcode ray cast orientation ")
         // Perform ray casting only when ARKit tracking is in a good state.
         if let camera = session.currentFrame?.camera, case .normal = camera.trackingState,
-           let query = sceneView.getRaycastQuery(),
+           let query = sceneView.getRaycastQuery(for: .vertical),
            let result = sceneView.castRay(for: query).first {
             
             updateQueue.async {
@@ -252,7 +253,7 @@ class ARQuoteViewController: UIViewController {
     func updateWireCursor() {
         // Perform ray casting only when ARKit tracking is in a good state.
         if let camera = session.currentFrame?.camera, case .normal = camera.trackingState,
-           let query = sceneView.getRaycastQuery(),
+           let query = sceneView.getRaycastQuery(for: .any),
            let result = sceneView.castRay(for: query).first {
             
             updateQueue.async {
@@ -260,14 +261,13 @@ class ARQuoteViewController: UIViewController {
                 self.wireCursor.state = .detecting(raycastResult: result, camera: camera)
             }
             if !coachingOverlay.isActive {
-                addUnitButton.isHidden = false
+                
             }
         } else {
             updateQueue.async {
                 self.wireCursor.state = .initializing
                 self.sceneView.pointOfView?.addChildNode(self.wireCursor)
             }
-            addUnitButton.isHidden = true
         }
     }
 }

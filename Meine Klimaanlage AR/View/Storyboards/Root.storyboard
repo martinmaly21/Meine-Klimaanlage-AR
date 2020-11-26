@@ -772,6 +772,22 @@
                                     <action selector="userPressedAddButton" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="Sg3-45-t9U"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygG-fw-z5L">
+                                <rect key="frame" x="167" y="703" width="80" height="80"/>
+                                <color key="backgroundColor" name="PrimaryWhiteBackground"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ygG-fw-z5L" secondAttribute="height" multiplier="1:1" id="cQS-Xf-vnu"/>
+                                    <constraint firstAttribute="width" constant="80" id="nBi-nu-Gpo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <state key="normal" title="Add Wire">
+                                    <imageReference key="image" image="plus.circle" catalog="system" renderingMode="template"/>
+                                </state>
+                                <connections>
+                                    <action selector="userPressedAddButton" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="zBQ-3S-sGX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="87a-4f-kcC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -781,10 +797,13 @@
                             <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="Frw-BM-lrL" secondAttribute="bottom" constant="20" id="PSU-be-zgO"/>
                             <constraint firstItem="Hec-gS-PL1" firstAttribute="leading" secondItem="Bbv-qm-qKR" secondAttribute="leading" id="SPU-Im-X8Z"/>
                             <constraint firstItem="Bbv-qm-qKR" firstAttribute="leading" secondItem="87a-4f-kcC" secondAttribute="leading" id="YjX-jp-u6v"/>
+                            <constraint firstItem="ygG-fw-z5L" firstAttribute="centerX" secondItem="87a-4f-kcC" secondAttribute="centerX" id="dqI-bK-j2Y"/>
                             <constraint firstItem="Hec-gS-PL1" firstAttribute="trailing" secondItem="Bbv-qm-qKR" secondAttribute="trailing" id="iET-AK-Ded"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="trailing" secondItem="Bbv-qm-qKR" secondAttribute="trailing" id="igF-Hx-uSk"/>
                             <constraint firstItem="Bbv-qm-qKR" firstAttribute="top" secondItem="4fV-sV-Pfi" secondAttribute="top" id="kBO-bv-fBN"/>
                             <constraint firstAttribute="bottom" secondItem="Bbv-qm-qKR" secondAttribute="bottom" id="v8D-zE-6Mr"/>
+                            <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="ygG-fw-z5L" secondAttribute="bottom" constant="30" id="wCD-ki-lRr"/>
+                            <constraint firstItem="ygG-fw-z5L" firstAttribute="width" secondItem="ygG-fw-z5L" secondAttribute="height" multiplier="1:1" id="xha-md-jEI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5dg-4Y-xae"/>
