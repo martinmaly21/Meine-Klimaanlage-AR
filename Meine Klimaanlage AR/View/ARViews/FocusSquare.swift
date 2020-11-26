@@ -84,7 +84,7 @@ class FocusSquare: SCNNode {
     private var isPointingDownwards = true
     
     /// The focus square's most recent positions.
-    private var recentFocusSquarePositions: [SIMD3<Float>] = []
+    public var recentFocusSquarePositions: [SIMD3<Float>] = []
     
     /// Previously visited plane anchors.
     private var anchorsOfVisitedPlanes: Set<ARAnchor> = []

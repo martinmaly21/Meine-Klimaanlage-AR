@@ -23,36 +23,6 @@ class WireCursor: SCNNode {
     
     // MARK: - Configuration Properties
     
-    // Original size of the focus square in meters.
-    static let size: Float = 0.17
-    
-    // Thickness of the focus square lines in meters.
-    static let thickness: Float = 0.018
-    
-    // Scale factor for the focus square when it is closed, w.r.t. the original size.
-    static let scaleForClosedSquare: Float = 0.97
-    
-    // Side length of the focus square segments when it is open (w.r.t. to a 1x1 square).
-    static let sideLengthForOpenSegments: CGFloat = 0.2
-    
-    // Duration of the open/close animation
-    static let animationDuration = 0.7
-    
-    static let primaryColor = Constants.Color.primaryBlue
-    
-    // Color of the focus square fill.
-    static let fillColor = Constants.Color.primaryBlue
-    
-    // MARK: - Properties
-    
-    /// The most recent position of the focus square based on the current state.
-    var lastPosition: SIMD3<Float>? {
-        switch state {
-        case .initializing: return nil
-        case .detecting(let raycastResult, _): return raycastResult.worldTransform.translation
-        }
-    }
-    
     var state: State = .initializing {
         didSet {
             guard state != oldValue else { return }
@@ -60,22 +30,12 @@ class WireCursor: SCNNode {
             switch state {
             case .initializing:
                 displayAsBillboard()
-                
+
             case let .detecting(raycastResult, camera):
-                if let planeAnchor = raycastResult.anchor as? ARPlaneAnchor {
-                    displayAsClosed(for: raycastResult, planeAnchor: planeAnchor, camera: camera)
-                } else {
-                    displayAsOpen(for: raycastResult, camera: camera)
-                }
+                setPosition(with: raycastResult, camera)
             }
         }
     }
-    
-    /// Indicates whether the segments of the focus square are disconnected.
-    private var isOpen = false
-    
-    /// Indicates if the square is currently being animated for opening or closing.
-    private var isAnimating = false
     
     /// Indicates if the square is currently changing its orientation when the camera is pointing downwards.
     private var isChangingOrientation = false
@@ -84,16 +44,7 @@ class WireCursor: SCNNode {
     private var isPointingDownwards = true
     
     /// The focus square's most recent positions.
-    private var recentFocusSquarePositions: [SIMD3<Float>] = []
-    
-    /// Previously visited plane anchors.
-    private var anchorsOfVisitedPlanes: Set<ARAnchor> = []
-    
-    /// List of the segments in the focus square.
-    private var segments: [FocusSquare.Segment] = []
-    
-    /// The primary node that controls the position of other `FocusSquare` nodes.
-    private let positioningNode = SCNNode()
+    public var recentFocusSquarePositions: [SIMD3<Float>] = []
     
     /// A counter for managing orientation updates of the focus square.
     private var counterToNextOrientationUpdate: Int = 0
@@ -102,8 +53,6 @@ class WireCursor: SCNNode {
     
     override init() {
         super.init()
-        opacity = 0.0
-        
         let cylinder = SCNCylinder(radius: 0.01, height: 0.001)
         self.geometry = cylinder
         let material = SCNMaterial()
@@ -117,42 +66,11 @@ class WireCursor: SCNNode {
     
     // MARK: - Appearance
     
-    /// Hides the focus square.
-    func hide() {
-        guard action(forKey: "hide") == nil else { return }
-        
-        displayNodeHierarchyOnTop(false)
-        runAction(.fadeOut(duration: 0.5), forKey: "hide")
-    }
-    
-    /// Unhides the focus square.
-    func unhide() {
-        guard action(forKey: "unhide") == nil else { return }
-        
-        displayNodeHierarchyOnTop(true)
-        runAction(.fadeIn(duration: 0.5), forKey: "unhide")
-    }
-    
     /// Displays the focus square parallel to the camera plane.
     private func displayAsBillboard() {
         simdTransform = matrix_identity_float4x4
         eulerAngles.x = .pi / 2
         simdPosition = [0, 0, -0.8]
-        unhide()
-        performOpenAnimation()
-    }
-
-    /// Called when a surface has been detected.
-    private func displayAsOpen(for raycastResult: ARRaycastResult, camera: ARCamera?) {
-        performOpenAnimation()
-        setPosition(with: raycastResult, camera)
-    }
-        
-    /// Called when a plane has been detected.
-    private func displayAsClosed(for raycastResult: ARRaycastResult, planeAnchor: ARPlaneAnchor, camera: ARCamera?) {
-        performCloseAnimation(flash: !anchorsOfVisitedPlanes.contains(planeAnchor))
-        anchorsOfVisitedPlanes.insert(planeAnchor)
-        setPosition(with: raycastResult, camera)
     }
     
     // - Tag: Set3DPosition
@@ -232,162 +150,4 @@ class WireCursor: SCNNode {
             return 0.25 * distanceFromCamera + 0.825
         }
     }
-    
-    // MARK: Animations
-    
-    private func performOpenAnimation() {
-        guard !isOpen, !isAnimating else { return }
-        isOpen = true
-        isAnimating = true
-
-        // Open animation
-        SCNTransaction.begin()
-        SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: .easeOut)
-        SCNTransaction.animationDuration = FocusSquare.animationDuration / 4
-        positioningNode.opacity = 1.0
-        for segment in segments {
-            segment.open()
-        }
-        SCNTransaction.completionBlock = {
-            self.positioningNode.runAction(pulseAction(), forKey: "pulse")
-            // This is a safe operation because `SCNTransaction`'s completion block is called back on the main thread.
-            self.isAnimating = false
-        }
-        SCNTransaction.commit()
-        
-        // Add a scale/bounce animation.
-        SCNTransaction.begin()
-        SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: .easeOut)
-        SCNTransaction.animationDuration = FocusSquare.animationDuration / 4
-        positioningNode.simdScale = [1.0, 1.0, 1.0] * FocusSquare.size
-        SCNTransaction.commit()
-    }
-
-    private func performCloseAnimation(flash: Bool = false) {
-        guard isOpen, !isAnimating else { return }
-        isOpen = false
-        isAnimating = true
-        
-        positioningNode.removeAction(forKey: "pulse")
-        positioningNode.opacity = 1.0
-        
-        // Close animation
-        SCNTransaction.begin()
-        SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: .easeOut)
-        SCNTransaction.animationDuration = FocusSquare.animationDuration / 2
-        positioningNode.opacity = 0.99
-        SCNTransaction.completionBlock = {
-            SCNTransaction.begin()
-            SCNTransaction.animationTimingFunction = CAMediaTimingFunction(name: .easeOut)
-            SCNTransaction.animationDuration = FocusSquare.animationDuration / 4
-            for segment in self.segments {
-                segment.close()
-            }
-            SCNTransaction.completionBlock = { self.isAnimating = false }
-            SCNTransaction.commit()
-        }
-        SCNTransaction.commit()
-        
-        // Scale/bounce animation
-        positioningNode.addAnimation(scaleAnimation(for: "transform.scale.x"), forKey: "transform.scale.x")
-        positioningNode.addAnimation(scaleAnimation(for: "transform.scale.y"), forKey: "transform.scale.y")
-        positioningNode.addAnimation(scaleAnimation(for: "transform.scale.z"), forKey: "transform.scale.z")
-        
-        if flash {
-            let waitAction = SCNAction.wait(duration: FocusSquare.animationDuration * 0.75)
-            let fadeInAction = SCNAction.fadeOpacity(to: 0.25, duration: FocusSquare.animationDuration * 0.125)
-            let fadeOutAction = SCNAction.fadeOpacity(to: 0.0, duration: FocusSquare.animationDuration * 0.125)
-            fillPlane.runAction(SCNAction.sequence([waitAction, fadeInAction, fadeOutAction]))
-            
-            let flashSquareAction = flashAnimation(duration: FocusSquare.animationDuration * 0.25)
-            for segment in segments {
-                segment.runAction(.sequence([waitAction, flashSquareAction]))
-            }
-         }
-    }
-    
-    // MARK: Convenience Methods
-    
-    private func scaleAnimation(for keyPath: String) -> CAKeyframeAnimation {
-        let scaleAnimation = CAKeyframeAnimation(keyPath: keyPath)
-        
-        let easeOut = CAMediaTimingFunction(name: .easeOut)
-        let easeInOut = CAMediaTimingFunction(name: .easeInEaseOut)
-        let linear = CAMediaTimingFunction(name: .linear)
-        
-        let size = FocusSquare.size
-        let ts = FocusSquare.size * FocusSquare.scaleForClosedSquare
-        let values = [size, size * 1.15, size * 1.15, ts * 0.97, ts]
-        let keyTimes: [NSNumber] = [0.00, 0.25, 0.50, 0.75, 1.00]
-        let timingFunctions = [easeOut, linear, easeOut, easeInOut]
-        
-        scaleAnimation.values = values
-        scaleAnimation.keyTimes = keyTimes
-        scaleAnimation.timingFunctions = timingFunctions
-        scaleAnimation.duration = FocusSquare.animationDuration
-        
-        return scaleAnimation
-    }
-    
-    /// Sets the rendering order of the `positioningNode` to show on top or under other scene content.
-    func displayNodeHierarchyOnTop(_ isOnTop: Bool) {
-        // Recursivley traverses the node's children to update the rendering order depending on the `isOnTop` parameter.
-        func updateRenderOrder(for node: SCNNode) {
-            node.renderingOrder = isOnTop ? 2 : 0
-            
-            for material in node.geometry?.materials ?? [] {
-                material.readsFromDepthBuffer = !isOnTop
-            }
-            
-            for child in node.childNodes {
-                updateRenderOrder(for: child)
-            }
-        }
-        
-        updateRenderOrder(for: positioningNode)
-    }
-
-    private lazy var fillPlane: SCNNode = {
-        let correctionFactor = FocusSquare.thickness / 2 // correction to align lines perfectly
-        let length = CGFloat(1.0 - FocusSquare.thickness * 2 + correctionFactor)
-        
-        let plane = SCNPlane(width: length, height: length)
-        let node = SCNNode(geometry: plane)
-        node.name = "fillPlane"
-        node.opacity = 0.0
-
-        let material = plane.firstMaterial!
-        material.diffuse.contents = FocusSquare.fillColor
-        material.isDoubleSided = true
-        material.ambient.contents = UIColor.black
-        material.lightingModel = .constant
-        material.emission.contents = FocusSquare.fillColor
-
-        return node
-    }()
 }
-
-// MARK: - Animations and Actions
-
-private func pulseAction() -> SCNAction {
-    let pulseOutAction = SCNAction.fadeOpacity(to: 0.4, duration: 0.5)
-    let pulseInAction = SCNAction.fadeOpacity(to: 1.0, duration: 0.5)
-    pulseOutAction.timingMode = .easeInEaseOut
-    pulseInAction.timingMode = .easeInEaseOut
-    
-    return SCNAction.repeatForever(SCNAction.sequence([pulseOutAction, pulseInAction]))
-}
-
-private func flashAnimation(duration: TimeInterval) -> SCNAction {
-    let action = SCNAction.customAction(duration: duration) { (node, elapsedTime) -> Void in
-        // animate color from HSB 48/100/100 to 48/30/100 and back
-        let elapsedTimePercentage = elapsedTime / CGFloat(duration)
-        let saturation = 2.8 * (elapsedTimePercentage - 0.5) * (elapsedTimePercentage - 0.5) + 0.3
-        if let material = node.geometry?.firstMaterial {
-            material.diffuse.contents = UIColor(hue: 0.1333, saturation: saturation, brightness: 1.0, alpha: 1.0)
-        }
-    }
-    return action
-}
-
-

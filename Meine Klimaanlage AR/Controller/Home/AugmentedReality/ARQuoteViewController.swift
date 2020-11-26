@@ -355,6 +355,9 @@ extension ARQuoteViewController {
                         completionHandler: { _ in
                             DispatchQueue.main.async {
                                 self.placeVirtualObject(loadedObject)
+                                
+                                self.wireCursor.recentFocusSquarePositions = self.focusSquare.recentFocusSquarePositions
+                                
                                 self.appState = .addingWires
                             }
                         }
