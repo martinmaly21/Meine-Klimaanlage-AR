@@ -375,14 +375,14 @@ extension ARQuoteViewController {
         //show screenshot stuff
     }
     
-    @IBAction func userPressedAddWire() {
+    @IBAction func userPressedChooseWire() {
         let chooseWireVC = ChooseTypeOfWireViewController()
         let navigationController = UINavigationController(rootViewController: chooseWireVC)
         
         self.present(navigationController, animated: true, completion: nil)
     }
     
-    @IBAction func userPressedAddButton() {
+    @IBAction func userPressedAddUnitButton() {
         // Ensure adding objects is an available action and we are not loading another object (to avoid concurrent modifications of the scene).
         //do we need this?
         guard !virtualObjectLoader.isLoading else { return }

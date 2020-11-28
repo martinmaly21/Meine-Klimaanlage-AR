@@ -462,7 +462,7 @@
                                     <imageReference key="image" image="plus.circle" catalog="system" renderingMode="template"/>
                                 </state>
                                 <connections>
-                                    <action selector="userPressedAddButton" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="Sg3-45-t9U"/>
+                                    <action selector="userPressedAddUnitButton" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="Sg3-45-t9U"/>
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygG-fw-z5L">
@@ -478,8 +478,8 @@
                                     <color key="titleColor" name="PrimaryBlue"/>
                                 </state>
                                 <connections>
-                                    <action selector="userPressedAddButton" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="zBQ-3S-sGX"/>
-                                    <action selector="userPressedAddWire" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="Mm8-qw-zN8"/>
+                                    <action selector="userPressedAddUnitButton" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="zBQ-3S-sGX"/>
+                                    <action selector="userPressedChooseWire" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="Mm8-qw-zN8"/>
                                 </connections>
                             </button>
                         </subviews>
