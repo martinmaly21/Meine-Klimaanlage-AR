@@ -89,7 +89,7 @@ extension SCNNode {
 
         }
 
-        let cyl = SCNCylinder(radius: radius, height: l)
+        let cyl = SCNCapsule(capRadius: radius, height: l)
         cyl.firstMaterial?.diffuse.contents = color
 
         self.geometry = cyl
