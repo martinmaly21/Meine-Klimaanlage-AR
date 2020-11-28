@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum WireType {
     case rohrleitungslänge
@@ -36,6 +37,17 @@ struct ACWire {
             wireDisplayName = "Kabelkanal"
         case .kondensatleitung:
             wireDisplayName = "Kondensatleitung"
+        }
+    }
+    
+    func getWireColor() -> UIColor {
+        switch wireType {
+        case .rohrleitungslänge:
+            return .black
+        case .kabelkanal:
+            return .white
+        case .kondensatleitung:
+            return .blue
         }
     }
 }

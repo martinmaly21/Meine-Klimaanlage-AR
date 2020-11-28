@@ -440,7 +440,7 @@ class ARQuoteViewController: UIViewController {
                 from: wireCursor.position,
                 to: mostRecentVertexPosition,
                 radius: 0.01,
-                color: Constants.Color.primaryBlue
+                color: currentWire.getWireColor()
             )
             
             sceneView.scene.rootNode.addChildNode(wireLine)
@@ -496,6 +496,8 @@ extension ARQuoteViewController {
         quote.screenshots.append(image)
         
         let vc = QuoteSummaryViewController()
+        vc.quote = quote
+    
         let navigationController = UINavigationController(rootViewController: vc)
         
         present(navigationController, animated: true, completion: nil)
@@ -524,7 +526,7 @@ extension ARQuoteViewController {
         wireCursorCopy.geometry?.firstMaterial = wireCursor.geometry!.firstMaterial!.copy() as? SCNMaterial
         // Now, we can change node2's material without changing node1's:
         //maybe change this color to the color of the desired wire?
-        wireCursorCopy.geometry?.firstMaterial?.diffuse.contents = Constants.Color.primaryWhiteBackground
+        wireCursorCopy.geometry?.firstMaterial?.diffuse.contents = currentWire.getWireColor()
         wireCursorCopy.scale = SCNVector3(1.5, 1.5, 1.5)
         
         //store nodes

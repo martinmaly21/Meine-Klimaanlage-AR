@@ -67,18 +67,20 @@ extension SCNNode {
         }
 
         return SCNVector3( iv.x / length, iv.y / length, iv.z / length)
-
+        
     }
     
-    func buildLineInTwoPointsWithRotation(from startPoint: SCNVector3,
-                              to endPoint: SCNVector3,
-                              radius: CGFloat,
-                              color: UIColor) -> SCNNode {
+    func buildLineInTwoPointsWithRotation(
+        from startPoint: SCNVector3,
+        to endPoint: SCNVector3,
+        radius: CGFloat,
+        color: UIColor
+    ) -> SCNNode {
         let w = SCNVector3(x: endPoint.x-startPoint.x,
                            y: endPoint.y-startPoint.y,
                            z: endPoint.z-startPoint.z)
         let l = CGFloat(sqrt(w.x * w.x + w.y * w.y + w.z * w.z))
-
+        
         if l == 0.0 {
             // two points together.
             let sphere = SCNSphere(radius: radius)
