@@ -420,24 +420,7 @@ class ARQuoteViewController: UIViewController {
             updateQueue.async {
                 self.sceneView.scene.rootNode.addChildNode(self.wireCursor)
                 self.wireCursor.state = .detecting(raycastResult: result, camera: camera)
-                
-                if let mostRecentVertexPosition = self.wireVertexPositions.last {
-                    if let currentWireNode = self.currentWireNode,
-                       !self.wireNodes.contains(currentWireNode) {
-                        currentWireNode.removeFromParentNode()
-                    }
-                    
-                    let wireLine = SCNNode().buildLineInTwoPointsWithRotation(
-                        from: self.wireCursor.position,
-                        to: mostRecentVertexPosition,
-                        radius: 0.01,
-                        color: Constants.Color.primaryBlue
-                    )
-                    
-                    self.sceneView.scene.rootNode.addChildNode(wireLine)
-                    
-                    self.currentWireNode = wireLine
-                }
+                self.updatePreviewWire()
             }
             if !coachingOverlay.isActive {
                 
@@ -447,6 +430,25 @@ class ARQuoteViewController: UIViewController {
                 self.wireCursor.state = .initializing
                 self.sceneView.pointOfView?.addChildNode(self.wireCursor)
             }
+        }
+    }
+    
+    private func updatePreviewWire() {
+        if let mostRecentVertexPosition = wireVertexPositions.last {
+            if let currentWireNode = currentWireNode,
+               !wireNodes.contains(currentWireNode) {
+                currentWireNode.removeFromParentNode()
+            }
+            
+            let wireLine = SCNNode().buildLineInTwoPointsWithRotation(
+                from: wireCursor.position,
+                to: mostRecentVertexPosition,
+                radius: 0.01,
+                color: Constants.Color.primaryBlue
+            )
+            
+            sceneView.scene.rootNode.addChildNode(wireLine)
+            currentWireNode = wireLine
         }
     }
 }
@@ -535,7 +537,6 @@ extension ARQuoteViewController {
     @IBAction func userPressedAddWire() {
         let wireCursorCopy = wireCursor.copy() as! WireCursor
        
-
         // Right now, node2 is sharing geometry. This changes the color of both:
         wireCursor.geometry?.firstMaterial?.diffuse.contents = Constants.Color.primaryBlue
 
@@ -551,16 +552,19 @@ extension ARQuoteViewController {
         //store nodes
         wireVertexPositions.append(wireCursorCopy.position)
         
-        //add copy to scene
-        self.sceneView.scene.rootNode.addChildNode(wireCursorCopy)
-        
         //update array storing wires
         if let currentWireNode = currentWireNode {
             wireNodes.append(currentWireNode)
         }
+        
+        //add copy to scene
+        self.sceneView.scene.rootNode.addChildNode(wireCursorCopy)
     }
     
     @IBAction func userPressedDoneAddingWire() {
+        //remove final node
+        userPressedAddWire()
+        
         appState = .chooseTypeOfWire
     }
     
