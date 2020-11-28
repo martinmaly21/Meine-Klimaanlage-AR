@@ -16,4 +16,5 @@ enum AppState: Int16 {
     case ACUnitAdded
     case chooseTypeOfWire
     case addingWire
+    case captureScreenshot
 }

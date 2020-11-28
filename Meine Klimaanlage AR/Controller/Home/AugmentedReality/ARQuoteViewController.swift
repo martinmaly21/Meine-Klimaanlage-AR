@@ -21,6 +21,7 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var chooseWireButton: UIButton!
     @IBOutlet weak var addWireButton: UIButton!
+    @IBOutlet weak var captureScreenshotButton: UIButton!
     
     
     var coachingOverlay = ARCoachingOverlayView()
@@ -83,7 +84,6 @@ class ARQuoteViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
         tabBarController?.tabBar.isHidden = true
         
-        
         if let topSafeAreaInset = UIApplication.shared.windows.first?.safeAreaInsets.top {
             statusLabelHeightConstraint.constant += topSafeAreaInset
             statusLabelCenterYConstraint.constant = topSafeAreaInset / 2
@@ -98,6 +98,10 @@ class ARQuoteViewController: UIViewController {
         addUnitButton.layer.shadowRadius = 2
         addUnitButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         addUnitButton.layer.shadowOpacity = 0.3
+        
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 120, weight: .bold, scale: .large)
+        let largeBoldDoc = UIImage(systemName: "plus.circle", withConfiguration: largeConfig)
+        addUnitButton.setImage(largeBoldDoc, for: .normal)
         
         //skip button
         skipButton.layer.cornerRadius = 14
@@ -139,9 +143,15 @@ class ARQuoteViewController: UIViewController {
         addWireButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         addWireButton.layer.shadowOpacity = 0.3
         
-        let largeConfig = UIImage.SymbolConfiguration(pointSize: 120, weight: .bold, scale: .large)
-        let largeBoldDoc = UIImage(systemName: "plus.circle", withConfiguration: largeConfig)
-        addUnitButton.setImage(largeBoldDoc, for: .normal)
+        //capture screenshot
+        captureScreenshotButton.layer.cornerRadius = 14
+        captureScreenshotButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        captureScreenshotButton.layer.borderWidth = 1
+        
+        captureScreenshotButton.layer.shadowColor = Constants.Color.border.cgColor
+        captureScreenshotButton.layer.shadowRadius = 2
+        captureScreenshotButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        captureScreenshotButton.layer.shadowOpacity = 0.3
     }
     
     private func setUpScene() {
@@ -281,6 +291,8 @@ class ARQuoteViewController: UIViewController {
                 self.showButtonIfNeeded(self.chooseWireButton)
             case .addingWire:
                 self.showButtonIfNeeded(self.addWireButton)
+            case .captureScreenshot:
+                self.showButtonIfNeeded(self.captureScreenshotButton)
             }
         }
     }
@@ -306,6 +318,8 @@ class ARQuoteViewController: UIViewController {
             statusMessage = "Select the type of wire you'd like to add."
         case .addingWire:
             statusMessage = "Press the plus to place the wire, and then again whenver you want to add a corner. Tap 'finish' when you're done."
+        case .captureScreenshot:
+            statusMessage = "Place the \(currentACUnit.displayName) in view, and press 'Capture' to take a screenshot."
         }
         
         statusLabel.text = trackingStatus != "" ? "\(trackingStatus)" : "\(statusMessage)"
@@ -451,18 +465,23 @@ extension ARQuoteViewController: ARSCNViewDelegate {
 //MARK: - adding and removing ac units
 extension ARQuoteViewController {
     @IBAction func userPressedSkip() {
-        //show screenshot stuff
+        appState = .captureScreenshot
+    }
+    
+    @IBAction func userPressedCaptureScreenshot() {
+        let image = sceneView.snapshot()
+        //TODO: handle image
     }
     
     @IBAction func userPressedChooseWire() {
         let chooseWireVC = ChooseTypeOfWireViewController()
         let navigationController = UINavigationController(rootViewController: chooseWireVC)
         
-        self.present(navigationController, animated: true, completion: nil)
+        present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func userPressedConfirmUnitPosition() {
-        self.appState = .chooseTypeOfWire
+        appState = .chooseTypeOfWire
     }
     
     @IBAction func userPressedAddWire() {

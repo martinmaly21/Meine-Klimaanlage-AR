@@ -513,6 +513,22 @@
                                     <action selector="userPressedAddWire" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="04M-3r-miL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shb-y6-gB0">
+                                <rect key="frame" x="107" y="733" width="200" height="50"/>
+                                <color key="backgroundColor" name="PrimaryWhiteBackground"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="l9D-fl-QSi"/>
+                                    <constraint firstAttribute="width" constant="200" id="ptm-40-oxh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <state key="normal" title="Capture Screenshot" image="camera.fill" catalog="system">
+                                    <color key="titleColor" name="PrimaryBlue"/>
+                                </state>
+                                <connections>
+                                    <action selector="userPressedCaptureScreenshot" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="4xd-E8-V7e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="87a-4f-kcC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -526,10 +542,12 @@
                             <constraint firstItem="Bbv-qm-qKR" firstAttribute="leading" secondItem="87a-4f-kcC" secondAttribute="leading" id="YjX-jp-u6v"/>
                             <constraint firstItem="GoO-WU-BUG" firstAttribute="centerX" secondItem="87a-4f-kcC" secondAttribute="centerX" id="aNa-v7-m6x"/>
                             <constraint firstItem="ygG-fw-z5L" firstAttribute="centerX" secondItem="87a-4f-kcC" secondAttribute="centerX" id="dqI-bK-j2Y"/>
+                            <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="shb-y6-gB0" secondAttribute="bottom" constant="30" id="eMV-51-gnc"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="W2r-AA-aLE" secondAttribute="bottom" constant="30" id="gbm-pc-LFj"/>
                             <constraint firstItem="Hec-gS-PL1" firstAttribute="trailing" secondItem="Bbv-qm-qKR" secondAttribute="trailing" id="iET-AK-Ded"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="trailing" secondItem="Bbv-qm-qKR" secondAttribute="trailing" id="igF-Hx-uSk"/>
                             <constraint firstItem="Bbv-qm-qKR" firstAttribute="top" secondItem="4fV-sV-Pfi" secondAttribute="top" id="kBO-bv-fBN"/>
+                            <constraint firstItem="shb-y6-gB0" firstAttribute="centerX" secondItem="87a-4f-kcC" secondAttribute="centerX" id="n8g-Qz-7Wb"/>
                             <constraint firstItem="OXN-CU-R4i" firstAttribute="top" secondItem="Hec-gS-PL1" secondAttribute="bottom" constant="12" id="uW5-uX-Z0i"/>
                             <constraint firstAttribute="bottom" secondItem="Bbv-qm-qKR" secondAttribute="bottom" id="v8D-zE-6Mr"/>
                             <constraint firstItem="W2r-AA-aLE" firstAttribute="centerX" secondItem="87a-4f-kcC" secondAttribute="centerX" id="vja-Qe-yfq"/>
@@ -540,6 +558,7 @@
                     <connections>
                         <outlet property="addUnitButton" destination="Frw-BM-lrL" id="2F2-1s-VDo"/>
                         <outlet property="addWireButton" destination="GoO-WU-BUG" id="BcL-Ay-NOr"/>
+                        <outlet property="captureScreenshotButton" destination="shb-y6-gB0" id="vQk-Nw-hcH"/>
                         <outlet property="chooseWireButton" destination="ygG-fw-z5L" id="j3G-U6-wgg"/>
                         <outlet property="confirmUnitPositionButton" destination="W2r-AA-aLE" id="2t0-kw-SFI"/>
                         <outlet property="sceneView" destination="Bbv-qm-qKR" id="Tlu-NU-4gN"/>
@@ -557,6 +576,7 @@
     </scenes>
     <resources>
         <image name="arkit" catalog="system" width="128" height="128"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
