@@ -497,20 +497,20 @@
                                     <action selector="userPressedChooseWire" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="0cI-5x-4u1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GoO-WU-BUG">
-                                <rect key="frame" x="107" y="733" width="200" height="50"/>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aww-u9-FcJ">
+                                <rect key="frame" x="167" y="703" width="80" height="80"/>
                                 <color key="backgroundColor" name="PrimaryWhiteBackground"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="2DC-x5-cEf"/>
-                                    <constraint firstAttribute="width" constant="200" id="lo2-HY-KUO"/>
+                                    <constraint firstAttribute="width" constant="80" id="6zb-0K-4N0"/>
+                                    <constraint firstAttribute="width" secondItem="Aww-u9-FcJ" secondAttribute="height" multiplier="1:1" id="X6R-vR-dAC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
-                                <state key="normal" title="Add Wire">
-                                    <color key="titleColor" name="PrimaryBlue"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="plus.circle" catalog="system" renderingMode="template"/>
                                 </state>
                                 <connections>
-                                    <action selector="userPressedAddWire" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="04M-3r-miL"/>
+                                    <action selector="userPressedAddWire" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="L5S-Si-tdb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shb-y6-gB0">
@@ -529,20 +529,37 @@
                                     <action selector="userPressedCaptureScreenshot" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="4xd-E8-V7e"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1W-MM-pDR">
+                                <rect key="frame" x="262" y="721" width="90" height="44"/>
+                                <color key="backgroundColor" name="PrimaryWhiteBackground"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="PgV-T3-WbU"/>
+                                    <constraint firstAttribute="height" constant="44" id="QYe-Pv-CLA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" name="PrimaryBlue"/>
+                                </state>
+                                <connections>
+                                    <action selector="userPressedDoneAddingWire" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="M1b-Cx-AlW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="87a-4f-kcC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Frw-BM-lrL" firstAttribute="centerX" secondItem="87a-4f-kcC" secondAttribute="centerX" id="43H-3Z-3f2"/>
+                            <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="Aww-u9-FcJ" secondAttribute="bottom" constant="30" id="9bV-92-BeV"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="trailing" secondItem="OXN-CU-R4i" secondAttribute="trailing" constant="20" id="Aax-KP-FVK"/>
                             <constraint firstItem="Hec-gS-PL1" firstAttribute="top" secondItem="4fV-sV-Pfi" secondAttribute="top" id="Dmp-Uw-cfu"/>
-                            <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="GoO-WU-BUG" secondAttribute="bottom" constant="30" id="E9Q-5e-An9"/>
+                            <constraint firstItem="d1W-MM-pDR" firstAttribute="leading" secondItem="Aww-u9-FcJ" secondAttribute="trailing" constant="15" id="ER7-KQ-Uxn"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="Frw-BM-lrL" secondAttribute="bottom" constant="20" id="PSU-be-zgO"/>
                             <constraint firstItem="Hec-gS-PL1" firstAttribute="leading" secondItem="Bbv-qm-qKR" secondAttribute="leading" id="SPU-Im-X8Z"/>
                             <constraint firstItem="Bbv-qm-qKR" firstAttribute="leading" secondItem="87a-4f-kcC" secondAttribute="leading" id="YjX-jp-u6v"/>
-                            <constraint firstItem="GoO-WU-BUG" firstAttribute="centerX" secondItem="87a-4f-kcC" secondAttribute="centerX" id="aNa-v7-m6x"/>
+                            <constraint firstItem="Aww-u9-FcJ" firstAttribute="width" secondItem="Aww-u9-FcJ" secondAttribute="height" multiplier="1:1" id="Zfn-QZ-vHb"/>
                             <constraint firstItem="ygG-fw-z5L" firstAttribute="centerX" secondItem="87a-4f-kcC" secondAttribute="centerX" id="dqI-bK-j2Y"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="shb-y6-gB0" secondAttribute="bottom" constant="30" id="eMV-51-gnc"/>
+                            <constraint firstItem="d1W-MM-pDR" firstAttribute="centerY" secondItem="Aww-u9-FcJ" secondAttribute="centerY" id="fWA-K5-hUm"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="W2r-AA-aLE" secondAttribute="bottom" constant="30" id="gbm-pc-LFj"/>
                             <constraint firstItem="Hec-gS-PL1" firstAttribute="trailing" secondItem="Bbv-qm-qKR" secondAttribute="trailing" id="iET-AK-Ded"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="trailing" secondItem="Bbv-qm-qKR" secondAttribute="trailing" id="igF-Hx-uSk"/>
@@ -552,15 +569,17 @@
                             <constraint firstAttribute="bottom" secondItem="Bbv-qm-qKR" secondAttribute="bottom" id="v8D-zE-6Mr"/>
                             <constraint firstItem="W2r-AA-aLE" firstAttribute="centerX" secondItem="87a-4f-kcC" secondAttribute="centerX" id="vja-Qe-yfq"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="ygG-fw-z5L" secondAttribute="bottom" constant="30" id="wCD-ki-lRr"/>
+                            <constraint firstItem="Aww-u9-FcJ" firstAttribute="centerX" secondItem="87a-4f-kcC" secondAttribute="centerX" id="wic-pM-wVX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5dg-4Y-xae"/>
                     <connections>
                         <outlet property="addUnitButton" destination="Frw-BM-lrL" id="2F2-1s-VDo"/>
-                        <outlet property="addWireButton" destination="GoO-WU-BUG" id="BcL-Ay-NOr"/>
+                        <outlet property="addWireButton" destination="Aww-u9-FcJ" id="lRm-5o-dbi"/>
                         <outlet property="captureScreenshotButton" destination="shb-y6-gB0" id="vQk-Nw-hcH"/>
                         <outlet property="chooseWireButton" destination="ygG-fw-z5L" id="j3G-U6-wgg"/>
                         <outlet property="confirmUnitPositionButton" destination="W2r-AA-aLE" id="2t0-kw-SFI"/>
+                        <outlet property="doneAddingWireButton" destination="d1W-MM-pDR" id="7Go-z9-ufk"/>
                         <outlet property="sceneView" destination="Bbv-qm-qKR" id="Tlu-NU-4gN"/>
                         <outlet property="skipButton" destination="OXN-CU-R4i" id="KWz-RA-yVr"/>
                         <outlet property="statusLabel" destination="Ljj-DG-Cdu" id="hnm-r9-c39"/>

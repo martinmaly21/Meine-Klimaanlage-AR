@@ -22,6 +22,7 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var chooseWireButton: UIButton!
     @IBOutlet weak var addWireButton: UIButton!
     @IBOutlet weak var captureScreenshotButton: UIButton!
+    @IBOutlet weak var doneAddingWireButton: UIButton!
     
     
     var coachingOverlay = ARCoachingOverlayView()
@@ -117,6 +118,16 @@ class ARQuoteViewController: UIViewController {
         skipButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         skipButton.layer.shadowOpacity = 0.3
         
+        //done adding wire button
+        doneAddingWireButton.layer.cornerRadius = 14
+        doneAddingWireButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        doneAddingWireButton.layer.borderWidth = 1
+        
+        doneAddingWireButton.layer.shadowColor = Constants.Color.border.cgColor
+        doneAddingWireButton.layer.shadowRadius = 2
+        doneAddingWireButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        doneAddingWireButton.layer.shadowOpacity = 0.3
+        
         //confirm unit position
         confirmUnitPositionButton.layer.cornerRadius = 14
         confirmUnitPositionButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
@@ -138,7 +149,7 @@ class ARQuoteViewController: UIViewController {
         chooseWireButton.layer.shadowOpacity = 0.3
         
         //add wire
-        addWireButton.layer.cornerRadius = 14
+        addWireButton.layer.cornerRadius = 40
         addWireButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
         addWireButton.layer.borderWidth = 1
         
@@ -146,6 +157,7 @@ class ARQuoteViewController: UIViewController {
         addWireButton.layer.shadowRadius = 2
         addWireButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         addWireButton.layer.shadowOpacity = 0.3
+        addWireButton.setImage(largeBoldDoc, for: .normal)
         
         //capture screenshot
         captureScreenshotButton.layer.cornerRadius = 14
@@ -295,6 +307,7 @@ class ARQuoteViewController: UIViewController {
                 self.showButtonIfNeeded(self.chooseWireButton)
             case .addingWire:
                 self.showButtonIfNeeded(self.addWireButton)
+                self.showButtonIfNeeded(self.doneAddingWireButton)
             case .captureScreenshot:
                 self.showButtonIfNeeded(self.captureScreenshotButton)
             }
@@ -536,6 +549,10 @@ extension ARQuoteViewController {
         if let currentWireNode = currentWireNode {
             wireNodes.append(currentWireNode)
         }
+    }
+    
+    @IBAction func userPressedDoneAddingWire() {
+        appState = .chooseTypeOfWire
     }
     
     @IBAction func userPressedAddUnitButton() {
