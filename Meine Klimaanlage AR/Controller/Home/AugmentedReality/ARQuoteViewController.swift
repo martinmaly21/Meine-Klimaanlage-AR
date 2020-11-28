@@ -42,7 +42,9 @@ class ARQuoteViewController: UIViewController {
     //    }
     var currentACUnit: ACUnit!
     
-    var nodes: [SCNNode] = []
+    var wireVertexPositions: [SCNVector3] = []
+    var wireNodes: [SCNNode] = []
+    var currentWireNode: SCNNode?
     
     var planeDetectionType = ARWorldTrackingConfiguration.PlaneDetection.vertical
 //    var planeDetectionTypes: ARWorldTrackingConfiguration.PlaneDetection {
@@ -396,6 +398,24 @@ class ARQuoteViewController: UIViewController {
             updateQueue.async {
                 self.sceneView.scene.rootNode.addChildNode(self.wireCursor)
                 self.wireCursor.state = .detecting(raycastResult: result, camera: camera)
+                
+                if let mostRecentVertexPosition = self.wireVertexPositions.last {
+                    if let currentWireNode = self.currentWireNode,
+                       !self.wireNodes.contains(currentWireNode) {
+                        currentWireNode.removeFromParentNode()
+                    }
+                    
+                    let wireLine = SCNNode().buildLineInTwoPointsWithRotation(
+                        from: self.wireCursor.position,
+                        to: mostRecentVertexPosition,
+                        radius: 0.01,
+                        color: Constants.Color.primaryBlue
+                    )
+                    
+                    self.sceneView.scene.rootNode.addChildNode(wireLine)
+                    
+                    self.currentWireNode = wireLine
+                }
             }
             if !coachingOverlay.isActive {
                 
@@ -504,13 +524,18 @@ extension ARQuoteViewController {
         // Now, we can change node2's material without changing node1's:
         //maybe change this color to the color of the desired wire?
         wireCursorCopy.geometry?.firstMaterial?.diffuse.contents = Constants.Color.primaryWhiteBackground
-        wireCursorCopy.scale = SCNVector3(1.25, 1.25, 1.25)
+        wireCursorCopy.scale = SCNVector3(1.5, 1.5, 1.5)
         
         //store nodes
-        nodes.append(wireCursorCopy)
+        wireVertexPositions.append(wireCursorCopy.position)
         
         //add copy to scene
         self.sceneView.scene.rootNode.addChildNode(wireCursorCopy)
+        
+        //update array storing wires
+        if let currentWireNode = currentWireNode {
+            wireNodes.append(currentWireNode)
+        }
     }
     
     @IBAction func userPressedAddUnitButton() {
