@@ -469,7 +469,12 @@ extension ARQuoteViewController {
     
     @IBAction func userPressedCaptureScreenshot() {
         let image = sceneView.snapshot()
-        //TODO: handle image
+        quote.screenshots.append(image)
+        
+        let vc = QuoteSummaryViewController()
+        let navigationController = UINavigationController(rootViewController: vc)
+        
+        present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func userPressedChooseWire() {

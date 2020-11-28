@@ -23,6 +23,7 @@ class QuoteSummaryViewController: UIViewController {
     private func updateUI() {
         self.title = "Quote Summary"
         
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationItem.setHidesBackButton(true, animated: true)
     }
