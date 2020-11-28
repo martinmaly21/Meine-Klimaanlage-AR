@@ -12,9 +12,13 @@ import UIKit
 struct Errors {
     public enum GenericError {
         case unknown
-        case noInernet
+        case noInernet //todo?
         case signingOut
-        case ARNotSupported
+    }
+    
+    public enum ARError {
+        case notSupported
+        case sessionFailed
     }
     
     public enum OnboardingError {
@@ -102,8 +106,6 @@ class ErrorManager {
             errorText = "It appears you have no internet connection. Please connect, and try again."
         case .signingOut:
             errorText = "There was an error signing you out. Please try again."
-        case .ARNotSupported:
-            errorText = "AR is not supported on this device."
         }
         
         
@@ -115,6 +117,30 @@ class ErrorManager {
         
         let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
         errorController.addAction(okayAction)
+        
+        viewController.present(errorController, animated: true, completion: nil)
+    }
+    
+    static func showARError(with arError: Errors.ARError, resultHandler: ((UIAlertAction) -> Void)?, on viewController: UIViewController) {
+        let errorText: String
+        
+        switch arError {
+        case .notSupported:
+            errorText = "AR is not supported on this device."
+        case .sessionFailed:
+            errorText = "The AR session failed. Please retry."
+        }
+        
+        let errorController = UIAlertController(
+            title: "Error",
+            message: errorText,
+            preferredStyle: .alert
+        )
+        
+        let confirmationAction = UIAlertAction(title: "Okay", style: .default, handler: resultHandler)
+        
+        
+        errorController.addAction(confirmationAction)
         
         viewController.present(errorController, animated: true, completion: nil)
     }

@@ -18,6 +18,17 @@ class ChooseTypeOfWireViewController: UIViewController {
     private var wireType = WireType.rohrleitungslänge
     private var wireLocation = WireLocation.insideWall
     
+    private let arViewController: ARQuoteViewController
+    
+    init(arViewController: ARQuoteViewController) {
+        self.arViewController = arViewController
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavBar()
@@ -30,16 +41,10 @@ class ChooseTypeOfWireViewController: UIViewController {
     }
     
     @objc func didPressSave() {
-        if let arViewController = presentingViewController as? ARQuoteViewController {
-            let wire = ACWire(wireType: wireType, wireLocation: wireLocation)
-            
-            #warning("must uncomment now")
-//            arViewController.quote.wires.append(wire)
-            
-            arViewController.appState = .addingWire
-
-            dismiss(animated: true, completion: nil)
-        }
+        let wire = ACWire(wireType: wireType, wireLocation: wireLocation)
+        arViewController.quote.wires.append(wire)
+        arViewController.appState = .addingWire
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func didPressWireType(_ sender: UIButton) {

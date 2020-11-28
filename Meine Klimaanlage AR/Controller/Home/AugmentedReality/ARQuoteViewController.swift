@@ -32,24 +32,21 @@ class ARQuoteViewController: UIViewController {
     var previousAppState: AppState?
     var appState: AppState = .lookingForSurface
     var statusMessage = ""
-    var trackingStatus = ""
     
     //data that is passed in
     var quote: ACQuote!
     
-    //    var currentACUnit: ACUnit! {
-    //        return quote.units.last!
-    //    }
-    var currentACUnit: ACUnit!
+    var currentACUnit: ACUnit! {
+        return quote.units.last!
+    }
     
     var wireVertexPositions: [SCNVector3] = []
     var wireNodes: [SCNNode] = []
     var currentWireNode: SCNNode?
     
-    var planeDetectionType = ARWorldTrackingConfiguration.PlaneDetection.vertical
-//    var planeDetectionTypes: ARWorldTrackingConfiguration.PlaneDetection {
-//        return currentACUnit.environmentType == .interior ? .vertical : .horizontal
-//    }
+    var planeDetection: ARWorldTrackingConfiguration.PlaneDetection {
+        return currentACUnit.environmentType == .interior ? .vertical : .horizontal
+    }
     
     /// Convenience accessor for the session owned by ARSCNView.
     var session: ARSession {
@@ -67,7 +64,6 @@ class ARQuoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentACUnit = ACUnit(displayName: "Panasonic", fileName: "Panasonic", environmentType: .interior)
         setUpUI()
         setUpScene()
         setUpCoachingOverlay()
@@ -229,7 +225,7 @@ class ARQuoteViewController: UIViewController {
     
     private func setUpARSession() {
         guard ARWorldTrackingConfiguration.isSupported else {
-            ErrorManager.showGenericError(with: .ARNotSupported, on: self)
+            ErrorManager.showARError(with: .notSupported, resultHandler: nil, on: self)
             return
         }
         
@@ -245,7 +241,7 @@ class ARQuoteViewController: UIViewController {
         let configuration = ARWorldTrackingConfiguration()
         configuration.worldAlignment = .gravity
         //detect both horizontal and vertical planes
-        configuration.planeDetection = planeDetectionType
+        configuration.planeDetection = planeDetection
         configuration.isLightEstimationEnabled = true
         
         return configuration
@@ -348,7 +344,7 @@ class ARQuoteViewController: UIViewController {
             statusMessage = "Place the \(currentACUnit.displayName) in view, and press 'Capture' to take a screenshot."
         }
         
-        statusLabel.text = trackingStatus != "" ? "\(trackingStatus)" : "\(statusMessage)"
+        statusLabel.text = statusMessage
     }
     
     // MARK: - Cursor stuff
@@ -477,33 +473,15 @@ extension ARQuoteViewController: ARSCNViewDelegate {
     // MARK: - AR session error management
     // ===================================
     
-    func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
-        switch camera.trackingState {
-        case .notAvailable, .limited:
-            #warning("TODO: update sttate")
-//            statusViewController.escalateFeedback(for: camera.trackingState, inSeconds: 3.0)
-        case .normal:
-            #warning("TODO: update sttate")
-//            statusViewController.cancelScheduledMessage(for: .trackingStateEscalation)
-//            showVirtualContent()
-        }
-    }
-    
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
-        trackingStatus = "AR session failure: \(error)"
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        trackingStatus = "AR session was interrupted!"
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        trackingStatus = "AR session interruption ended."
-        #warning("reset AR?")
-        //resetARsession()
+        ErrorManager.showARError(
+            with: .sessionFailed,
+            resultHandler: { _ in
+                self.navigationController?.popViewController(animated: true)
+            },
+            on: self
+        )
     }
 }
 
@@ -524,7 +502,7 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedChooseWire() {
-        let chooseWireVC = ChooseTypeOfWireViewController()
+        let chooseWireVC = ChooseTypeOfWireViewController(arViewController: self)
         let navigationController = UINavigationController(rootViewController: chooseWireVC)
         
         present(navigationController, animated: true, completion: nil)
