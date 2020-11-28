@@ -150,4 +150,18 @@ class WireCursor: SCNNode {
             return 0.25 * distanceFromCamera + 0.825
         }
     }
+    /// Hides the focus square.
+    func hide() {
+        guard action(forKey: "hide") == nil else { return }
+        
+        runAction(.fadeOut(duration: 0.5), forKey: "hide")
+    }
+    
+    /// Unhides the focus square.
+    func unhide() {
+        guard action(forKey: "unhide") == nil else { return }
+        
+        runAction(.fadeIn(duration: 0.5), forKey: "unhide")
+    }
+    
 }

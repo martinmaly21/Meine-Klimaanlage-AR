@@ -17,8 +17,10 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var statusLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var statusLabelCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var addUnitButton: UIButton!
+    @IBOutlet weak var confirmUnitPositionButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var chooseWireButton: UIButton!
+    @IBOutlet weak var addWireButton: UIButton!
     
     
     var coachingOverlay = ARCoachingOverlayView()
@@ -26,6 +28,7 @@ class ARQuoteViewController: UIViewController {
     var wireCursor = WireCursor()
     
     //handling app state
+    var previousAppState: AppState?
     var appState: AppState = .lookingForSurface
     var statusMessage = ""
     var trackingStatus = ""
@@ -106,7 +109,17 @@ class ARQuoteViewController: UIViewController {
         skipButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         skipButton.layer.shadowOpacity = 0.3
         
-        //add wire
+        //confirm unit position
+        confirmUnitPositionButton.layer.cornerRadius = 14
+        confirmUnitPositionButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        confirmUnitPositionButton.layer.borderWidth = 1
+        
+        confirmUnitPositionButton.layer.shadowColor = Constants.Color.border.cgColor
+        confirmUnitPositionButton.layer.shadowRadius = 2
+        confirmUnitPositionButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        confirmUnitPositionButton.layer.shadowOpacity = 0.3
+        
+        //choose wire
         chooseWireButton.layer.cornerRadius = 14
         chooseWireButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
         chooseWireButton.layer.borderWidth = 1
@@ -115,6 +128,16 @@ class ARQuoteViewController: UIViewController {
         chooseWireButton.layer.shadowRadius = 2
         chooseWireButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         chooseWireButton.layer.shadowOpacity = 0.3
+        
+        //add wire
+        addWireButton.layer.cornerRadius = 14
+        addWireButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        addWireButton.layer.borderWidth = 1
+        
+        addWireButton.layer.shadowColor = Constants.Color.border.cgColor
+        addWireButton.layer.shadowRadius = 2
+        addWireButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        addWireButton.layer.shadowOpacity = 0.3
         
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 120, weight: .bold, scale: .large)
         let largeBoldDoc = UIImage(systemName: "plus.circle", withConfiguration: largeConfig)
@@ -174,22 +197,9 @@ class ARQuoteViewController: UIViewController {
         }
     }
     
-    private func showUIElementsForUnitPlaced() {
+    private func handleUnitPlaced() {
         self.wireCursor.recentFocusSquarePositions = self.focusSquare.recentFocusSquarePositions
-        self.appState = .chooseTypeOfWire
-        
-        addUnitButton.isUserInteractionEnabled = false
-        chooseWireButton.isUserInteractionEnabled = true
-        skipButton.isUserInteractionEnabled = true
-        
-        UIView.animate(
-            withDuration: 0.3,
-            animations: {
-                self.addUnitButton.alpha = 0
-                self.skipButton.alpha = 1
-                self.chooseWireButton.alpha = 1
-            }
-        )
+        self.appState = .ACUnitAdded
     }
     
     private func setUpARSession() {
@@ -214,6 +224,65 @@ class ARQuoteViewController: UIViewController {
         configuration.isLightEstimationEnabled = true
         
         return configuration
+    }
+    
+    private func hideAllButtonsIfNeeded() {
+        if skipButton.alpha == 1 {
+            skipButton.alpha = 0
+            skipButton.isUserInteractionEnabled = false
+        }
+        
+        if addUnitButton.alpha == 1 {
+            addUnitButton.alpha = 0
+            addUnitButton.isUserInteractionEnabled = false
+        }
+        
+        if confirmUnitPositionButton.alpha == 1 {
+            confirmUnitPositionButton.alpha = 0
+        }
+        
+        if chooseWireButton.alpha == 1 {
+            chooseWireButton.alpha = 0
+            chooseWireButton.isUserInteractionEnabled = false
+        }
+        
+        if addWireButton.alpha == 1 {
+            addWireButton.alpha = 0
+            addWireButton.isUserInteractionEnabled = false
+        }
+    }
+    
+    private func showButtonIfNeeded(_ buttonToShow: UIButton) {
+        if buttonToShow.alpha == 0 {
+            buttonToShow.alpha = 1
+            buttonToShow.isUserInteractionEnabled = true
+        }
+    }
+    
+    func updateUIForAppState() {
+        guard previousAppState != appState else {
+            return
+        }
+        previousAppState = appState
+        
+        updateStatusText()
+        hideAllButtonsIfNeeded()
+        
+        UIView.animate(withDuration: 0.3) {
+            switch self.appState {
+            case .lookingForSurface, .pointToSurface: break //all elements should be hidden
+            case .readyToAddACUnit:
+                self.showButtonIfNeeded(self.addUnitButton)
+            case .ACUnitBeingAdded: break //all elements should be hidden
+            case .ACUnitAdded:
+                self.showButtonIfNeeded(self.confirmUnitPositionButton)
+            case .chooseTypeOfWire:
+                self.showButtonIfNeeded(self.skipButton)
+                self.showButtonIfNeeded(self.chooseWireButton)
+            case .addingWire:
+                self.showButtonIfNeeded(self.addWireButton)
+            }
+        }
     }
     
     // Updates the status text displayed at the top of the screen.
@@ -246,10 +315,14 @@ class ARQuoteViewController: UIViewController {
     
     
     func updateCursor(isObjectVisible: Bool) {
-        if appState == .chooseTypeOfWire || appState == .addingWire {
+        if appState == .ACUnitAdded || appState == .chooseTypeOfWire {
+            focusSquare.hide()
+            wireCursor.hide()
+        } else if appState == .addingWire {
             focusSquare.hide()
             updateWireCursor()
         } else {
+            wireCursor.hide()
             updateFocusSquare(isObjectVisible: isObjectVisible)
         }
     }
@@ -287,6 +360,12 @@ class ARQuoteViewController: UIViewController {
     }
     
     func updateWireCursor() {
+        if appState == .chooseTypeOfWire {
+            wireCursor.hide()
+        } else {
+            wireCursor.unhide()
+        }
+        
         // Perform ray casting only when ARKit tracking is in a good state.
         if let camera = session.currentFrame?.camera, case .normal = camera.trackingState,
            let query = sceneView.getRaycastQuery(for: .any),
@@ -323,7 +402,7 @@ extension ARQuoteViewController: ARSCNViewDelegate {
         
         DispatchQueue.main.async {
             self.updateCursor(isObjectVisible: isAnyObjectInView)
-            self.updateStatusText()
+            self.updateUIForAppState()
         }
     }
     
@@ -382,6 +461,14 @@ extension ARQuoteViewController {
         self.present(navigationController, animated: true, completion: nil)
     }
     
+    @IBAction func userPressedConfirmUnitPosition() {
+        self.appState = .chooseTypeOfWire
+    }
+    
+    @IBAction func userPressedAddWire() {
+        print("Add wire now!")
+    }
+    
     @IBAction func userPressedAddUnitButton() {
         // Ensure adding objects is an available action and we are not loading another object (to avoid concurrent modifications of the scene).
         //do we need this?
@@ -409,7 +496,7 @@ extension ARQuoteViewController {
                         completionHandler: { _ in
                             DispatchQueue.main.async {
                                 self.placeVirtualObject(loadedObject)
-                                self.showUIElementsForUnitPlaced()
+                                self.handleUnitPlaced()
                             }
                         }
                     )
@@ -505,15 +592,14 @@ extension ARQuoteViewController {
 
 extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
     func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        if appState != .chooseTypeOfWire || appState != .addingWire {
-            hideUIElementsForSessionStart()
-        }
+        hideUIElementsForSessionStart()
     }
     
     func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        if appState != .chooseTypeOfWire || appState != .addingWire {
-            showUIElementsForCoachingFinished()
-        }
+        showUIElementsForCoachingFinished()
+        
+        //remove coaching overlay from session (to ensure it's not restarted)
+        coachingOverlay.session = nil
     }
     
     func coachingOverlayViewDidRequestSessionReset(_ coachingOverlayView: ARCoachingOverlayView) {
