@@ -35,27 +35,4 @@ class VirtualObjectLoader {
             loadedHandler(object)
         }
     }
-    
-    // MARK: - Removing Objects
-    
-//    func removeAllVirtualObjects() {
-//        // Reverse the indices so we don't trample over indices as objects are removed.
-//        for index in loadedObjects.indices.reversed() {
-//            removeVirtualObject(at: index)
-//        }
-//    }
-//
-//    /// - Tag: RemoveVirtualObject
-//    func removeVirtualObject(at index: Int) {
-//        guard loadedObjects.indices.contains(index) else { return }
-//
-//        // Stop the object's tracked ray cast.
-//        loadedObjects[index].stopTrackedRaycast()
-//
-//        // Remove the visual node from the scene graph.
-//        loadedObjects[index].removeFromParentNode()
-//        // Recoup resources allocated by the object.
-//        loadedObjects[index].unload()
-//        loadedObjects.remove(at: index)
-//    }
 }

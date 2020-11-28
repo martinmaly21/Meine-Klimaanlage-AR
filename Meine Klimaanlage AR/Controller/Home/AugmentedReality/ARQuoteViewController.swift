@@ -40,6 +40,10 @@ class ARQuoteViewController: UIViewController {
         return quote.units.last!
     }
     
+    var currentWire: ACWire! {
+        return quote.wires.last!
+    }
+    
     var wireVertexPositions: [SCNVector3] = []
     var wireNodes: [SCNNode] = []
     var currentWireNode: SCNNode?
@@ -323,15 +327,11 @@ class ARQuoteViewController: UIViewController {
     func updateStatusText() {
         switch appState {
         case .lookingForSurface:
-            #warning("Change this copy to be vertical or horizontal")
-            statusMessage = "Scan the room with your device until a vertical plane is detected."
-            sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+            statusMessage = "Scan the room with your device until a \(planeDetection == .vertical ? "vertical" : "horizontal") surface is detected."
         case .pointToSurface:
             statusMessage = "Point your device towards one of the detected surfaces."
-            sceneView.debugOptions = []
         case .readyToAddACUnit:
             statusMessage = "Tap on the blue plus to place \(currentACUnit.displayName)."
-            sceneView.debugOptions = []
         case .ACUnitBeingAdded:
             statusMessage = "\(currentACUnit.displayName) is loading. Please wait."
         case .ACUnitAdded:
@@ -339,7 +339,7 @@ class ARQuoteViewController: UIViewController {
         case .chooseTypeOfWire:
             statusMessage = "Select the type of wire you'd like to add."
         case .addingWire:
-            statusMessage = "Press the plus to place the wire, and then again whenver you want to add a corner. Tap 'finish' when you're done."
+            statusMessage = "Press the plus to place \(currentWire.wireDisplayName), and then again whenver you want to add a corner. Tap 'continue' when you're done."
         case .captureScreenshot:
             statusMessage = "Place the \(currentACUnit.displayName) in view, and press 'Capture' to take a screenshot."
         }
