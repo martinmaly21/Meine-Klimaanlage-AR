@@ -329,18 +329,17 @@ class ARQuoteViewController: UIViewController {
     
     
     func updateCursor(isObjectVisible: Bool) {
-        if appState == .ACUnitAdded || appState == .chooseTypeOfWire {
-            focusSquare.hide()
+        if appState == .lookingForSurface || appState == .pointToSurface || appState == .readyToAddACUnit {
             wireCursor.hide()
+            updateFocusSquare(isObjectVisible: isObjectVisible)
         } else if appState == .addingWire {
             focusSquare.hide()
             updateWireCursor()
         } else {
             wireCursor.hide()
-            updateFocusSquare(isObjectVisible: isObjectVisible)
+            focusSquare.hide()
         }
     }
-    
     
     func updateFocusSquare(isObjectVisible: Bool) {
         if isObjectVisible || coachingOverlay.isActive {
