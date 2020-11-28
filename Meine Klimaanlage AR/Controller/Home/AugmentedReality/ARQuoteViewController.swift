@@ -42,6 +42,8 @@ class ARQuoteViewController: UIViewController {
     //    }
     var currentACUnit: ACUnit!
     
+    var nodes: [SCNNode] = []
+    
     var planeDetectionType = ARWorldTrackingConfiguration.PlaneDetection.vertical
 //    var planeDetectionTypes: ARWorldTrackingConfiguration.PlaneDetection {
 //        return currentACUnit.environmentType == .interior ? .vertical : .horizontal
@@ -489,7 +491,26 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedAddWire() {
-        print("Add wire now!")
+        let wireCursorCopy = wireCursor.copy() as! WireCursor
+       
+
+        // Right now, node2 is sharing geometry. This changes the color of both:
+        wireCursor.geometry?.firstMaterial?.diffuse.contents = Constants.Color.primaryBlue
+
+        // Un-share the geometry by copying
+        wireCursorCopy.geometry = wireCursor.geometry!.copy() as? SCNGeometry
+        // Un-share the material, too
+        wireCursorCopy.geometry?.firstMaterial = wireCursor.geometry!.firstMaterial!.copy() as? SCNMaterial
+        // Now, we can change node2's material without changing node1's:
+        //maybe change this color to the color of the desired wire?
+        wireCursorCopy.geometry?.firstMaterial?.diffuse.contents = Constants.Color.primaryWhiteBackground
+        wireCursorCopy.scale = SCNVector3(1.25, 1.25, 1.25)
+        
+        //store nodes
+        nodes.append(wireCursorCopy)
+        
+        //add copy to scene
+        self.sceneView.scene.rootNode.addChildNode(wireCursorCopy)
     }
     
     @IBAction func userPressedAddUnitButton() {
