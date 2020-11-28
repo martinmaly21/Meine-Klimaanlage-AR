@@ -294,7 +294,7 @@ class ARQuoteViewController: UIViewController {
             
             //this code allows wire cursor to be visible even if by dimming object in front
             if let loadedObject = self.sceneView.virtualObject(at: self.sceneView.center) {
-                loadedObject.opacity = 0.3
+                loadedObject.opacity = 0.8
             } else {
                 virtualObjectLoader.loadedObjects.forEach({ $0.opacity = 1 })
             }
@@ -505,11 +505,15 @@ extension ARQuoteViewController {
 
 extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
     func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        hideUIElementsForSessionStart()
+        if appState != .chooseTypeOfWire || appState != .addingWire {
+            hideUIElementsForSessionStart()
+        }
     }
     
     func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        showUIElementsForCoachingFinished()
+        if appState != .chooseTypeOfWire || appState != .addingWire {
+            showUIElementsForCoachingFinished()
+        }
     }
     
     func coachingOverlayViewDidRequestSessionReset(_ coachingOverlayView: ARCoachingOverlayView) {
