@@ -504,7 +504,7 @@
                     <navigationItem key="navigationItem" id="5dg-4Y-xae"/>
                     <connections>
                         <outlet property="addUnitButton" destination="Frw-BM-lrL" id="2F2-1s-VDo"/>
-                        <outlet property="addWireButton" destination="ygG-fw-z5L" id="j3G-U6-wgg"/>
+                        <outlet property="chooseWireButton" destination="ygG-fw-z5L" id="j3G-U6-wgg"/>
                         <outlet property="sceneView" destination="Bbv-qm-qKR" id="Tlu-NU-4gN"/>
                         <outlet property="skipButton" destination="OXN-CU-R4i" id="KWz-RA-yVr"/>
                         <outlet property="statusLabel" destination="Ljj-DG-Cdu" id="hnm-r9-c39"/>

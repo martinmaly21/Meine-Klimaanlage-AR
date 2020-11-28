@@ -18,7 +18,7 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var statusLabelCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var addUnitButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
-    @IBOutlet weak var addWireButton: UIButton!
+    @IBOutlet weak var chooseWireButton: UIButton!
     
     
     var coachingOverlay = ARCoachingOverlayView()
@@ -107,14 +107,14 @@ class ARQuoteViewController: UIViewController {
         skipButton.layer.shadowOpacity = 0.3
         
         //add wire
-        addWireButton.layer.cornerRadius = 14
-        addWireButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
-        addWireButton.layer.borderWidth = 1
+        chooseWireButton.layer.cornerRadius = 14
+        chooseWireButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        chooseWireButton.layer.borderWidth = 1
         
-        addWireButton.layer.shadowColor = Constants.Color.border.cgColor
-        addWireButton.layer.shadowRadius = 2
-        addWireButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        addWireButton.layer.shadowOpacity = 0.3
+        chooseWireButton.layer.shadowColor = Constants.Color.border.cgColor
+        chooseWireButton.layer.shadowRadius = 2
+        chooseWireButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        chooseWireButton.layer.shadowOpacity = 0.3
         
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 120, weight: .bold, scale: .large)
         let largeBoldDoc = UIImage(systemName: "plus.circle", withConfiguration: largeConfig)
@@ -179,7 +179,7 @@ class ARQuoteViewController: UIViewController {
         self.appState = .chooseTypeOfWire
         
         addUnitButton.isUserInteractionEnabled = false
-        addWireButton.isUserInteractionEnabled = true
+        chooseWireButton.isUserInteractionEnabled = true
         skipButton.isUserInteractionEnabled = true
         
         UIView.animate(
@@ -187,7 +187,7 @@ class ARQuoteViewController: UIViewController {
             animations: {
                 self.addUnitButton.alpha = 0
                 self.skipButton.alpha = 1
-                self.addWireButton.alpha = 1
+                self.chooseWireButton.alpha = 1
             }
         )
     }
