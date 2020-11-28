@@ -442,11 +442,11 @@
                                     <constraint firstAttribute="width" constant="90" id="e7M-Bg-JpC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Skip">
+                                <state key="normal" title="Continue">
                                     <color key="titleColor" name="PrimaryBlue"/>
                                 </state>
                                 <connections>
-                                    <action selector="userPressedSkip" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="AQ0-W3-qVg"/>
+                                    <action selector="userPressedContinue" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="AQ0-W3-qVg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frw-BM-lrL">
@@ -579,9 +579,9 @@
                         <outlet property="captureScreenshotButton" destination="shb-y6-gB0" id="vQk-Nw-hcH"/>
                         <outlet property="chooseWireButton" destination="ygG-fw-z5L" id="j3G-U6-wgg"/>
                         <outlet property="confirmUnitPositionButton" destination="W2r-AA-aLE" id="2t0-kw-SFI"/>
+                        <outlet property="continueButton" destination="OXN-CU-R4i" id="zkw-go-opO"/>
                         <outlet property="doneAddingWireButton" destination="d1W-MM-pDR" id="7Go-z9-ufk"/>
                         <outlet property="sceneView" destination="Bbv-qm-qKR" id="Tlu-NU-4gN"/>
-                        <outlet property="skipButton" destination="OXN-CU-R4i" id="KWz-RA-yVr"/>
                         <outlet property="statusLabel" destination="Ljj-DG-Cdu" id="hnm-r9-c39"/>
                         <outlet property="statusLabelCenterYConstraint" destination="A1d-qa-yRy" id="9cY-fE-JCj"/>
                         <outlet property="statusLabelHeightConstraint" destination="4l4-7q-3DH" id="dDE-Oe-zGK"/>

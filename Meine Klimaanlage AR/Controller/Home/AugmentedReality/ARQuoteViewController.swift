@@ -18,12 +18,11 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var statusLabelCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var addUnitButton: UIButton!
     @IBOutlet weak var confirmUnitPositionButton: UIButton!
-    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var chooseWireButton: UIButton!
     @IBOutlet weak var addWireButton: UIButton!
     @IBOutlet weak var captureScreenshotButton: UIButton!
     @IBOutlet weak var doneAddingWireButton: UIButton!
-    
     
     var coachingOverlay = ARCoachingOverlayView()
     var focusSquare = FocusSquare()
@@ -109,14 +108,14 @@ class ARQuoteViewController: UIViewController {
         addUnitButton.setImage(largeBoldDoc, for: .normal)
         
         //skip button
-        skipButton.layer.cornerRadius = 14
-        skipButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
-        skipButton.layer.borderWidth = 1
+        continueButton.layer.cornerRadius = 14
+        continueButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        continueButton.layer.borderWidth = 1
         
-        skipButton.layer.shadowColor = Constants.Color.border.cgColor
-        skipButton.layer.shadowRadius = 2
-        skipButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        skipButton.layer.shadowOpacity = 0.3
+        continueButton.layer.shadowColor = Constants.Color.border.cgColor
+        continueButton.layer.shadowRadius = 2
+        continueButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        continueButton.layer.shadowOpacity = 0.3
         
         //done adding wire button
         doneAddingWireButton.layer.cornerRadius = 14
@@ -253,9 +252,14 @@ class ARQuoteViewController: UIViewController {
     }
     
     private func hideAllButtonsIfNeeded() {
-        if skipButton.alpha == 1 {
-            skipButton.alpha = 0
-            skipButton.isUserInteractionEnabled = false
+        if continueButton.alpha == 1 {
+            continueButton.alpha = 0
+            continueButton.isUserInteractionEnabled = false
+        }
+        
+        if doneAddingWireButton.alpha == 1 {
+            doneAddingWireButton.alpha = 0
+            doneAddingWireButton.isUserInteractionEnabled = false
         }
         
         if addUnitButton.alpha == 1 {
@@ -275,6 +279,11 @@ class ARQuoteViewController: UIViewController {
         if addWireButton.alpha == 1 {
             addWireButton.alpha = 0
             addWireButton.isUserInteractionEnabled = false
+        }
+        
+        if captureScreenshotButton.alpha == 1 {
+            captureScreenshotButton.alpha = 0
+            captureScreenshotButton.isUserInteractionEnabled = false
         }
     }
     
@@ -303,7 +312,7 @@ class ARQuoteViewController: UIViewController {
             case .ACUnitAdded:
                 self.showButtonIfNeeded(self.confirmUnitPositionButton)
             case .chooseTypeOfWire:
-                self.showButtonIfNeeded(self.skipButton)
+                self.showButtonIfNeeded(self.continueButton)
                 self.showButtonIfNeeded(self.chooseWireButton)
             case .addingWire:
                 self.showButtonIfNeeded(self.addWireButton)
@@ -498,7 +507,7 @@ extension ARQuoteViewController: ARSCNViewDelegate {
 
 //MARK: - adding and removing ac units
 extension ARQuoteViewController {
-    @IBAction func userPressedSkip() {
+    @IBAction func userPressedContinue() {
         appState = .captureScreenshot
     }
     
