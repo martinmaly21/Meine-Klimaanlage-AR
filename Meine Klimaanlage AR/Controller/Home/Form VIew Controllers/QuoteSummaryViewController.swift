@@ -118,7 +118,7 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
         Date of Appointment: \(quote.appointmentDate ?? "")
         Estimated Price: \(quote.price ?? "") Euro
         
-        Wire(s):r
+        Wire(s):
         \(wireInformation)
         AC Unit's:
         \(unitsInformation)
