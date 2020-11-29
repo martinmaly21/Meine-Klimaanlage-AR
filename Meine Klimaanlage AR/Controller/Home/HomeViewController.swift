@@ -74,7 +74,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if brands[indexPath.row] == .panasonic {
             performSegue(withIdentifier: "ACUnitSegue", sender: selectedCell)
         } else {
-            return
+            ErrorManager.showFeatureNotSupported(on: self)
         }
     }
     

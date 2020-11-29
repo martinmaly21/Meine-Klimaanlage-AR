@@ -60,7 +60,7 @@ extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "ACUnitTableViewCell"
             ) as? ACUnitTableViewCell else {
-                return UITableViewCell()
+            return UITableViewCell()
         }
         //+ 1 to offset header
         cell.setUpCell(with: units[indexPath.row - 1])
@@ -70,7 +70,13 @@ extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row != 0 else { return }
         //+ 1 to offset header
-        performSegue(withIdentifier: "newQuoteSegue", sender: units[indexPath.row - 1])
+        
+        let selectedUnit = units[indexPath.row - 1]
+        if selectedUnit.displayName == "Wandgerät Baureihe TZ" {
+            performSegue(withIdentifier: "newQuoteSegue", sender: selectedUnit)
+        } else {
+            ErrorManager.showFeatureNotSupported(on: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
