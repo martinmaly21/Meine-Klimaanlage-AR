@@ -570,7 +570,22 @@ extension ARQuoteViewController {
             previousPosition = currentPosition
         }
         
+        var indexToRemove: Int?
+        for (index, wire) in quote.wires.enumerated() {
+            
+            if currentWire.isSameWire(as: wire) {
+                totalLength += wire.wireLength
+                indexToRemove = index
+                break
+            }
+        }
+        
         let newWire = ACWire(wire: currentWire, wireLength: totalLength)
+        
+        if let indexToRemove = indexToRemove {
+            quote.wires.remove(at: indexToRemove)
+        }
+        
         quote.wires.removeLast()
         quote.wires.append(newWire)
         
