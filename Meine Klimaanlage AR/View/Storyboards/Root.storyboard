@@ -526,7 +526,7 @@
                                     <imageReference key="image" image="plus.circle" catalog="system" renderingMode="template"/>
                                 </state>
                                 <connections>
-                                    <action selector="userPressedAddWire" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="L5S-Si-tdb"/>
+                                    <action selector="userPressedPlaceWire" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="L5S-Si-tdb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shb-y6-gB0">
@@ -594,12 +594,12 @@
                     <connections>
                         <outlet property="addAnotherUnitButton" destination="nZf-hd-ytM" id="bI3-zh-YwP"/>
                         <outlet property="addUnitButton" destination="Frw-BM-lrL" id="2F2-1s-VDo"/>
-                        <outlet property="addWireButton" destination="Aww-u9-FcJ" id="lRm-5o-dbi"/>
                         <outlet property="captureScreenshotButton" destination="shb-y6-gB0" id="vQk-Nw-hcH"/>
                         <outlet property="chooseWireButton" destination="ygG-fw-z5L" id="j3G-U6-wgg"/>
                         <outlet property="confirmUnitPositionButton" destination="W2r-AA-aLE" id="2t0-kw-SFI"/>
                         <outlet property="continueButton" destination="OXN-CU-R4i" id="zkw-go-opO"/>
                         <outlet property="doneAddingWireButton" destination="d1W-MM-pDR" id="7Go-z9-ufk"/>
+                        <outlet property="placeWireButton" destination="Aww-u9-FcJ" id="lRm-5o-dbi"/>
                         <outlet property="sceneView" destination="Bbv-qm-qKR" id="Tlu-NU-4gN"/>
                         <outlet property="statusLabel" destination="Ljj-DG-Cdu" id="hnm-r9-c39"/>
                         <outlet property="statusLabelCenterYConstraint" destination="A1d-qa-yRy" id="9cY-fE-JCj"/>

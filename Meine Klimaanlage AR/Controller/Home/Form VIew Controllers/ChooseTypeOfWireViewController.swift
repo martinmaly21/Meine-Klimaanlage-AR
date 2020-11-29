@@ -43,7 +43,7 @@ class ChooseTypeOfWireViewController: UIViewController {
     @objc func didPressSave() {
         let wire = ACWire(wireType: wireType, wireLocation: wireLocation)
         arViewController.quote.wires.append(wire)
-        arViewController.appState = .addingWire
+        arViewController.appState = .placingWire
         dismiss(animated: true, completion: nil)
     }
     

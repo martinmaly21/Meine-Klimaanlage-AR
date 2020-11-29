@@ -21,7 +21,7 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var chooseWireButton: UIButton!
     @IBOutlet weak var addAnotherUnitButton: UIButton!
-    @IBOutlet weak var addWireButton: UIButton!
+    @IBOutlet weak var placeWireButton: UIButton!
     @IBOutlet weak var captureScreenshotButton: UIButton!
     @IBOutlet weak var doneAddingWireButton: UIButton!
     
@@ -158,15 +158,15 @@ class ARQuoteViewController: UIViewController {
         addAnotherUnitButton.layer.shadowOpacity = 0.3
         
         //add wire
-        addWireButton.layer.cornerRadius = 40
-        addWireButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
-        addWireButton.layer.borderWidth = 1
+        placeWireButton.layer.cornerRadius = 40
+        placeWireButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        placeWireButton.layer.borderWidth = 1
         
-        addWireButton.layer.shadowColor = Constants.Color.border.cgColor
-        addWireButton.layer.shadowRadius = 2
-        addWireButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        addWireButton.layer.shadowOpacity = 0.3
-        addWireButton.setImage(largeBoldDoc, for: .normal)
+        placeWireButton.layer.shadowColor = Constants.Color.border.cgColor
+        placeWireButton.layer.shadowRadius = 2
+        placeWireButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        placeWireButton.layer.shadowOpacity = 0.3
+        placeWireButton.setImage(largeBoldDoc, for: .normal)
         
         //capture screenshot
         captureScreenshotButton.layer.cornerRadius = 14
@@ -290,9 +290,9 @@ class ARQuoteViewController: UIViewController {
             addAnotherUnitButton.isUserInteractionEnabled = false
         }
         
-        if addWireButton.alpha == 1 {
-            addWireButton.alpha = 0
-            addWireButton.isUserInteractionEnabled = false
+        if placeWireButton.alpha == 1 {
+            placeWireButton.alpha = 0
+            placeWireButton.isUserInteractionEnabled = false
         }
         
         if captureScreenshotButton.alpha == 1 {
@@ -335,9 +335,9 @@ class ARQuoteViewController: UIViewController {
                 self.showButtonIfNeeded(self.continueButton)
                 self.showButtonIfNeeded(self.chooseWireButton)
                 self.showButtonIfNeeded(self.addAnotherUnitButton)
-            case .addingWire:
-                self.showButtonIfNeeded(self.addWireButton)
-                self.updateButtonTintIfNeeded(self.addWireButton)
+            case .placingWire:
+                self.showButtonIfNeeded(self.placeWireButton)
+                self.updateButtonTintIfNeeded(self.placeWireButton)
                 self.showButtonIfNeeded(self.doneAddingWireButton)
             case .captureScreenshot:
                 self.showButtonIfNeeded(self.captureScreenshotButton)
@@ -360,7 +360,7 @@ class ARQuoteViewController: UIViewController {
             statusMessage = "\(currentACUnit.displayName) added! You can drag/rotate the unit to reposition it."
         case .chooseTypeOfWire:
             statusMessage = "Select the type of wire you'd like to add."
-        case .addingWire:
+        case .placingWire:
             statusMessage = "Press the plus to place \(currentWire.wireDisplayName), and then again whenver you want to add a corner. Tap 'Done' when you're done."
         case .captureScreenshot:
             statusMessage = "Place the \(currentACUnit.displayName) in view, and press 'Capture' to take a screenshot."
@@ -376,7 +376,7 @@ class ARQuoteViewController: UIViewController {
         if appState == .lookingForSurface || appState == .pointToSurface || appState == .readyToAddACUnit {
             wireCursor.hide()
             updateFocusSquare(isObjectVisible: isObjectVisible)
-        } else if appState == .addingWire {
+        } else if appState == .placingWire {
             focusSquare.hide()
             updateWireCursor()
         } else {
@@ -539,7 +539,7 @@ extension ARQuoteViewController {
         appState = .chooseTypeOfWire
     }
     
-    @IBAction func userPressedAddWire() {
+    @IBAction func userPressedPlaceWire() {
         let wireCursorCopy = wireCursor.copy() as! WireCursor
        
         // Right now, node2 is sharing geometry. This changes the color of both:
@@ -570,7 +570,7 @@ extension ARQuoteViewController {
     @IBAction func userPressedDoneAddingWire() {
         if currentWireNode != nil {
             //remove final node
-            userPressedAddWire()
+            userPressedPlaceWire()
         }
         
         //update quote with wire information
