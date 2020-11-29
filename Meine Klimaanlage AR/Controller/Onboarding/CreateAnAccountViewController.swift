@@ -100,7 +100,7 @@ class CreateAnAccountViewController: UIViewController {
         profileChangeRequest.displayName = name
         
         profileChangeRequest.commitChanges { error in
-            if let error = error {
+            if error != nil {
                 ErrorManager.showFirebaseError(with: "There was an error creating your account. Please try again.", on: self)
             } else {
                 //user succesfully logged in

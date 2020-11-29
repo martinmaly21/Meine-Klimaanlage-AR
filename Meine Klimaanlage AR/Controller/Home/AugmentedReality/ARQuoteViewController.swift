@@ -392,10 +392,10 @@ class ARQuoteViewController: UIViewController {
             focusSquare.unhide()
         }
         
-        #warning("unhardcode ray cast orientation ")
+        let alignment: ARRaycastQuery.TargetAlignment = planeDetection == .vertical ? .vertical :  .horizontal
         // Perform ray casting only when ARKit tracking is in a good state.
         if let camera = session.currentFrame?.camera, case .normal = camera.trackingState,
-           let query = sceneView.getRaycastQuery(for: .vertical),
+           let query = sceneView.getRaycastQuery(for: alignment),
            let result = sceneView.castRay(for: query).first {
             
             updateQueue.async {
@@ -614,8 +614,8 @@ extension ARQuoteViewController {
             let referenceURL = URL(fileURLWithPath: filePath)
             let virtualObject = VirtualObject(url: referenceURL)!
             
-            #warning("TODO: this alignment will need to be changed")
-            if let query = sceneView.getRaycastQuery(for: .vertical),
+            let alignment: ARRaycastQuery.TargetAlignment = planeDetection == .vertical ? .vertical :  .horizontal
+            if let query = sceneView.getRaycastQuery(for: alignment),
                let result = sceneView.castRay(for: query).first {
                 virtualObject.mostRecentInitialPlacementResult = result
                 virtualObject.raycastQuery = query

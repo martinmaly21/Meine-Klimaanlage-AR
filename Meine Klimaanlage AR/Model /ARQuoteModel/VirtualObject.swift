@@ -61,23 +61,6 @@ class VirtualObject: SCNReferenceNode {
 }
 
 extension VirtualObject {
-    #warning("Don't think I need this?")
-//    // MARK: Static Properties and Methods
-//    /// Loads all the model objects within `Models.scnassets`.
-//    static let availableObjects: [VirtualObject] = {
-//        let modelsURL = Bundle.main.url(forResource: "Models.scnassets", withExtension: nil)!
-//
-//        let fileEnumerator = FileManager().enumerator(at: modelsURL, includingPropertiesForKeys: [])!
-//
-//        return fileEnumerator.compactMap { element in
-//            let url = element as! URL
-//
-//            guard url.pathExtension == "scn" && !url.path.contains("lighting") else { return nil }
-//
-//            return VirtualObject(url: url)
-//        }
-//    }()
-    
     // Returns a `VirtualObject` if one exists as an ancestor to the provided node.
     static func existingObjectContainingNode(_ node: SCNNode) -> VirtualObject? {
         if let virtualObjectRoot = node as? VirtualObject {
