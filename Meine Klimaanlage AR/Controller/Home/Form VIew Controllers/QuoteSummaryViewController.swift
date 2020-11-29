@@ -53,6 +53,34 @@ extension QuoteSummaryViewController: UITableViewDelegate, UITableViewDataSource
 
 extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
 
+    func userPressedDiscardQuote() {
+        let actionSheet = UIAlertController(
+            title: "Are you sure you'd like to discard this quote?",
+            message: "All your work will be lost.",
+            preferredStyle: .actionSheet
+        )
+        
+        let discardAction = UIAlertAction(
+            title: "Discard",
+            style: .destructive,
+            handler: { _ in
+                self.tabBarController?.tabBar.isHidden = false
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        )
+        
+        let cancelAction = UIAlertAction(
+            title: "Cancel",
+            style: .default,
+            handler: nil
+        )
+        
+        actionSheet.addAction(discardAction)
+        actionSheet.addAction(cancelAction)
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
     func userPressedSubmitQuote() {
         guard quote.isComplete() else {
             ErrorManager.showMissingFieldsForQuoteError(on: self)

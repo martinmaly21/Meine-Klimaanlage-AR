@@ -26,6 +26,7 @@ protocol QuoteSummaryCellDelegate: class {
     func kondensatpumpeUpdated()
     
     func userPressedSubmitQuote()
+    func userPressedDiscardQuote()
 }
 
 class QuoteSummaryTableViewCell: UITableViewCell {
@@ -169,8 +170,12 @@ class QuoteSummaryTableViewCell: UITableViewCell {
     }
     
     
-    @IBAction func sendQuoteButton(_ sender: UIButton) {
+    @IBAction func sendQuoteButton(_ sender: Any) {
         quoteSummaryCellDelegate?.userPressedSubmitQuote()
+    }
+    
+    @IBAction func discardButtonClicked(_ sender: Any) {
+        quoteSummaryCellDelegate?.userPressedDiscardQuote()
     }
 }
 
