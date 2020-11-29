@@ -95,7 +95,7 @@ extension SCNNode {
         let cyl = SCNCapsule(capRadius: radius, height: l)
         
         if dottedLine {
-            let rect = CGRect(x: 0, y: 0, width: 5, height: 10)
+            let rect = CGRect(x: 5, y: 0, width: 5, height: 10)
             let renderer = UIGraphicsImageRenderer(size: CGSize(width: 10, height: 10))
             let img = renderer.image { ctx in
                 ctx.cgContext.setFillColor(UIColor.clear.cgColor)

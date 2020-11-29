@@ -539,6 +539,7 @@ extension ARQuoteViewController {
         //update array storing wires
         if let currentWireNode = currentWireNode {
             wireNodes.append(currentWireNode)
+            self.currentWireNode = nil
         }
         
         //add copy to scene
@@ -546,9 +547,11 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedDoneAddingWire() {
-        //remove final node
-        userPressedAddWire()
-        
+        if currentWireNode != nil {
+            //remove final node
+            userPressedAddWire()
+        }
+    
         appState = .chooseTypeOfWire
     }
     
