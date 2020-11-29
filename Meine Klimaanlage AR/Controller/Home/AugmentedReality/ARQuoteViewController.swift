@@ -19,7 +19,7 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var addUnitButton: UIButton!
     @IBOutlet weak var confirmUnitPositionButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
-    @IBOutlet weak var chooseWireButton: UIButton!
+    @IBOutlet weak var addWireButton: UIButton!
     @IBOutlet weak var addAnotherUnitButton: UIButton!
     @IBOutlet weak var placeWireButton: UIButton!
     @IBOutlet weak var captureScreenshotButton: UIButton!
@@ -138,14 +138,14 @@ class ARQuoteViewController: UIViewController {
         confirmUnitPositionButton.layer.shadowOpacity = 0.3
         
         //choose wire
-        chooseWireButton.layer.cornerRadius = 14
-        chooseWireButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
-        chooseWireButton.layer.borderWidth = 1
+        addWireButton.layer.cornerRadius = 14
+        addWireButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        addWireButton.layer.borderWidth = 1
         
-        chooseWireButton.layer.shadowColor = Constants.Color.border.cgColor
-        chooseWireButton.layer.shadowRadius = 2
-        chooseWireButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        chooseWireButton.layer.shadowOpacity = 0.3
+        addWireButton.layer.shadowColor = Constants.Color.border.cgColor
+        addWireButton.layer.shadowRadius = 2
+        addWireButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        addWireButton.layer.shadowOpacity = 0.3
         
         //add another unit
         addAnotherUnitButton.layer.cornerRadius = 14
@@ -280,9 +280,9 @@ class ARQuoteViewController: UIViewController {
             confirmUnitPositionButton.alpha = 0
         }
         
-        if chooseWireButton.alpha == 1 {
-            chooseWireButton.alpha = 0
-            chooseWireButton.isUserInteractionEnabled = false
+        if addWireButton.alpha == 1 {
+            addWireButton.alpha = 0
+            addWireButton.isUserInteractionEnabled = false
         }
         
         if addAnotherUnitButton.alpha == 1 {
@@ -331,9 +331,9 @@ class ARQuoteViewController: UIViewController {
             case .ACUnitBeingAdded: break //all elements should be hidden
             case .ACUnitAdded:
                 self.showButtonIfNeeded(self.confirmUnitPositionButton)
-            case .chooseTypeOfWire:
+            case .chooseToAddAnotherObjectToScene:
                 self.showButtonIfNeeded(self.continueButton)
-                self.showButtonIfNeeded(self.chooseWireButton)
+                self.showButtonIfNeeded(self.addWireButton)
                 self.showButtonIfNeeded(self.addAnotherUnitButton)
             case .placingWire:
                 self.showButtonIfNeeded(self.placeWireButton)
@@ -358,8 +358,8 @@ class ARQuoteViewController: UIViewController {
             statusMessage = "\(currentACUnit.displayName) is loading. Please wait."
         case .ACUnitAdded:
             statusMessage = "\(currentACUnit.displayName) added! You can drag/rotate the unit to reposition it."
-        case .chooseTypeOfWire:
-            statusMessage = "Select the type of wire you'd like to add."
+        case .chooseToAddAnotherObjectToScene:
+            statusMessage = "Select whether you'd like to add a wire or another unit to the scene. Or tap 'continue' to move on."
         case .placingWire:
             statusMessage = "Press the plus to place \(currentWire.wireDisplayName), and then again whenver you want to add a corner. Tap 'Done' when you're done."
         case .captureScreenshot:
@@ -417,7 +417,7 @@ class ARQuoteViewController: UIViewController {
     }
     
     func updateWireCursor() {
-        if appState == .chooseTypeOfWire {
+        if appState == .chooseToAddAnotherObjectToScene {
             wireCursor.hide()
         } else {
             wireCursor.unhide()
@@ -524,7 +524,7 @@ extension ARQuoteViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func userPressedChooseWire() {
+    @IBAction func userPressedAddWire() {
         let chooseWireVC = ChooseTypeOfWireViewController(arViewController: self)
         let navigationController = UINavigationController(rootViewController: chooseWireVC)
         
@@ -536,7 +536,7 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedConfirmUnitPosition() {
-        appState = .chooseTypeOfWire
+        appState = .chooseToAddAnotherObjectToScene
     }
     
     @IBAction func userPressedPlaceWire() {
@@ -600,7 +600,7 @@ extension ARQuoteViewController {
         wireNodes.removeAll()
         currentWireNode = nil
     
-        appState = .chooseTypeOfWire
+        appState = .chooseToAddAnotherObjectToScene
     }
     
     @IBAction func userPressedAddUnitButton() {

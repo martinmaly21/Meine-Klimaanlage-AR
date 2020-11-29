@@ -482,7 +482,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZf-hd-ytM">
-                                <rect key="frame" x="107" y="594" width="200" height="50"/>
+                                <rect key="frame" x="107" y="609" width="200" height="50"/>
                                 <color key="backgroundColor" name="PrimaryWhiteBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="KE6-g0-loe"/>
@@ -506,11 +506,11 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
-                                <state key="normal" title="Choose Wire">
+                                <state key="normal" title="Add Wire">
                                     <color key="titleColor" name="PrimaryBlue"/>
                                 </state>
                                 <connections>
-                                    <action selector="userPressedChooseWire" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="0cI-5x-4u1"/>
+                                    <action selector="userPressedAddWire" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="0cI-5x-4u1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aww-u9-FcJ">
@@ -573,7 +573,7 @@
                             <constraint firstItem="Hec-gS-PL1" firstAttribute="leading" secondItem="Bbv-qm-qKR" secondAttribute="leading" id="SPU-Im-X8Z"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="OXN-CU-R4i" secondAttribute="bottom" constant="30" id="ThH-Zg-s9R"/>
                             <constraint firstItem="OXN-CU-R4i" firstAttribute="top" secondItem="ygG-fw-z5L" secondAttribute="bottom" constant="15" id="Y1r-15-mxO"/>
-                            <constraint firstItem="ygG-fw-z5L" firstAttribute="top" secondItem="nZf-hd-ytM" secondAttribute="bottom" constant="30" id="YPz-YJ-blt"/>
+                            <constraint firstItem="ygG-fw-z5L" firstAttribute="top" secondItem="nZf-hd-ytM" secondAttribute="bottom" constant="15" id="YPz-YJ-blt"/>
                             <constraint firstItem="Bbv-qm-qKR" firstAttribute="leading" secondItem="87a-4f-kcC" secondAttribute="leading" id="YjX-jp-u6v"/>
                             <constraint firstItem="Aww-u9-FcJ" firstAttribute="width" secondItem="Aww-u9-FcJ" secondAttribute="height" multiplier="1:1" id="Zfn-QZ-vHb"/>
                             <constraint firstItem="ygG-fw-z5L" firstAttribute="centerX" secondItem="87a-4f-kcC" secondAttribute="centerX" id="dqI-bK-j2Y"/>
@@ -594,8 +594,8 @@
                     <connections>
                         <outlet property="addAnotherUnitButton" destination="nZf-hd-ytM" id="bI3-zh-YwP"/>
                         <outlet property="addUnitButton" destination="Frw-BM-lrL" id="2F2-1s-VDo"/>
+                        <outlet property="addWireButton" destination="ygG-fw-z5L" id="j3G-U6-wgg"/>
                         <outlet property="captureScreenshotButton" destination="shb-y6-gB0" id="vQk-Nw-hcH"/>
-                        <outlet property="chooseWireButton" destination="ygG-fw-z5L" id="j3G-U6-wgg"/>
                         <outlet property="confirmUnitPositionButton" destination="W2r-AA-aLE" id="2t0-kw-SFI"/>
                         <outlet property="continueButton" destination="OXN-CU-R4i" id="zkw-go-opO"/>
                         <outlet property="doneAddingWireButton" destination="d1W-MM-pDR" id="7Go-z9-ufk"/>
