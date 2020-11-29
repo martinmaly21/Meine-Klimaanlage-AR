@@ -344,7 +344,7 @@ class ARQuoteViewController: UIViewController {
         case .chooseTypeOfWire:
             statusMessage = "Select the type of wire you'd like to add."
         case .addingWire:
-            statusMessage = "Press the plus to place \(currentWire.wireDisplayName), and then again whenver you want to add a corner. Tap 'continue' when you're done."
+            statusMessage = "Press the plus to place \(currentWire.wireDisplayName), and then again whenver you want to add a corner. Tap 'Done' when you're done."
         case .captureScreenshot:
             statusMessage = "Place the \(currentACUnit.displayName) in view, and press 'Capture' to take a screenshot."
         }
