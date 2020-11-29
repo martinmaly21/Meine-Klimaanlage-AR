@@ -132,8 +132,12 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
         Notes:
         \(quote.notes ?? "")
         """
-//        composeVC.addAttachmentData(<#T##attachment: Data##Data#>, mimeType: <#T##String#>, fileName: <#T##String#>)
         composeVC.setMessageBody(messageBody, isHTML: false)
+        
+        if let screenshot = quote.screenshots.first,
+           let screenshotImageData = screenshot.pngData() {
+            composeVC.addAttachmentData(screenshotImageData, mimeType: "image/png", fileName: "\(quote.units.first?.displayName ?? "Unit")_Screenshot")
+        }
         
         self.present(composeVC, animated: true, completion: nil)
     }
