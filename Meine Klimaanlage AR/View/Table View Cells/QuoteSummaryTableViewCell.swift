@@ -103,7 +103,7 @@ class QuoteSummaryTableViewCell: UITableViewCell {
             wireLabel.font = UIFont.systemFont(ofSize: 17)
             wireLabel.textColor = UIColor(named: "PrimaryTextDark")
             
-            wireLabel.text = "\(wire.wireDisplayName) \(wire.wireLocation == .insideWall ? "(Inside)" : "(Outside)")"
+            wireLabel.text = "\(wire.wireDisplayName) \(wire.wireLocation == .insideWall ? "(Inside)" : "(Outside)") wall"
             
             stackView.addArrangedSubview(wireLabel)
             
