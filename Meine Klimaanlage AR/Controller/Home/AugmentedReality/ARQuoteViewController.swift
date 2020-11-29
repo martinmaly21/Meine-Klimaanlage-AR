@@ -536,6 +536,8 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedConfirmUnitPosition() {
+        sceneView.removeAllGestureRecognizers()
+        
         appState = .chooseToAddAnotherObjectToScene
     }
     

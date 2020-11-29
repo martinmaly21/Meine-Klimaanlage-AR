@@ -48,9 +48,6 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(didRotate(_:)))
         rotationGesture.delegate = self
         sceneView.addGestureRecognizer(rotationGesture)
-
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
-        sceneView.addGestureRecognizer(tapGesture)
     }
     
     // - Tag: CreatePanGesture
@@ -117,22 +114,6 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         trackedObject?.objectRotation -= Float(gesture.rotation)
         
         gesture.rotation = 0
-    }
-    
-    /// Handles the interaction when the user taps the screen.
-    @objc
-    func didTap(_ gesture: UITapGestureRecognizer) {
-        let touchLocation = gesture.location(in: sceneView)
-        
-        if let tappedObject = sceneView.virtualObject(at: touchLocation) {
-            
-            // If an object exists at the tap location, select it.
-            selectedObject = tappedObject
-        } else if let object = selectedObject {
-            
-            // Otherwise, move the selected object to its new position at the tap location.
-            setDown(object, basedOn: touchLocation)
-        }
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

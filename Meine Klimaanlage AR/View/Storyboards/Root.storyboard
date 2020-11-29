@@ -456,7 +456,7 @@
                                     <constraint firstAttribute="width" secondItem="Frw-BM-lrL" secondAttribute="height" multiplier="1:1" id="gYG-5u-eEn"/>
                                     <constraint firstAttribute="width" constant="80" id="x1j-DT-3TE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
                                 <state key="normal">
                                     <imageReference key="image" image="plus.circle" catalog="system" renderingMode="template"/>
@@ -472,7 +472,7 @@
                                     <constraint firstAttribute="height" constant="50" id="5Db-ih-yVn"/>
                                     <constraint firstAttribute="width" constant="200" id="FCX-1Q-raT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
                                 <state key="normal" title="Confirm Position">
                                     <color key="titleColor" name="PrimaryBlue"/>
@@ -488,7 +488,7 @@
                                     <constraint firstAttribute="width" constant="200" id="KE6-g0-loe"/>
                                     <constraint firstAttribute="height" constant="50" id="McS-92-nnx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
                                 <state key="normal" title="Add another unit">
                                     <color key="titleColor" name="PrimaryBlue"/>
@@ -504,7 +504,7 @@
                                     <constraint firstAttribute="height" constant="50" id="hlu-5k-ABQ"/>
                                     <constraint firstAttribute="width" constant="200" id="nBi-nu-Gpo"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
                                 <state key="normal" title="Add Wire">
                                     <color key="titleColor" name="PrimaryBlue"/>
@@ -520,7 +520,7 @@
                                     <constraint firstAttribute="width" constant="80" id="6zb-0K-4N0"/>
                                     <constraint firstAttribute="width" secondItem="Aww-u9-FcJ" secondAttribute="height" multiplier="1:1" id="X6R-vR-dAC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
                                 <state key="normal">
                                     <imageReference key="image" image="plus.circle" catalog="system" renderingMode="template"/>
@@ -536,7 +536,7 @@
                                     <constraint firstAttribute="height" constant="50" id="l9D-fl-QSi"/>
                                     <constraint firstAttribute="width" constant="200" id="ptm-40-oxh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
                                 <state key="normal" title="Capture Screenshot" image="camera.fill" catalog="system">
                                     <color key="titleColor" name="PrimaryBlue"/>
