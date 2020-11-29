@@ -110,8 +110,9 @@ extension SCNNode {
             cyl.firstMaterial?.diffuse.wrapT = .repeat
             cyl.firstMaterial?.isDoubleSided = true
             
-        
-            cyl.firstMaterial?.diffuse.contentsTransform = SCNMatrix4MakeScale(0.4 * 10, 0.4 * 10, 0.4 * 10)
+            
+            let transform: Float = Float(l / 0.2)
+            cyl.firstMaterial?.diffuse.contentsTransform = SCNMatrix4MakeScale(transform, transform, transform)
             
             let rotation = SCNMatrix4MakeRotation(.pi / 2, 0, 0, 1)
             cyl.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Mult(rotation, (cyl.firstMaterial?.diffuse.contentsTransform)!)
