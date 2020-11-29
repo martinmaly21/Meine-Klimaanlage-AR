@@ -26,6 +26,11 @@ struct ACWire {
     var wireLocation: WireLocation
     var wireLength: Float = 0
     
+    init(wire: ACWire, wireLength: Float) {
+        self.init(wireType: wire.wireType, wireLocation: wire.wireLocation)
+        self.wireLength = wireLength
+    }
+    
     init(wireType: WireType, wireLocation: WireLocation) {
         self.wireType = wireType
         self.wireLocation = wireLocation

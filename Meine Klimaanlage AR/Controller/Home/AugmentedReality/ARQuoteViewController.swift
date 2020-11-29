@@ -551,6 +551,33 @@ extension ARQuoteViewController {
             //remove final node
             userPressedAddWire()
         }
+        
+        //update quote with wire information
+        var totalLength: Float = 0
+        var previousPosition: SCNVector3?
+        
+        for currentPosition in wireVertexPositions {
+            //not run if only one eleemtn in array
+            if let previousPosition = previousPosition {
+                let w = SCNVector3(
+                    x: currentPosition.x - previousPosition.x,
+                    y: currentPosition.y - previousPosition.y,
+                    z: currentPosition.z - previousPosition.z
+                )
+                
+                totalLength += sqrt(w.x * w.x + w.y * w.y + w.z * w.z)
+            }
+            previousPosition = currentPosition
+        }
+        
+        let newWire = ACWire(wire: currentWire, wireLength: totalLength)
+        quote.wires.removeLast()
+        quote.wires.append(newWire)
+        
+        //reset all variables
+        wireVertexPositions.removeAll()
+        wireNodes.removeAll()
+        currentWireNode = nil
     
         appState = .chooseTypeOfWire
     }
