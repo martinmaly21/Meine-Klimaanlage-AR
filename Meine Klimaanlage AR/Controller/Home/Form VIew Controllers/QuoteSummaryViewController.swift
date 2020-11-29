@@ -94,6 +94,7 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
         
         let composeVC = MFMailComposeViewController()
         
+        composeVC.mailComposeDelegate = self
         
         composeVC.setToRecipients([Constants.Quote.quoteEmail])
         #warning("need to change")
@@ -117,7 +118,7 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
         Date of Appointment: \(quote.appointmentDate ?? "")
         Estimated Price: \(quote.price ?? "") Euro
         
-        Wire(s):
+        Wire(s):r
         \(wireInformation)
         AC Unit's:
         \(unitsInformation)
@@ -131,7 +132,7 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
         Notes:
         \(quote.notes ?? "")
         """
-        
+//        composeVC.addAttachmentData(<#T##attachment: Data##Data#>, mimeType: <#T##String#>, fileName: <#T##String#>)
         composeVC.setMessageBody(messageBody, isHTML: false)
         
         self.present(composeVC, animated: true, completion: nil)
@@ -200,9 +201,48 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
         self.view.addSubview(newImageView)
         self.navigationController?.isNavigationBarHidden = true
     }
-
+    
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         self.navigationController?.isNavigationBarHidden = false
         sender.view?.removeFromSuperview()
+    }
+}
+
+extension QuoteSummaryViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(
+        _ controller: MFMailComposeViewController,
+        didFinishWith result: MFMailComposeResult,
+        error: Error?
+    ) {
+        self.dismiss(animated: true) {
+            switch result {
+            case .sent:
+                let successAlert = UIAlertController(
+                    title: "Success!",
+                    message: "Your quote was successfully sent.",
+                    preferredStyle: .alert
+                )
+                
+                let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                successAlert.addAction(okayAction)
+                
+                self.navigationController?.popToRootViewController(animated: true)
+                self.tabBarController?.tabBar.isHidden = false
+                self.tabBarController?.present(successAlert, animated: true, completion: nil)
+            case .failed, .saved, .cancelled:
+                let informationlert = UIAlertController(
+                    title: "Error",
+                    message: "Your quote was not sent.",
+                    preferredStyle: .alert
+                )
+                
+                let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                informationlert.addAction(okayAction)
+                
+                self.present(informationlert, animated: true, completion: nil)
+            @unknown default:
+                fatalError()
+            }
+        }
     }
 }
