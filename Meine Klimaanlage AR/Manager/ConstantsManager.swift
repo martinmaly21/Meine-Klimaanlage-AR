@@ -11,7 +11,7 @@ import UIKit
 
 struct Constants {
     enum Quote {
-        #warning("need to change")
+        #warning("need to change email")
         static let quoteEmail = "martinmaly66@hotmail.com"
     }
     
