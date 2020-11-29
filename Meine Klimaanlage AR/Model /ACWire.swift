@@ -56,7 +56,11 @@ struct ACWire {
         }
     }
     
-    func isSameWire(as otherWire: ACWire) -> Bool {
+    func isSameWire(as otherWire: ACWire?) -> Bool {
+        guard let otherWire = otherWire else {
+            return false
+        }
+        
         return wireType == otherWire.wireType && wireLocation == otherWire.wireLocation
     }
 }
