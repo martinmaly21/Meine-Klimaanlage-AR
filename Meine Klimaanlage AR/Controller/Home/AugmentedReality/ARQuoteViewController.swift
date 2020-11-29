@@ -84,7 +84,6 @@ class ARQuoteViewController: UIViewController {
     
     
     private func setUpUI() {
-        view.backgroundColor = .red
         navigationController?.setNavigationBarHidden(true, animated: true)
         tabBarController?.tabBar.isHidden = true
         
@@ -172,7 +171,6 @@ class ARQuoteViewController: UIViewController {
     private func setUpScene() {
         sceneView.delegate = self
         sceneView.automaticallyUpdatesLighting = true
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         sceneView.preferredFramesPerSecond = 60
         sceneView.antialiasingMode = .multisampling2X
         sceneView.autoenablesDefaultLighting = true
@@ -294,6 +292,12 @@ class ARQuoteViewController: UIViewController {
         }
     }
     
+    private func updateButtonTintIfNeeded(_ buttonToTint: UIButton) {
+        if buttonToTint.tintColor != currentWire.getWireColor() {
+            buttonToTint.tintColor = currentWire.getWireColor()
+        }
+    }
+    
     func updateUIForAppState() {
         guard previousAppState != appState else {
             return
@@ -316,6 +320,7 @@ class ARQuoteViewController: UIViewController {
                 self.showButtonIfNeeded(self.chooseWireButton)
             case .addingWire:
                 self.showButtonIfNeeded(self.addWireButton)
+                self.updateButtonTintIfNeeded(self.addWireButton)
                 self.showButtonIfNeeded(self.doneAddingWireButton)
             case .captureScreenshot:
                 self.showButtonIfNeeded(self.captureScreenshotButton)
@@ -440,7 +445,8 @@ class ARQuoteViewController: UIViewController {
                 from: wireCursor.position,
                 to: mostRecentVertexPosition,
                 radius: 0.01,
-                color: currentWire.getWireColor()
+                color: currentWire.getWireColor(),
+                dottedLine: currentWire.wireLocation == .insideWall
             )
             
             sceneView.scene.rootNode.addChildNode(wireLine)
@@ -497,10 +503,8 @@ extension ARQuoteViewController {
         
         let vc = QuoteSummaryViewController()
         vc.quote = quote
-    
-        let navigationController = UINavigationController(rootViewController: vc)
         
-        present(navigationController, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func userPressedChooseWire() {

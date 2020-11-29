@@ -57,7 +57,6 @@ class QuoteSummaryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpUI()
-        addGestureRecognizers()
         
         customerNameTextField.delegate = self
         employeeNameTextField.delegate = self
@@ -79,11 +78,6 @@ class QuoteSummaryTableViewCell: UITableViewCell {
                 nibName: "ScreenshotCollectionViewCell", bundle: nil
             ), forCellWithReuseIdentifier: "ScreenshotCollectionViewCell"
         )
-    }
-    
-    private func addGestureRecognizers() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(userTappedToCloseKeyboard))
-        addGestureRecognizer(tapGesture)
     }
     
     
@@ -117,8 +111,6 @@ class QuoteSummaryTableViewCell: UITableViewCell {
                 wireLabel.text = "Kabelkanal"
             case .kondensatleitung:
                 wireLabel.text = "Kondensatleitung"
-            default:
-                assertionFailure()
             }
             
             stackView.addArrangedSubview(wireLabel)
@@ -133,7 +125,6 @@ class QuoteSummaryTableViewCell: UITableViewCell {
             let length = String(format: "%.2f", Double(wire.wireLength))
             wireLength.text = "\(length) meters"
             
-            #warning("handle wire location (outside/inside)")
             wiresStackView.addArrangedSubview(stackView)
         }
     }
@@ -161,10 +152,6 @@ class QuoteSummaryTableViewCell: UITableViewCell {
             
             unitsStackView.addArrangedSubview(stackView)
         }
-    }
-    
-    @objc func userTappedToCloseKeyboard() {
-        endEditing(true)
     }
     
     @IBAction func otherButtonClicked(_ sender: UIButton) {

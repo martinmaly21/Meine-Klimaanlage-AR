@@ -74,7 +74,8 @@ extension SCNNode {
         from startPoint: SCNVector3,
         to endPoint: SCNVector3,
         radius: CGFloat,
-        color: UIColor
+        color: UIColor,
+        dottedLine: Bool
     ) -> SCNNode {
         let w = SCNVector3(x: endPoint.x-startPoint.x,
                            y: endPoint.y-startPoint.y,
@@ -92,7 +93,33 @@ extension SCNNode {
         }
 
         let cyl = SCNCapsule(capRadius: radius, height: l)
-        cyl.firstMaterial?.diffuse.contents = color
+        
+        if dottedLine {
+            let rect = CGRect(x: 0, y: 0, width: 5, height: 10)
+            let renderer = UIGraphicsImageRenderer(size: CGSize(width: 10, height: 10))
+            let img = renderer.image { ctx in
+                ctx.cgContext.setFillColor(UIColor.clear.cgColor)
+                ctx.cgContext.fill(CGRect(x: 0, y: 0, width: 10, height: 10))
+
+                ctx.cgContext.setFillColor(color.cgColor)
+                ctx.cgContext.fill(rect)
+            }
+
+            cyl.firstMaterial?.diffuse.contents = img
+            cyl.firstMaterial?.diffuse.wrapS = .repeat
+            cyl.firstMaterial?.diffuse.wrapT = .repeat
+            cyl.firstMaterial?.isDoubleSided = true
+            
+        
+            cyl.firstMaterial?.diffuse.contentsTransform = SCNMatrix4MakeScale(0.4 * 10, 0.4 * 10, 0.4 * 10)
+            
+            let rotation = SCNMatrix4MakeRotation(.pi / 2, 0, 0, 1)
+            cyl.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Mult(rotation, (cyl.firstMaterial?.diffuse.contentsTransform)!)
+
+            cyl.firstMaterial?.multiply.contents = UIColor.white
+        } else {
+            cyl.firstMaterial?.diffuse.contents = color
+        }
 
         self.geometry = cyl
 

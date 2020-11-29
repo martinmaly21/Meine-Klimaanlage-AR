@@ -24,8 +24,8 @@ class QuoteSummaryViewController: UIViewController {
         self.title = "Quote Summary"
         
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.setHidesBackButton(true, animated: true)
         navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationItem.setHidesBackButton(true, animated: true)
     }
 
     private func setUpTableView() {
@@ -171,12 +171,10 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
         
         self.view.addSubview(newImageView)
         self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = true
     }
 
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         self.navigationController?.isNavigationBarHidden = false
-        self.tabBarController?.tabBar.isHidden = false
         sender.view?.removeFromSuperview()
     }
 }
