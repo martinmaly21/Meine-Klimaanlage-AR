@@ -481,6 +481,22 @@
                                     <action selector="userPressedConfirmUnitPosition" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="Jh6-Tk-qIU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZf-hd-ytM">
+                                <rect key="frame" x="107" y="594" width="200" height="50"/>
+                                <color key="backgroundColor" name="PrimaryWhiteBackground"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="KE6-g0-loe"/>
+                                    <constraint firstAttribute="height" constant="50" id="McS-92-nnx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <state key="normal" title="Add another unit">
+                                    <color key="titleColor" name="PrimaryBlue"/>
+                                </state>
+                                <connections>
+                                    <action selector="userPressedAddAnotherUnit" destination="0Zn-Ed-wSw" eventType="touchUpInside" id="Bqa-4f-xgA"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygG-fw-z5L">
                                 <rect key="frame" x="107" y="674" width="200" height="50"/>
                                 <color key="backgroundColor" name="PrimaryWhiteBackground"/>
@@ -557,12 +573,14 @@
                             <constraint firstItem="Hec-gS-PL1" firstAttribute="leading" secondItem="Bbv-qm-qKR" secondAttribute="leading" id="SPU-Im-X8Z"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="OXN-CU-R4i" secondAttribute="bottom" constant="30" id="ThH-Zg-s9R"/>
                             <constraint firstItem="OXN-CU-R4i" firstAttribute="top" secondItem="ygG-fw-z5L" secondAttribute="bottom" constant="15" id="Y1r-15-mxO"/>
+                            <constraint firstItem="ygG-fw-z5L" firstAttribute="top" secondItem="nZf-hd-ytM" secondAttribute="bottom" constant="30" id="YPz-YJ-blt"/>
                             <constraint firstItem="Bbv-qm-qKR" firstAttribute="leading" secondItem="87a-4f-kcC" secondAttribute="leading" id="YjX-jp-u6v"/>
                             <constraint firstItem="Aww-u9-FcJ" firstAttribute="width" secondItem="Aww-u9-FcJ" secondAttribute="height" multiplier="1:1" id="Zfn-QZ-vHb"/>
                             <constraint firstItem="ygG-fw-z5L" firstAttribute="centerX" secondItem="87a-4f-kcC" secondAttribute="centerX" id="dqI-bK-j2Y"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="shb-y6-gB0" secondAttribute="bottom" constant="30" id="eMV-51-gnc"/>
                             <constraint firstItem="d1W-MM-pDR" firstAttribute="centerY" secondItem="Aww-u9-FcJ" secondAttribute="centerY" id="fWA-K5-hUm"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="bottom" secondItem="W2r-AA-aLE" secondAttribute="bottom" constant="30" id="gbm-pc-LFj"/>
+                            <constraint firstItem="nZf-hd-ytM" firstAttribute="centerX" secondItem="ygG-fw-z5L" secondAttribute="centerX" id="hqw-29-AjJ"/>
                             <constraint firstItem="Hec-gS-PL1" firstAttribute="trailing" secondItem="Bbv-qm-qKR" secondAttribute="trailing" id="iET-AK-Ded"/>
                             <constraint firstItem="87a-4f-kcC" firstAttribute="trailing" secondItem="Bbv-qm-qKR" secondAttribute="trailing" id="igF-Hx-uSk"/>
                             <constraint firstItem="Bbv-qm-qKR" firstAttribute="top" secondItem="4fV-sV-Pfi" secondAttribute="top" id="kBO-bv-fBN"/>
@@ -574,6 +592,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5dg-4Y-xae"/>
                     <connections>
+                        <outlet property="addAnotherUnitButton" destination="nZf-hd-ytM" id="bI3-zh-YwP"/>
                         <outlet property="addUnitButton" destination="Frw-BM-lrL" id="2F2-1s-VDo"/>
                         <outlet property="addWireButton" destination="Aww-u9-FcJ" id="lRm-5o-dbi"/>
                         <outlet property="captureScreenshotButton" destination="shb-y6-gB0" id="vQk-Nw-hcH"/>

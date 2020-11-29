@@ -144,6 +144,20 @@ class ErrorManager {
         
         viewController.present(errorController, animated: true, completion: nil)
     }
+    
+    static func showFeatureNotSupported(on viewController: UIViewController) {
+        let alert = UIAlertController(
+            title: "Error",
+            message: "This feature is not yet supported.",
+            preferredStyle: .alert
+        )
+        
+        let confirmationAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        
+        alert.addAction(confirmationAction)
+        
+        viewController.present(alert, animated: true, completion: nil)
+    }
 }
 
 

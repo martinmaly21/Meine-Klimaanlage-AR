@@ -20,6 +20,7 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var confirmUnitPositionButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var chooseWireButton: UIButton!
+    @IBOutlet weak var addAnotherUnitButton: UIButton!
     @IBOutlet weak var addWireButton: UIButton!
     @IBOutlet weak var captureScreenshotButton: UIButton!
     @IBOutlet weak var doneAddingWireButton: UIButton!
@@ -145,6 +146,16 @@ class ARQuoteViewController: UIViewController {
         chooseWireButton.layer.shadowRadius = 2
         chooseWireButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         chooseWireButton.layer.shadowOpacity = 0.3
+        
+        //add another unit
+        addAnotherUnitButton.layer.cornerRadius = 14
+        addAnotherUnitButton.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        addAnotherUnitButton.layer.borderWidth = 1
+        
+        addAnotherUnitButton.layer.shadowColor = Constants.Color.border.cgColor
+        addAnotherUnitButton.layer.shadowRadius = 2
+        addAnotherUnitButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        addAnotherUnitButton.layer.shadowOpacity = 0.3
         
         //add wire
         addWireButton.layer.cornerRadius = 40
@@ -274,6 +285,11 @@ class ARQuoteViewController: UIViewController {
             chooseWireButton.isUserInteractionEnabled = false
         }
         
+        if addAnotherUnitButton.alpha == 1 {
+            addAnotherUnitButton.alpha = 0
+            addAnotherUnitButton.isUserInteractionEnabled = false
+        }
+        
         if addWireButton.alpha == 1 {
             addWireButton.alpha = 0
             addWireButton.isUserInteractionEnabled = false
@@ -318,6 +334,7 @@ class ARQuoteViewController: UIViewController {
             case .chooseTypeOfWire:
                 self.showButtonIfNeeded(self.continueButton)
                 self.showButtonIfNeeded(self.chooseWireButton)
+                self.showButtonIfNeeded(self.addAnotherUnitButton)
             case .addingWire:
                 self.showButtonIfNeeded(self.addWireButton)
                 self.updateButtonTintIfNeeded(self.addWireButton)
@@ -512,6 +529,10 @@ extension ARQuoteViewController {
         let navigationController = UINavigationController(rootViewController: chooseWireVC)
         
         present(navigationController, animated: true, completion: nil)
+    }
+    
+    @IBAction func userPressedAddAnotherUnit() {
+        ErrorManager.showFeatureNotSupported(on: self)
     }
     
     @IBAction func userPressedConfirmUnitPosition() {
