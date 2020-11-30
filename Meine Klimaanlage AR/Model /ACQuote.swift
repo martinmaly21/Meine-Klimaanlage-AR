@@ -33,7 +33,6 @@ struct ACQuote {
             let employeeName = employeeName, !employeeName.isEmpty,
             let appointmentDate = appointmentDate, !appointmentDate.isEmpty,
             let price = price, !price.isEmpty,
-            !wires.isEmpty,
             !units.isEmpty,
             !screenshots.isEmpty else {
                 return false
