@@ -46,12 +46,12 @@ class QuoteSummaryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var screenshotsCollectionView: UICollectionView!
     
-    @IBOutlet weak var wifiButton: UIButton!
-    @IBOutlet weak var elZulButton: UIButton!
-    @IBOutlet weak var uvButton: UIButton!
-    @IBOutlet weak var dachDeckerButton: UIButton!
-    @IBOutlet weak var dachdruchführungButton: UIButton!
-    @IBOutlet weak var kondensatpumpeButton: UIButton!
+    @IBOutlet weak var wifiSwitch: UISwitch!
+    @IBOutlet weak var elZulSwitch: UISwitch!
+    @IBOutlet weak var uvSwitch: UISwitch!
+    @IBOutlet weak var dachDeckerSwitch: UISwitch!
+    @IBOutlet weak var dachdruchführungSwitch: UISwitch!
+    @IBOutlet weak var kondensatpumpeSwitch: UISwitch!
     
     @IBOutlet weak var noteTextField: UITextField!
     
@@ -146,22 +146,19 @@ class QuoteSummaryTableViewCell: UITableViewCell {
         }
     }
     
-    @IBAction func otherButtonClicked(_ sender: UIButton) {
-        let isOn = sender.title(for: .normal) == "Yes"
-        sender.setTitle(isOn ? "No" : "Yes", for: .normal)
-    
+    @IBAction func otherButtonClicked(_ sender: UISwitch) {
         switch sender {
-        case wifiButton:
+        case wifiSwitch:
             quoteSummaryCellDelegate?.wifiUpdated()
-        case elZulButton:
+        case elZulSwitch:
             quoteSummaryCellDelegate?.elZulUpdated()
-        case uvButton:
+        case uvSwitch:
             quoteSummaryCellDelegate?.uvUpdated()
-        case dachDeckerButton:
+        case dachDeckerSwitch:
             quoteSummaryCellDelegate?.dachdeckerUpdated()
-        case dachdruchführungButton:
+        case dachdruchführungSwitch:
             quoteSummaryCellDelegate?.dachdruchführungUpdated()
-        case kondensatpumpeButton:
+        case kondensatpumpeSwitch:
             quoteSummaryCellDelegate?.kondensatpumpeUpdated()
         default:
             assertionFailure()
