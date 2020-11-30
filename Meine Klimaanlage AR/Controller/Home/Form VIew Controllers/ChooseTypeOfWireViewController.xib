@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseTypeOfWireViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="m67-by-BqW" id="Y85-OF-dcs"/>
+                <outletCollection property="wireTypeButtons" destination="3FK-Ej-I2e" collectionClass="NSMutableArray" id="HOn-jb-Zu1"/>
+                <outletCollection property="wireTypeButtons" destination="3gm-U4-Ry2" collectionClass="NSMutableArray" id="3lh-M4-cT5"/>
+                <outletCollection property="wireTypeButtons" destination="4FO-Yb-pDH" collectionClass="NSMutableArray" id="Wsd-M9-cHg"/>
+                <outletCollection property="wireLocationButtons" destination="TNe-Nh-GCK" collectionClass="NSMutableArray" id="8HD-CP-Z1A"/>
+                <outletCollection property="wireLocationButtons" destination="C3S-lM-XI8" collectionClass="NSMutableArray" id="8rt-VE-6Aw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="m67-by-BqW">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-4J-WQ5">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4I-oO-pJK">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="374"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Due-6q-WiP">
+                                    <rect key="frame" x="15" y="15" width="384" height="344"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wire Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEc-uu-LRZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <color key="textColor" name="PrimaryTextDark"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="efo-Cu-t2L">
+                                            <rect key="frame" x="0.0" y="48" width="384" height="150"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3FK-Ej-I2e">
+                                                    <rect key="frame" x="0.0" y="0.0" width="384" height="43.5"/>
+                                                    <color key="backgroundColor" name="PrimaryBlue"/>
+                                                    <state key="normal" title="Rohrleitungslänge">
+                                                        <color key="titleColor" name="PrimaryTextLight"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="didPressWireType:" destination="-1" eventType="touchUpInside" id="ygd-Va-ua1"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gm-U4-Ry2">
+                                                    <rect key="frame" x="0.0" y="53.5" width="384" height="43"/>
+                                                    <state key="normal" title="Kabelkanal">
+                                                        <color key="titleColor" name="PrimaryBlue"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="didPressWireType:" destination="-1" eventType="touchUpInside" id="aBL-p9-gQE"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FO-Yb-pDH">
+                                                    <rect key="frame" x="0.0" y="106.5" width="384" height="43.5"/>
+                                                    <state key="normal" title="Kondensatleitung">
+                                                        <color key="titleColor" name="PrimaryBlue"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="didPressWireType:" destination="-1" eventType="touchUpInside" id="12a-C6-Pp0"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="150" id="MsL-tg-1pC"/>
+                                            </constraints>
+                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wire Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P32-7L-BQs">
+                                            <rect key="frame" x="0.0" y="216" width="384" height="30"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <color key="textColor" name="PrimaryTextDark"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hHn-DW-5Wh">
+                                            <rect key="frame" x="0.0" y="264" width="384" height="80"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNe-Nh-GCK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="187" height="80"/>
+                                                    <color key="backgroundColor" name="PrimaryBlue"/>
+                                                    <state key="normal" title="Inside Wall">
+                                                        <color key="titleColor" name="PrimaryTextLight"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="didPressWireLocation:" destination="-1" eventType="touchUpInside" id="S48-F0-cz6"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3S-lM-XI8">
+                                                    <rect key="frame" x="197" y="0.0" width="187" height="80"/>
+                                                    <state key="normal" title="Outside Wall">
+                                                        <color key="titleColor" name="PrimaryBlue"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="didPressWireLocation:" destination="-1" eventType="touchUpInside" id="U8a-Bz-LQj"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="PTl-0w-mMN"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Due-6q-WiP" secondAttribute="bottom" constant="15" id="4kM-tS-9yk"/>
+                                <constraint firstItem="Due-6q-WiP" firstAttribute="leading" secondItem="k4I-oO-pJK" secondAttribute="leading" constant="15" id="I4f-Rm-znT"/>
+                                <constraint firstItem="Due-6q-WiP" firstAttribute="top" secondItem="k4I-oO-pJK" secondAttribute="top" constant="15" id="UOM-rr-sBW"/>
+                                <constraint firstAttribute="trailing" secondItem="Due-6q-WiP" secondAttribute="trailing" constant="15" id="XAn-ln-I4Z"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="k4I-oO-pJK" secondAttribute="bottom" id="2Z2-Vl-gd0"/>
+                        <constraint firstAttribute="trailing" secondItem="k4I-oO-pJK" secondAttribute="trailing" id="JRh-rI-1hd"/>
+                        <constraint firstItem="k4I-oO-pJK" firstAttribute="height" secondItem="vMW-4J-WQ5" secondAttribute="height" priority="250" id="RfJ-Vv-fqT"/>
+                        <constraint firstItem="k4I-oO-pJK" firstAttribute="leading" secondItem="vMW-4J-WQ5" secondAttribute="leading" id="evU-zw-DmZ"/>
+                        <constraint firstItem="k4I-oO-pJK" firstAttribute="width" secondItem="vMW-4J-WQ5" secondAttribute="width" id="hkn-b8-VhG"/>
+                        <constraint firstItem="k4I-oO-pJK" firstAttribute="top" secondItem="vMW-4J-WQ5" secondAttribute="top" id="o5X-8E-JCT"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="YH5-7V-vWm"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="Fxk-UP-aW4"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="PNn-gl-dz9"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vMW-4J-WQ5" firstAttribute="leading" secondItem="PNn-gl-dz9" secondAttribute="leading" id="ONS-C1-wEF"/>
+                <constraint firstItem="vMW-4J-WQ5" firstAttribute="top" secondItem="PNn-gl-dz9" secondAttribute="top" id="gWv-mk-hgw"/>
+                <constraint firstItem="PNn-gl-dz9" firstAttribute="trailing" secondItem="vMW-4J-WQ5" secondAttribute="trailing" id="xf7-xL-G3D"/>
+                <constraint firstItem="PNn-gl-dz9" firstAttribute="bottom" secondItem="vMW-4J-WQ5" secondAttribute="bottom" id="ztZ-Sd-qUQ"/>
+            </constraints>
+            <point key="canvasLocation" x="133" y="344"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="PrimaryBlue">
+            <color red="0.396078431372549" green="0.63921568627450975" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryTextDark">
+            <color red="0.29019607843137257" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryTextLight">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
