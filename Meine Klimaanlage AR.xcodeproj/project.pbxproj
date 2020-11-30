@@ -713,7 +713,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.martinmaly.Meinde-Klimaanlage-AR";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.martinmaly.Meine-Klimaanlage-AR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -734,7 +734,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.martinmaly.Meinde-Klimaanlage-AR";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.martinmaly.Meine-Klimaanlage-AR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
