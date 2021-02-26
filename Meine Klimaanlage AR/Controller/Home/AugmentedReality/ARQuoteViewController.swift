@@ -234,7 +234,7 @@ class ARQuoteViewController: UIViewController {
         
         let coachingOverlayExtraHelpLabel = UILabel()
         coachingOverlayExtraHelpLabel.numberOfLines = 0
-        coachingOverlayExtraHelpLabel.text = "Keep moving your device to scan the room in front of you until it detects a surface. This can sometimes take a couple of minutes. If no surfaces are detected, try changing the lighting in the room."
+        coachingOverlayExtraHelpLabel.text = "Keep moving your device to scan the room in front of you until it detects a surface. This can sometimes take a couple of minutes. If no surfaces are detected, try walking around or changing the lighting in the room."
         coachingOverlayExtraHelpStackView.addArrangedSubview(coachingOverlayExtraHelpLabel)
         
         let activityIndicator = UIActivityIndicatorView(style: .large)
