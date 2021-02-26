@@ -24,6 +24,7 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var placeWireButton: UIButton!
     @IBOutlet weak var captureScreenshotButton: UIButton!
     @IBOutlet weak var doneAddingWireButton: UIButton!
+    private var coachingOverlayStatusLabel: UILabel!
     
     var coachingOverlay = ARCoachingOverlayView()
     var focusSquare = FocusSquare()
@@ -205,7 +206,27 @@ class ARQuoteViewController: UIViewController {
         coachingOverlay.delegate = self
         coachingOverlay.session = sceneView.session
         
+        let blurEffect = UIBlurEffect(style: .regular)
+        let coachingOverlayStatusVisualEffectView = UIVisualEffectView(effect: blurEffect)
+        coachingOverlayStatusVisualEffectView.layer.cornerRadius = 8
+        coachingOverlayStatusVisualEffectView.clipsToBounds = true
+        coachingOverlayStatusVisualEffectView.translatesAutoresizingMaskIntoConstraints = false
         
+        coachingOverlay.addSubview(coachingOverlayStatusVisualEffectView)
+        
+        coachingOverlayStatusVisualEffectView.topAnchor.constraint(equalTo: coachingOverlay.safeAreaLayoutGuide.topAnchor).isActive = true
+        coachingOverlayStatusVisualEffectView.leadingAnchor.constraint(equalTo: coachingOverlay.leadingAnchor, constant: 15).isActive = true
+        coachingOverlayStatusVisualEffectView.leadingAnchor.constraint(lessThanOrEqualTo:coachingOverlay.leadingAnchor, constant: -15).isActive = true
+        
+        coachingOverlayStatusLabel = UILabel()
+        coachingOverlayStatusVisualEffectView.contentView.addSubview(coachingOverlayStatusLabel)
+        coachingOverlayStatusLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        coachingOverlayStatusLabel.leadingAnchor.constraint(equalTo: coachingOverlayStatusVisualEffectView.contentView.leadingAnchor, constant: 15).isActive = true
+        coachingOverlayStatusLabel.trailingAnchor.constraint(equalTo: coachingOverlayStatusVisualEffectView.contentView.trailingAnchor, constant: -15).isActive = true
+        coachingOverlayStatusLabel.topAnchor.constraint(equalTo: coachingOverlayStatusVisualEffectView.contentView.topAnchor, constant: 10).isActive = true
+        coachingOverlayStatusLabel.bottomAnchor.constraint(equalTo: coachingOverlayStatusVisualEffectView.contentView.bottomAnchor, constant: -10).isActive = true
+
         let coachingOverlayExtraHelpContainerView = UIView()
         coachingOverlayExtraHelpContainerView.backgroundColor = Constants.Color.primaryWhiteBackground
         coachingOverlayExtraHelpContainerView.layer.cornerRadius = 8
