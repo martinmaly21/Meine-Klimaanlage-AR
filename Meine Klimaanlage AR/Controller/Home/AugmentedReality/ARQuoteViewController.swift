@@ -219,15 +219,27 @@ class ARQuoteViewController: UIViewController {
         coachingOverlayExtraHelpContainerView.widthAnchor.constraint(equalToConstant:UIScreen.main.bounds.width * 2/3).isActive = true
         coachingOverlayExtraHelpContainerView.centerXAnchor.constraint(equalTo: coachingOverlay.centerXAnchor).isActive = true
         
+        let coachingOverlayExtraHelpStackView = UIStackView()
+        coachingOverlayExtraHelpStackView.axis = .horizontal
+        coachingOverlayExtraHelpStackView.alignment = .center
+        coachingOverlayExtraHelpStackView.distribution = .fillProportionally
+        coachingOverlayExtraHelpStackView.spacing = 8
+        
+        coachingOverlayExtraHelpContainerView.addSubview(coachingOverlayExtraHelpStackView)
+        coachingOverlayExtraHelpStackView.translatesAutoresizingMaskIntoConstraints = false
+        coachingOverlayExtraHelpStackView.leadingAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.leadingAnchor, constant: 15).isActive = true
+        coachingOverlayExtraHelpStackView.trailingAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.trailingAnchor, constant: -15).isActive = true
+        coachingOverlayExtraHelpStackView.topAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.topAnchor, constant: 10).isActive = true
+        coachingOverlayExtraHelpStackView.bottomAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.bottomAnchor, constant: -10).isActive = true
+        
         let coachingOverlayExtraHelpLabel = UILabel()
         coachingOverlayExtraHelpLabel.numberOfLines = 0
         coachingOverlayExtraHelpLabel.text = "Keep moving your device to scan the room in front of you until it detects a surface. This can sometimes take a couple of minutes. If no surfaces are detected, try changing the lighting in the room."
-        coachingOverlayExtraHelpContainerView.addSubview(coachingOverlayExtraHelpLabel)
-        coachingOverlayExtraHelpLabel.translatesAutoresizingMaskIntoConstraints = false
-        coachingOverlayExtraHelpLabel.leadingAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.leadingAnchor, constant: 15).isActive = true
-        coachingOverlayExtraHelpLabel.trailingAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.trailingAnchor, constant: -15).isActive = true
-        coachingOverlayExtraHelpLabel.topAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.topAnchor, constant: 10).isActive = true
-        coachingOverlayExtraHelpLabel.bottomAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.bottomAnchor, constant: -10).isActive = true
+        coachingOverlayExtraHelpStackView.addArrangedSubview(coachingOverlayExtraHelpLabel)
+        
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.startAnimating()
+        coachingOverlayExtraHelpStackView.addArrangedSubview(activityIndicator)
     }
     
     private func addFocusSquare() {
