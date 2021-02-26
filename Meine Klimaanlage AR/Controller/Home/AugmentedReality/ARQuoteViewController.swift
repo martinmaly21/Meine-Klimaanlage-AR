@@ -204,6 +204,30 @@ class ARQuoteViewController: UIViewController {
         coachingOverlay.activatesAutomatically = true
         coachingOverlay.delegate = self
         coachingOverlay.session = sceneView.session
+        
+        
+        let coachingOverlayExtraHelpContainerView = UIView()
+        coachingOverlayExtraHelpContainerView.backgroundColor = .white
+        coachingOverlayExtraHelpContainerView.layer.cornerRadius = 8
+        coachingOverlayExtraHelpContainerView.translatesAutoresizingMaskIntoConstraints = false
+        coachingOverlay.addSubview(coachingOverlayExtraHelpContainerView)
+        coachingOverlayExtraHelpContainerView.translatesAutoresizingMaskIntoConstraints = false
+        coachingOverlayExtraHelpContainerView.bottomAnchor.constraint(
+            equalTo: coachingOverlay.bottomAnchor,
+            constant: -30
+        ).isActive = true
+        coachingOverlayExtraHelpContainerView.widthAnchor.constraint(equalToConstant:UIScreen.main.bounds.width * 2/3).isActive = true
+        coachingOverlayExtraHelpContainerView.centerXAnchor.constraint(equalTo: coachingOverlay.centerXAnchor).isActive = true
+        
+        let coachingOverlayExtraHelpLabel = UILabel()
+        coachingOverlayExtraHelpLabel.numberOfLines = 0
+        coachingOverlayExtraHelpLabel.text = "Keep moving your device to scan the room in front of you until it detects a surface. This can sometimes take a couple of minutes. If no surfaces are detected, try changing the lighting in the room."
+        coachingOverlayExtraHelpContainerView.addSubview(coachingOverlayExtraHelpLabel)
+        coachingOverlayExtraHelpLabel.translatesAutoresizingMaskIntoConstraints = false
+        coachingOverlayExtraHelpLabel.leadingAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.leadingAnchor, constant: 15).isActive = true
+        coachingOverlayExtraHelpLabel.trailingAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.trailingAnchor, constant: -15).isActive = true
+        coachingOverlayExtraHelpLabel.topAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.topAnchor, constant: 10).isActive = true
+        coachingOverlayExtraHelpLabel.bottomAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.bottomAnchor, constant: -10).isActive = true
     }
     
     private func addFocusSquare() {
