@@ -17,6 +17,12 @@ class VerticalAnchorCoachingView: UIView {
     
     let videoTutorialScrollView = UIScrollView()
     let pageControl = UIPageControl()
+    let skipTutorialButton = UIButton()
+    let showNextStepButton = UIButton()
+    
+    private var lastPageNumber: Int {
+        return instructions.count - 1
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,6 +61,7 @@ class VerticalAnchorCoachingView: UIView {
         videoTutorialScrollView.isScrollEnabled = true
         videoTutorialScrollView.isPagingEnabled = true
         videoTutorialScrollView.showsHorizontalScrollIndicator = false
+        videoTutorialScrollView.delegate = self
         
         videoTutorialScrollView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -66,7 +73,7 @@ class VerticalAnchorCoachingView: UIView {
         addViewsToScrollView()
         
         let pageControlContainerView = UIView()
-        pageControlContainerView.backgroundColor = .grey
+        pageControlContainerView.backgroundColor = .systemGray
         pageControlContainerView.translatesAutoresizingMaskIntoConstraints = false
         pageControlContainerView.widthAnchor.constraint(equalToConstant: 50).isActive = true
         pageControlContainerView.heightAnchor.constraint(equalToConstant: 20).isActive = true
@@ -84,7 +91,6 @@ class VerticalAnchorCoachingView: UIView {
         
         stackView.addArrangedSubview(pageControlContainerView)
         
-        let showNextStepButton = UIButton()
         showNextStepButton.translatesAutoresizingMaskIntoConstraints = false
         showNextStepButton.setTitle("Show next step", for: .normal)
         showNextStepButton.setTitleColor(Constants.Color.primaryTextDark, for: .normal)
@@ -92,7 +98,6 @@ class VerticalAnchorCoachingView: UIView {
         
         stackView.addArrangedSubview(showNextStepButton)
         
-        let skipTutorialButton = UIButton()
         skipTutorialButton.translatesAutoresizingMaskIntoConstraints = false
         skipTutorialButton.setTitle("Skip tutorial", for: .normal)
         skipTutorialButton.setTitleColor(Constants.Color.primaryTextDark, for: .normal)
@@ -157,15 +162,33 @@ class VerticalAnchorCoachingView: UIView {
     }
     
     @objc func userPressedShowNextStep() {
+        if pageControl.currentPage == lastPageNumber {
+            print("Place unit")
+        } else {
+            let nextPageNumber: CGFloat = CGFloat(pageControl.currentPage) + 1
+            let targetX = videoTutorialScrollView.frame.size.width * nextPageNumber
+            videoTutorialScrollView.setContentOffset(.init(x: targetX, y: 0), animated: true)
+        }
     }
     
     @objc func userPressedSkipTutorial() {
+        let targetX = videoTutorialScrollView.frame.size.width * CGFloat(lastPageNumber)
+        videoTutorialScrollView.setContentOffset(.init(x: targetX, y: 0), animated: true)
     }
 }
 
 extension VerticalAnchorCoachingView: UIScrollViewDelegate {
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
-        pageControl.currentPage = Int(pageNumber)
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageNumber = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
+        pageControl.currentPage = pageNumber
+        
+        if pageNumber == lastPageNumber {
+            //hide tutorial on last page
+            skipTutorialButton.isHidden = true
+            showNextStepButton.setTitle("Place AC  Unit", for: .normal)
+        } else {
+            skipTutorialButton.isHidden = false
+            showNextStepButton.setTitle("Show next step", for: .normal)
+        }
     }
 }
