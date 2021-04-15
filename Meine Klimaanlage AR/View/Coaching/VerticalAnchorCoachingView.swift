@@ -16,6 +16,7 @@ class VerticalAnchorCoachingView: UIView {
     ]
     
     let videoTutorialScrollView = UIScrollView()
+    let pageControl = UIPageControl()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,6 +64,25 @@ class VerticalAnchorCoachingView: UIView {
         
         //add content into scroll view
         addViewsToScrollView()
+        
+        let pageControlContainerView = UIView()
+        pageControlContainerView.backgroundColor = .grey
+        pageControlContainerView.translatesAutoresizingMaskIntoConstraints = false
+        pageControlContainerView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        pageControlContainerView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        pageControlContainerView.layer.cornerRadius = 10
+        
+        //set up page control
+        pageControl.numberOfPages = instructions.count
+        
+        pageControlContainerView.addSubview(pageControl)
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        pageControl.centerXAnchor.constraint(equalTo: pageControlContainerView.centerXAnchor).isActive = true
+        pageControl.centerYAnchor.constraint(equalTo: pageControlContainerView.centerYAnchor).isActive = true 
+        
+        stackView.addArrangedSubview(pageControlContainerView)
         
         let showNextStepButton = UIButton()
         showNextStepButton.translatesAutoresizingMaskIntoConstraints = false
@@ -140,5 +160,12 @@ class VerticalAnchorCoachingView: UIView {
     }
     
     @objc func userPressedSkipTutorial() {
+    }
+}
+
+extension VerticalAnchorCoachingView: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+        pageControl.currentPage = Int(pageNumber)
     }
 }
