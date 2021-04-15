@@ -55,6 +55,6 @@ class BeginQuoteViewController: UIViewController {
                 return
         }
         
-        performSegue(withIdentifier: "ARsegue", sender: nil)
+        performSegue(withIdentifier: "ARSegue", sender: nil)
     }
 }
