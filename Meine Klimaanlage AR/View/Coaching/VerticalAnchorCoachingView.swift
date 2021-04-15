@@ -84,10 +84,21 @@ class VerticalAnchorCoachingView: UIView {
     private func addViewsToScrollView() {
         var previousView: UIView?
         
-        for instruction in instructions {
+        for (index, instruction) in instructions.enumerated() {
             let instructionContainerView = UIView()
             
             instructionContainerView.backgroundColor = UIColor.blue
+            
+            let instructionNumberLabel = UILabel()
+            instructionNumberLabel.textColor = Constants.Color.primaryTextDark
+            instructionNumberLabel.numberOfLines = 0
+            instructionNumberLabel.text = "Step \(index + 1) of \(instructions.count)"
+            instructionNumberLabel.textAlignment = .center
+            instructionNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+            
+            instructionContainerView.addSubview(instructionNumberLabel)
+            instructionNumberLabel.topAnchor.constraint(equalTo: instructionContainerView.topAnchor, constant: 25).isActive = true
+            instructionNumberLabel.leadingAnchor.constraint(equalTo: instructionContainerView.leadingAnchor, constant: 25).isActive = true
 
             let instructionLabel = UILabel()
             instructionLabel.textColor = Constants.Color.primaryTextDark
