@@ -32,6 +32,7 @@ class VerticalAnchorCoachingView: UIView {
         backgroundColor = .white
         layer.cornerCurve = .continuous
         layer.cornerRadius = 15
+        clipsToBounds = true
         
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -84,28 +85,43 @@ class VerticalAnchorCoachingView: UIView {
         var previousView: UIView?
         
         for instruction in instructions {
-            let image = UIImage(named: "AppIcon")
-            let imageView = UIImageView(image: image)
-            imageView.clipsToBounds = true
-            imageView.isUserInteractionEnabled = true
-            imageView.translatesAutoresizingMaskIntoConstraints = false
+            let instructionContainerView = UIView()
             
-            videoTutorialScrollView.addSubview(imageView)
-            imageView.heightAnchor.constraint(equalTo: videoTutorialScrollView.heightAnchor).isActive = true
-            imageView.widthAnchor.constraint(equalTo: videoTutorialScrollView.widthAnchor).isActive = true
-            imageView.centerYAnchor.constraint(equalTo: videoTutorialScrollView.centerYAnchor).isActive = true
+            instructionContainerView.backgroundColor = UIColor.blue
+
+            let instructionLabel = UILabel()
+            instructionLabel.textColor = Constants.Color.primaryTextDark
+            instructionLabel.numberOfLines = 0
+            instructionLabel.text = instruction
+            instructionLabel.textAlignment = .center
+            instructionLabel.translatesAutoresizingMaskIntoConstraints = false
+            
+            instructionContainerView.addSubview(instructionLabel)
+            instructionLabel.bottomAnchor.constraint(equalTo: instructionContainerView.bottomAnchor, constant: -10).isActive = true
+            instructionLabel.leadingAnchor.constraint(equalTo: instructionContainerView.leadingAnchor, constant: 25).isActive = true
+            instructionLabel.trailingAnchor.constraint(equalTo: instructionContainerView.trailingAnchor, constant: -25).isActive = true
+            
+            
+            instructionContainerView.clipsToBounds = true
+            instructionContainerView.isUserInteractionEnabled = true
+            instructionContainerView.translatesAutoresizingMaskIntoConstraints = false
+            
+            videoTutorialScrollView.addSubview(instructionContainerView)
+            instructionContainerView.heightAnchor.constraint(equalTo: videoTutorialScrollView.heightAnchor).isActive = true
+            instructionContainerView.widthAnchor.constraint(equalTo: videoTutorialScrollView.widthAnchor).isActive = true
+            instructionContainerView.centerYAnchor.constraint(equalTo: videoTutorialScrollView.centerYAnchor).isActive = true
             
             if let previousView = previousView {
-                imageView.leadingAnchor.constraint(equalTo: previousView.trailingAnchor).isActive = true
+                instructionContainerView.leadingAnchor.constraint(equalTo: previousView.trailingAnchor).isActive = true
                 
                 if instruction == instructions.last {
-                    imageView.trailingAnchor.constraint(equalTo: videoTutorialScrollView.trailingAnchor).isActive = true
+                    instructionContainerView.trailingAnchor.constraint(equalTo: videoTutorialScrollView.trailingAnchor).isActive = true
                 }
             } else {
-                imageView.leadingAnchor.constraint(equalTo: videoTutorialScrollView.leadingAnchor).isActive = true
+                instructionContainerView.leadingAnchor.constraint(equalTo: videoTutorialScrollView.leadingAnchor).isActive = true
             }
             
-            previousView = imageView
+            previousView = instructionContainerView
         }
     }
     
