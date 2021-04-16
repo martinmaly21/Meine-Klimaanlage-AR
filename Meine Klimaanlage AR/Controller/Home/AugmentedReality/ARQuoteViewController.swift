@@ -132,9 +132,6 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
             
             acUnit.load()
             
-            acUnit.transform = pointOfView.transform
-            acUnit.eulerAngles = SCNVector3(0, pointOfViewEulerAngle.y, 0)
-            
             let dimension: CGFloat = 2
             let plane = SCNPlane(width: dimension, height: dimension)
             plane.firstMaterial?.diffuse.contents = UIImage(named: "grid")
@@ -146,8 +143,11 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
             planeNode.transform = pointOfView.transform
             planeNode.eulerAngles = SCNVector3(0, pointOfViewEulerAngle.y, 0)
             
-            sceneView.scene.rootNode.addChildNode(acUnit)
+            
+            planeNode.addChildNode(acUnit)
+            
             sceneView.scene.rootNode.addChildNode(planeNode)
+            
         }
     }
     
