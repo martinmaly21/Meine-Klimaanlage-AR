@@ -131,10 +131,12 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
             //            acUnit.load()
             //            sceneView.scene.rootNode.addChildNode(acUnit)
             
-            let plane = SCNPlane(width: 0.5, height: 0.5)
-            plane.firstMaterial?.diffuse.contents = UIColor.yellow
-            plane.cornerRadius = 0.05
+            let dimension: CGFloat = 1
+            let plane = SCNPlane(width: dimension, height: dimension)
+            plane.firstMaterial?.diffuse.contents = UIImage(named: "grid")
+            plane.cornerRadius = dimension / 2
             plane.firstMaterial?.isDoubleSided = true
+            plane.firstMaterial?.blendMode = .max
             
             guard let pointOfView = sceneView.pointOfView else {
                 fatalError("Could not get currentFrame or pointOfView")
