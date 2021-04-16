@@ -108,6 +108,7 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
     private func addVerticalAnchorCoachingView() {
         //show coaching thing
         let verticalAnchorCoachingView = VerticalAnchorCoachingView()
+        verticalAnchorCoachingView.delegate = self
         
         verticalAnchorCoachingView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -117,6 +118,12 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         verticalAnchorCoachingView.trailingAnchor.constraint(equalTo: sceneView.trailingAnchor, constant: -10).isActive = true
         verticalAnchorCoachingView.topAnchor.constraint(equalTo: resetButton.bottomAnchor, constant: 10).isActive = true
         verticalAnchorCoachingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+    }
+}
+
+extension ARQuoteViewController: VerticalAnchorCoachingViewDelegate {
+    func userPressedPlaceACUnit() {
+        print("add ac unit")
     }
 }
 

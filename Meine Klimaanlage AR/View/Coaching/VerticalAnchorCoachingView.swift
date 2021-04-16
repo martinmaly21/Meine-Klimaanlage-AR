@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol VerticalAnchorCoachingViewDelegate: class {
+    func userPressedPlaceACUnit()
+}
+
 class VerticalAnchorCoachingView: UIView {
     private let instructions = [
         "Walk towards the wall where you'd like to place your unit",
@@ -23,6 +27,8 @@ class VerticalAnchorCoachingView: UIView {
     private var lastPageNumber: Int {
         return instructions.count - 1
     }
+    
+    public weak var delegate: VerticalAnchorCoachingViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -163,7 +169,17 @@ class VerticalAnchorCoachingView: UIView {
     
     @objc func userPressedShowNextStep() {
         if pageControl.currentPage == lastPageNumber {
-            print("Place unit")
+            delegate?.userPressedPlaceACUnit()
+            
+            UIView.animate(
+                withDuration: 0.5,
+                animations: {
+                    self.alpha = 0
+                },
+                completion: { _ in
+                    self.removeFromSuperview()
+                }
+            )
         } else {
             let nextPageNumber: CGFloat = CGFloat(pageControl.currentPage) + 1
             let targetX = videoTutorialScrollView.frame.size.width * nextPageNumber
