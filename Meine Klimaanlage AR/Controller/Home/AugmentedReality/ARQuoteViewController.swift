@@ -124,15 +124,32 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         if let filePath = Bundle.main.path(forResource: currentACUnit.fileName, ofType: "scn", inDirectory: "ACUnits.scnassets") {
             let referenceURL = URL(fileURLWithPath: filePath)
             
-            guard let acUnit = SCNReferenceNode(url: referenceURL) else {
-                fatalError("Error creating node")
+            //            guard let acUnit = SCNReferenceNode(url: referenceURL) else {
+            //                fatalError("Error creating node")
+            //            }
+            
+            //            acUnit.load()
+            //            sceneView.scene.rootNode.addChildNode(acUnit)
+            
+            let plane = SCNPlane(width: 0.5, height: 0.5)
+            plane.firstMaterial?.diffuse.contents = UIColor.yellow
+            plane.cornerRadius = 0.05
+            plane.firstMaterial?.isDoubleSided = true
+            
+            guard let pointOfView = sceneView.pointOfView else {
+                fatalError("Could not get currentFrame or pointOfView")
             }
             
-            acUnit.load()
+            let planeNode = SCNNode(geometry: plane)
+            planeNode.transform = pointOfView.transform
             
-            sceneView.scene.rootNode.addChildNode(acUnit)
+            let pointOfViewEulerAngle = pointOfView.eulerAngles
+            planeNode.eulerAngles = SCNVector3(0, pointOfViewEulerAngle.y, 0)
+            
+            sceneView.scene.rootNode.addChildNode(planeNode)
         }
     }
+    
 }
 
 extension ARQuoteViewController: VerticalAnchorCoachingViewDelegate {
