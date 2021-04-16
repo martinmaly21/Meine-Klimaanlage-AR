@@ -119,11 +119,25 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         verticalAnchorCoachingView.topAnchor.constraint(equalTo: resetButton.bottomAnchor, constant: 10).isActive = true
         verticalAnchorCoachingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
     }
+    
+    private func addACUnit() {
+        if let filePath = Bundle.main.path(forResource: currentACUnit.fileName, ofType: "scn", inDirectory: "ACUnits.scnassets") {
+            let referenceURL = URL(fileURLWithPath: filePath)
+            
+            guard let acUnit = SCNReferenceNode(url: referenceURL) else {
+                fatalError("Error creating node")
+            }
+            
+            acUnit.load()
+            
+            sceneView.scene.rootNode.addChildNode(acUnit)
+        }
+    }
 }
 
 extension ARQuoteViewController: VerticalAnchorCoachingViewDelegate {
     func userPressedPlaceACUnit() {
-        print("add ac unit")
+        addACUnit()
     }
 }
 
