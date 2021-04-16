@@ -124,30 +124,29 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         if let filePath = Bundle.main.path(forResource: currentACUnit.fileName, ofType: "scn", inDirectory: "ACUnits.scnassets") {
             let referenceURL = URL(fileURLWithPath: filePath)
             
-            //            guard let acUnit = SCNReferenceNode(url: referenceURL) else {
-            //                fatalError("Error creating node")
-            //            }
+            guard let acUnit = SCNReferenceNode(url: referenceURL),
+                  let pointOfView = sceneView.pointOfView else {
+                fatalError("Could not get currentFrame or pointOfView")
+            }
+            let pointOfViewEulerAngle = pointOfView.eulerAngles
             
-            //            acUnit.load()
-            //            sceneView.scene.rootNode.addChildNode(acUnit)
+            acUnit.load()
             
-            let dimension: CGFloat = 1
+            acUnit.transform = pointOfView.transform
+            acUnit.eulerAngles = SCNVector3(0, pointOfViewEulerAngle.y, 0)
+            
+            let dimension: CGFloat = 2
             let plane = SCNPlane(width: dimension, height: dimension)
             plane.firstMaterial?.diffuse.contents = UIImage(named: "grid")
             plane.cornerRadius = dimension / 2
             plane.firstMaterial?.isDoubleSided = true
             plane.firstMaterial?.blendMode = .max
             
-            guard let pointOfView = sceneView.pointOfView else {
-                fatalError("Could not get currentFrame or pointOfView")
-            }
-            
             let planeNode = SCNNode(geometry: plane)
             planeNode.transform = pointOfView.transform
-            
-            let pointOfViewEulerAngle = pointOfView.eulerAngles
             planeNode.eulerAngles = SCNVector3(0, pointOfViewEulerAngle.y, 0)
             
+            sceneView.scene.rootNode.addChildNode(acUnit)
             sceneView.scene.rootNode.addChildNode(planeNode)
         }
     }
