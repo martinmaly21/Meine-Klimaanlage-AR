@@ -89,7 +89,10 @@ extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         //+ 1 to offset header
-        cell.setUpCell(with: units[indexPath.row - 1])
+        cell.setUpCell(
+            with: units[indexPath.row - 1],
+            shouldAddChevron: !presentedOverARSession
+        )
         return cell
     }
     
