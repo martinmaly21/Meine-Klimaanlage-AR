@@ -432,7 +432,7 @@
                                     <action selector="userPressedReset" destination="aSl-4Q-Fix" eventType="touchUpInside" id="o3F-Mq-FC5"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="A7A-bt-xqQ">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="A7A-bt-xqQ">
                                 <rect key="frame" x="10" y="610" width="394" height="183"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toe-VE-Th5">
