@@ -60,9 +60,12 @@ class ARQuoteViewController: UIViewController {
         //add gesture recognizers
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(userPannedScreen(_:)))
         sceneView.addGestureRecognizer(panGestureRecognizer)
+        
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(userPinchedScreen(_:)))
+        sceneView.addGestureRecognizer(pinchGestureRecognizer)
     }
     
-    @objc func userPannedScreen(_ panGesture: UIPanGestureRecognizer){
+    @objc func userPannedScreen(_ panGesture: UIPanGestureRecognizer) {
         let location = panGesture.location(in: sceneView)
         let acUnitBitMask = HitTestType.acUnit.rawValue
         
@@ -81,15 +84,12 @@ class ARQuoteViewController: UIViewController {
                 )
             }
         case .changed:
-            guard let trackedObject = trackedObject,
-                  let previousPanCoordinate = previousPanCoordinate else { return }
-            // when you start to pan in screen with your finger
-            // hittest gives new coordinates of touched location in sceneView
-            // coord-pcoord gives distance to move or distance paned in sceneview
-            if let hitTestResult = sceneView.hitTest(
+            if let trackedObject = trackedObject,
+               let previousPanCoordinate = previousPanCoordinate,
+               let hitTestResult = sceneView.hitTest(
                 location,
                 options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-            ).first {
+               ).first {
                 let coordx = hitTestResult.worldCoordinates.x
                 let coordy = hitTestResult.worldCoordinates.y
                 
@@ -116,7 +116,38 @@ class ARQuoteViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    @objc func userPinchedScreen(_ pinchGesture: UIPinchGestureRecognizer) {
+        let location = pinchGesture.location(in: sceneView)
+        let acUnitBitMask = HitTestType.acUnit.rawValue
         
+        switch pinchGesture.state {
+        case .began:
+            if sceneView.hitTest(
+                location,
+                options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
+            ).first != nil {
+                //user is pinching AC unit
+                trackedObject = currentACUnitNode
+            }
+        case .changed:
+            if let trackedObject = trackedObject,
+               sceneView.hitTest(
+                location,
+                options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
+               ).first != nil {
+                let pinchScaleX = pinchGesture.scale * CGFloat((trackedObject.scale.x))
+                let pinchScaleY = pinchGesture.scale * CGFloat((trackedObject.scale.y))
+                let pinchScaleZ = pinchGesture.scale * CGFloat((trackedObject.scale.z))
+                trackedObject.scale = SCNVector3Make(Float(pinchScaleX), Float(pinchScaleY), Float(pinchScaleZ))
+                pinchGesture.scale = 1
+            }
+        case .ended:
+            trackedObject = nil
+        default:
+            break
+        }
     }
     
     private func removeGestureRecognizersFromView() {
