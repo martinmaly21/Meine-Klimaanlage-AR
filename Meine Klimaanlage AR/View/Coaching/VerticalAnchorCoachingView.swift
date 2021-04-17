@@ -40,28 +40,43 @@ class VerticalAnchorCoachingView: UIView {
     }
     
     private func setUpUI() {
-        isUserInteractionEnabled = true
+        let dimView = UIView()
+        dimView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        dimView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(dimView)
         
-        backgroundColor = .white
-        layer.cornerCurve = .continuous
-        layer.cornerRadius = 15
-        clipsToBounds = true
+        dimView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        dimView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        dimView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        dimView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
+        let stackViewContainerView = UIView()
+        stackViewContainerView.backgroundColor = Constants.Color.primaryWhiteBackground
+        stackViewContainerView.layer.cornerCurve = .continuous
+        stackViewContainerView.layer.cornerRadius = 15
+        stackViewContainerView.clipsToBounds = true
+        stackViewContainerView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(stackViewContainerView)
+        
+        stackViewContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        stackViewContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        stackViewContainerView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .center
         stackView.clipsToBounds = true
+        stackView.spacing = 10
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(stackView)
+        stackViewContainerView.addSubview(stackView)
         
-        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//        stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30).isActive = true
-        
+        stackView.leadingAnchor.constraint(equalTo: stackViewContainerView.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: stackViewContainerView.trailingAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: stackViewContainerView.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: stackViewContainerView.bottomAnchor, constant: -20).isActive = true
         
         videoTutorialScrollView.clipsToBounds = true
         videoTutorialScrollView.isScrollEnabled = true
@@ -79,6 +94,7 @@ class VerticalAnchorCoachingView: UIView {
         addViewsToScrollView()
         
         let pageControlContainerView = UIView()
+        pageControl.isUserInteractionEnabled = false
         pageControlContainerView.backgroundColor = .systemGray
         pageControlContainerView.translatesAutoresizingMaskIntoConstraints = false
         pageControlContainerView.widthAnchor.constraint(equalToConstant: 50).isActive = true
@@ -99,17 +115,27 @@ class VerticalAnchorCoachingView: UIView {
         
         showNextStepButton.translatesAutoresizingMaskIntoConstraints = false
         showNextStepButton.setTitle("Show next step", for: .normal)
-        showNextStepButton.setTitleColor(Constants.Color.primaryTextDark, for: .normal)
+        showNextStepButton.setTitleColor(Constants.Color.primaryTextLight, for: .normal)
+        showNextStepButton.backgroundColor = Constants.Color.primaryBlue
+        showNextStepButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        showNextStepButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        showNextStepButton.layer.cornerRadius = 20
         showNextStepButton.addTarget(self, action: #selector(userPressedShowNextStep), for: .touchUpInside)
         
         stackView.addArrangedSubview(showNextStepButton)
         
         skipTutorialButton.translatesAutoresizingMaskIntoConstraints = false
         skipTutorialButton.setTitle("Skip tutorial", for: .normal)
-        skipTutorialButton.setTitleColor(Constants.Color.primaryTextDark, for: .normal)
+        skipTutorialButton.setTitleColor(Constants.Color.primaryTextLight, for: .normal)
+        skipTutorialButton.backgroundColor = Constants.Color.primaryBlue
+        skipTutorialButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        skipTutorialButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        skipTutorialButton.layer.cornerRadius = 20
         skipTutorialButton.addTarget(self, action: #selector(userPressedSkipTutorial), for: .touchUpInside)
         
         stackView.addArrangedSubview(skipTutorialButton)
+        
+        stackView.setCustomSpacing(20, after: pageControlContainerView)
     }
     
     private func addViewsToScrollView() {
@@ -200,10 +226,12 @@ extension VerticalAnchorCoachingView: UIScrollViewDelegate {
         
         if pageNumber == lastPageNumber {
             //hide tutorial on last page
-            skipTutorialButton.isHidden = true
-            showNextStepButton.setTitle("Place AC  Unit", for: .normal)
+            skipTutorialButton.alpha = 0
+            skipTutorialButton.isUserInteractionEnabled = false
+            showNextStepButton.setTitle("Place AC Unit", for: .normal)
         } else {
-            skipTutorialButton.isHidden = false
+            skipTutorialButton.alpha = 1
+            skipTutorialButton.isUserInteractionEnabled = true
             showNextStepButton.setTitle("Show next step", for: .normal)
         }
     }

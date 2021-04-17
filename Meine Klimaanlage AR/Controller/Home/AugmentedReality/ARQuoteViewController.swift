@@ -134,10 +134,10 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         
         sceneView.addSubview(verticalAnchorCoachingView)
         
-        verticalAnchorCoachingView.leadingAnchor.constraint(equalTo: sceneView.leadingAnchor, constant: 10).isActive = true
-        verticalAnchorCoachingView.trailingAnchor.constraint(equalTo: sceneView.trailingAnchor, constant: -10).isActive = true
-        verticalAnchorCoachingView.topAnchor.constraint(equalTo: resetButton.bottomAnchor, constant: 10).isActive = true
-        verticalAnchorCoachingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+        verticalAnchorCoachingView.leadingAnchor.constraint(equalTo: sceneView.leadingAnchor).isActive = true
+        verticalAnchorCoachingView.trailingAnchor.constraint(equalTo: sceneView.trailingAnchor).isActive = true
+        verticalAnchorCoachingView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        verticalAnchorCoachingView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     private func addACUnit() {
