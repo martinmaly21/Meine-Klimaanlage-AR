@@ -16,7 +16,7 @@ class VerticalAnchorCoachingView: UIView {
     private let instructions = [
         "Walk towards the wall where you'd like to place your unit",
         "Hold the top of your device to the wall",
-        "Tap the 'Place Unit' button below"
+        "Tap the 'Place AC Unit' button below"
     ]
     
     let videoTutorialScrollView = UIScrollView()
@@ -69,10 +69,9 @@ class VerticalAnchorCoachingView: UIView {
         stackView.clipsToBounds = true
         stackView.spacing = 10
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
         stackViewContainerView.addSubview(stackView)
         
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.leadingAnchor.constraint(equalTo: stackViewContainerView.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: stackViewContainerView.trailingAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: stackViewContainerView.topAnchor).isActive = true
@@ -126,8 +125,7 @@ class VerticalAnchorCoachingView: UIView {
         
         skipTutorialButton.translatesAutoresizingMaskIntoConstraints = false
         skipTutorialButton.setTitle("Skip tutorial", for: .normal)
-        skipTutorialButton.setTitleColor(Constants.Color.primaryTextLight, for: .normal)
-        skipTutorialButton.backgroundColor = Constants.Color.primaryBlue
+        skipTutorialButton.setTitleColor(Constants.Color.primaryBlue, for: .normal)
         skipTutorialButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         skipTutorialButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         skipTutorialButton.layer.cornerRadius = 20
@@ -146,29 +144,50 @@ class VerticalAnchorCoachingView: UIView {
             
             instructionContainerView.backgroundColor = UIColor.blue
             
+            let instructionNumberLabelContainerView = UIView()
+            instructionNumberLabelContainerView.backgroundColor = Constants.Color.primaryWhiteBackground
+            instructionNumberLabelContainerView.layer.cornerRadius = 10
+            instructionNumberLabelContainerView.translatesAutoresizingMaskIntoConstraints = false
+            instructionContainerView.addSubview(instructionNumberLabelContainerView)
+            instructionNumberLabelContainerView.topAnchor.constraint(equalTo: instructionContainerView.topAnchor, constant: 25).isActive = true
+            instructionNumberLabelContainerView.leadingAnchor.constraint(equalTo: instructionContainerView.leadingAnchor, constant: 25).isActive = true
+            
             let instructionNumberLabel = UILabel()
             instructionNumberLabel.textColor = Constants.Color.primaryTextDark
             instructionNumberLabel.numberOfLines = 0
             instructionNumberLabel.text = "Step \(index + 1) of \(instructions.count)"
             instructionNumberLabel.textAlignment = .center
             instructionNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+            instructionNumberLabelContainerView.addSubview(instructionNumberLabel)
             
-            instructionContainerView.addSubview(instructionNumberLabel)
-            instructionNumberLabel.topAnchor.constraint(equalTo: instructionContainerView.topAnchor, constant: 25).isActive = true
-            instructionNumberLabel.leadingAnchor.constraint(equalTo: instructionContainerView.leadingAnchor, constant: 25).isActive = true
-
+            instructionNumberLabel.leadingAnchor.constraint(equalTo: instructionNumberLabelContainerView.leadingAnchor, constant: 10).isActive = true
+            instructionNumberLabel.trailingAnchor.constraint(equalTo: instructionNumberLabelContainerView.trailingAnchor, constant: -10).isActive = true
+            instructionNumberLabel.topAnchor.constraint(equalTo: instructionNumberLabelContainerView.topAnchor, constant: 10).isActive = true
+            instructionNumberLabel.bottomAnchor.constraint(equalTo: instructionNumberLabelContainerView.bottomAnchor, constant: -10).isActive = true
+ 
+            let instructionLabelContainerView = UIView()
+            instructionLabelContainerView.backgroundColor = Constants.Color.primaryWhiteBackground
+            instructionLabelContainerView.layer.cornerRadius = 10
+            instructionLabelContainerView.translatesAutoresizingMaskIntoConstraints = false
+            instructionContainerView.addSubview(instructionLabelContainerView)
+            instructionLabelContainerView.bottomAnchor.constraint(equalTo: instructionContainerView.bottomAnchor, constant: -10).isActive = true
+            instructionLabelContainerView.leadingAnchor.constraint(equalTo: instructionContainerView.leadingAnchor, constant: 25).isActive = true
+            instructionLabelContainerView.trailingAnchor.constraint(equalTo: instructionContainerView.trailingAnchor, constant: -25).isActive = true
+            
             let instructionLabel = UILabel()
             instructionLabel.textColor = Constants.Color.primaryTextDark
+            instructionLabel.backgroundColor = Constants.Color.primaryWhiteBackground
+            instructionLabel.layer.cornerRadius = 10
             instructionLabel.numberOfLines = 0
             instructionLabel.text = instruction
             instructionLabel.textAlignment = .center
             instructionLabel.translatesAutoresizingMaskIntoConstraints = false
             
-            instructionContainerView.addSubview(instructionLabel)
-            instructionLabel.bottomAnchor.constraint(equalTo: instructionContainerView.bottomAnchor, constant: -10).isActive = true
-            instructionLabel.leadingAnchor.constraint(equalTo: instructionContainerView.leadingAnchor, constant: 25).isActive = true
-            instructionLabel.trailingAnchor.constraint(equalTo: instructionContainerView.trailingAnchor, constant: -25).isActive = true
-            
+            instructionLabelContainerView.addSubview(instructionLabel)
+            instructionLabel.bottomAnchor.constraint(equalTo: instructionLabelContainerView.bottomAnchor, constant: -10).isActive = true
+            instructionLabel.leadingAnchor.constraint(equalTo: instructionLabelContainerView.leadingAnchor, constant: 10).isActive = true
+            instructionLabel.trailingAnchor.constraint(equalTo: instructionLabelContainerView.trailingAnchor, constant: -10).isActive = true
+            instructionLabel.topAnchor.constraint(equalTo: instructionLabelContainerView.topAnchor, constant: 10).isActive = true
             
             instructionContainerView.clipsToBounds = true
             instructionContainerView.isUserInteractionEnabled = true
