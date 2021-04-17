@@ -22,6 +22,10 @@ class ACUnitListViewController: UIViewController {
         return arViewController
     }
     
+    private var presentedOverARSession: Bool {
+        return arViewController != nil
+    }
+    
     private var units = [ACUnit]()
     
     override func viewDidLoad() {
@@ -44,6 +48,19 @@ class ACUnitListViewController: UIViewController {
         tableView.separatorStyle = .none
         
         registerTableViewCells()
+        
+        if presentedOverARSession {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(
+                title: "Cancel",
+                style: .plain,
+                target: self,
+                action: #selector(didPressCancel)
+            )
+        }
+    }
+    
+    @objc func didPressCancel() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
