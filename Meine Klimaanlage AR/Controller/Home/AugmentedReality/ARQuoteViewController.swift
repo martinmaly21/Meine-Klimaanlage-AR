@@ -14,6 +14,8 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var confirmPositionStackView: UIStackView!
+    @IBOutlet weak var addNodeOrFinishStackView: UIStackView!
+    @IBOutlet weak var captureStackView: UIStackView!
     
     //UI Elements
     private var coachingOverlay = ARCoachingOverlayView()
@@ -337,5 +339,29 @@ extension ARQuoteViewController {
         
         //remove gesture recognzers so user can't move unit
         removeGestureRecognizersFromView()
+        
+        //show stack view so user can eiher add or
+        addNodeOrFinishStackView.isHidden = false
+    }
+    
+    @IBAction func userPressedAddWireOrACUnit() {
+        //TODO
+    }
+    
+    @IBAction func userPressedFinish() {
+        addNodeOrFinishStackView.isHidden = true
+        //show screenshot stack
+        captureStackView.isHidden = false
+    }
+    
+    @IBAction func userPressedCapture() {
+        //take a screenshot and move to quote view controller
+        let capture = sceneView.snapshot()
+        quote.screenshots.append(capture)
+        
+        //show quote view controller
+        let vc = QuoteSummaryViewController()
+        vc.quote = quote
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

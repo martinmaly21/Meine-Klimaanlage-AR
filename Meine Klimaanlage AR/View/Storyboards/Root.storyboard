@@ -412,15 +412,15 @@
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfm-lf-vQV">
                                 <rect key="frame" x="294" y="103" width="100" height="40"/>
-                                <color key="backgroundColor" name="PrimaryBlue"/>
+                                <color key="backgroundColor" name="PrimaryTextLight"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="dRq-Kc-bl8"/>
                                     <constraint firstAttribute="height" constant="40" id="h5H-y9-UpT"/>
                                 </constraints>
-                                <color key="tintColor" name="PrimaryTextLight"/>
+                                <color key="tintColor" name="PrimaryBlue"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                 <state key="normal" title="Reset">
-                                    <color key="titleColor" name="PrimaryTextLight"/>
+                                    <color key="titleColor" name="PrimaryBlue"/>
                                     <imageReference key="image" image="arrow.counterclockwise" catalog="system" renderingMode="template"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -503,6 +503,124 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SkP-Hv-6Oz">
+                                <rect key="frame" x="10" y="705" width="394" height="88"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBB-Ci-NPS">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="40"/>
+                                        <color key="backgroundColor" name="PrimaryBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Iw5-1E-rMc"/>
+                                        </constraints>
+                                        <color key="tintColor" name="PrimaryTextLight"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Add wire or AC unit">
+                                            <color key="titleColor" name="PrimaryTextLight"/>
+                                            <imageReference key="image" image="plus.circle" catalog="system" renderingMode="template"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="userPressedAddWireOrACUnit" destination="aSl-4Q-Fix" eventType="touchUpInside" id="7Vn-Gg-y3Z"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkf-0u-DO5">
+                                        <rect key="frame" x="0.0" y="48" width="394" height="40"/>
+                                        <color key="backgroundColor" name="PrimaryTextLight"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="JCn-9A-LPk"/>
+                                        </constraints>
+                                        <color key="tintColor" name="PrimaryBlue"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Finish">
+                                            <color key="titleColor" name="PrimaryBlue"/>
+                                            <imageReference key="image" image="checkmark.seal" catalog="system" renderingMode="template"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="userPressedFinish" destination="aSl-4Q-Fix" eventType="touchUpInside" id="OPd-yW-mIY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pr8-hH-GG5">
+                                <rect key="frame" x="10" y="610" width="394" height="183"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JjA-zz-xTV">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pwQ-Z6-mXn">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xS-1K-nok">
+                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="StS-gK-bY2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the 'Capture' button to take a picture of the AC unit and wire(s) in it's environment." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zo5-Yy-arC">
+                                                                <rect key="frame" x="10" y="10" width="374" height="108"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                <color key="textColor" name="PrimaryTextDark"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="Zo5-Yy-arC" secondAttribute="bottom" constant="10" id="9bX-VH-EjN"/>
+                                                            <constraint firstItem="Zo5-Yy-arC" firstAttribute="top" secondItem="StS-gK-bY2" secondAttribute="top" constant="10" id="DN1-7P-8nl"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Zo5-Yy-arC" secondAttribute="trailing" constant="10" id="VAh-5w-80V"/>
+                                                            <constraint firstItem="Zo5-Yy-arC" firstAttribute="leading" secondItem="StS-gK-bY2" secondAttribute="leading" constant="10" id="fS5-RE-Qwm"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <vibrancyEffect>
+                                                        <blurEffect style="regular"/>
+                                                    </vibrancyEffect>
+                                                </visualEffectView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="1xS-1K-nok" secondAttribute="trailing" id="2nl-Ls-Xxc"/>
+                                                <constraint firstItem="1xS-1K-nok" firstAttribute="leading" secondItem="pwQ-Z6-mXn" secondAttribute="leading" id="Tor-9v-aSA"/>
+                                                <constraint firstAttribute="bottom" secondItem="1xS-1K-nok" secondAttribute="bottom" id="c43-kL-aec"/>
+                                                <constraint firstItem="1xS-1K-nok" firstAttribute="top" secondItem="pwQ-Z6-mXn" secondAttribute="top" id="w8j-qQ-2a1"/>
+                                            </constraints>
+                                        </view>
+                                        <blurEffect style="regular"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </visualEffectView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46L-2M-qNV">
+                                        <rect key="frame" x="107" y="143" width="180" height="40"/>
+                                        <color key="backgroundColor" name="PrimaryBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="VvA-vA-ZOk"/>
+                                            <constraint firstAttribute="height" constant="40" id="lLi-PT-tGn"/>
+                                        </constraints>
+                                        <color key="tintColor" name="PrimaryTextLight"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Capture" image="camera" catalog="system">
+                                            <color key="titleColor" name="PrimaryTextLight"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="userPressedCapture" destination="aSl-4Q-Fix" eventType="touchUpInside" id="zOV-SZ-dsI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vd2-uZ-DZu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -513,13 +631,21 @@
                             <constraint firstItem="Vd2-uZ-DZu" firstAttribute="bottom" secondItem="A7A-bt-xqQ" secondAttribute="bottom" constant="20" id="Ccb-VR-GGc"/>
                             <constraint firstItem="Vd2-uZ-DZu" firstAttribute="trailing" secondItem="dfm-lf-vQV" secondAttribute="trailing" constant="20" id="DZS-oZ-Jlj"/>
                             <constraint firstItem="wCz-wj-wfJ" firstAttribute="top" secondItem="eaO-Pu-gU7" secondAttribute="top" id="GpX-M7-jsF"/>
+                            <constraint firstItem="pr8-hH-GG5" firstAttribute="leading" secondItem="Vd2-uZ-DZu" secondAttribute="leading" constant="10" id="IDR-e9-CbZ"/>
                             <constraint firstAttribute="bottom" secondItem="wCz-wj-wfJ" secondAttribute="bottom" id="O57-Uc-gm2"/>
+                            <constraint firstItem="Vd2-uZ-DZu" firstAttribute="trailing" secondItem="SkP-Hv-6Oz" secondAttribute="trailing" constant="10" id="QOK-8x-KMO"/>
                             <constraint firstItem="A7A-bt-xqQ" firstAttribute="leading" secondItem="Vd2-uZ-DZu" secondAttribute="leading" constant="10" id="T9p-gL-OIc"/>
+                            <constraint firstItem="Vd2-uZ-DZu" firstAttribute="bottom" secondItem="SkP-Hv-6Oz" secondAttribute="bottom" constant="20" id="V7y-lL-edo"/>
+                            <constraint firstItem="SkP-Hv-6Oz" firstAttribute="leading" secondItem="Vd2-uZ-DZu" secondAttribute="leading" constant="10" id="W4a-f4-1zo"/>
                             <constraint firstItem="Vd2-uZ-DZu" firstAttribute="trailing" secondItem="A7A-bt-xqQ" secondAttribute="trailing" constant="10" id="aQW-Mw-8xc"/>
+                            <constraint firstItem="Vd2-uZ-DZu" firstAttribute="bottom" secondItem="pr8-hH-GG5" secondAttribute="bottom" constant="20" id="opS-cb-LB0"/>
+                            <constraint firstItem="pr8-hH-GG5" firstAttribute="trailing" secondItem="Vd2-uZ-DZu" secondAttribute="trailing" constant="-10" id="pGk-SN-4Z5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5ZE-pj-ldQ"/>
                     <connections>
+                        <outlet property="addNodeOrFinishStackView" destination="SkP-Hv-6Oz" id="9Di-2e-dYe"/>
+                        <outlet property="captureStackView" destination="pr8-hH-GG5" id="ESn-QX-x8N"/>
                         <outlet property="confirmPositionStackView" destination="A7A-bt-xqQ" id="xvk-rz-NuL"/>
                         <outlet property="resetButton" destination="dfm-lf-vQV" id="7TH-OA-0Xq"/>
                         <outlet property="sceneView" destination="wCz-wj-wfJ" id="9Qt-AD-R4Q"/>
@@ -533,9 +659,12 @@
     <resources>
         <image name="arkit" catalog="system" width="128" height="128"/>
         <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
+        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="checkmark.seal" catalog="system" width="128" height="128"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
         <namedColor name="PrimaryBlue">
             <color red="0.396078431372549" green="0.63921568627450975" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
