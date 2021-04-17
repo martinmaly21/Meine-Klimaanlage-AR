@@ -13,7 +13,7 @@ import ARKit
 class ARQuoteViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var confirmPositionButton: UIButton!
+    @IBOutlet weak var confirmPositionStackView: UIStackView!
     
     //UI Elements
     private var coachingOverlay = ARCoachingOverlayView()
@@ -174,7 +174,7 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
             sceneView.scene.rootNode.addChildNode(planeNode)
             
             //give user option to confirm the position after they've manipulated it
-            confirmPositionButton.isHidden = false
+            confirmPositionStackView.isHidden = false
         }
     }
     
@@ -326,6 +326,9 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedConfirmPosition() {
+        //hide confirm position stack view
+        confirmPositionStackView.isHidden = true
+        
         //remove gesture recognzers so user can't move unit
         removeGestureRecognizersFromView()
     }
