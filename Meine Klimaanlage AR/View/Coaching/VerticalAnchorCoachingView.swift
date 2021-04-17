@@ -117,7 +117,7 @@ class VerticalAnchorCoachingView: UIView {
         showNextStepButton.setTitleColor(Constants.Color.primaryTextLight, for: .normal)
         showNextStepButton.backgroundColor = Constants.Color.primaryBlue
         showNextStepButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        showNextStepButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        showNextStepButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         showNextStepButton.layer.cornerRadius = 20
         showNextStepButton.addTarget(self, action: #selector(userPressedShowNextStep), for: .touchUpInside)
         
@@ -127,7 +127,7 @@ class VerticalAnchorCoachingView: UIView {
         skipTutorialButton.setTitle("Skip tutorial", for: .normal)
         skipTutorialButton.setTitleColor(Constants.Color.primaryBlue, for: .normal)
         skipTutorialButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        skipTutorialButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        skipTutorialButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         skipTutorialButton.layer.cornerRadius = 20
         skipTutorialButton.addTarget(self, action: #selector(userPressedSkipTutorial), for: .touchUpInside)
         
