@@ -24,6 +24,8 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var placeWireButton: UIButton!
     @IBOutlet weak var captureScreenshotButton: UIButton!
     @IBOutlet weak var doneAddingWireButton: UIButton!
+    private var coachingOverlayStatusLabel: UILabel!
+    private var coachingOverlayStatusVisualEffectView: UIVisualEffectView!
     
     var coachingOverlay = ARCoachingOverlayView()
     var focusSquare = FocusSquare()
@@ -181,6 +183,7 @@ class ARQuoteViewController: UIViewController {
     
     private func setUpScene() {
         sceneView.delegate = self
+        sceneView.session.delegate = self
         sceneView.automaticallyUpdatesLighting = true
         sceneView.preferredFramesPerSecond = 60
         sceneView.antialiasingMode = .multisampling2X
@@ -204,6 +207,65 @@ class ARQuoteViewController: UIViewController {
         coachingOverlay.activatesAutomatically = true
         coachingOverlay.delegate = self
         coachingOverlay.session = sceneView.session
+        
+        let blurEffect = UIBlurEffect(style: .regular)
+        coachingOverlayStatusVisualEffectView = UIVisualEffectView(effect: blurEffect)
+        coachingOverlayStatusVisualEffectView.layer.cornerRadius = 8
+        coachingOverlayStatusVisualEffectView.clipsToBounds = true
+        coachingOverlayStatusVisualEffectView.translatesAutoresizingMaskIntoConstraints = false
+        
+        coachingOverlay.addSubview(coachingOverlayStatusVisualEffectView)
+        
+        coachingOverlayStatusVisualEffectView.topAnchor.constraint(equalTo: coachingOverlay.safeAreaLayoutGuide.topAnchor).isActive = true
+        coachingOverlayStatusVisualEffectView.leadingAnchor.constraint(equalTo: coachingOverlay.leadingAnchor, constant: 15).isActive = true
+        coachingOverlayStatusVisualEffectView.leadingAnchor.constraint(lessThanOrEqualTo:coachingOverlay.leadingAnchor, constant: -15).isActive = true
+        
+        coachingOverlayStatusLabel = UILabel()
+        coachingOverlayStatusVisualEffectView.contentView.addSubview(coachingOverlayStatusLabel)
+        coachingOverlayStatusLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        coachingOverlayStatusLabel.leadingAnchor.constraint(equalTo: coachingOverlayStatusVisualEffectView.contentView.leadingAnchor, constant: 15).isActive = true
+        coachingOverlayStatusLabel.trailingAnchor.constraint(equalTo: coachingOverlayStatusVisualEffectView.contentView.trailingAnchor, constant: -15).isActive = true
+        coachingOverlayStatusLabel.topAnchor.constraint(equalTo: coachingOverlayStatusVisualEffectView.contentView.topAnchor, constant: 10).isActive = true
+        coachingOverlayStatusLabel.bottomAnchor.constraint(equalTo: coachingOverlayStatusVisualEffectView.contentView.bottomAnchor, constant: -10).isActive = true
+        
+        coachingOverlayStatusVisualEffectView.isHidden = true
+
+        let coachingOverlayExtraHelpContainerView = UIView()
+        coachingOverlayExtraHelpContainerView.backgroundColor = Constants.Color.primaryWhiteBackground
+        coachingOverlayExtraHelpContainerView.layer.cornerRadius = 8
+        coachingOverlayExtraHelpContainerView.translatesAutoresizingMaskIntoConstraints = false
+        coachingOverlay.addSubview(coachingOverlayExtraHelpContainerView)
+        coachingOverlayExtraHelpContainerView.translatesAutoresizingMaskIntoConstraints = false
+        coachingOverlayExtraHelpContainerView.bottomAnchor.constraint(
+            equalTo: coachingOverlay.bottomAnchor,
+            constant: -30
+        ).isActive = true
+        coachingOverlayExtraHelpContainerView.widthAnchor.constraint(equalToConstant:UIScreen.main.bounds.width * 2/3).isActive = true
+        coachingOverlayExtraHelpContainerView.centerXAnchor.constraint(equalTo: coachingOverlay.centerXAnchor).isActive = true
+        
+        let coachingOverlayExtraHelpStackView = UIStackView()
+        coachingOverlayExtraHelpStackView.axis = .horizontal
+        coachingOverlayExtraHelpStackView.alignment = .center
+        coachingOverlayExtraHelpStackView.distribution = .fillProportionally
+        coachingOverlayExtraHelpStackView.spacing = 8
+        
+        coachingOverlayExtraHelpContainerView.addSubview(coachingOverlayExtraHelpStackView)
+        coachingOverlayExtraHelpStackView.translatesAutoresizingMaskIntoConstraints = false
+        coachingOverlayExtraHelpStackView.leadingAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.leadingAnchor, constant: 15).isActive = true
+        coachingOverlayExtraHelpStackView.trailingAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.trailingAnchor, constant: -15).isActive = true
+        coachingOverlayExtraHelpStackView.topAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.topAnchor, constant: 10).isActive = true
+        coachingOverlayExtraHelpStackView.bottomAnchor.constraint(equalTo: coachingOverlayExtraHelpContainerView.bottomAnchor, constant: -10).isActive = true
+        
+        let coachingOverlayExtraHelpLabel = UILabel()
+        coachingOverlayExtraHelpLabel.numberOfLines = 0
+        coachingOverlayExtraHelpLabel.text = "Keep moving your device to scan the room in front of you until it detects a surface. This can sometimes take a couple of minutes. If no surfaces are detected, try walking around or changing the lighting in the room."
+        coachingOverlayExtraHelpLabel.textColor = Constants.Color.primaryTextDark
+        coachingOverlayExtraHelpStackView.addArrangedSubview(coachingOverlayExtraHelpLabel)
+        
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.startAnimating()
+        coachingOverlayExtraHelpStackView.addArrangedSubview(activityIndicator)
     }
     
     private func addFocusSquare() {
@@ -369,6 +431,41 @@ class ARQuoteViewController: UIViewController {
         statusLabel.text = statusMessage
     }
     
+    //update the session label when in coaching overlay mode
+    private func updateCoachingOverlayStatusLabel(for frame: ARFrame, trackingState: ARCamera.TrackingState) {
+        guard coachingOverlay.isActive else { return }
+        // Update the UI to provide feedback on the state of the AR experience.
+        let message: String
+
+        switch trackingState {
+        case .normal where frame.anchors.isEmpty:
+            // No planes detected; provide instructions for this app's AR interactions.
+            message = "Move the device around to detect horizontal and vertical surfaces."
+            
+        case .notAvailable:
+            message = "Tracking unavailable."
+            
+        case .limited(.excessiveMotion):
+            message = "Tracking limited - Move the device more slowly."
+            
+        case .limited(.insufficientFeatures):
+            message = "Tracking limited - Point the device at an area with visible surface detail, or improve lighting conditions."
+            
+        case .limited(.initializing):
+            message = "Initializing AR session."
+            
+        default:
+            // No feedback needed when tracking is normal and planes are visible.
+            // (Nor when in unreachable limited-tracking states.)
+            message = ""
+
+        }
+
+        coachingOverlayStatusLabel.text = message
+        coachingOverlayStatusVisualEffectView.isHidden = message.isEmpty
+    }
+
+    
     // MARK: - Cursor stuff
     
     
@@ -472,7 +569,7 @@ class ARQuoteViewController: UIViewController {
     }
 }
 
-extension ARQuoteViewController: ARSCNViewDelegate {
+extension ARQuoteViewController: ARSCNViewDelegate, ARSessionDelegate {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         let isAnyObjectInView = virtualObjectLoader.loadedObjects.contains { object in
             return sceneView.isNode(object, insideFrustumOf: sceneView.pointOfView!)
@@ -492,6 +589,34 @@ extension ARQuoteViewController: ARSCNViewDelegate {
             }
         }
     }
+    
+    func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+        guard let frame = session.currentFrame else { return }
+        updateCoachingOverlayStatusLabel(for: frame, trackingState: frame.camera.trackingState)
+    }
+
+    func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
+        guard let frame = session.currentFrame else { return }
+        updateCoachingOverlayStatusLabel(for: frame, trackingState: frame.camera.trackingState)
+    }
+    
+    func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        guard let frame = session.currentFrame else { return }
+        updateCoachingOverlayStatusLabel(for: frame, trackingState: camera.trackingState)
+    }
+    
+    func sessionWasInterrupted(_ session: ARSession) {
+        guard coachingOverlay.isActive else { return }
+        coachingOverlayStatusVisualEffectView.isHidden = false
+        coachingOverlayStatusLabel.text = "Session was interrupted"
+    }
+    
+    func sessionInterruptionEnded(_ session: ARSession) {
+        guard coachingOverlay.isActive else { return }
+        coachingOverlayStatusVisualEffectView.isHidden = false
+        coachingOverlayStatusLabel.text = "Session interruption ended"
+    }
+    
     
     // MARK: - AR session error management
     // ===================================

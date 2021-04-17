@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R2C-bT-rxq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R2C-bT-rxq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +25,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meine Klimaanlage AR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIl-Ic-it1">
-                                <rect key="frame" x="66.5" y="344" width="281" height="32.5"/>
+                                <rect key="frame" x="66.5" y="374" width="281" height="32.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                 <color key="textColor" name="PrimaryTextDark"/>
                                 <nil key="highlightedColor"/>
@@ -36,7 +36,7 @@
                         <constraints>
                             <constraint firstItem="Iil-UR-czx" firstAttribute="top" secondItem="Krh-cr-w6z" secondAttribute="top" constant="30" id="UhG-iE-uJk"/>
                             <constraint firstItem="Iil-UR-czx" firstAttribute="centerX" secondItem="Krh-cr-w6z" secondAttribute="centerX" id="Ums-lj-PKH"/>
-                            <constraint firstItem="rIl-Ic-it1" firstAttribute="top" secondItem="Iil-UR-czx" secondAttribute="bottom" constant="-30" id="fyT-cN-vGE"/>
+                            <constraint firstItem="rIl-Ic-it1" firstAttribute="top" secondItem="Iil-UR-czx" secondAttribute="bottom" id="fyT-cN-vGE"/>
                             <constraint firstItem="rIl-Ic-it1" firstAttribute="centerX" secondItem="Krh-cr-w6z" secondAttribute="centerX" id="u3y-BP-pGz"/>
                         </constraints>
                     </view>
@@ -47,7 +47,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="MeineKlimaanlage_logo" width="2732" height="2048"/>
+        <image name="MeineKlimaanlage_logo" width="1992" height="1993"/>
         <namedColor name="PrimaryTextDark">
             <color red="0.29019607843137257" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
