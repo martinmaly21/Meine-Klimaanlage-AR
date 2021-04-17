@@ -428,6 +428,24 @@
                                     <action selector="userPressedReset" destination="aSl-4Q-Fix" eventType="touchUpInside" id="o3F-Mq-FC5"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEQ-hw-PnD">
+                                <rect key="frame" x="150" y="753" width="114" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Jej-Ot-Hlp"/>
+                                </constraints>
+                                <state key="normal" title="Confirm position">
+                                    <color key="titleColor" name="PrimaryTextDark"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="userPressedConfirmPosition" destination="aSl-4Q-Fix" eventType="touchUpInside" id="Ohn-lH-iHI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vd2-uZ-DZu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -438,10 +456,13 @@
                             <constraint firstItem="Vd2-uZ-DZu" firstAttribute="trailing" secondItem="dfm-lf-vQV" secondAttribute="trailing" constant="20" id="DZS-oZ-Jlj"/>
                             <constraint firstItem="wCz-wj-wfJ" firstAttribute="top" secondItem="eaO-Pu-gU7" secondAttribute="top" id="GpX-M7-jsF"/>
                             <constraint firstAttribute="bottom" secondItem="wCz-wj-wfJ" secondAttribute="bottom" id="O57-Uc-gm2"/>
+                            <constraint firstItem="gEQ-hw-PnD" firstAttribute="centerX" secondItem="Vd2-uZ-DZu" secondAttribute="centerX" id="aGR-BK-CfD"/>
+                            <constraint firstItem="Vd2-uZ-DZu" firstAttribute="bottom" secondItem="gEQ-hw-PnD" secondAttribute="bottom" constant="20" id="ctp-i4-vdY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5ZE-pj-ldQ"/>
                     <connections>
+                        <outlet property="confirmPositionButton" destination="gEQ-hw-PnD" id="XZD-sq-Kb4"/>
                         <outlet property="resetButton" destination="dfm-lf-vQV" id="7TH-OA-0Xq"/>
                         <outlet property="sceneView" destination="wCz-wj-wfJ" id="9Qt-AD-R4Q"/>
                     </connections>
