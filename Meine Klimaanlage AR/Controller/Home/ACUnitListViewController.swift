@@ -13,6 +13,15 @@ class ACUnitListViewController: UIViewController {
     public var brand: ACBrand!
     private var currentACUnitEnvironmentType = ACUnitEnvironmentType.interior
     
+    private var arViewController: ARQuoteViewController? {
+        guard let tabBarController = presentingViewController as? UITabBarController,
+              let navigationController = tabBarController.selectedViewController as? UINavigationController,
+              let arViewController = navigationController.topViewController as? ARQuoteViewController else {
+            return nil
+        }
+        return arViewController
+    }
+    
     private var units = [ACUnit]()
     
     override func viewDidLoad() {
@@ -74,9 +83,7 @@ extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
         let selectedUnit = units[indexPath.row - 1]
         if selectedUnit.displayName == "Wandgerät Baureihe TZ" {
             
-            if let tabBarController = presentingViewController as? UITabBarController,
-               let navigationController = tabBarController.selectedViewController as? UINavigationController,
-               let arQuoteViewController = navigationController.topViewController as? ARQuoteViewController {
+            if let arQuoteViewController = arViewController {
                 //user is selecting a second/third or fourth unit!
                 arQuoteViewController.quote.units.append(selectedUnit)
                 

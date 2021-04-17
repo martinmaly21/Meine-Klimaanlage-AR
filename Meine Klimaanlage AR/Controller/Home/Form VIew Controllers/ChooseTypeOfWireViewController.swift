@@ -18,10 +18,16 @@ class ChooseTypeOfWireViewController: UIViewController {
     private var wireType = WireType.rohrleitungslänge
     private var wireLocation = WireLocation.insideWall
     
-    private let arViewController: ARQuoteViewController
+    private var arViewController: ARQuoteViewController {
+        guard let tabBarController = presentingViewController as? UITabBarController,
+              let navigationController = tabBarController.selectedViewController as? UINavigationController,
+              let arViewController = navigationController.topViewController as? ARQuoteViewController else {
+            fatalError("Could not get arViewController")
+        }
+        return arViewController
+    }
     
-    init(arViewController: ARQuoteViewController) {
-        self.arViewController = arViewController
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
