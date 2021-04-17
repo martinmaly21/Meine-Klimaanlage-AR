@@ -173,3 +173,12 @@ extension SCNNode {
         return self
     }
 }
+
+extension SCNReferenceNode {
+    var loadedNode: SCNNode {
+        guard let loadedNode = childNodes.first else {
+            fatalError("Could not get node ")
+        }
+        return loadedNode
+    }
+}

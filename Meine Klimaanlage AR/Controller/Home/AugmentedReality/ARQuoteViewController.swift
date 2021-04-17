@@ -34,7 +34,11 @@ class ARQuoteViewController: UIViewController {
         return currentACUnit
     }
     
-    private var currentACUnitNode: SCNNode?
+    private var loadedACUnitNodes: [SCNNode] = []
+    
+    private var currentACUnitNode: SCNNode? {
+        return loadedACUnitNodes.last
+    }
     
     //store previous coordinates from hittest to compare with current ones
     private var previousPanCoordinate: CGPoint?
@@ -131,12 +135,8 @@ class ARQuoteViewController: UIViewController {
         addUnitOrFinishStackView.isHidden = true
         
         //add tap gesture to determine which unit the user tapped?
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(userPressedScreen))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(userPressedScreen(tapGesture:)))
         sceneView.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    @objc func userPressedScreen() {
-        //check if user tappedUnit
     }
 }
 
@@ -165,14 +165,16 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
               let pointOfView = sceneView.pointOfView else {
             fatalError("Could not get currentFrame or pointOfView")
         }
-        currentACUnitNode = acUnit
+        acUnit.load()
+        
+        loadedACUnitNodes.append(acUnit.loadedNode)
         
         //set bit mask so it can be located in hit test
-        acUnit.categoryBitMask = HitTestType.acUnit.rawValue
+        acUnit.loadedNode.categoryBitMask = HitTestType.acUnit.rawValue
         
         let pointOfViewEulerAngle = pointOfView.eulerAngles
         
-        acUnit.load()
+       
         
         let dimension: CGFloat = 1
         let plane = SCNPlane(width: dimension, height: dimension)
@@ -339,6 +341,27 @@ extension ARQuoteViewController {
             trackedObject = nil
         default:
             break
+        }
+    }
+    
+    //handling user choosing which AC unit to add wires onto!
+    @objc func userPressedScreen(tapGesture: UITapGestureRecognizer) {
+        //check if user tappedUnit
+        let location = tapGesture.location(in: sceneView)
+        
+        let acUnitBitMask = HitTestType.acUnit.rawValue
+        
+        if let hitTestResult = sceneView.hitTest(
+            location,
+            options: [
+                SCNHitTestOption.categoryBitMask : acUnitBitMask
+            ]
+        ).first,
+        let acUnitNode = hitTestResult.node.parent,
+        loadedACUnitNodes.contains(acUnitNode) {
+            acUnitNode.removeFromParentNode()
+            
+            removeGestureRecognizersFromView()
         }
     }
     
