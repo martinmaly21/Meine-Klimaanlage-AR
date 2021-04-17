@@ -16,6 +16,8 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var confirmPositionStackView: UIStackView!
     @IBOutlet weak var addUnitOrFinishStackView: UIStackView!
     @IBOutlet weak var captureStackView: UIStackView!
+    @IBOutlet weak var tapOnUnitToPlaceWireStackView: UIStackView!
+    @IBOutlet weak var placeWireStackView: UIStackView!
     
     //UI Elements
     private var coachingOverlay = ARCoachingOverlayView()
@@ -103,22 +105,8 @@ class ARQuoteViewController: UIViewController {
         // Run the view's session
         sceneView.session.run(configuration)
     }
-}
-
-extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
-    func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        //
-    }
     
-    func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        //remove coaching overlay from session (to ensure it's not restarted)
-        coachingOverlay.session = nil
-        
-        addVerticalAnchorCoachingView()
-    }
-    
-    public func
-    addVerticalAnchorCoachingView() {
+    public func addVerticalAnchorCoachingView() {
         //hide reset button
         resetButton.isHidden = true
         //and hide the addObjecttOrFinishStackView (in case it's the second unit that's being added)
@@ -136,6 +124,32 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         verticalAnchorCoachingView.trailingAnchor.constraint(equalTo: sceneView.trailingAnchor).isActive = true
         verticalAnchorCoachingView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         verticalAnchorCoachingView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    public func userChoseWire() {
+        tapOnUnitToPlaceWireStackView.isHidden = false
+        addUnitOrFinishStackView.isHidden = true
+        
+        //add tap gesture to determine which unit the user tapped?
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(userPressedScreen))
+        sceneView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func userPressedScreen() {
+        //check if user tappedUnit
+    }
+}
+
+extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
+    func coachingOverlayViewWillActivate(_ coachingOverlayView: ARCoachingOverlayView) {
+        //
+    }
+    
+    func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
+        //remove coaching overlay from session (to ensure it's not restarted)
+        coachingOverlay.session = nil
+        
+        addVerticalAnchorCoachingView()
     }
     
     private func addACUnit() {
@@ -193,6 +207,21 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         
         let rotateGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(userRotatedScreen(_:)))
         sceneView.addGestureRecognizer(rotateGestureRecognizer)
+    }
+    
+    private func userPressedChooseWire()  {
+        let chooseWireVC = ChooseTypeOfWireViewController()
+        let navigationController = UINavigationController(rootViewController: chooseWireVC)
+        
+        present(navigationController, animated: true, completion: nil)
+    }
+    
+    private func userPressedChooseACUnit()  {
+        guard let viewControllerToPresent = storyboard?.instantiateViewController(identifier: "ChooseUnitNavigationController") else {
+            fatalError("could not get viewControllerToPresent")
+        }
+        
+        present(viewControllerToPresent, animated: true, completion: nil)
     }
 }
 
@@ -388,19 +417,12 @@ extension ARQuoteViewController {
         present(actionSheet, animated: true, completion: nil)
     }
     
-    private func userPressedChooseWire()  {
-        let chooseWireVC = ChooseTypeOfWireViewController()
-        let navigationController = UINavigationController(rootViewController: chooseWireVC)
-        
-        present(navigationController, animated: true, completion: nil)
+    @IBAction func userPressedPlaceWire() {
+        //TODO
     }
     
-    private func userPressedChooseACUnit()  {
-        guard let viewControllerToPresent = storyboard?.instantiateViewController(identifier: "ChooseUnitNavigationController") else {
-            fatalError("could not get viewControllerToPresent")
-        }
-        
-        present(viewControllerToPresent, animated: true, completion: nil)
+    @IBAction func userPressedDonePlacingWire() {
+        //TODO
     }
     
     @IBAction func userPressedFinish() {

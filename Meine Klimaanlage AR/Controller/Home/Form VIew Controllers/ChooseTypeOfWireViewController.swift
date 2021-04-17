@@ -18,11 +18,11 @@ class ChooseTypeOfWireViewController: UIViewController {
     private var wireType = WireType.rohrleitungslänge
     private var wireLocation = WireLocation.insideWall
     
-    private var arViewController: ARQuoteViewController {
+    private var arViewController: ARQuoteViewController? {
         guard let tabBarController = presentingViewController as? UITabBarController,
               let navigationController = tabBarController.selectedViewController as? UINavigationController,
               let arViewController = navigationController.topViewController as? ARQuoteViewController else {
-            fatalError("Could not get arViewController")
+            return nil
         }
         return arViewController
     }
@@ -60,10 +60,19 @@ class ChooseTypeOfWireViewController: UIViewController {
     }
     
     @objc func didPressSave() {
+        guard let arViewController = arViewController else {
+            fatalError("Could not get arViewController")
+        }
+        
         let wire = ACWire(wireType: wireType, wireLocation: wireLocation)
         arViewController.quote.wires.append(wire)
-        arViewController.appState = .placingWire
-        dismiss(animated: true, completion: nil)
+        
+        dismiss(
+            animated: true,
+            completion: {
+                arViewController.userChoseWire()
+            }
+        )
     }
     
     @objc func didPressCancel() {
