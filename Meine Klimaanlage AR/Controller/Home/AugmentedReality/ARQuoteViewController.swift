@@ -35,6 +35,9 @@ class ARQuoteViewController: UIViewController {
     private var previousPanCoordinate: CGPoint?
     private var trackedObject: SCNNode?
     
+    //store previous rotation value for rotating object
+    var currentAngleZ: Float = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -63,98 +66,9 @@ class ARQuoteViewController: UIViewController {
         
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(userPinchedScreen(_:)))
         sceneView.addGestureRecognizer(pinchGestureRecognizer)
-    }
-    
-    @objc func userPannedScreen(_ panGesture: UIPanGestureRecognizer) {
-        let location = panGesture.location(in: sceneView)
-        let acUnitBitMask = HitTestType.acUnit.rawValue
         
-        switch panGesture.state {
-        case .began:
-            if let hitTestResult = sceneView.hitTest(
-                location,
-                options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-            ).first {
-                //user is panning AC unit
-                trackedObject = currentACUnitNode
-                
-                previousPanCoordinate = CGPoint(
-                    x: Double(hitTestResult.worldCoordinates.x),
-                    y: Double(hitTestResult.worldCoordinates.y)
-                )
-            }
-        case .changed:
-            if let trackedObject = trackedObject,
-               let previousPanCoordinate = previousPanCoordinate,
-               let hitTestResult = sceneView.hitTest(
-                location,
-                options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-               ).first {
-                let coordx = hitTestResult.worldCoordinates.x
-                let coordy = hitTestResult.worldCoordinates.y
-                
-                let action = SCNAction
-                    .moveBy(
-                        x: CGFloat(coordx - Float(previousPanCoordinate.x)),
-                        y: CGFloat(coordy - Float(previousPanCoordinate.y)),
-                        z: 0,
-                        duration: 0.1
-                    )
-                
-                trackedObject.runAction(action)
-                
-                self.previousPanCoordinate = CGPoint(
-                    x: Double(coordx),
-                    y: Double(coordy)
-                )
-            }
-            
-            panGesture.setTranslation(CGPoint.zero, in: sceneView)
-        case .ended:
-            trackedObject = nil
-            previousPanCoordinate = nil
-        default:
-            break
-        }
-    }
-    
-    @objc func userPinchedScreen(_ pinchGesture: UIPinchGestureRecognizer) {
-        let location = pinchGesture.location(in: sceneView)
-        let acUnitBitMask = HitTestType.acUnit.rawValue
-        
-        switch pinchGesture.state {
-        case .began:
-            if sceneView.hitTest(
-                location,
-                options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-            ).first != nil {
-                //user is pinching AC unit
-                trackedObject = currentACUnitNode
-            }
-        case .changed:
-            if let trackedObject = trackedObject,
-               sceneView.hitTest(
-                location,
-                options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-               ).first != nil {
-                let pinchScaleX = pinchGesture.scale * CGFloat((trackedObject.scale.x))
-                let pinchScaleY = pinchGesture.scale * CGFloat((trackedObject.scale.y))
-                let pinchScaleZ = pinchGesture.scale * CGFloat((trackedObject.scale.z))
-                trackedObject.scale = SCNVector3Make(Float(pinchScaleX), Float(pinchScaleY), Float(pinchScaleZ))
-                pinchGesture.scale = 1
-            }
-        case .ended:
-            trackedObject = nil
-        default:
-            break
-        }
-    }
-    
-    private func removeGestureRecognizersFromView() {
-        //call when user has finished placing AC unit
-        for gestureRecognizer in sceneView.gestureRecognizers ?? [] {
-            sceneView.removeGestureRecognizer(gestureRecognizer)
-        }
+        let rotateGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(userRotatedScreen(_:)))
+        sceneView.addGestureRecognizer(rotateGestureRecognizer)
     }
     
     private func setUpCoachingOverlay() {
@@ -260,6 +174,131 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         }
     }
     
+}
+
+//MARK: - gesture recognizer stuff
+extension ARQuoteViewController {
+    @objc func userPannedScreen(_ panGesture: UIPanGestureRecognizer) {
+        let location = panGesture.location(in: sceneView)
+        let acUnitBitMask = HitTestType.acUnit.rawValue
+        
+        switch panGesture.state {
+        case .began:
+            if let hitTestResult = sceneView.hitTest(
+                location,
+                options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
+            ).first {
+                //user is panning AC unit
+                trackedObject = currentACUnitNode
+                
+                previousPanCoordinate = CGPoint(
+                    x: Double(hitTestResult.worldCoordinates.x),
+                    y: Double(hitTestResult.worldCoordinates.y)
+                )
+            }
+        case .changed:
+            if let trackedObject = trackedObject,
+               let previousPanCoordinate = previousPanCoordinate,
+               let hitTestResult = sceneView.hitTest(
+                location,
+                options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
+               ).first {
+                let coordx = hitTestResult.worldCoordinates.x
+                let coordy = hitTestResult.worldCoordinates.y
+                
+                let action = SCNAction
+                    .moveBy(
+                        x: CGFloat(coordx - Float(previousPanCoordinate.x)),
+                        y: CGFloat(coordy - Float(previousPanCoordinate.y)),
+                        z: 0,
+                        duration: 0.1
+                    )
+                
+                trackedObject.runAction(action)
+                
+                self.previousPanCoordinate = CGPoint(
+                    x: Double(coordx),
+                    y: Double(coordy)
+                )
+            }
+            
+            panGesture.setTranslation(CGPoint.zero, in: sceneView)
+        case .ended:
+            trackedObject = nil
+            previousPanCoordinate = nil
+        default:
+            break
+        }
+    }
+    
+    @objc func userPinchedScreen(_ pinchGesture: UIPinchGestureRecognizer) {
+        let location = pinchGesture.location(in: sceneView)
+        let acUnitBitMask = HitTestType.acUnit.rawValue
+        
+        switch pinchGesture.state {
+        case .began:
+            if sceneView.hitTest(
+                location,
+                options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
+            ).first != nil {
+                //user is pinching AC unit
+                trackedObject = currentACUnitNode
+            }
+        case .changed:
+            if let trackedObject = trackedObject,
+               sceneView.hitTest(
+                location,
+                options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
+               ).first != nil {
+                let pinchScaleX = pinchGesture.scale * CGFloat((trackedObject.scale.x))
+                let pinchScaleY = pinchGesture.scale * CGFloat((trackedObject.scale.y))
+                let pinchScaleZ = pinchGesture.scale * CGFloat((trackedObject.scale.z))
+                trackedObject.scale = SCNVector3Make(Float(pinchScaleX), Float(pinchScaleY), Float(pinchScaleZ))
+                pinchGesture.scale = 1
+            }
+        case .ended:
+            trackedObject = nil
+        default:
+            break
+        }
+    }
+    
+    @objc func userRotatedScreen(_ rotateGesture: UIRotationGestureRecognizer) {
+        let location = rotateGesture.location(in: sceneView)
+        let acUnitBitMask = HitTestType.acUnit.rawValue
+        
+        switch rotateGesture.state {
+        case .began:
+            if sceneView.hitTest(
+                location,
+                options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
+            ).first != nil {
+                //user is pinching AC unit
+                trackedObject = currentACUnitNode
+            }
+        case .changed:
+            if let trackedObject = trackedObject,
+               sceneView.hitTest(
+                location,
+                options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
+               ).first != nil {
+                
+                trackedObject.eulerAngles.z =  -(currentAngleZ + Float(rotateGesture.rotation))
+            }
+        case .ended:
+            currentAngleZ = trackedObject?.eulerAngles.z ?? 0
+            trackedObject = nil
+        default:
+            break
+        }
+    }
+    
+    private func removeGestureRecognizersFromView() {
+        //call when user has finished placing AC unit
+        for gestureRecognizer in sceneView.gestureRecognizers ?? [] {
+            sceneView.removeGestureRecognizer(gestureRecognizer)
+        }
+    }
 }
 
 extension ARQuoteViewController: VerticalAnchorCoachingViewDelegate {
