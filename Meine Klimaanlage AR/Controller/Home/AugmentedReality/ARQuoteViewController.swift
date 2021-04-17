@@ -202,7 +202,7 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
                   let pointOfView = sceneView.pointOfView else {
                 fatalError("Could not get currentFrame or pointOfView")
             }
-            
+            currentACUnitNode = acUnit
             
             //set bit mask so it can be located in hit test
             acUnit.categoryBitMask = HitTestType.acUnit.rawValue
@@ -211,11 +211,9 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
             
             acUnit.load()
             
-            currentACUnitNode = acUnit
-            
-            let dimension: CGFloat = 2
+            let dimension: CGFloat = 1
             let plane = SCNPlane(width: dimension, height: dimension)
-            plane.firstMaterial?.diffuse.contents = UIImage(named: "grid")
+            plane.firstMaterial?.diffuse.contents = UIColor.clear
             plane.cornerRadius = dimension / 2
             plane.firstMaterial?.isDoubleSided = true
             plane.firstMaterial?.blendMode = .max
@@ -225,11 +223,9 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
             planeNode.eulerAngles = SCNVector3(0, pointOfViewEulerAngle.y, 0)
             planeNode.categoryBitMask = HitTestType.plane.rawValue
             
-            
             planeNode.addChildNode(acUnit)
             
             sceneView.scene.rootNode.addChildNode(planeNode)
-            
         }
     }
     
