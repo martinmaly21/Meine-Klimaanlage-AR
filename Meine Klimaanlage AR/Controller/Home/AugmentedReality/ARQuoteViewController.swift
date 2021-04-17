@@ -238,9 +238,11 @@ extension ARQuoteViewController {
             if let hitTestResult = sceneView.hitTest(
                 location,
                 options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-            ).first {
+            ).first,
+            let acUnit = hitTestResult.node.parent,
+            acUnit.isEqual(currentACUnitNode) {
                 //user is panning AC unit
-                trackedObject = currentACUnitNode
+                trackedObject = acUnit
                 
                 previousPanCoordinate = CGPoint(
                     x: Double(hitTestResult.worldCoordinates.x),
@@ -253,7 +255,9 @@ extension ARQuoteViewController {
                let hitTestResult = sceneView.hitTest(
                 location,
                 options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-               ).first {
+               ).first,
+               let acUnit = hitTestResult.node.parent,
+               acUnit.isEqual(trackedObject) {
                 let coordx = hitTestResult.worldCoordinates.x
                 let coordy = hitTestResult.worldCoordinates.y
                 
@@ -288,19 +292,23 @@ extension ARQuoteViewController {
         
         switch pinchGesture.state {
         case .began:
-            if sceneView.hitTest(
+            if let hitTestResult = sceneView.hitTest(
                 location,
                 options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-            ).first != nil {
+            ).first,
+            let acUnit = hitTestResult.node.parent,
+            acUnit.isEqual(currentACUnitNode) {
                 //user is pinching AC unit
-                trackedObject = currentACUnitNode
+                trackedObject = acUnit
             }
         case .changed:
             if let trackedObject = trackedObject,
-               sceneView.hitTest(
+               let hitTestResult = sceneView.hitTest(
                 location,
                 options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-               ).first != nil {
+               ).first,
+               let acUnit = hitTestResult.node.parent,
+               acUnit.isEqual(trackedObject) {
                 let pinchScaleX = pinchGesture.scale * CGFloat((trackedObject.scale.x))
                 let pinchScaleY = pinchGesture.scale * CGFloat((trackedObject.scale.y))
                 let pinchScaleZ = pinchGesture.scale * CGFloat((trackedObject.scale.z))
@@ -320,20 +328,23 @@ extension ARQuoteViewController {
         
         switch rotateGesture.state {
         case .began:
-            if sceneView.hitTest(
+            if let hitTestResult = sceneView.hitTest(
                 location,
                 options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-            ).first != nil {
+            ).first,
+            let acUnit = hitTestResult.node.parent,
+            acUnit.isEqual(currentACUnitNode) {
                 //user is pinching AC unit
-                trackedObject = currentACUnitNode
+                trackedObject = acUnit
             }
         case .changed:
             if let trackedObject = trackedObject,
-               sceneView.hitTest(
+               let hitTestResult = sceneView.hitTest(
                 location,
                 options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-               ).first != nil {
-                
+               ).first,
+               let acUnit = hitTestResult.node.parent,
+               acUnit.isEqual(trackedObject) {
                 trackedObject.eulerAngles.z =  -(currentAngleZ + Float(rotateGesture.rotation))
             }
         case .ended:
