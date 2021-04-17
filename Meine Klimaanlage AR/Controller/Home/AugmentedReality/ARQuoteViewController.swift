@@ -389,6 +389,10 @@ extension ARQuoteViewController {
     }
     
     private func userPressedChooseWire()  {
+        let chooseWireVC = ChooseTypeOfWireViewController()
+        let navigationController = UINavigationController(rootViewController: chooseWireVC)
+        
+        present(navigationController, animated: true, completion: nil)
     }
     
     private func userPressedChooseACUnit()  {

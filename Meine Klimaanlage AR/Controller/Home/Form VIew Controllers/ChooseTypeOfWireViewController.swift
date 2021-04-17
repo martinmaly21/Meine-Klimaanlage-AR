@@ -43,13 +43,30 @@ class ChooseTypeOfWireViewController: UIViewController {
     private func setUpNavBar(){
         self.title = "Choose Wire"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Choose", style: .done, target: self, action: #selector(didPressSave))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Choose",
+            style: .done,
+            target: self,
+            action: #selector(didPressSave)
+        )
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "Cancel",
+            style: .plain,
+            target: self,
+            action: #selector(didPressCancel)
+        )
     }
     
     @objc func didPressSave() {
         let wire = ACWire(wireType: wireType, wireLocation: wireLocation)
         arViewController.quote.wires.append(wire)
         arViewController.appState = .placingWire
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func didPressCancel() {
         dismiss(animated: true, completion: nil)
     }
     
