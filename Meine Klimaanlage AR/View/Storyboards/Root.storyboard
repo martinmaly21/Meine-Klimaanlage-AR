@@ -432,29 +432,56 @@
                                     <action selector="userPressedReset" destination="aSl-4Q-Fix" eventType="touchUpInside" id="o3F-Mq-FC5"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="A7A-bt-xqQ">
-                                <rect key="frame" x="10" y="682" width="394" height="111"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="A7A-bt-xqQ">
+                                <rect key="frame" x="10" y="610" width="394" height="183"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWo-ow-S9W">
-                                        <rect key="frame" x="14" y="0.0" width="366" height="61"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag, rotate, or pinch the unit to reposition it. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkU-4o-D5d">
-                                                <rect key="frame" x="10" y="10" width="346" height="41"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="BkU-4o-D5d" firstAttribute="top" secondItem="dWo-ow-S9W" secondAttribute="top" constant="10" id="Wxm-JM-4lc"/>
-                                            <constraint firstItem="BkU-4o-D5d" firstAttribute="leading" secondItem="dWo-ow-S9W" secondAttribute="leading" constant="10" id="X2e-Xj-lnL"/>
-                                            <constraint firstAttribute="bottom" secondItem="BkU-4o-D5d" secondAttribute="bottom" constant="10" id="mT2-MB-9bz"/>
-                                            <constraint firstAttribute="trailing" secondItem="BkU-4o-D5d" secondAttribute="trailing" constant="10" id="tOL-EG-HqQ"/>
-                                        </constraints>
-                                    </view>
+                                    <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toe-VE-Th5">
+                                        <rect key="frame" x="1" y="0.0" width="392.5" height="128"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rje-Kl-W31">
+                                            <rect key="frame" x="0.0" y="0.0" width="392.5" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahb-MS-bdY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="392.5" height="128"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jda-o2-pvF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="392.5" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag, rotate, or pinch the unit to reposition it. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkU-4o-D5d">
+                                                                <rect key="frame" x="10" y="10" width="372.5" height="108"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                <color key="textColor" name="PrimaryTextDark"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="BkU-4o-D5d" secondAttribute="bottom" constant="10" id="8GX-mW-4Ar"/>
+                                                            <constraint firstItem="BkU-4o-D5d" firstAttribute="leading" secondItem="Jda-o2-pvF" secondAttribute="leading" constant="10" id="l1W-JX-Eio"/>
+                                                            <constraint firstAttribute="trailing" secondItem="BkU-4o-D5d" secondAttribute="trailing" constant="10" id="liM-Sh-Gyu"/>
+                                                            <constraint firstItem="BkU-4o-D5d" firstAttribute="top" secondItem="Jda-o2-pvF" secondAttribute="top" constant="10" id="mgQ-fJ-bHc"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <vibrancyEffect>
+                                                        <blurEffect style="regular"/>
+                                                    </vibrancyEffect>
+                                                </visualEffectView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ahb-MS-bdY" secondAttribute="trailing" id="3n1-hg-2Lp"/>
+                                                <constraint firstItem="ahb-MS-bdY" firstAttribute="leading" secondItem="rje-Kl-W31" secondAttribute="leading" id="Dmo-Ma-KQk"/>
+                                                <constraint firstItem="ahb-MS-bdY" firstAttribute="top" secondItem="rje-Kl-W31" secondAttribute="top" id="Kpf-AK-t4p"/>
+                                                <constraint firstAttribute="bottom" secondItem="ahb-MS-bdY" secondAttribute="bottom" id="yAc-4s-M60"/>
+                                            </constraints>
+                                        </view>
+                                        <blurEffect style="regular"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </visualEffectView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEQ-hw-PnD">
-                                        <rect key="frame" x="107" y="71" width="180" height="40"/>
+                                        <rect key="frame" x="107" y="143" width="180" height="40"/>
                                         <color key="backgroundColor" name="PrimaryBlue"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Jej-Ot-Hlp"/>
