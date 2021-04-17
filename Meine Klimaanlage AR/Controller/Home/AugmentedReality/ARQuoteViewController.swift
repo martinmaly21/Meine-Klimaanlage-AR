@@ -126,6 +126,9 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
     }
     
     private func addVerticalAnchorCoachingView() {
+        //hide reset button
+        resetButton.isHidden = true
+        
         //show coaching thing
         let verticalAnchorCoachingView = VerticalAnchorCoachingView()
         verticalAnchorCoachingView.delegate = self
@@ -175,6 +178,9 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
             
             //give user option to confirm the position after they've manipulated it
             confirmPositionStackView.isHidden = false
+            
+            //show reset button
+            resetButton.isHidden = false
         }
     }
     
