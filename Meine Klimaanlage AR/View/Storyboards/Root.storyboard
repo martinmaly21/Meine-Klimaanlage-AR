@@ -14,7 +14,7 @@
         <!--Home-->
         <scene sceneID="LHS-Js-qrL">
             <objects>
-                <navigationController id="MY4-LV-bkY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ChooseUnitNavigationController" id="MY4-LV-bkY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="BxK-eH-dCL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mvJ-jQ-ORI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -506,17 +506,16 @@
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SkP-Hv-6Oz">
                                 <rect key="frame" x="10" y="705" width="394" height="88"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBB-Ci-NPS">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQd-a2-HRi">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="40"/>
                                         <color key="backgroundColor" name="PrimaryBlue"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Iw5-1E-rMc"/>
+                                            <constraint firstAttribute="height" constant="40" id="ahg-To-UGs"/>
                                         </constraints>
                                         <color key="tintColor" name="PrimaryTextLight"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="Add wire or AC unit">
+                                        <state key="normal" title="Add object..." image="plus.circle" catalog="system">
                                             <color key="titleColor" name="PrimaryTextLight"/>
-                                            <imageReference key="image" image="plus.circle" catalog="system" renderingMode="template"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -524,7 +523,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="userPressedAddWireOrACUnit" destination="aSl-4Q-Fix" eventType="touchUpInside" id="7Vn-Gg-y3Z"/>
+                                            <action selector="userPressedAddObject" destination="aSl-4Q-Fix" eventType="touchUpInside" id="ISM-zE-0sC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkf-0u-DO5">
@@ -644,7 +643,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5ZE-pj-ldQ"/>
                     <connections>
-                        <outlet property="addNodeOrFinishStackView" destination="SkP-Hv-6Oz" id="9Di-2e-dYe"/>
+                        <outlet property="addUnitOrFinishStackView" destination="SkP-Hv-6Oz" id="9Di-2e-dYe"/>
                         <outlet property="captureStackView" destination="pr8-hH-GG5" id="ESn-QX-x8N"/>
                         <outlet property="confirmPositionStackView" destination="A7A-bt-xqQ" id="xvk-rz-NuL"/>
                         <outlet property="resetButton" destination="dfm-lf-vQV" id="7TH-OA-0Xq"/>

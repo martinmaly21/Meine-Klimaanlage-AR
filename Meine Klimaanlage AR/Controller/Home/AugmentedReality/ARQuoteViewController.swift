@@ -14,7 +14,7 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var confirmPositionStackView: UIStackView!
-    @IBOutlet weak var addNodeOrFinishStackView: UIStackView!
+    @IBOutlet weak var addUnitOrFinishStackView: UIStackView!
     @IBOutlet weak var captureStackView: UIStackView!
     
     //UI Elements
@@ -62,16 +62,6 @@ class ARQuoteViewController: UIViewController {
         
         // Prevent the screen from being dimmed to avoid interuppting the AR experience.
         UIApplication.shared.isIdleTimerDisabled = true
-        
-        //add gesture recognizers
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(userPannedScreen(_:)))
-        sceneView.addGestureRecognizer(panGestureRecognizer)
-        
-        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(userPinchedScreen(_:)))
-        sceneView.addGestureRecognizer(pinchGestureRecognizer)
-        
-        let rotateGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(userRotatedScreen(_:)))
-        sceneView.addGestureRecognizer(rotateGestureRecognizer)
     }
     
     private func setUpCoachingOverlay() {
@@ -127,9 +117,12 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         addVerticalAnchorCoachingView()
     }
     
-    private func addVerticalAnchorCoachingView() {
+    public func
+    addVerticalAnchorCoachingView() {
         //hide reset button
         resetButton.isHidden = true
+        //and hide the addObjecttOrFinishStackView (in case it's the second unit that's being added)
+        addUnitOrFinishStackView.isHidden = true
         
         //show coaching thing
         let verticalAnchorCoachingView = VerticalAnchorCoachingView()
@@ -146,46 +139,61 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
     }
     
     private func addACUnit() {
-        if let filePath = Bundle.main.path(forResource: currentACUnit.fileName, ofType: "scn", inDirectory: "ACUnits.scnassets") {
-            let referenceURL = URL(fileURLWithPath: filePath)
-            
-            guard let acUnit = SCNReferenceNode(url: referenceURL),
-                  let pointOfView = sceneView.pointOfView else {
-                fatalError("Could not get currentFrame or pointOfView")
-            }
-            currentACUnitNode = acUnit
-            
-            //set bit mask so it can be located in hit test
-            acUnit.categoryBitMask = HitTestType.acUnit.rawValue
-            
-            let pointOfViewEulerAngle = pointOfView.eulerAngles
-            
-            acUnit.load()
-            
-            let dimension: CGFloat = 1
-            let plane = SCNPlane(width: dimension, height: dimension)
-            plane.firstMaterial?.diffuse.contents = UIColor.clear
-            plane.cornerRadius = dimension / 2
-            plane.firstMaterial?.isDoubleSided = true
-            plane.firstMaterial?.blendMode = .max
-            
-            let planeNode = SCNNode(geometry: plane)
-            planeNode.transform = pointOfView.transform
-            planeNode.eulerAngles = SCNVector3(0, pointOfViewEulerAngle.y, 0)
-            planeNode.categoryBitMask = HitTestType.plane.rawValue
-            
-            planeNode.addChildNode(acUnit)
-            
-            sceneView.scene.rootNode.addChildNode(planeNode)
-            
-            //give user option to confirm the position after they've manipulated it
-            confirmPositionStackView.isHidden = false
-            
-            //show reset button
-            resetButton.isHidden = false
+        //add gesutre recognizers so user can pan unit
+        addGestureRecognizers()
+        
+        guard let filePath = Bundle.main.path(forResource: currentACUnit.fileName, ofType: "scn", inDirectory: "ACUnits.scnassets") else {
+            fatalError("Could not get AC Uni from filet")
         }
+        let referenceURL = URL(fileURLWithPath: filePath)
+        
+        guard let acUnit = SCNReferenceNode(url: referenceURL),
+              let pointOfView = sceneView.pointOfView else {
+            fatalError("Could not get currentFrame or pointOfView")
+        }
+        currentACUnitNode = acUnit
+        
+        //set bit mask so it can be located in hit test
+        acUnit.categoryBitMask = HitTestType.acUnit.rawValue
+        
+        let pointOfViewEulerAngle = pointOfView.eulerAngles
+        
+        acUnit.load()
+        
+        let dimension: CGFloat = 1
+        let plane = SCNPlane(width: dimension, height: dimension)
+        plane.firstMaterial?.diffuse.contents = UIColor.clear
+        plane.cornerRadius = dimension / 2
+        plane.firstMaterial?.isDoubleSided = true
+        plane.firstMaterial?.blendMode = .max
+        
+        let planeNode = SCNNode(geometry: plane)
+        planeNode.transform = pointOfView.transform
+        planeNode.eulerAngles = SCNVector3(0, pointOfViewEulerAngle.y, 0)
+        planeNode.categoryBitMask = HitTestType.plane.rawValue
+        
+        planeNode.addChildNode(acUnit)
+        
+        sceneView.scene.rootNode.addChildNode(planeNode)
+        
+        //give user option to confirm the position after they've manipulated it
+        confirmPositionStackView.isHidden = false
+        
+        //show reset button
+        resetButton.isHidden = false
     }
     
+    private func addGestureRecognizers() {
+        //add gesture recognizers
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(userPannedScreen(_:)))
+        sceneView.addGestureRecognizer(panGestureRecognizer)
+        
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(userPinchedScreen(_:)))
+        sceneView.addGestureRecognizer(pinchGestureRecognizer)
+        
+        let rotateGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(userRotatedScreen(_:)))
+        sceneView.addGestureRecognizer(rotateGestureRecognizer)
+    }
 }
 
 //MARK: - gesture recognizer stuff
@@ -341,15 +349,58 @@ extension ARQuoteViewController {
         removeGestureRecognizersFromView()
         
         //show stack view so user can eiher add or
-        addNodeOrFinishStackView.isHidden = false
+        addUnitOrFinishStackView.isHidden = false
     }
     
-    @IBAction func userPressedAddWireOrACUnit() {
-        //TODO
+    @IBAction func userPressedAddObject() {
+        let actionSheet = UIAlertController(
+            title: "Add object",
+            message: "Choose object to add",
+            preferredStyle: .actionSheet
+        )
+        
+        let wireAction = UIAlertAction(
+            title: "Wire",
+            style: .default,
+            handler: { _ in
+                self.userPressedChooseWire()
+            }
+        )
+        
+        let acUnitAction = UIAlertAction(
+            title: "AC Unit",
+            style: .default,
+            handler: { _ in
+                self.userPressedChooseACUnit()
+            }
+        )
+        
+        let cancelAction = UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil
+        )
+        
+        actionSheet.addAction(wireAction)
+        actionSheet.addAction(acUnitAction)
+        actionSheet.addAction(cancelAction)
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    private func userPressedChooseWire()  {
+    }
+    
+    private func userPressedChooseACUnit()  {
+        guard let viewControllerToPresent = storyboard?.instantiateViewController(identifier: "ChooseUnitNavigationController") else {
+            fatalError("could not get viewControllerToPresent")
+        }
+        
+        present(viewControllerToPresent, animated: true, completion: nil)
     }
     
     @IBAction func userPressedFinish() {
-        addNodeOrFinishStackView.isHidden = true
+        addUnitOrFinishStackView.isHidden = true
         //show screenshot stack
         captureStackView.isHidden = false
     }

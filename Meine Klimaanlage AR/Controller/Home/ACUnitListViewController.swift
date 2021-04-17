@@ -73,7 +73,22 @@ extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
         
         let selectedUnit = units[indexPath.row - 1]
         if selectedUnit.displayName == "Wandgerät Baureihe TZ" {
-            performSegue(withIdentifier: "newQuoteSegue", sender: selectedUnit)
+            
+            if let tabBarController = presentingViewController as? UITabBarController,
+               let navigationController = tabBarController.selectedViewController as? UINavigationController,
+               let arQuoteViewController = navigationController.topViewController as? ARQuoteViewController {
+                //user is selecting a second/third or fourth unit!
+                arQuoteViewController.quote.units.append(selectedUnit)
+                
+                dismiss(
+                    animated: true,
+                    completion: {
+                        arQuoteViewController.addVerticalAnchorCoachingView()
+                    }
+                )
+            } else {
+                performSegue(withIdentifier: "newQuoteSegue", sender: selectedUnit)
+            }
         } else {
             ErrorManager.showFeatureNotSupported(on: self)
         }
