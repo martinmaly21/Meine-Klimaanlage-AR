@@ -247,27 +247,21 @@ extension ARQuoteViewController {
                 //user is panning AC unit
                 trackedObject = acUnit
                 
-                previousPanCoordinateX = hitTestResult.worldCoordinates.x
-                previousPanCoordinateZ = hitTestResult.worldCoordinates.z
+                previousPanCoordinateX = Float(location.x)
+                previousPanCoordinateZ = Float(location.y)
             }
         case .changed:
             if let trackedObject = trackedObject,
                let previousPanCoordinateX = previousPanCoordinateX,
-               let previousPanCoordinateZ = previousPanCoordinateZ,
-               let hitTestResult = sceneView.hitTest(
-                location,
-                options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-               ).first,
-               let acUnit = hitTestResult.node.parent,
-               acUnit.isEqual(trackedObject) {
-                let coordx = hitTestResult.worldCoordinates.x
-                let coordz = hitTestResult.worldCoordinates.z
+               let previousPanCoordinateZ = previousPanCoordinateZ {
+                let coordx = Float(location.x)
+                let coordz = Float(location.y)
                 
                 let action = SCNAction
                     .moveBy(
-                        x: CGFloat(coordx -  previousPanCoordinateX),
-                        y: 0,
-                        z:  CGFloat(coordz - previousPanCoordinateZ),
+                        x: CGFloat(coordx -  previousPanCoordinateX) / 150,
+                        y: -CGFloat(coordz - previousPanCoordinateZ) / 150,
+                        z:  0,
                         duration: 0.1
                     )
                 
