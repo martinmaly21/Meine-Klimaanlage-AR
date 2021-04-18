@@ -41,7 +41,8 @@ class ARQuoteViewController: UIViewController {
     }
     
     //store previous coordinates from hittest to compare with current ones
-    private var previousPanCoordinate: CGPoint?
+    private var previousPanCoordinateX: Float?
+    private var previousPanCoordinateZ: Float?
     private var trackedObject: SCNNode?
     
     //store previous rotation value for rotating object
@@ -243,14 +244,13 @@ extension ARQuoteViewController {
                 //user is panning AC unit
                 trackedObject = acUnit
                 
-                previousPanCoordinate = CGPoint(
-                    x: Double(hitTestResult.worldCoordinates.x),
-                    y: Double(hitTestResult.worldCoordinates.y)
-                )
+                previousPanCoordinateX = hitTestResult.localCoordinates.x
+                previousPanCoordinateZ = hitTestResult.worldCoordinates.z
             }
         case .changed:
             if let trackedObject = trackedObject,
-               let previousPanCoordinate = previousPanCoordinate,
+               let previousPanCoordinateX = previousPanCoordinateX,
+               let previousPanCoordinateZ = previousPanCoordinateZ,
                let hitTestResult = sceneView.hitTest(
                 location,
                 options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
@@ -258,28 +258,27 @@ extension ARQuoteViewController {
                let acUnit = hitTestResult.node.parent,
                acUnit.isEqual(trackedObject) {
                 let coordx = hitTestResult.worldCoordinates.x
-                let coordy = hitTestResult.worldCoordinates.y
+                let coordz = hitTestResult.worldCoordinates.z
                 
                 let action = SCNAction
                     .moveBy(
-                        x: CGFloat(coordx - Float(previousPanCoordinate.x)),
-                        y: CGFloat(coordy - Float(previousPanCoordinate.y)),
-                        z: 0,
+                        x: CGFloat(coordx -  previousPanCoordinateX),
+                        y: 0,
+                        z:  CGFloat(coordz - previousPanCoordinateZ),
                         duration: 0.1
                     )
                 
                 trackedObject.runAction(action)
                 
-                self.previousPanCoordinate = CGPoint(
-                    x: Double(coordx),
-                    y: Double(coordy)
-                )
+                self.previousPanCoordinateX = coordx
+                self.previousPanCoordinateZ = coordz
             }
             
             panGesture.setTranslation(CGPoint.zero, in: sceneView)
         case .ended:
             trackedObject = nil
-            previousPanCoordinate = nil
+            previousPanCoordinateX = nil
+            previousPanCoordinateZ = nil
         default:
             break
         }
