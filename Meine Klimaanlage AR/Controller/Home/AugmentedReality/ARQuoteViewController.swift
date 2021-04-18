@@ -173,13 +173,9 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         //set bit mask so it can be located in hit test
         acUnit.loadedNode.categoryBitMask = HitTestType.acUnit.rawValue
         
-        let pointOfViewEulerAngle = pointOfView.eulerAngles
-        
-       
-        
-        let dimension: CGFloat = 0.1
+        let dimension: CGFloat = 100
         let plane = SCNPlane(width: dimension, height: dimension)
-        plane.firstMaterial?.diffuse.contents = UIColor.clear
+        plane.firstMaterial?.diffuse.contents = UIColor.red
         plane.firstMaterial?.isDoubleSided = true
         
         let planeNode = SCNNode(geometry: plane)
