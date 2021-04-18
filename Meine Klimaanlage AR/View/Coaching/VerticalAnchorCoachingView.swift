@@ -141,7 +141,9 @@ class VerticalAnchorCoachingView: UIView {
         var previousView: UIView?
         
         for (index, instruction) in instructions.enumerated() {
-            let instructionContainerView = UIView()
+            let instructionContainerView = UIImageView()
+            
+            
             
             instructionContainerView.backgroundColor = UIColor.lightGray
             
