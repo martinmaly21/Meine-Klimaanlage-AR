@@ -443,6 +443,8 @@ extension ARQuoteViewController {
         actionSheet.addAction(acUnitAction)
         actionSheet.addAction(cancelAction)
         
+        actionSheet.popoverPresentationController?.sourceView = addUnitOrFinishStackView
+        
         present(actionSheet, animated: true, completion: nil)
     }
     
