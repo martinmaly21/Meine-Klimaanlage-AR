@@ -186,6 +186,11 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         
         let planeNode = SCNNode(geometry: plane)
         planeNode.transform = pointOfView.transform
+        
+        //rotate 90 degrees
+        let rotation = simd_quatf(angle: .pi / 2, axis: SIMD3(x: 1, y: 0, z: 0))
+        planeNode.simdOrientation *= rotation
+        
         planeNode.categoryBitMask = HitTestType.plane.rawValue
         
         planeNode.addChildNode(acUnit)
