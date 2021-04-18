@@ -56,6 +56,9 @@
 		5BDD77CC256B363000EACC68 /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD77CB256B363000EACC68 /* VirtualObjectARView.swift */; };
 		5BDD77CF256B511300EACC68 /* VirtualObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD77CE256B511300EACC68 /* VirtualObjectLoader.swift */; };
 		5BDD77F9256B701000EACC68 /* ThresholdPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD77F8256B701000EACC68 /* ThresholdPanGesture.swift */; };
+		5BE20847262CF25A00F1D56B /* Tutorial0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5BE20844262CF25900F1D56B /* Tutorial0.gif */; };
+		5BE20848262CF25A00F1D56B /* Tutorial1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5BE20845262CF25A00F1D56B /* Tutorial1.gif */; };
+		5BE20849262CF25A00F1D56B /* Tutorial2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5BE20846262CF25A00F1D56B /* Tutorial2.gif */; };
 		5BE8198724BA1E3000C538FF /* ACQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198624BA1E3000C538FF /* ACQuote.swift */; };
 		5BE8198B24BA21E000C538FF /* BeginQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */; };
 		5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */; };
@@ -118,6 +121,9 @@
 		5BDD77CB256B363000EACC68 /* VirtualObjectARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
 		5BDD77CE256B511300EACC68 /* VirtualObjectLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectLoader.swift; sourceTree = "<group>"; };
 		5BDD77F8256B701000EACC68 /* ThresholdPanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdPanGesture.swift; sourceTree = "<group>"; };
+		5BE20844262CF25900F1D56B /* Tutorial0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Tutorial0.gif; sourceTree = "<group>"; };
+		5BE20845262CF25A00F1D56B /* Tutorial1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Tutorial1.gif; sourceTree = "<group>"; };
+		5BE20846262CF25A00F1D56B /* Tutorial2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Tutorial2.gif; sourceTree = "<group>"; };
 		5BE8198624BA1E3000C538FF /* ACQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACQuote.swift; sourceTree = "<group>"; };
 		5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginQuoteViewController.swift; sourceTree = "<group>"; };
 		5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTypeOfWireViewController.swift; sourceTree = "<group>"; };
@@ -315,6 +321,9 @@
 				5B7E6DEB24B6C87D0049CCB9 /* ACUnits.scnassets */,
 				5B0A8A37248D88A900CA4141 /* Colors.xcassets */,
 				5B69D0E1248D70200072002A /* Assets.xcassets */,
+				5BE20844262CF25900F1D56B /* Tutorial0.gif */,
+				5BE20845262CF25A00F1D56B /* Tutorial1.gif */,
+				5BE20846262CF25A00F1D56B /* Tutorial2.gif */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -476,9 +485,12 @@
 				5B09158325451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.xib in Resources */,
 				5BDD140424BB7F8E003A3A98 /* QuoteSummaryViewController.xib in Resources */,
 				5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */,
+				5BE20848262CF25A00F1D56B /* Tutorial1.gif in Resources */,
 				5BE8199024BA2C0800C538FF /* ChooseTypeOfWireViewController.xib in Resources */,
 				5B2C5B10248DB249001B6898 /* Root.storyboard in Resources */,
+				5BE20847262CF25A00F1D56B /* Tutorial0.gif in Resources */,
 				5B69D0E2248D70200072002A /* Assets.xcassets in Resources */,
+				5BE20849262CF25A00F1D56B /* Tutorial2.gif in Resources */,
 				5BDD141024BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib in Resources */,
 				5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */,
 				5B7E6DEC24B6C87D0049CCB9 /* ACUnits.scnassets in Resources */,

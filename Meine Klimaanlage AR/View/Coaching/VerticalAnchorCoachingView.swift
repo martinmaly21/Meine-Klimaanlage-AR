@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FLAnimatedImage
 
 protocol VerticalAnchorCoachingViewDelegate: class {
     func userPressedPlaceACUnit()
@@ -141,19 +142,24 @@ class VerticalAnchorCoachingView: UIView {
         var previousView: UIView?
         
         for (index, instruction) in instructions.enumerated() {
-            let instructionContainerView = UIImageView()
+            let instructionContainerImageView = FLAnimatedImageView()
+            instructionContainerImageView.backgroundColor = UIColor.lightGray
             
+            guard let url = Bundle.main.url(forResource: "Tutorial\(index)", withExtension: "gif"),
+                  let urlData = try? Data(contentsOf: url) else {
+                fatalError("Couldn't get GIF!")
+            }
+            let flImage = FLAnimatedImage(animatedGIFData: urlData)
             
-            
-            instructionContainerView.backgroundColor = UIColor.lightGray
+            instructionContainerImageView.animatedImage = flImage
             
             let instructionNumberLabelContainerView = UIView()
             instructionNumberLabelContainerView.backgroundColor = Constants.Color.primaryWhiteBackground.withAlphaComponent(0.4)
             instructionNumberLabelContainerView.layer.cornerRadius = 10
             instructionNumberLabelContainerView.translatesAutoresizingMaskIntoConstraints = false
-            instructionContainerView.addSubview(instructionNumberLabelContainerView)
-            instructionNumberLabelContainerView.topAnchor.constraint(equalTo: instructionContainerView.topAnchor, constant: 25).isActive = true
-            instructionNumberLabelContainerView.leadingAnchor.constraint(equalTo: instructionContainerView.leadingAnchor, constant: 25).isActive = true
+            instructionContainerImageView.addSubview(instructionNumberLabelContainerView)
+            instructionNumberLabelContainerView.topAnchor.constraint(equalTo: instructionContainerImageView.topAnchor, constant: 25).isActive = true
+            instructionNumberLabelContainerView.leadingAnchor.constraint(equalTo: instructionContainerImageView.leadingAnchor, constant: 25).isActive = true
             
             let instructionNumberLabel = UILabel()
             instructionNumberLabel.textColor = Constants.Color.primaryTextLight
@@ -172,10 +178,10 @@ class VerticalAnchorCoachingView: UIView {
             instructionLabelContainerView.backgroundColor = Constants.Color.primaryWhiteBackground.withAlphaComponent(0.4)
             instructionLabelContainerView.layer.cornerRadius = 10
             instructionLabelContainerView.translatesAutoresizingMaskIntoConstraints = false
-            instructionContainerView.addSubview(instructionLabelContainerView)
-            instructionLabelContainerView.bottomAnchor.constraint(equalTo: instructionContainerView.bottomAnchor, constant: -10).isActive = true
-            instructionLabelContainerView.leadingAnchor.constraint(equalTo: instructionContainerView.leadingAnchor, constant: 25).isActive = true
-            instructionLabelContainerView.trailingAnchor.constraint(equalTo: instructionContainerView.trailingAnchor, constant: -25).isActive = true
+            instructionContainerImageView.addSubview(instructionLabelContainerView)
+            instructionLabelContainerView.bottomAnchor.constraint(equalTo: instructionContainerImageView.bottomAnchor, constant: -10).isActive = true
+            instructionLabelContainerView.leadingAnchor.constraint(equalTo: instructionContainerImageView.leadingAnchor, constant: 25).isActive = true
+            instructionLabelContainerView.trailingAnchor.constraint(equalTo: instructionContainerImageView.trailingAnchor, constant: -25).isActive = true
             
             let instructionLabel = UILabel()
             instructionLabel.textColor = Constants.Color.primaryTextLight
@@ -190,26 +196,26 @@ class VerticalAnchorCoachingView: UIView {
             instructionLabel.trailingAnchor.constraint(equalTo: instructionLabelContainerView.trailingAnchor, constant: -10).isActive = true
             instructionLabel.topAnchor.constraint(equalTo: instructionLabelContainerView.topAnchor, constant: 10).isActive = true
             
-            instructionContainerView.clipsToBounds = true
-            instructionContainerView.isUserInteractionEnabled = true
-            instructionContainerView.translatesAutoresizingMaskIntoConstraints = false
+            instructionContainerImageView.clipsToBounds = true
+            instructionContainerImageView.isUserInteractionEnabled = true
+            instructionContainerImageView.translatesAutoresizingMaskIntoConstraints = false
             
-            videoTutorialScrollView.addSubview(instructionContainerView)
-            instructionContainerView.heightAnchor.constraint(equalTo: videoTutorialScrollView.heightAnchor).isActive = true
-            instructionContainerView.widthAnchor.constraint(equalTo: videoTutorialScrollView.widthAnchor).isActive = true
-            instructionContainerView.centerYAnchor.constraint(equalTo: videoTutorialScrollView.centerYAnchor).isActive = true
+            videoTutorialScrollView.addSubview(instructionContainerImageView)
+            instructionContainerImageView.heightAnchor.constraint(equalTo: videoTutorialScrollView.heightAnchor).isActive = true
+            instructionContainerImageView.widthAnchor.constraint(equalTo: videoTutorialScrollView.widthAnchor).isActive = true
+            instructionContainerImageView.centerYAnchor.constraint(equalTo: videoTutorialScrollView.centerYAnchor).isActive = true
             
             if let previousView = previousView {
-                instructionContainerView.leadingAnchor.constraint(equalTo: previousView.trailingAnchor).isActive = true
+                instructionContainerImageView.leadingAnchor.constraint(equalTo: previousView.trailingAnchor).isActive = true
                 
                 if instruction == instructions.last {
-                    instructionContainerView.trailingAnchor.constraint(equalTo: videoTutorialScrollView.trailingAnchor).isActive = true
+                    instructionContainerImageView.trailingAnchor.constraint(equalTo: videoTutorialScrollView.trailingAnchor).isActive = true
                 }
             } else {
-                instructionContainerView.leadingAnchor.constraint(equalTo: videoTutorialScrollView.leadingAnchor).isActive = true
+                instructionContainerImageView.leadingAnchor.constraint(equalTo: videoTutorialScrollView.leadingAnchor).isActive = true
             }
             
-            previousView = instructionContainerView
+            previousView = instructionContainerImageView
         }
     }
     
