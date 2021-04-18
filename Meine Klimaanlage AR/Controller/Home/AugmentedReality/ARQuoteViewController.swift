@@ -343,7 +343,7 @@ extension ARQuoteViewController {
                ).first,
                let acUnit = hitTestResult.node.parent,
                acUnit.isEqual(trackedObject) {
-                trackedObject.eulerAngles.z =  -(currentAngleZ + Float(rotateGesture.rotation))
+                trackedObject.eulerAngles.y =  currentAngleZ + Float(rotateGesture.rotation)
             }
         case .ended:
             currentAngleZ = trackedObject?.eulerAngles.z ?? 0
