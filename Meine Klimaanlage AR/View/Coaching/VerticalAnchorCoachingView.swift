@@ -154,7 +154,7 @@ class VerticalAnchorCoachingView: UIView {
             instructionContainerImageView.animatedImage = flImage
             
             let instructionNumberLabelContainerView = UIView()
-            instructionNumberLabelContainerView.backgroundColor = Constants.Color.primaryWhiteBackground.withAlphaComponent(0.4)
+            instructionNumberLabelContainerView.backgroundColor = Constants.Color.primaryWhiteBackground.withAlphaComponent(0.8)
             instructionNumberLabelContainerView.layer.cornerRadius = 10
             instructionNumberLabelContainerView.translatesAutoresizingMaskIntoConstraints = false
             instructionContainerImageView.addSubview(instructionNumberLabelContainerView)
@@ -162,7 +162,7 @@ class VerticalAnchorCoachingView: UIView {
             instructionNumberLabelContainerView.leadingAnchor.constraint(equalTo: instructionContainerImageView.leadingAnchor, constant: 25).isActive = true
             
             let instructionNumberLabel = UILabel()
-            instructionNumberLabel.textColor = Constants.Color.primaryTextLight
+            instructionNumberLabel.textColor = Constants.Color.primaryTextDark
             instructionNumberLabel.numberOfLines = 0
             instructionNumberLabel.text = "Step \(index + 1) of \(instructions.count)"
             instructionNumberLabel.textAlignment = .center
@@ -175,7 +175,7 @@ class VerticalAnchorCoachingView: UIView {
             instructionNumberLabel.bottomAnchor.constraint(equalTo: instructionNumberLabelContainerView.bottomAnchor, constant: -10).isActive = true
  
             let instructionLabelContainerView = UIView()
-            instructionLabelContainerView.backgroundColor = Constants.Color.primaryWhiteBackground.withAlphaComponent(0.4)
+            instructionLabelContainerView.backgroundColor = Constants.Color.primaryWhiteBackground.withAlphaComponent(0.8)
             instructionLabelContainerView.layer.cornerRadius = 10
             instructionLabelContainerView.translatesAutoresizingMaskIntoConstraints = false
             instructionContainerImageView.addSubview(instructionLabelContainerView)
@@ -184,7 +184,7 @@ class VerticalAnchorCoachingView: UIView {
             instructionLabelContainerView.trailingAnchor.constraint(equalTo: instructionContainerImageView.trailingAnchor, constant: -25).isActive = true
             
             let instructionLabel = UILabel()
-            instructionLabel.textColor = Constants.Color.primaryTextLight
+            instructionLabel.textColor = Constants.Color.primaryTextDark
             instructionLabel.numberOfLines = 0
             instructionLabel.text = instruction
             instructionLabel.textAlignment = .center
