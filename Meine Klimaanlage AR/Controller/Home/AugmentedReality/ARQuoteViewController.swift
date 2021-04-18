@@ -42,7 +42,7 @@ class ARQuoteViewController: UIViewController {
     
     //store previous coordinates from hittest to compare with current ones
     private var previousPanCoordinateX: Float?
-    private var previousPanCoordinateZ: Float?
+    private var previousPanCoordinateY: Float?
     private var trackedObject: SCNNode?
     
     //store previous rotation value for rotating object
@@ -248,19 +248,19 @@ extension ARQuoteViewController {
                 trackedObject = acUnit
                 
                 previousPanCoordinateX = Float(location.x)
-                previousPanCoordinateZ = Float(location.y)
+                previousPanCoordinateY = Float(location.y)
             }
         case .changed:
             if let trackedObject = trackedObject,
                let previousPanCoordinateX = previousPanCoordinateX,
-               let previousPanCoordinateZ = previousPanCoordinateZ {
+               let previousPanCoordinateY = previousPanCoordinateY {
                 let coordx = Float(location.x)
-                let coordz = Float(location.y)
+                let coordy = Float(location.y)
                 
                 let action = SCNAction
                     .moveBy(
                         x: CGFloat(coordx -  previousPanCoordinateX) / 150,
-                        y: -CGFloat(coordz - previousPanCoordinateZ) / 150,
+                        y: -CGFloat(coordy - previousPanCoordinateY) / 150,
                         z:  0,
                         duration: 0.1
                     )
@@ -268,14 +268,14 @@ extension ARQuoteViewController {
                 trackedObject.runAction(action)
                 
                 self.previousPanCoordinateX = coordx
-                self.previousPanCoordinateZ = coordz
+                self.previousPanCoordinateY = coordy
             }
             
             panGesture.setTranslation(CGPoint.zero, in: sceneView)
         case .ended:
             trackedObject = nil
             previousPanCoordinateX = nil
-            previousPanCoordinateZ = nil
+            previousPanCoordinateY = nil
         default:
             break
         }
@@ -340,7 +340,7 @@ extension ARQuoteViewController {
                ).first,
                let acUnit = hitTestResult.node.parent,
                acUnit.isEqual(trackedObject) {
-                trackedObject.eulerAngles.y =  currentAngleZ + Float(rotateGesture.rotation)
+                trackedObject.eulerAngles.z =  -(currentAngleZ + Float(rotateGesture.rotation))
             }
         case .ended:
             currentAngleZ = trackedObject?.eulerAngles.z ?? 0
