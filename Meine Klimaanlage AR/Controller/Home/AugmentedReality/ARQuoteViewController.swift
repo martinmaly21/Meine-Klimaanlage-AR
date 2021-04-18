@@ -178,14 +178,13 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         
         let dimension: CGFloat = 1
         let plane = SCNPlane(width: dimension, height: dimension)
-        plane.firstMaterial?.diffuse.contents = UIColor.clear
+        plane.firstMaterial?.diffuse.contents = UIColor.green
         plane.cornerRadius = dimension / 2
         plane.firstMaterial?.isDoubleSided = true
         plane.firstMaterial?.blendMode = .max
         
         let planeNode = SCNNode(geometry: plane)
         planeNode.transform = pointOfView.transform
-        planeNode.eulerAngles = SCNVector3(0, pointOfViewEulerAngle.y, 0)
         planeNode.categoryBitMask = HitTestType.plane.rawValue
         
         planeNode.addChildNode(acUnit)
