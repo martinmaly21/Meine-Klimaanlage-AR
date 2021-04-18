@@ -173,6 +173,7 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         //set bit mask so it can be located in hit test
         acUnit.loadedNode.categoryBitMask = HitTestType.acUnit.rawValue
         
+        //assume 100x100 is infinite plane 
         let dimension: CGFloat = 100
         let plane = SCNPlane(width: dimension, height: dimension)
         plane.firstMaterial?.diffuse.contents = UIColor.red
