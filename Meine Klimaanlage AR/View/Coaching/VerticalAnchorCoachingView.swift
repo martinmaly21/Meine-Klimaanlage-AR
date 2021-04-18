@@ -58,8 +58,9 @@ class VerticalAnchorCoachingView: UIView {
         stackViewContainerView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stackViewContainerView)
         
-        stackViewContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        stackViewContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        
+        stackViewContainerView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        stackViewContainerView.widthAnchor.constraint(equalToConstant: 350).isActive = true
         stackViewContainerView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         let stackView = UIStackView()
@@ -86,7 +87,7 @@ class VerticalAnchorCoachingView: UIView {
         videoTutorialScrollView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.addArrangedSubview(videoTutorialScrollView)
-        videoTutorialScrollView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        videoTutorialScrollView.widthAnchor.constraint(equalTo: stackViewContainerView.widthAnchor).isActive = true
         videoTutorialScrollView.heightAnchor.constraint(equalTo: videoTutorialScrollView.widthAnchor).isActive = true
         
         //add content into scroll view
@@ -96,7 +97,7 @@ class VerticalAnchorCoachingView: UIView {
         pageControl.isUserInteractionEnabled = false
         pageControlContainerView.backgroundColor = .systemGray
         pageControlContainerView.translatesAutoresizingMaskIntoConstraints = false
-        pageControlContainerView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        pageControlContainerView.widthAnchor.constraint(equalToConstant: 70).isActive = true
         pageControlContainerView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         pageControlContainerView.layer.cornerRadius = 10
@@ -118,7 +119,7 @@ class VerticalAnchorCoachingView: UIView {
         showNextStepButton.backgroundColor = Constants.Color.primaryBlue
         showNextStepButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         showNextStepButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        showNextStepButton.layer.cornerRadius = 20
+        showNextStepButton.layer.cornerRadius = 25
         showNextStepButton.addTarget(self, action: #selector(userPressedShowNextStep), for: .touchUpInside)
         
         stackView.addArrangedSubview(showNextStepButton)
@@ -142,7 +143,7 @@ class VerticalAnchorCoachingView: UIView {
         for (index, instruction) in instructions.enumerated() {
             let instructionContainerView = UIView()
             
-            instructionContainerView.backgroundColor = UIColor.blue
+            instructionContainerView.backgroundColor = UIColor.lightGray
             
             let instructionNumberLabelContainerView = UIView()
             instructionNumberLabelContainerView.backgroundColor = Constants.Color.primaryWhiteBackground.withAlphaComponent(0.4)
