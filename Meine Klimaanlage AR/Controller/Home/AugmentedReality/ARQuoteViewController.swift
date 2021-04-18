@@ -244,7 +244,7 @@ extension ARQuoteViewController {
                 //user is panning AC unit
                 trackedObject = acUnit
                 
-                previousPanCoordinateX = hitTestResult.localCoordinates.x
+                previousPanCoordinateX = hitTestResult.worldCoordinates.x
                 previousPanCoordinateZ = hitTestResult.worldCoordinates.z
             }
         case .changed:
