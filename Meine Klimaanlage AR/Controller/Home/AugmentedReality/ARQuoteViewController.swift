@@ -177,9 +177,9 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         
        
         
-        let dimension: CGFloat = 3
+        let dimension: CGFloat = 0.1
         let plane = SCNPlane(width: dimension, height: dimension)
-        plane.firstMaterial?.diffuse.contents = UIColor.green
+        plane.firstMaterial?.diffuse.contents = UIColor.clear
         plane.firstMaterial?.isDoubleSided = true
         
         let planeNode = SCNNode(geometry: plane)
