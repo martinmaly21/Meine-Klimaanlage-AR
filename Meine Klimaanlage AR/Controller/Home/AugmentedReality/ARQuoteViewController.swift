@@ -40,6 +40,8 @@ class ARQuoteViewController: UIViewController {
         return loadedACUnitNodes.last
     }
     
+    private var currentPlane: InfinitePlaneNode?
+    
     //store previous coordinates from hittest to compare with current ones
     private var previousPanCoordinateX: Float?
     private var previousPanCoordinateY: Float?
@@ -353,9 +355,9 @@ extension ARQuoteViewController {
             ]
         ).first,
         let acUnitNode = hitTestResult.node.parent,
-        loadedACUnitNodes.contains(acUnitNode) {
-            acUnitNode.removeFromParentNode()
-            
+        loadedACUnitNodes.contains(acUnitNode),
+        let infinitePlaneNode = acUnitNode.grandParent as? InfinitePlaneNode {
+            self.currentPlane = infinitePlaneNode
             removeGestureRecognizersFromView()
         }
     }

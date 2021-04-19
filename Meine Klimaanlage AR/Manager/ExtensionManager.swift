@@ -182,3 +182,9 @@ extension SCNReferenceNode {
         return loadedNode
     }
 }
+
+extension SCNNode {
+    var grandParent: SCNNode? {
+        return parent?.parent
+    }
+}

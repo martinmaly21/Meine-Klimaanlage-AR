@@ -12,18 +12,6 @@ import SpriteKit
 
 class InfinitePlaneNode: SCNNode {
     
-    private var skScene: SKScene = {
-        let scene = SKScene(
-            size: .init(
-                width: Constants.AR.assumedInfinitePlaneDimension * 100,
-                height: Constants.AR.assumedInfinitePlaneDimension * 100
-            )
-        )
-        scene.backgroundColor = .red
-        
-        return scene
-    }()
-    
     override init() {
         super.init()
         //assume 100x100 is infinite plane
@@ -37,7 +25,7 @@ class InfinitePlaneNode: SCNNode {
         //set bit mask so we can hit test for this node
         categoryBitMask = HitTestType.plane.rawValue
         
-        plane.firstMaterial?.diffuse.contents = skScene
+        plane.firstMaterial?.diffuse.contents = UIColor.magenta
         plane.firstMaterial?.isDoubleSided = true
         
         
