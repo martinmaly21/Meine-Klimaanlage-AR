@@ -30,5 +30,9 @@ struct Constants {
         public static let veryLightGrey = UIColor(named: "VeryLightGrey")!
         public static let highlightGrey = UIColor(named: "HighlightGrey")!
     }
+    
+    enum AR {
+        public static let assumedInfinitePlaneDimension: CGFloat = 20
+    }
 }
 

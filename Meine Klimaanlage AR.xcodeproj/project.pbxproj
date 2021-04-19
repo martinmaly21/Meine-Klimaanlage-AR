@@ -59,6 +59,7 @@
 		5BE20847262CF25A00F1D56B /* Tutorial0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5BE20844262CF25900F1D56B /* Tutorial0.gif */; };
 		5BE20848262CF25A00F1D56B /* Tutorial1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5BE20845262CF25A00F1D56B /* Tutorial1.gif */; };
 		5BE20849262CF25A00F1D56B /* Tutorial2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5BE20846262CF25A00F1D56B /* Tutorial2.gif */; };
+		5BE2084C262CFED300F1D56B /* InfinitePlaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2084B262CFED300F1D56B /* InfinitePlaneNode.swift */; };
 		5BE8198724BA1E3000C538FF /* ACQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198624BA1E3000C538FF /* ACQuote.swift */; };
 		5BE8198B24BA21E000C538FF /* BeginQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */; };
 		5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */; };
@@ -124,6 +125,7 @@
 		5BE20844262CF25900F1D56B /* Tutorial0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Tutorial0.gif; sourceTree = "<group>"; };
 		5BE20845262CF25A00F1D56B /* Tutorial1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Tutorial1.gif; sourceTree = "<group>"; };
 		5BE20846262CF25A00F1D56B /* Tutorial2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Tutorial2.gif; sourceTree = "<group>"; };
+		5BE2084B262CFED300F1D56B /* InfinitePlaneNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinitePlaneNode.swift; sourceTree = "<group>"; };
 		5BE8198624BA1E3000C538FF /* ACQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACQuote.swift; sourceTree = "<group>"; };
 		5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginQuoteViewController.swift; sourceTree = "<group>"; };
 		5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTypeOfWireViewController.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */,
 				5BC6BBBA256F532000945523 /* WireCursor.swift */,
 				5BDD77CB256B363000EACC68 /* VirtualObjectARView.swift */,
+				5BE2084B262CFED300F1D56B /* InfinitePlaneNode.swift */,
 			);
 			path = ARViews;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				5BDD77AF256ABBD700EACC68 /* AppState.swift in Sources */,
 				5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */,
 				5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */,
+				5BE2084C262CFED300F1D56B /* InfinitePlaneNode.swift in Sources */,
 				5B6DED482569CDC700FF66A5 /* ARQuoteViewController.swift in Sources */,
 				5B12389625410B2200A809D9 /* ShadowButton.swift in Sources */,
 				5B835C052627C5920031698A /* VerticalAnchorCoachingView.swift in Sources */,

@@ -172,25 +172,17 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         
         //set bit mask so it can be located in hit test
         acUnit.loadedNode.categoryBitMask = HitTestType.acUnit.rawValue
+
         
-        //assume 100x100 is infinite plane 
-        let dimension: CGFloat = 100
-        let plane = SCNPlane(width: dimension, height: dimension)
-        plane.firstMaterial?.diffuse.contents = UIColor.red
-        plane.firstMaterial?.isDoubleSided = true
-        
-        let planeNode = SCNNode(geometry: plane)
-        planeNode.transform = pointOfView.transform
+        let infinitePlaneNode = InfinitePlaneNode()
+        infinitePlaneNode.transform = pointOfView.transform
         
         //rotate 90 degrees
         let rotation = simd_quatf(angle: .pi / 2, axis: SIMD3(x: 1, y: 0, z: 0))
-        planeNode.simdOrientation *= rotation
-        
-        planeNode.categoryBitMask = HitTestType.plane.rawValue
-        
-        planeNode.addChildNode(acUnit)
-        
-        sceneView.scene.rootNode.addChildNode(planeNode)
+        infinitePlaneNode.simdOrientation *= rotation
+    
+        infinitePlaneNode.addChildNode(acUnit)
+        sceneView.scene.rootNode.addChildNode(infinitePlaneNode)
         
         //give user option to confirm the position after they've manipulated it
         confirmPositionStackView.isHidden = false
