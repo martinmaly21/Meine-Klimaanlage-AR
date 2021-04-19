@@ -50,9 +50,17 @@ class ARQuoteViewController: UIViewController {
     private var currentPlane: InfinitePlaneNode?
     
     private var wireCursor: WireCursor?
-    private var wireSegmentVertexPositions = [SCNVector3]()
-    private var confirmedWireSegments = [WireSegment]()
+    private var wireSegmentVertexPositions = [[SCNVector3]]()
+    private var confirmedWireSegments = [[WireSegment]]()
     private var currentWireSegment: WireSegment?
+    
+    private var currentWireSegmentVertexPositions: [SCNVector3] {
+        return wireSegmentVertexPositions.last ?? []
+    }
+    
+    private var currentConfirmedWireSegments: [WireSegment] {
+        return confirmedWireSegments.last ?? []
+    }
     
     //store previous coordinates from hittest to compare with current ones
     private var previousPanCoordinateX: Float?
@@ -146,6 +154,10 @@ class ARQuoteViewController: UIViewController {
     }
     
     public func userChoseWire() {
+        //prepare some fresh arrays for the next wires to be added
+        wireSegmentVertexPositions.append([])
+        confirmedWireSegments.append([])
+        
         tapOnUnitToPlaceWireStackView.isHidden = false
         addUnitOrFinishStackView.isHidden = true
         
@@ -408,10 +420,10 @@ extension ARQuoteViewController: ARSCNViewDelegate {
                     
                     if let wireCursor = self.wireCursor {
                         
-                        if let mostRecentPosition = self.wireSegmentVertexPositions.last {
+                        if let mostRecentPosition = self.currentWireSegmentVertexPositions.last {
                             
                             if let currentWireSegment = self.currentWireSegment,
-                               !self.confirmedWireSegments.contains(currentWireSegment) {
+                               !self.currentConfirmedWireSegments.contains(currentWireSegment) {
                                 currentWireSegment.removeFromParentNode()
                             }
                             
@@ -512,10 +524,18 @@ extension ARQuoteViewController {
         guard let wireCursorPosition = wireCursor?.position else {
             fatalError("Couldn't get position of wireCursor")
         }
-        wireSegmentVertexPositions.append(wireCursorPosition)
+        //append to the last
+        if var currentWireSegmentVertexPositions = wireSegmentVertexPositions.last {
+            currentWireSegmentVertexPositions.append(wireCursorPosition)
+            wireSegmentVertexPositions.removeLast()
+            wireSegmentVertexPositions.append(currentWireSegmentVertexPositions)
+        }
         
-        if let currentWireSegment = currentWireSegment {
-            confirmedWireSegments.append(currentWireSegment)
+        if let currentWireSegment = currentWireSegment,
+           var currentConfirmedWireSegments = confirmedWireSegments.last {
+            currentConfirmedWireSegments.append(currentWireSegment)
+            confirmedWireSegments.removeLast()
+            confirmedWireSegments.append(currentConfirmedWireSegments)
         }
     }
     
@@ -525,6 +545,9 @@ extension ARQuoteViewController {
         placeWireStackView.isHidden = true
         
         currentPlane = nil
+        
+        //remove wire cursor
+        wireCursor?.removeFromParentNode()
         wireCursor = nil
     }
     
