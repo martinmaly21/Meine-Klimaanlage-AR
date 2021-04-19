@@ -25,10 +25,8 @@ class InfinitePlaneNode: SCNNode {
         //set bit mask so we can hit test for this node
         categoryBitMask = HitTestType.plane.rawValue
         
-        plane.firstMaterial?.diffuse.contents = UIColor.magenta
+        plane.firstMaterial?.diffuse.contents = UIColor.clear
         plane.firstMaterial?.isDoubleSided = true
-        
-        
     }
     
     required init?(coder: NSCoder) {

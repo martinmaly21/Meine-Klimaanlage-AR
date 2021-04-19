@@ -377,7 +377,33 @@ extension ARQuoteViewController: VerticalAnchorCoachingViewDelegate {
 }
 
 extension ARQuoteViewController: ARSCNViewDelegate {
-    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        DispatchQueue.main.async {
+            if let currentPlane = self.currentPlane {
+                //user is placing wire
+                if let hitTestResult = self.sceneView.hitTest(
+                    self.sceneView.center,
+                    options: [
+                        SCNHitTestOption.categoryBitMask : HitTestType.plane.rawValue
+                    ]
+                ).first {
+                    let locationOfIntersection = hitTestResult.localCoordinates
+                    
+                    let circlePlane = SCNPlane(width: 0.1, height: 0.1)
+                   
+                    circlePlane.firstMaterial?.diffuse.contents = UIColor.red
+                    circlePlane.firstMaterial?.isDoubleSided = true
+                    
+                    let circleNode = SCNNode(geometry: circlePlane)
+                    circleNode.categoryBitMask = HitTestType.wire.rawValue
+                    
+                    currentPlane.addChildNode(circleNode)
+                    
+                    circleNode.position = locationOfIntersection
+                }
+            }
+        }
+    }
 }
 
 extension ARQuoteViewController: ARSessionDelegate {
