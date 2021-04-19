@@ -34,6 +34,13 @@ class ARQuoteViewController: UIViewController {
         return currentACUnit
     }
     
+    private var currentWire: ACWire {
+        guard let currentWire = quote.wires.last else {
+            fatalError("Could not get current wire")
+        }
+        return currentWire
+    }
+    
     private var loadedACUnitNodes: [SCNNode] = []
     
     private var currentACUnitNode: SCNNode? {
@@ -43,7 +50,9 @@ class ARQuoteViewController: UIViewController {
     private var currentPlane: InfinitePlaneNode?
     
     private var wireCursor: WireCursor?
-    private var wireVertexPositions = [CGPoint]()
+    private var wireVertexPositions = [SCNVector3]()
+    private var confirmedWireSegments = [WireSegment]()
+    private var currentWireSegment: WireSegment?
     
     //store previous coordinates from hittest to compare with current ones
     private var previousPanCoordinateX: Float?
@@ -397,12 +406,31 @@ extension ARQuoteViewController: ARSCNViewDelegate {
                 ).first {
                     let locationOfIntersection = hitTestResult.localCoordinates
                     
-                    if let wireCursor = self.wireCursor,
-                       self.wireVertexPositions.isEmpty {
-                        wireCursor.position = locationOfIntersection
-                        wireCursor.position.z = 0.1
-                    } else if !self.wireVertexPositions.isEmpty {
-                        //TODO
+                    if let wireCursor = self.wireCursor {
+                        
+                        if let mostRecentPosition = self.wireVertexPositions.last {
+                            
+                            if let currentWireSegment = self.currentWireSegment,
+                               !self.confirmedWireSegments.contains(currentWireSegment) {
+                                currentWireSegment.removeFromParentNode()
+                            }
+                            
+                            let wireSegment = WireSegment(
+                                from: mostRecentPosition,
+                                to: wireCursor.position,
+                                radius: 0.01,
+                                color: self.currentWire.getWireColor(),
+                                dottedLine: self.currentWire.wireLocation == .insideWall
+                            )
+                            currentPlane.addChildNode(wireSegment)
+                            
+                            wireSegment.buildLineInTwoPointsWithRotation()
+                            
+                            self.currentWireSegment = wireSegment
+                        }
+                            wireCursor.position = locationOfIntersection
+                            wireCursor.position.z = 0.1
+                        
                     } else {
                         self.wireCursor = WireCursor()
                         
@@ -481,7 +509,11 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedPlaceWire() {
-        //TODO
+        guard let wireCursorPosition = wireCursor?.position else {
+            fatalError("Couldn't get position of wireCursor")
+        }
+        
+        wireVertexPositions.append(wireCursorPosition)
     }
     
     @IBAction func userPressedDonePlacingWire() {
