@@ -444,7 +444,7 @@
                                                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahb-MS-bdY">
                                                     <rect key="frame" x="0.0" y="0.0" width="392.5" height="128"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jda-o2-pvF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="392.5" height="128"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag, rotate, or pinch the unit to reposition it. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkU-4o-D5d">
@@ -735,7 +735,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on the AC unit this wire should be attached to." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOQ-HE-SKz">
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on the 'Add wire' button to add the wire. Tap 'Done' when you're finished." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOQ-HE-SKz">
                                                                 <rect key="frame" x="10" y="10" width="374" height="108"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                 <color key="textColor" name="PrimaryTextDark"/>
