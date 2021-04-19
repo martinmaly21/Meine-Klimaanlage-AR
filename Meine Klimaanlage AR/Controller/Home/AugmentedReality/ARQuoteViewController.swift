@@ -42,6 +42,9 @@ class ARQuoteViewController: UIViewController {
     
     private var currentPlane: InfinitePlaneNode?
     
+    private var wireCursor: WireCursor?
+    private var wireVertexPositions = [CGPoint]()
+    
     //store previous coordinates from hittest to compare with current ones
     private var previousPanCoordinateX: Float?
     private var previousPanCoordinateY: Float?
@@ -357,7 +360,12 @@ extension ARQuoteViewController {
         let acUnitNode = hitTestResult.node.parent,
         loadedACUnitNodes.contains(acUnitNode),
         let infinitePlaneNode = acUnitNode.grandParent as? InfinitePlaneNode {
+            //update UI for plane being found
+            tapOnUnitToPlaceWireStackView.isHidden = true
+            placeWireStackView.isHidden = false
+            
             self.currentPlane = infinitePlaneNode
+            
             removeGestureRecognizersFromView()
         }
     }
@@ -389,17 +397,20 @@ extension ARQuoteViewController: ARSCNViewDelegate {
                 ).first {
                     let locationOfIntersection = hitTestResult.localCoordinates
                     
-                    let circlePlane = SCNPlane(width: 0.1, height: 0.1)
-                   
-                    circlePlane.firstMaterial?.diffuse.contents = UIColor.red
-                    circlePlane.firstMaterial?.isDoubleSided = true
-                    
-                    let circleNode = SCNNode(geometry: circlePlane)
-                    circleNode.categoryBitMask = HitTestType.wire.rawValue
-                    
-                    currentPlane.addChildNode(circleNode)
-                    
-                    circleNode.position = locationOfIntersection
+                    if let wireCursor = self.wireCursor,
+                       self.wireVertexPositions.isEmpty {
+                        wireCursor.position = locationOfIntersection
+                    } else {
+                        self.wireCursor = WireCursor()
+                        
+                        guard let wireCursor = self.wireCursor else {
+                            fatalError("Could not create wirecursor")
+                        }
+                        
+                        currentPlane.addChildNode(wireCursor)
+                        
+                        self.wireCursor?.position = locationOfIntersection
+                    }
                 }
             }
         }
@@ -470,7 +481,9 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedDonePlacingWire() {
-        //TODO
+        //update UI so user can either add another unit or wire
+        addUnitOrFinishStackView.isHidden = false
+        placeWireStackView.isHidden = true
     }
     
     @IBAction func userPressedFinish() {

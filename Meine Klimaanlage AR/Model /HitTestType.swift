@@ -11,5 +11,6 @@ import Foundation
 enum HitTestType: Int {
     case acUnit = 0b0001
     case plane = 0b0010
-    case wire = 0b0011
+    case wireCursor = 0b0011
+    case wire = 0b00100
 }
