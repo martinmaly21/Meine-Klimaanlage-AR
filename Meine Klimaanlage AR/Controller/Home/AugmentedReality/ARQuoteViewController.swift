@@ -248,6 +248,15 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         
         present(viewControllerToPresent, animated: true, completion: nil)
     }
+
+    private func hideAllUIElements() {
+        resetButton.isHidden = true
+        confirmPositionStackView.isHidden = true
+        addUnitOrFinishStackView.isHidden = true
+        captureStackView.isHidden = true
+        tapOnUnitToPlaceWireStackView.isHidden = true
+        placeWireStackView.isHidden = true
+    }
 }
 
 //MARK: - gesture recognizer stuff
@@ -492,6 +501,9 @@ extension ARQuoteViewController {
         previousPanCoordinateY = nil
         trackedObject = nil
         currentAngleZ = 0.0
+        
+        //hide all existing uii elemnts
+        hideAllUIElements()
         
         //show coaching overlay
         coachingOverlay.setActive(true, animated: true)
