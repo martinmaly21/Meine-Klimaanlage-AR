@@ -50,7 +50,7 @@ class ARQuoteViewController: UIViewController {
     private var currentPlane: InfinitePlaneNode?
     
     private var wireCursor: WireCursor?
-    private var wireVertexPositions = [SCNVector3]()
+    private var wireSegmentVertexPositions = [SCNVector3]()
     private var confirmedWireSegments = [WireSegment]()
     private var currentWireSegment: WireSegment?
     
@@ -408,7 +408,7 @@ extension ARQuoteViewController: ARSCNViewDelegate {
                     
                     if let wireCursor = self.wireCursor {
                         
-                        if let mostRecentPosition = self.wireVertexPositions.last {
+                        if let mostRecentPosition = self.wireSegmentVertexPositions.last {
                             
                             if let currentWireSegment = self.currentWireSegment,
                                !self.confirmedWireSegments.contains(currentWireSegment) {
@@ -512,14 +512,20 @@ extension ARQuoteViewController {
         guard let wireCursorPosition = wireCursor?.position else {
             fatalError("Couldn't get position of wireCursor")
         }
+        wireSegmentVertexPositions.append(wireCursorPosition)
         
-        wireVertexPositions.append(wireCursorPosition)
+        if let currentWireSegment = currentWireSegment {
+            confirmedWireSegments.append(currentWireSegment)
+        }
     }
     
     @IBAction func userPressedDonePlacingWire() {
         //update UI so user can either add another unit or wire
         addUnitOrFinishStackView.isHidden = false
         placeWireStackView.isHidden = true
+        
+        currentPlane = nil
+        wireCursor = nil
     }
     
     @IBAction func userPressedFinish() {
