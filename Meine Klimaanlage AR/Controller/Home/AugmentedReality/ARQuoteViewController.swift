@@ -400,6 +400,9 @@ extension ARQuoteViewController: ARSCNViewDelegate {
                     if let wireCursor = self.wireCursor,
                        self.wireVertexPositions.isEmpty {
                         wireCursor.position = locationOfIntersection
+                        wireCursor.position.z = 0.1
+                    } else if !self.wireVertexPositions.isEmpty {
+                        //TODO
                     } else {
                         self.wireCursor = WireCursor()
                         
@@ -410,6 +413,7 @@ extension ARQuoteViewController: ARSCNViewDelegate {
                         currentPlane.addChildNode(wireCursor)
                         
                         self.wireCursor?.position = locationOfIntersection
+                        self.wireCursor?.position.z = 0.1
                     }
                 }
             }
