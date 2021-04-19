@@ -602,6 +602,8 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedDonePlacingWire() {
+        userPressedPlaceWire()
+        
         //calculate the wire length
         calculateWireLength()
         
