@@ -65,7 +65,7 @@ class ChooseTypeOfWireViewController: UIViewController {
         }
         
         let wire = ACWire(wireType: wireType, wireLocation: wireLocation)
-        arViewController.quote.wires.append(wire)
+        arViewController.currentQuote.wires.append(wire)
         
         dismiss(
             animated: true,

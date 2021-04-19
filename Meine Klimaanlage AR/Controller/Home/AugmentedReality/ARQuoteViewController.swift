@@ -25,17 +25,19 @@ class ARQuoteViewController: UIViewController {
     public var appState: AppState = .noUnitPlaced
     
     //data that is passed in
-    public var quote: ACQuote!
+    public var initialQuote: ACQuote!
+    
+    public var currentQuote: ACQuote!
     
     private var currentACUnit: ACUnit {
-        guard let currentACUnit = quote.units.last else {
+        guard let currentACUnit = currentQuote.units.last else {
             fatalError("Error creating currentACUnit")
         }
         return currentACUnit
     }
     
     private var currentWire: ACWire {
-        guard let currentWire = quote.wires.last else {
+        guard let currentWire = currentQuote.wires.last else {
             fatalError("Could not get current wire")
         }
         return currentWire
@@ -72,6 +74,9 @@ class ARQuoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //set quote to the quote passed in
+        self.currentQuote = initialQuote
+        
         setUpUI()
         setUpScene()
         setUpCoachingOverlay()
@@ -468,7 +473,28 @@ extension ARQuoteViewController: ARSessionDelegate {
 //MARK: -  Button actions
 extension ARQuoteViewController {
     @IBAction func userPressedReset() {
-        #warning("TODO")
+        //reset quote back to it's initial state
+        self.currentQuote = initialQuote
+        
+        //remove all nodes
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode()
+        }
+        
+        //set all properties to nil, and empty all arrays
+        loadedACUnitNodes.removeAll()
+        currentPlane = nil
+        wireCursor = nil
+        wireSegmentVertexPositions.removeAll()
+        confirmedWireSegments.removeAll()
+        currentWireSegment = nil
+        previousPanCoordinateX = nil
+        previousPanCoordinateY = nil
+        trackedObject = nil
+        currentAngleZ = 0.0
+        
+        //show coaching overlay
+        coachingOverlay.setActive(true, animated: true)
     }
     
     @IBAction func userPressedConfirmPosition() {
@@ -560,11 +586,11 @@ extension ARQuoteViewController {
     @IBAction func userPressedCapture() {
         //take a screenshot and move to quote view controller
         let capture = sceneView.snapshot()
-        quote.screenshots.append(capture)
+        currentQuote.screenshots.append(capture)
         
         //show quote view controller
         let vc = QuoteSummaryViewController()
-        vc.quote = quote
+        vc.quote = currentQuote
         navigationController?.pushViewController(vc, animated: true)
     }
 }
