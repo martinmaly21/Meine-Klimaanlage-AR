@@ -36,12 +36,14 @@
 		5B6DED482569CDC700FF66A5 /* ARQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DED472569CDC700FF66A5 /* ARQuoteViewController.swift */; };
 		5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */; };
 		5B7E6DEC24B6C87D0049CCB9 /* ACUnits.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7E6DEB24B6C87D0049CCB9 /* ACUnits.scnassets */; };
+		5B835C052627C5920031698A /* VerticalAnchorCoachingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B835C042627C5920031698A /* VerticalAnchorCoachingView.swift */; };
 		5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667CF248D900D003A3B5D /* NetworkManager.swift */; };
 		5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D1248D9662003A3B5D /* LogInViewController.swift */; };
 		5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */; };
 		5BAF8D0924B81A8D0022EC84 /* AppEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */; };
 		5BAF8D0E24B81B2E0022EC84 /* AppEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF8D0D24B81B2E0022EC84 /* AppEntryViewController.swift */; };
 		5BC6BBBB256F532000945523 /* WireCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6BBBA256F532000945523 /* WireCursor.swift */; };
+		5BD4083A262A66D500D2FF74 /* HitTestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD40839262A66D500D2FF74 /* HitTestType.swift */; };
 		5BDD140324BB7F8E003A3A98 /* QuoteSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD140124BB7F8E003A3A98 /* QuoteSummaryViewController.swift */; };
 		5BDD140424BB7F8E003A3A98 /* QuoteSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140224BB7F8E003A3A98 /* QuoteSummaryViewController.xib */; };
 		5BDD140724BB8414003A3A98 /* QuoteSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD140524BB8414003A3A98 /* QuoteSummaryTableViewCell.swift */; };
@@ -53,8 +55,12 @@
 		5BDD77C8256B31BC00EACC68 /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD77C7256B31BC00EACC68 /* VirtualObject.swift */; };
 		5BDD77CC256B363000EACC68 /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD77CB256B363000EACC68 /* VirtualObjectARView.swift */; };
 		5BDD77CF256B511300EACC68 /* VirtualObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD77CE256B511300EACC68 /* VirtualObjectLoader.swift */; };
-		5BDD77F5256B6CEB00EACC68 /* VirtualObjectInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD77F4256B6CEB00EACC68 /* VirtualObjectInteraction.swift */; };
 		5BDD77F9256B701000EACC68 /* ThresholdPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD77F8256B701000EACC68 /* ThresholdPanGesture.swift */; };
+		5BE20847262CF25A00F1D56B /* Tutorial0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5BE20844262CF25900F1D56B /* Tutorial0.gif */; };
+		5BE20848262CF25A00F1D56B /* Tutorial1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5BE20845262CF25A00F1D56B /* Tutorial1.gif */; };
+		5BE20849262CF25A00F1D56B /* Tutorial2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5BE20846262CF25A00F1D56B /* Tutorial2.gif */; };
+		5BE2084C262CFED300F1D56B /* InfinitePlaneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2084B262CFED300F1D56B /* InfinitePlaneNode.swift */; };
+		5BE20872262D1A0D00F1D56B /* WireSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE20871262D1A0D00F1D56B /* WireSegment.swift */; };
 		5BE8198724BA1E3000C538FF /* ACQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198624BA1E3000C538FF /* ACQuote.swift */; };
 		5BE8198B24BA21E000C538FF /* BeginQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */; };
 		5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */; };
@@ -97,12 +103,14 @@
 		5B6DED472569CDC700FF66A5 /* ARQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARQuoteViewController.swift; sourceTree = "<group>"; };
 		5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
 		5B7E6DEB24B6C87D0049CCB9 /* ACUnits.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = ACUnits.scnassets; sourceTree = "<group>"; };
+		5B835C042627C5920031698A /* VerticalAnchorCoachingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAnchorCoachingView.swift; sourceTree = "<group>"; };
 		5B8667CF248D900D003A3B5D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5B8667D1248D9662003A3B5D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnAccountViewController.swift; sourceTree = "<group>"; };
 		5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppEntry.storyboard; sourceTree = "<group>"; };
 		5BAF8D0D24B81B2E0022EC84 /* AppEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntryViewController.swift; sourceTree = "<group>"; };
 		5BC6BBBA256F532000945523 /* WireCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireCursor.swift; sourceTree = "<group>"; };
+		5BD40839262A66D500D2FF74 /* HitTestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTestType.swift; sourceTree = "<group>"; };
 		5BDD140124BB7F8E003A3A98 /* QuoteSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteSummaryViewController.swift; sourceTree = "<group>"; };
 		5BDD140224BB7F8E003A3A98 /* QuoteSummaryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteSummaryViewController.xib; sourceTree = "<group>"; };
 		5BDD140524BB8414003A3A98 /* QuoteSummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteSummaryTableViewCell.swift; sourceTree = "<group>"; };
@@ -114,8 +122,12 @@
 		5BDD77C7256B31BC00EACC68 /* VirtualObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
 		5BDD77CB256B363000EACC68 /* VirtualObjectARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
 		5BDD77CE256B511300EACC68 /* VirtualObjectLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectLoader.swift; sourceTree = "<group>"; };
-		5BDD77F4256B6CEB00EACC68 /* VirtualObjectInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectInteraction.swift; sourceTree = "<group>"; };
 		5BDD77F8256B701000EACC68 /* ThresholdPanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdPanGesture.swift; sourceTree = "<group>"; };
+		5BE20844262CF25900F1D56B /* Tutorial0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Tutorial0.gif; sourceTree = "<group>"; };
+		5BE20845262CF25A00F1D56B /* Tutorial1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Tutorial1.gif; sourceTree = "<group>"; };
+		5BE20846262CF25A00F1D56B /* Tutorial2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Tutorial2.gif; sourceTree = "<group>"; };
+		5BE2084B262CFED300F1D56B /* InfinitePlaneNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinitePlaneNode.swift; sourceTree = "<group>"; };
+		5BE20871262D1A0D00F1D56B /* WireSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireSegment.swift; sourceTree = "<group>"; };
 		5BE8198624BA1E3000C538FF /* ACQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACQuote.swift; sourceTree = "<group>"; };
 		5BE8198A24BA21E000C538FF /* BeginQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginQuoteViewController.swift; sourceTree = "<group>"; };
 		5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTypeOfWireViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +171,7 @@
 		5B0A8A3E248D8EA700CA4141 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B835C032627C5510031698A /* Coaching */,
 				5B12389425410B0100A809D9 /* Buttons */,
 				5BFA9EA624B6A469008FBB99 /* ARViews */,
 				5B2C5B11248DBA01001B6898 /* Table View Cells */,
@@ -188,6 +201,7 @@
 				5B00FACE2497214700215489 /* ACUnit.swift */,
 				5BE8198624BA1E3000C538FF /* ACQuote.swift */,
 				5BE8199124BA3E4D00C538FF /* ACWire.swift */,
+				5BD40839262A66D500D2FF74 /* HitTestType.swift */,
 			);
 			path = "Model ";
 			sourceTree = "<group>";
@@ -311,8 +325,19 @@
 				5B7E6DEB24B6C87D0049CCB9 /* ACUnits.scnassets */,
 				5B0A8A37248D88A900CA4141 /* Colors.xcassets */,
 				5B69D0E1248D70200072002A /* Assets.xcassets */,
+				5BE20844262CF25900F1D56B /* Tutorial0.gif */,
+				5BE20845262CF25A00F1D56B /* Tutorial1.gif */,
+				5BE20846262CF25A00F1D56B /* Tutorial2.gif */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5B835C032627C5510031698A /* Coaching */ = {
+			isa = PBXGroup;
+			children = (
+				5B835C042627C5920031698A /* VerticalAnchorCoachingView.swift */,
+			);
+			path = Coaching;
 			sourceTree = "<group>";
 		};
 		5B8667CE248D8FF7003A3B5D /* Manager */ = {
@@ -358,7 +383,6 @@
 		5BDD77F7256B6FF800EACC68 /* ARObjectManipulation */ = {
 			isa = PBXGroup;
 			children = (
-				5BDD77F4256B6CEB00EACC68 /* VirtualObjectInteraction.swift */,
 				5BDD77F8256B701000EACC68 /* ThresholdPanGesture.swift */,
 			);
 			path = ARObjectManipulation;
@@ -383,6 +407,8 @@
 				5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */,
 				5BC6BBBA256F532000945523 /* WireCursor.swift */,
 				5BDD77CB256B363000EACC68 /* VirtualObjectARView.swift */,
+				5BE2084B262CFED300F1D56B /* InfinitePlaneNode.swift */,
+				5BE20871262D1A0D00F1D56B /* WireSegment.swift */,
 			);
 			path = ARViews;
 			sourceTree = "<group>";
@@ -465,9 +491,12 @@
 				5B09158325451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.xib in Resources */,
 				5BDD140424BB7F8E003A3A98 /* QuoteSummaryViewController.xib in Resources */,
 				5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */,
+				5BE20848262CF25A00F1D56B /* Tutorial1.gif in Resources */,
 				5BE8199024BA2C0800C538FF /* ChooseTypeOfWireViewController.xib in Resources */,
 				5B2C5B10248DB249001B6898 /* Root.storyboard in Resources */,
+				5BE20847262CF25A00F1D56B /* Tutorial0.gif in Resources */,
 				5B69D0E2248D70200072002A /* Assets.xcassets in Resources */,
+				5BE20849262CF25A00F1D56B /* Tutorial2.gif in Resources */,
 				5BDD141024BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib in Resources */,
 				5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */,
 				5B7E6DEC24B6C87D0049CCB9 /* ACUnits.scnassets in Resources */,
@@ -524,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BDD140724BB8414003A3A98 /* QuoteSummaryTableViewCell.swift in Sources */,
+				5BD4083A262A66D500D2FF74 /* HitTestType.swift in Sources */,
 				5BFA9EA824B6A583008FBB99 /* FocusSquare.swift in Sources */,
 				5BDD77CF256B511300EACC68 /* VirtualObjectLoader.swift in Sources */,
 				5BAF8D0E24B81B2E0022EC84 /* AppEntryViewController.swift in Sources */,
@@ -553,14 +583,16 @@
 				5BDD140324BB7F8E003A3A98 /* QuoteSummaryViewController.swift in Sources */,
 				5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */,
 				5B2C5B23248DBD9A001B6898 /* ACUnitTableViewCell.swift in Sources */,
+				5BE20872262D1A0D00F1D56B /* WireSegment.swift in Sources */,
 				5B00FACD24970F2100215489 /* ExtensionManager.swift in Sources */,
 				5BDD141224BC07B4003A3A98 /* ConstantsManager.swift in Sources */,
 				5BDD77AF256ABBD700EACC68 /* AppState.swift in Sources */,
 				5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */,
 				5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */,
+				5BE2084C262CFED300F1D56B /* InfinitePlaneNode.swift in Sources */,
 				5B6DED482569CDC700FF66A5 /* ARQuoteViewController.swift in Sources */,
 				5B12389625410B2200A809D9 /* ShadowButton.swift in Sources */,
-				5BDD77F5256B6CEB00EACC68 /* VirtualObjectInteraction.swift in Sources */,
+				5B835C052627C5920031698A /* VerticalAnchorCoachingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

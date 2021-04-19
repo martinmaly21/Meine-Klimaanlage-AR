@@ -16,10 +16,14 @@ class ACUnitTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        accessoryType = .disclosureIndicator
         selectionStyle = .none
         
         setUpUI()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        accessoryType = .none
     }
     
     private func setUpUI() {
@@ -33,10 +37,14 @@ class ACUnitTableViewCell: UITableViewCell {
         containerView.layer.shadowOpacity = 0.3
     }
 
-    public func setUpCell(with unit: ACUnit) {
+    public func setUpCell(
+        with unit: ACUnit,
+        shouldAddChevron: Bool
+    ) {
         self.unit = unit
         
         ACUnitBrandLabel.text = unit.displayName
+        accessoryType = shouldAddChevron ? .disclosureIndicator : .none
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {

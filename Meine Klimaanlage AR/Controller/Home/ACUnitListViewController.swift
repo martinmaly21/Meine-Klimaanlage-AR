@@ -13,6 +13,19 @@ class ACUnitListViewController: UIViewController {
     public var brand: ACBrand!
     private var currentACUnitEnvironmentType = ACUnitEnvironmentType.interior
     
+    private var arViewController: ARQuoteViewController? {
+        guard let tabBarController = presentingViewController as? UITabBarController,
+              let navigationController = tabBarController.selectedViewController as? UINavigationController,
+              let arViewController = navigationController.topViewController as? ARQuoteViewController else {
+            return nil
+        }
+        return arViewController
+    }
+    
+    private var presentedOverARSession: Bool {
+        return arViewController != nil
+    }
+    
     private var units = [ACUnit]()
     
     override func viewDidLoad() {
@@ -35,6 +48,19 @@ class ACUnitListViewController: UIViewController {
         tableView.separatorStyle = .none
         
         registerTableViewCells()
+        
+        if presentedOverARSession {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(
+                title: "Cancel",
+                style: .plain,
+                target: self,
+                action: #selector(didPressCancel)
+            )
+        }
+    }
+    
+    @objc func didPressCancel() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -63,7 +89,10 @@ extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         //+ 1 to offset header
-        cell.setUpCell(with: units[indexPath.row - 1])
+        cell.setUpCell(
+            with: units[indexPath.row - 1],
+            shouldAddChevron: !presentedOverARSession
+        )
         return cell
     }
     
@@ -73,7 +102,20 @@ extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
         
         let selectedUnit = units[indexPath.row - 1]
         if selectedUnit.displayName == "Wandgerät Baureihe TZ" {
-            performSegue(withIdentifier: "newQuoteSegue", sender: selectedUnit)
+            
+            if let arQuoteViewController = arViewController {
+                //user is selecting a second/third or fourth unit!
+                arQuoteViewController.currentQuote.units.append(selectedUnit)
+                
+                dismiss(
+                    animated: true,
+                    completion: {
+                        arQuoteViewController.addVerticalAnchorCoachingView()
+                    }
+                )
+            } else {
+                performSegue(withIdentifier: "newQuoteSegue", sender: selectedUnit)
+            }
         } else {
             ErrorManager.showFeatureNotSupported(on: self)
         }

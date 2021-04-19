@@ -6,4 +6,6 @@ target 'Meine Klimaanlage AR' do
   
   pod 'IQKeyboardManagerSwift'
 
+  pod 'FLAnimatedImage', '~> 1.0'
+
 end

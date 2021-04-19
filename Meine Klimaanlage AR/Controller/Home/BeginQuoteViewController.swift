@@ -43,7 +43,7 @@ class BeginQuoteViewController: UIViewController {
             quote.employeeName = employeeNameTextField.text
             quote.appointmentDate = appointmentDateTextField.text
             
-            arViewController.quote = quote
+            arViewController.initialQuote = quote
         }
     }
     
@@ -55,6 +55,6 @@ class BeginQuoteViewController: UIViewController {
                 return
         }
         
-        performSegue(withIdentifier: "ARsegue", sender: nil)
+        performSegue(withIdentifier: "ARSegue", sender: nil)
     }
 }

@@ -18,10 +18,16 @@ class ChooseTypeOfWireViewController: UIViewController {
     private var wireType = WireType.rohrleitungslänge
     private var wireLocation = WireLocation.insideWall
     
-    private let arViewController: ARQuoteViewController
+    private var arViewController: ARQuoteViewController? {
+        guard let tabBarController = presentingViewController as? UITabBarController,
+              let navigationController = tabBarController.selectedViewController as? UINavigationController,
+              let arViewController = navigationController.topViewController as? ARQuoteViewController else {
+            return nil
+        }
+        return arViewController
+    }
     
-    init(arViewController: ARQuoteViewController) {
-        self.arViewController = arViewController
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -37,13 +43,39 @@ class ChooseTypeOfWireViewController: UIViewController {
     private func setUpNavBar(){
         self.title = "Choose Wire"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Choose", style: .done, target: self, action: #selector(didPressSave))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Choose",
+            style: .done,
+            target: self,
+            action: #selector(didPressSave)
+        )
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "Cancel",
+            style: .plain,
+            target: self,
+            action: #selector(didPressCancel)
+        )
     }
     
     @objc func didPressSave() {
+        guard let arViewController = arViewController else {
+            fatalError("Could not get arViewController")
+        }
+        
         let wire = ACWire(wireType: wireType, wireLocation: wireLocation)
-        arViewController.quote.wires.append(wire)
-        arViewController.appState = .placingWire
+        arViewController.currentQuote.wires.append(wire)
+        
+        dismiss(
+            animated: true,
+            completion: {
+                arViewController.userChoseWire()
+            }
+        )
+    }
+    
+    @objc func didPressCancel() {
         dismiss(animated: true, completion: nil)
     }
     
