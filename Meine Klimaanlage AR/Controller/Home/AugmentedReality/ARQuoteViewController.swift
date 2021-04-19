@@ -248,6 +248,30 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         
         present(viewControllerToPresent, animated: true, completion: nil)
     }
+    
+    private func calculateWireLength() {
+        //update quote with wire information
+        var totalLength: Float = 0
+        var previousPosition: SCNVector3?
+        
+        for currentPosition in currentWireSegmentVertexPositions {
+            //not run if only one eleemtn in array
+            if let previousPosition = previousPosition {
+                let w = SCNVector3(
+                    x: currentPosition.x - previousPosition.x,
+                    y: currentPosition.y - previousPosition.y,
+                    z: currentPosition.z - previousPosition.z
+                )
+                
+                totalLength += sqrt(w.x * w.x + w.y * w.y + w.z * w.z)
+            }
+            previousPosition = currentPosition
+        }
+        
+        let newWire = ACWire(wire: currentWire, wireLength: totalLength)
+        currentQuote.wires.removeLast()
+        currentQuote.wires.append(newWire)
+    }
 
     private func hideAllUIElements() {
         resetButton.isHidden = true
@@ -505,8 +529,8 @@ extension ARQuoteViewController {
         //hide all existing uii elemnts
         hideAllUIElements()
         
-        //show coaching overlay
-        coachingOverlay.setActive(true, animated: true)
+        //show coaching
+        addVerticalAnchorCoachingView()
     }
     
     @IBAction func userPressedConfirmPosition() {
@@ -578,6 +602,9 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedDonePlacingWire() {
+        //calculate the wire length
+        calculateWireLength()
+        
         //update UI so user can either add another unit or wire
         addUnitOrFinishStackView.isHidden = false
         placeWireStackView.isHidden = true
