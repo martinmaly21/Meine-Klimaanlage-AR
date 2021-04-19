@@ -186,7 +186,7 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         
         //set bit mask so it can be located in hit test
         acUnit.loadedNode.categoryBitMask = HitTestType.acUnit.rawValue
-
+        
         
         let infinitePlaneNode = InfinitePlaneNode()
         infinitePlaneNode.transform = pointOfView.transform
@@ -194,7 +194,7 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         //rotate 90 degrees
         let rotation = simd_quatf(angle: .pi / 2, axis: SIMD3(x: 1, y: 0, z: 0))
         infinitePlaneNode.simdOrientation *= rotation
-    
+        
         infinitePlaneNode.addChildNode(acUnit)
         sceneView.scene.rootNode.addChildNode(infinitePlaneNode)
         
@@ -428,8 +428,8 @@ extension ARQuoteViewController: ARSCNViewDelegate {
                             
                             self.currentWireSegment = wireSegment
                         }
-                            wireCursor.position = locationOfIntersection
-                            wireCursor.position.z = 0.1
+                        wireCursor.position = locationOfIntersection
+                        wireCursor.position.z = 0.1
                         
                     } else {
                         self.wireCursor = WireCursor()
