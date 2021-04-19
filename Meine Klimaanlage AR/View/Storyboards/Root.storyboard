@@ -448,7 +448,7 @@
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag, rotate, or pinch the unit to reposition it. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkU-4o-D5d">
-                                                                <rect key="frame" x="10" y="10" width="372.5" height="108"/>
+                                                                <rect key="frame" x="10" y="10" width="373" height="108"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                 <color key="textColor" name="PrimaryTextDark"/>
                                                                 <nil key="highlightedColor"/>
@@ -621,10 +621,10 @@
                                 </subviews>
                             </stackView>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Zma-jQ-Bp1">
-                                <rect key="frame" x="10" y="665" width="414" height="128"/>
+                                <rect key="frame" x="10" y="665" width="394" height="128"/>
                                 <subviews>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HzH-lu-HFh">
-                                        <rect key="frame" x="-15" y="0.0" width="444" height="20"/>
+                                        <rect key="frame" x="-25" y="0.0" width="444" height="20"/>
                                         <subviews>
                                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbu-an-5Tc">
                                                 <rect key="frame" x="0.0" y="0.0" width="444" height="20"/>
@@ -674,19 +674,19 @@
                                         </subviews>
                                     </stackView>
                                     <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="niH-cc-JBe">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CJ3-FD-eab">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1l-He-N6k">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="brs-y4-r1J">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on the AC unit this wire should be attached to." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL5-7R-Bj4">
-                                                                <rect key="frame" x="10" y="10" width="394" height="108"/>
+                                                                <rect key="frame" x="10" y="10" width="374" height="108"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                 <color key="textColor" name="PrimaryTextDark"/>
                                                                 <nil key="highlightedColor"/>
@@ -721,22 +721,22 @@
                                 </subviews>
                             </stackView>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3DJ-9f-Q67">
-                                <rect key="frame" x="10" y="610" width="414" height="183"/>
+                                <rect key="frame" x="10" y="610" width="394" height="183"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bad-Lf-bw0">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QOe-NU-fvR">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZwN-Tn-x7i">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xrO-qb-cO4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on the AC unit this wire should be attached to." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOQ-HE-SKz">
-                                                                <rect key="frame" x="10" y="10" width="394" height="108"/>
+                                                                <rect key="frame" x="10" y="10" width="374" height="108"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                 <color key="textColor" name="PrimaryTextDark"/>
                                                                 <nil key="highlightedColor"/>
@@ -769,7 +769,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </visualEffectView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SIW-Oh-SNi">
-                                        <rect key="frame" x="22" y="143" width="370" height="40"/>
+                                        <rect key="frame" x="12" y="143" width="370" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMs-4U-pMv">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="40"/>
@@ -839,8 +839,8 @@
                             <constraint firstItem="Zma-jQ-Bp1" firstAttribute="leading" secondItem="Vd2-uZ-DZu" secondAttribute="leading" constant="10" id="euS-s6-hwd"/>
                             <constraint firstItem="Vd2-uZ-DZu" firstAttribute="bottom" secondItem="pr8-hH-GG5" secondAttribute="bottom" constant="20" id="opS-cb-LB0"/>
                             <constraint firstItem="pr8-hH-GG5" firstAttribute="trailing" secondItem="Vd2-uZ-DZu" secondAttribute="trailing" constant="-10" id="pGk-SN-4Z5"/>
-                            <constraint firstItem="Zma-jQ-Bp1" firstAttribute="trailing" secondItem="Vd2-uZ-DZu" secondAttribute="trailing" constant="10" id="qEz-tC-y5l"/>
-                            <constraint firstItem="3DJ-9f-Q67" firstAttribute="trailing" secondItem="Vd2-uZ-DZu" secondAttribute="trailing" constant="10" id="sSU-m9-dXd"/>
+                            <constraint firstItem="Zma-jQ-Bp1" firstAttribute="trailing" secondItem="Vd2-uZ-DZu" secondAttribute="trailing" constant="-10" id="qEz-tC-y5l"/>
+                            <constraint firstItem="3DJ-9f-Q67" firstAttribute="trailing" secondItem="Vd2-uZ-DZu" secondAttribute="trailing" constant="-10" id="sSU-m9-dXd"/>
                             <constraint firstItem="Vd2-uZ-DZu" firstAttribute="bottom" secondItem="3DJ-9f-Q67" secondAttribute="bottom" constant="20" id="uYq-t7-cY4"/>
                         </constraints>
                     </view>
