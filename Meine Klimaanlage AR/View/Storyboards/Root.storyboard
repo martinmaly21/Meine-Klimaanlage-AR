@@ -870,7 +870,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5ZE-pj-ldQ"/>
                     <connections>
-                        <outlet property="addUnitOrFinishStackView" destination="SkP-Hv-6Oz" id="9Di-2e-dYe"/>
+                        <outlet property="addObjectOrFinishStackView" destination="SkP-Hv-6Oz" id="9Di-2e-dYe"/>
                         <outlet property="captureStackView" destination="pr8-hH-GG5" id="ESn-QX-x8N"/>
                         <outlet property="confirmPositionStackView" destination="A7A-bt-xqQ" id="xvk-rz-NuL"/>
                         <outlet property="placeWireStackView" destination="3DJ-9f-Q67" id="yK9-WV-4gb"/>

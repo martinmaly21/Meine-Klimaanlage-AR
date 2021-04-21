@@ -15,7 +15,7 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var undoButton: UIButton!
     @IBOutlet weak var confirmPositionStackView: UIStackView!
-    @IBOutlet weak var addUnitOrFinishStackView: UIStackView!
+    @IBOutlet weak var addObjectOrFinishStackView: UIStackView!
     @IBOutlet weak var captureStackView: UIStackView!
     @IBOutlet weak var tapOnUnitToPlaceWireStackView: UIStackView!
     @IBOutlet weak var placeWireStackView: UIStackView!
@@ -43,6 +43,10 @@ class ARQuoteViewController: UIViewController {
         }
         return currentWire
     }
+    
+    //stores all nodes added to the scene in the order
+    //they were added. Used to undo addition of node.
+    private var loadedNodes: [SCNNode] = []
     
     private var loadedACUnitNodes: [SCNNode] = []
     
@@ -145,7 +149,7 @@ class ARQuoteViewController: UIViewController {
         undoButton.isHidden = true
         
         //and hide the addObjecttOrFinishStackView (in case it's the second unit that's being added)
-        addUnitOrFinishStackView.isHidden = true
+        addObjectOrFinishStackView.isHidden = true
         
         //show coaching thing
         let verticalAnchorCoachingView = VerticalAnchorCoachingView()
@@ -167,7 +171,7 @@ class ARQuoteViewController: UIViewController {
         confirmedWireSegments.append([])
         
         tapOnUnitToPlaceWireStackView.isHidden = false
-        addUnitOrFinishStackView.isHidden = true
+        addObjectOrFinishStackView.isHidden = true
         
         //add tap gesture to determine which unit the user tapped?
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(userPressedScreen(tapGesture:)))
@@ -217,6 +221,10 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         
         infinitePlaneNode.addChildNode(acUnit)
         sceneView.scene.rootNode.addChildNode(infinitePlaneNode)
+        
+        //prefer to add infinitePlaneNode, rather than the AC Unit node itself becuse removing
+        //the plane node, will also remove the ac unit.
+        loadedNodes.append(infinitePlaneNode)
         
         //give user option to confirm the position after they've manipulated it
         confirmPositionStackView.isHidden = false
@@ -281,7 +289,7 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         resetButton.isHidden = true
         undoButton.isHidden = true
         confirmPositionStackView.isHidden = true
-        addUnitOrFinishStackView.isHidden = true
+        addObjectOrFinishStackView.isHidden = true
         captureStackView.isHidden = true
         tapOnUnitToPlaceWireStackView.isHidden = true
         placeWireStackView.isHidden = true
@@ -520,6 +528,7 @@ extension ARQuoteViewController {
         }
         
         //set all properties to nil, and empty all arrays
+        loadedNodes.removeAll()
         loadedACUnitNodes.removeAll()
         currentPlane = nil
         wireCursor = nil
@@ -539,7 +548,29 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedUndo() {
-        //TODO
+        //TOD0
+        if let recentlyAddedNode = loadedNodes.popLast() {
+            recentlyAddedNode.removeFromParentNode()
+            
+            //hide all existing uii elemnts
+            hideAllUIElements()
+            
+            if recentlyAddedNode is InfinitePlaneNode {
+                //remove ac unit from loadedACUnitNodes as well
+                _ = loadedACUnitNodes.popLast()
+                
+                if loadedACUnitNodes.isEmpty {
+                    //user has removed all nodes using undo button
+                    //show coaching
+                    addVerticalAnchorCoachingView()
+                } else {
+                    //there still exists some units, so add the add object view
+                    addObjectOrFinishStackView.isHidden = false
+                    resetButton.isHidden = false
+                    undoButton.isHidden = false
+                }
+            }
+        }
     }
     
     @IBAction func userPressedConfirmPosition() {
@@ -550,7 +581,7 @@ extension ARQuoteViewController {
         removeGestureRecognizersFromView()
         
         //show stack view so user can eiher add or
-        addUnitOrFinishStackView.isHidden = false
+        addObjectOrFinishStackView.isHidden = false
     }
     
     @IBAction func userPressedAddObject() {
@@ -586,7 +617,7 @@ extension ARQuoteViewController {
         actionSheet.addAction(acUnitAction)
         actionSheet.addAction(cancelAction)
         
-        actionSheet.popoverPresentationController?.sourceView = addUnitOrFinishStackView
+        actionSheet.popoverPresentationController?.sourceView = addObjectOrFinishStackView
         
         present(actionSheet, animated: true, completion: nil)
     }
@@ -617,7 +648,7 @@ extension ARQuoteViewController {
         calculateWireLength()
         
         //update UI so user can either add another unit or wire
-        addUnitOrFinishStackView.isHidden = false
+        addObjectOrFinishStackView.isHidden = false
         placeWireStackView.isHidden = true
         
         currentPlane = nil
@@ -628,7 +659,7 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedFinish() {
-        addUnitOrFinishStackView.isHidden = true
+        addObjectOrFinishStackView.isHidden = true
         //show screenshot stack
         captureStackView.isHidden = false
     }
