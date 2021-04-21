@@ -442,13 +442,13 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahb-MS-bdY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="392.5" height="128"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jda-o2-pvF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="392.5" height="128"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag, rotate, or pinch the unit to reposition it. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkU-4o-D5d">
-                                                                <rect key="frame" x="10" y="10" width="373" height="108"/>
+                                                                <rect key="frame" x="10" y="10" width="373.5" height="108"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                 <color key="textColor" name="PrimaryTextDark"/>
                                                                 <nil key="highlightedColor"/>
@@ -817,6 +817,28 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzL-FN-CfM">
+                                <rect key="frame" x="294" y="148" width="100" height="40"/>
+                                <color key="backgroundColor" name="PrimaryTextLight"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="f4e-B7-f0j"/>
+                                    <constraint firstAttribute="width" constant="100" id="kuD-qs-D19"/>
+                                </constraints>
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="Undo">
+                                    <color key="titleColor" name="PrimaryBlue"/>
+                                    <imageReference key="image" image="arrow.turn.up.left" catalog="system" renderingMode="template"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="userPressedUndo" destination="aSl-4Q-Fix" eventType="touchUpInside" id="uIy-uP-Gbe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vd2-uZ-DZu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -829,6 +851,7 @@
                             <constraint firstItem="Vd2-uZ-DZu" firstAttribute="trailing" secondItem="dfm-lf-vQV" secondAttribute="trailing" constant="20" id="DZS-oZ-Jlj"/>
                             <constraint firstItem="wCz-wj-wfJ" firstAttribute="top" secondItem="eaO-Pu-gU7" secondAttribute="top" id="GpX-M7-jsF"/>
                             <constraint firstItem="pr8-hH-GG5" firstAttribute="leading" secondItem="Vd2-uZ-DZu" secondAttribute="leading" constant="10" id="IDR-e9-CbZ"/>
+                            <constraint firstItem="xzL-FN-CfM" firstAttribute="top" secondItem="dfm-lf-vQV" secondAttribute="bottom" constant="5" id="IRe-3q-Jc1"/>
                             <constraint firstItem="Vd2-uZ-DZu" firstAttribute="bottom" secondItem="Zma-jQ-Bp1" secondAttribute="bottom" constant="20" id="Kuu-Vk-GcN"/>
                             <constraint firstAttribute="bottom" secondItem="wCz-wj-wfJ" secondAttribute="bottom" id="O57-Uc-gm2"/>
                             <constraint firstItem="Vd2-uZ-DZu" firstAttribute="trailing" secondItem="SkP-Hv-6Oz" secondAttribute="trailing" constant="10" id="QOK-8x-KMO"/>
@@ -841,6 +864,7 @@
                             <constraint firstItem="pr8-hH-GG5" firstAttribute="trailing" secondItem="Vd2-uZ-DZu" secondAttribute="trailing" constant="-10" id="pGk-SN-4Z5"/>
                             <constraint firstItem="Zma-jQ-Bp1" firstAttribute="trailing" secondItem="Vd2-uZ-DZu" secondAttribute="trailing" constant="-10" id="qEz-tC-y5l"/>
                             <constraint firstItem="3DJ-9f-Q67" firstAttribute="trailing" secondItem="Vd2-uZ-DZu" secondAttribute="trailing" constant="-10" id="sSU-m9-dXd"/>
+                            <constraint firstItem="xzL-FN-CfM" firstAttribute="centerX" secondItem="dfm-lf-vQV" secondAttribute="centerX" id="t8W-Qw-84t"/>
                             <constraint firstItem="Vd2-uZ-DZu" firstAttribute="bottom" secondItem="3DJ-9f-Q67" secondAttribute="bottom" constant="20" id="uYq-t7-cY4"/>
                         </constraints>
                     </view>
@@ -853,6 +877,7 @@
                         <outlet property="resetButton" destination="dfm-lf-vQV" id="7TH-OA-0Xq"/>
                         <outlet property="sceneView" destination="wCz-wj-wfJ" id="9Qt-AD-R4Q"/>
                         <outlet property="tapOnUnitToPlaceWireStackView" destination="Zma-jQ-Bp1" id="e5L-PC-piT"/>
+                        <outlet property="undoButton" destination="xzL-FN-CfM" id="2hE-aS-vNz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6uX-IE-f5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -863,6 +888,7 @@
     <resources>
         <image name="arkit" catalog="system" width="128" height="128"/>
         <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
+        <image name="arrow.turn.up.left" catalog="system" width="128" height="99"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="checkmark.seal" catalog="system" width="128" height="128"/>

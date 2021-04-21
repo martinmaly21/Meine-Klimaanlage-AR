@@ -13,6 +13,7 @@ import ARKit
 class ARQuoteViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var undoButton: UIButton!
     @IBOutlet weak var confirmPositionStackView: UIStackView!
     @IBOutlet weak var addUnitOrFinishStackView: UIStackView!
     @IBOutlet weak var captureStackView: UIStackView!
@@ -139,8 +140,10 @@ class ARQuoteViewController: UIViewController {
     }
     
     public func addVerticalAnchorCoachingView() {
-        //hide reset button
+        //hide reset button & undo buttton
         resetButton.isHidden = true
+        undoButton.isHidden = true
+        
         //and hide the addObjecttOrFinishStackView (in case it's the second unit that's being added)
         addUnitOrFinishStackView.isHidden = true
         
@@ -218,8 +221,9 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         //give user option to confirm the position after they've manipulated it
         confirmPositionStackView.isHidden = false
         
-        //show reset button
+        //show reset button & undo button
         resetButton.isHidden = false
+        undoButton.isHidden = false
     }
     
     private func addGestureRecognizers() {
@@ -275,6 +279,7 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
 
     private func hideAllUIElements() {
         resetButton.isHidden = true
+        undoButton.isHidden = true
         confirmPositionStackView.isHidden = true
         addUnitOrFinishStackView.isHidden = true
         captureStackView.isHidden = true
@@ -531,6 +536,10 @@ extension ARQuoteViewController {
         
         //show coaching
         addVerticalAnchorCoachingView()
+    }
+    
+    @IBAction func userPressedUndo() {
+        //TODO
     }
     
     @IBAction func userPressedConfirmPosition() {
