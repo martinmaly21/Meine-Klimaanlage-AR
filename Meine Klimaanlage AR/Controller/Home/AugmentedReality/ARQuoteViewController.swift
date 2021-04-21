@@ -548,7 +548,6 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedUndo() {
-        //TOD0
         if let recentlyAddedNode = loadedNodes.popLast() {
             recentlyAddedNode.removeFromParentNode()
             
@@ -569,6 +568,8 @@ extension ARQuoteViewController {
                     resetButton.isHidden = false
                     undoButton.isHidden = false
                 }
+            } else if recentlyAddedNode is WireSegment {
+                //TODO
             }
         }
     }
@@ -631,6 +632,8 @@ extension ARQuoteViewController {
             currentWireSegmentVertexPositions.append(wireCursorPosition)
             wireSegmentVertexPositions.removeLast()
             wireSegmentVertexPositions.append(currentWireSegmentVertexPositions)
+            
+            
         }
         
         if let currentWireSegment = currentWireSegment,
