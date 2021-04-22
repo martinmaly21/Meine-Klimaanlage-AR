@@ -449,7 +449,7 @@ extension ARQuoteViewController: ARSCNViewDelegate {
                             let wireSegment = WireSegment(
                                 from: currentWireAnchorPoint,
                                 to: wireCursor.position,
-                                radius: 0.01,
+                                radius: 0.015,
                                 color: self.currentWire.getWireColor(),
                                 dottedLine: self.currentWire.wireLocation == .insideWall
                             )
