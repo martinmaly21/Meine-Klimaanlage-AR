@@ -570,15 +570,12 @@ extension ARQuoteViewController {
                     showAddObjectOrFinishStackView()
                 }
             } else if recentlyAddedNode is WireSegment {
-                _ = confirmedWires.last?.segments.popLast()
+                let removedSegment = confirmedWires.last?.segments.popLast()
                 
-                currentWireAnchorPoint = confirmedWires.last?.segments.last?.endPoint
+                currentWireAnchorPoint = removedSegment?.startPoint
                 
                 if confirmedWires.last?.segments.isEmpty ?? false {
                     _ = confirmedWires.popLast()
-                    currentWireSegment?.removeFromParentNode()
-                    
-                    currentWireAnchorPoint = nil
                 }
             } else {
                 fatalError("Unknown ype")
