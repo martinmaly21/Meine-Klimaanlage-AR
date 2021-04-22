@@ -43,7 +43,7 @@ class BeginQuoteViewController: UIViewController {
             quote.employeeName = employeeNameTextField.text
             quote.appointmentDate = appointmentDateTextField.text
             
-            arViewController.initialQuote = quote
+            arViewController.quote = quote
         }
     }
     

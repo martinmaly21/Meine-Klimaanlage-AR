@@ -24,19 +24,17 @@ class ARQuoteViewController: UIViewController {
     private var coachingOverlay = ARCoachingOverlayView()
     
     //data that is passed in
-    public var initialQuote: ACQuote!
-    
-    public var currentQuote: ACQuote!
+    public var quote: ACQuote!
     
     private var currentACUnit: ACUnit {
-        guard let currentACUnit = currentQuote.units.last else {
+        guard let currentACUnit = quote.units.last else {
             fatalError("Error creating currentACUnit")
         }
         return currentACUnit
     }
     
     private var currentWire: ACWire {
-        guard let currentWire = currentQuote.wires.last else {
+        guard let currentWire = confirmedWires.last?.wire else {
             fatalError("Could not get current wire")
         }
         return currentWire
@@ -55,7 +53,7 @@ class ARQuoteViewController: UIViewController {
     private var currentPlane: InfinitePlaneNode?
     
     private var wireCursor: WireCursor?
-    private var confirmedWires = [ARWire]()
+    public var confirmedWires = [ARWire]()
     private var currentWireSegment: WireSegment?
     
     private var currentWireAnchorPoint: SCNVector3?
@@ -70,9 +68,6 @@ class ARQuoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //set quote to the quote passed in
-        self.currentQuote = initialQuote
-        
         setUpUI()
         setUpScene()
         setUpCoachingOverlay()
@@ -157,10 +152,6 @@ class ARQuoteViewController: UIViewController {
     }
     
     public func userChoseWire() {
-        //prepare an empty wire to be added
-        let wire = ARWire()
-        confirmedWires.append(wire)
-        
         tapOnUnitToPlaceWireStackView.isHidden = false
         addObjectOrFinishStackView.isHidden = true
         
@@ -250,14 +241,6 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         }
         
         present(viewControllerToPresent, animated: true, completion: nil)
-    }
-    
-    private func calculateWireLength() {
-        //update quote with wire information
-        let totalLenth = confirmedWires.last?.length ?? 0
-        let newWire = ACWire(wire: currentWire, wireLength: totalLenth)
-        currentQuote.wires.removeLast()
-        currentQuote.wires.append(newWire)
     }
 
     private func hideAllUIElements() {
@@ -507,7 +490,8 @@ extension ARQuoteViewController: ARSessionDelegate {
 extension ARQuoteViewController {
     @IBAction func userPressedReset() {
         //reset quote back to it's initial state
-        self.currentQuote = initialQuote
+        //remove all units (except first, since there must exist at least one)
+        self.quote.units = Array(self.quote.units.dropFirst(1))
         
         //remove all nodes
         sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
@@ -568,6 +552,7 @@ extension ARQuoteViewController {
                     //show coaching
                     userPressedReset()
                 } else {
+                    _ = quote.units.popLast()
                     //there still exists some units, so add the add object view
                     showAddObjectOrFinishStackView()
                 }
@@ -647,9 +632,6 @@ extension ARQuoteViewController {
     @IBAction func userPressedDonePlacingWire() {
         userPressedPlaceWire()
         
-        //calculate the wire length
-        calculateWireLength()
-        
         //update UI so user can either add another unit or wire
         addObjectOrFinishStackView.isHidden = false
         placeWireStackView.isHidden = true
@@ -673,13 +655,22 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedCapture() {
+        //add wires
+        quote.wires = confirmedWires.compactMap {
+            guard $0.length != 0 else {
+                return nil
+            }
+            
+            return ACWire(wire: $0.wire, wireLength: $0.length)
+        }
+        
         //take a screenshot and move to quote view controller
         let capture = sceneView.snapshot()
-        currentQuote.screenshots.append(capture)
+        quote.screenshots.append(capture)
         
         //show quote view controller
         let vc = QuoteSummaryViewController()
-        vc.quote = currentQuote
+        vc.quote = quote
         navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -105,7 +105,7 @@ extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
             
             if let arQuoteViewController = arViewController {
                 //user is selecting a second/third or fourth unit!
-                arQuoteViewController.currentQuote.units.append(selectedUnit)
+                arQuoteViewController.quote.units.append(selectedUnit)
                 
                 dismiss(
                     animated: true,

@@ -64,8 +64,9 @@ class ChooseTypeOfWireViewController: UIViewController {
             fatalError("Could not get arViewController")
         }
         
-        let wire = ACWire(wireType: wireType, wireLocation: wireLocation)
-        arViewController.currentQuote.wires.append(wire)
+        let acWire = ACWire(wireType: wireType, wireLocation: wireLocation)
+        let wire = ARWire(wire: acWire)
+        arViewController.confirmedWires.append(wire)
         
         dismiss(
             animated: true,

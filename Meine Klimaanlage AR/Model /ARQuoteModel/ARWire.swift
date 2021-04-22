@@ -19,6 +19,10 @@ class ARWire {
         
         return totalLength
     }
-    
+    let wire: ACWire
     var segments: [WireSegment] = []
+    
+    init(wire: ACWire) {
+        self.wire = wire
+    }
 }
