@@ -15,6 +15,16 @@ class WireSegment: SCNNode {
     let radius: CGFloat
     let color: UIColor
     let dottedLine: Bool
+    
+    var length: Float {
+        let w = SCNVector3(
+            x: endPoint.x - startPoint.x,
+            y: endPoint.y - startPoint.y,
+            z: endPoint.z - startPoint.z
+        )
+        
+        return sqrt(w.x * w.x + w.y * w.y + w.z * w.z)
+    }
 
     init(
         from startPoint: SCNVector3,

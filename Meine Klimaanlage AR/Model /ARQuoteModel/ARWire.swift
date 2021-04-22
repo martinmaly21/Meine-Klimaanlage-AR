@@ -10,5 +10,15 @@ import Foundation
 
 
 class ARWire {
+    var length: Float {
+        var totalLength: Float = 0
+        
+        segments.forEach {
+            totalLength += $0.length
+        }
+        
+        return totalLength
+    }
+    
     var segments: [WireSegment] = []
 }
