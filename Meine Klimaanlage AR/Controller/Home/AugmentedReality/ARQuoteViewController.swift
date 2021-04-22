@@ -23,8 +23,6 @@ class ARQuoteViewController: UIViewController {
     //UI Elements
     private var coachingOverlay = ARCoachingOverlayView()
     
-    public var appState: AppState = .noUnitPlaced
-    
     //data that is passed in
     public var initialQuote: ACQuote!
     
@@ -271,6 +269,15 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         tapOnUnitToPlaceWireStackView.isHidden = true
         placeWireStackView.isHidden = true
     }
+    
+    private func showAddObjectOrFinishStackView() {
+        hideAllUIElements()
+        
+        resetButton.isHidden = false
+        undoButton.isHidden = false
+        
+        addObjectOrFinishStackView.isHidden = false
+    }
 }
 
 //MARK: - gesture recognizer stuff
@@ -483,6 +490,8 @@ extension ARQuoteViewController: ARSCNViewDelegate {
                         
                         self.wireCursor?.position = locationOfIntersection
                         self.wireCursor?.position.z = 0.1
+                        
+                        self.loadedNodes.append(wireCursor)
                     }
                 }
             }
@@ -529,9 +538,6 @@ extension ARQuoteViewController {
         if let recentlyAddedNode = loadedNodes.popLast() {
             recentlyAddedNode.removeFromParentNode()
             
-            //hide all existing uii elemnts
-            hideAllUIElements()
-            
             if recentlyAddedNode is InfinitePlaneNode {
                 //remove ac unit from loadedACUnitNodes as well
                 _ = loadedACUnitNodes.popLast()
@@ -539,15 +545,26 @@ extension ARQuoteViewController {
                 if loadedACUnitNodes.isEmpty {
                     //user has removed all nodes using undo button
                     //show coaching
-                    addVerticalAnchorCoachingView()
+                    userPressedReset()
                 } else {
                     //there still exists some units, so add the add object view
-                    addObjectOrFinishStackView.isHidden = false
-                    resetButton.isHidden = false
-                    undoButton.isHidden = false
+                    showAddObjectOrFinishStackView()
                 }
             } else if recentlyAddedNode is WireSegment {
-                //TODO
+                _ = confirmedWires.last?.segments.popLast()
+                
+                currentWireAnchorPoint = confirmedWires.last?.segments.last?.endPoint
+                
+                if confirmedWires.last?.segments.isEmpty ?? false {
+                    _ = confirmedWires.popLast()
+                    currentWireSegment?.removeFromParentNode()
+                    
+                    currentWireAnchorPoint = nil
+                }
+            } else if recentlyAddedNode is WireCursor {
+                wireCursor = nil
+                currentPlane = nil
+                showAddObjectOrFinishStackView()
             }
         }
     }
@@ -609,9 +626,9 @@ extension ARQuoteViewController {
         //set anchor point
         currentWireAnchorPoint = wireCursorPosition
         
-        
         if let currentWireSegment = currentWireSegment {
             confirmedWires.last?.segments.append(currentWireSegment)
+            loadedNodes.append(currentWireSegment)
         }
     }
     
@@ -628,6 +645,9 @@ extension ARQuoteViewController {
         currentPlane = nil
         
         currentWireAnchorPoint = nil
+        
+        //we only want to worry about removing wire cursor when in draw mode
+        loadedNodes.removeAll(where: { $0 is WireCursor })
         
         //remove wire cursor
         wireCursor?.removeFromParentNode()
