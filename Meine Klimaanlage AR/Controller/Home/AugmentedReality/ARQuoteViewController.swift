@@ -535,6 +535,25 @@ extension ARQuoteViewController {
     }
     
     @IBAction func userPressedUndo() {
+        //specially handle case when recentlyAddedNode is WireCursor
+        if let recentlyAddedNode = loadedNodes.last,
+           recentlyAddedNode is WireCursor {
+            if let currentWireSegment = currentWireSegment {
+                currentWireSegment.removeFromParentNode()
+                self.currentWireSegment = nil
+                currentWireAnchorPoint = nil
+            } else {
+                _ = loadedNodes.popLast()
+                recentlyAddedNode.removeFromParentNode()
+                wireCursor = nil
+                currentPlane = nil
+                showAddObjectOrFinishStackView()
+            }
+    
+            return
+        }
+    
+        //otherwise, do tthe following
         if let recentlyAddedNode = loadedNodes.popLast() {
             recentlyAddedNode.removeFromParentNode()
             
@@ -561,10 +580,8 @@ extension ARQuoteViewController {
                     
                     currentWireAnchorPoint = nil
                 }
-            } else if recentlyAddedNode is WireCursor {
-                wireCursor = nil
-                currentPlane = nil
-                showAddObjectOrFinishStackView()
+            } else {
+                fatalError("Unknown ype")
             }
         }
     }
