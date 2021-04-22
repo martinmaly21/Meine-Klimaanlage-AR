@@ -544,6 +544,8 @@ extension ARQuoteViewController {
                 currentWireAnchorPoint = nil
             } else {
                 _ = loadedNodes.popLast()
+                _ = confirmedWires.popLast()
+                
                 recentlyAddedNode.removeFromParentNode()
                 wireCursor = nil
                 currentPlane = nil
@@ -573,10 +575,6 @@ extension ARQuoteViewController {
                 let removedSegment = confirmedWires.last?.segments.popLast()
                 
                 currentWireAnchorPoint = removedSegment?.startPoint
-                
-                if confirmedWires.last?.segments.isEmpty ?? false {
-                    _ = confirmedWires.popLast()
-                }
             } else {
                 fatalError("Unknown ype")
             }
