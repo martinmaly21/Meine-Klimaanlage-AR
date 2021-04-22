@@ -13,7 +13,7 @@ class WireCursor: SCNNode {
     
     override init() {
         super.init()
-        let dimension: CGFloat = 0.02
+        let dimension: CGFloat = 0.04
         let circle = SCNPlane(width: dimension, height: dimension)
         circle.cornerRadius = dimension / 2
         geometry = circle
