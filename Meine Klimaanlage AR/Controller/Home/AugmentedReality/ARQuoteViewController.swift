@@ -459,9 +459,15 @@ extension ARQuoteViewController: ARSCNViewDelegate {
                             
                             self.currentWireSegment = wireSegment
                         }
+                        
+                        if abs(locationOfIntersection.x) < 0.1 && abs(locationOfIntersection.y) < 0.1 && abs(locationOfIntersection.z) < 0.1 {
+                            #warning("fix this bug in better way!!")
+                            return
+                        }
+                        
+                        
                         wireCursor.position = locationOfIntersection
                         wireCursor.position.z = 0.1
-                        
                     } else {
                         self.wireCursor = WireCursor()
                         
