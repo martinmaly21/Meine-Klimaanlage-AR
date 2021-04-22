@@ -627,6 +627,8 @@ extension ARQuoteViewController {
         
         currentPlane = nil
         
+        currentWireAnchorPoint = nil
+        
         //remove wire cursor
         wireCursor?.removeFromParentNode()
         wireCursor = nil
