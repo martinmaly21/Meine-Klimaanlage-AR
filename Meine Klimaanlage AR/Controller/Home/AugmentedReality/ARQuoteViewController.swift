@@ -497,7 +497,11 @@ extension ARQuoteViewController {
     @IBAction func userPressedReset() {
         //reset quote back to it's initial state
         //remove all units (except first, since there must exist at least one)
-        self.quote.units = Array(self.quote.units.dropFirst(1))
+        guard let firstUnit = self.quote.units.first else {
+            fatalError("Couldn't get AC unit")
+        }
+        
+        self.quote.units = [firstUnit]
         
         //remove all nodes
         sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
