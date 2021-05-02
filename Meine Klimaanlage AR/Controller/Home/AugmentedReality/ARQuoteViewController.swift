@@ -156,9 +156,8 @@ class ARQuoteViewController: UIViewController {
     public func userChoseWire() {
         addObjectOrFinishStackView.isHidden = true
         placeWireStackView.isHidden = false
-        
-        #warning("is this okay?")
-        currentPlane = currentACUnitNode?.parent as? InfinitePlaneNode
+
+        currentPlane = currentACUnitNode?.grandParent as? InfinitePlaneNode
     }
 }
 
@@ -191,6 +190,8 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         
         //set bit mask so it can be located in hit test
         acUnit.loadedNode.categoryBitMask = HitTestType.acUnit.rawValue
+        
+        currentACUnitNode = acUnit.loadedNode
         
         
         let infinitePlaneNode = InfinitePlaneNode()

@@ -127,6 +127,7 @@ extension QuoteViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteInformationTableViewCell") as? QuoteInformationTableViewCell else {
                 fatalError("Could not create QuoteInformationTableViewCell")
             }
+            cell.setUpUI()
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCreateANewLocationTableViewCell") as? QuoteCreateANewLocationTableViewCell else {

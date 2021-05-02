@@ -39,7 +39,7 @@ class ChooseBrandViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ACUnitSegue",
+        if segue.identifier == "ChooseUnitSegue",
             let sender = sender as? ACUnitBrandsCollectionViewCell,
             let detailPage = segue.destination as? ChooseACUnitViewController {
             detailPage.title = sender.brand.rawValue
@@ -72,7 +72,7 @@ extension ChooseBrandViewController: UICollectionViewDelegate, UICollectionViewD
         guard let selectedCell = collectionView.cellForItem(at: indexPath) as? ACUnitBrandsCollectionViewCell else { return }
         
         if brands[indexPath.row] == .panasonic {
-            performSegue(withIdentifier: "ACUnitSegue", sender: selectedCell)
+            performSegue(withIdentifier: "ChooseUnitSegue", sender: selectedCell)
         } else {
             ErrorManager.showFeatureNotSupported(on: self)
         }

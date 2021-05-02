@@ -71,7 +71,7 @@
             </objects>
             <point key="canvasLocation" x="815" y="-636"/>
         </scene>
-        <!--Home-->
+        <!--Choose brand-->
         <scene sceneID="nky-2U-WHg">
             <objects>
                 <viewController id="ppZ-Ua-U00" customClass="ChooseBrandViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
@@ -104,7 +104,7 @@
                             <constraint firstItem="dsY-Jy-0wM" firstAttribute="bottom" secondItem="XHs-UE-loK" secondAttribute="bottom" id="PkU-a9-tYI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="AhT-UE-w9T"/>
+                    <navigationItem key="navigationItem" title="Choose brand" id="AhT-UE-w9T"/>
                     <connections>
                         <outlet property="collectionView" destination="XHs-UE-loK" id="3vi-RA-20b"/>
                         <segue destination="ZII-kx-kvR" kind="show" identifier="ChooseUnitSegue" id="R5u-tS-7AH"/>
