@@ -25,6 +25,7 @@ class ACLocationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var unitTitle: UILabel!
     
+    @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var estimatedPriceTextField: UITextField!
     
     @IBOutlet weak var wiresStackView: UIStackView!

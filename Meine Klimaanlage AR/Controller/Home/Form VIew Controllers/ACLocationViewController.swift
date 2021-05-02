@@ -14,6 +14,49 @@ class ACLocationViewController: UIViewController {
     
     private let acLocation: ACLocation
     
+    private var acLocationTableViewCell: ACLocationTableViewCell {
+        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ACLocationTableViewCell else {
+            fatalError("Could not get ACLocationTableViewCell")
+        }
+        return cell
+    }
+    
+    private var location: String? {
+        acLocationTableViewCell.locationTextField.text
+    }
+    
+    private var estimatedPrice: String? {
+        return acLocationTableViewCell.estimatedPriceTextField.text
+    }
+    
+    private var wifi: Bool {
+        return acLocationTableViewCell.wifiSwitch.isOn
+    }
+    
+    private var elZul: Bool {
+        return acLocationTableViewCell.elZulSwitch.isOn
+    }
+    
+    private var uv: Bool {
+        return acLocationTableViewCell.uvSwitch.isOn
+    }
+    
+    private var dachdecker: Bool {
+        return acLocationTableViewCell.dachDeckerSwitch.isOn
+    }
+    
+    private var dachdruchführung: Bool {
+        return acLocationTableViewCell.dachdruchführungSwitch.isOn
+    }
+    
+    private var kondensatpumpe: Bool {
+        return acLocationTableViewCell.kondensatpumpeSwitch.isOn
+    }
+    
+    private var notes: String? {
+        return acLocationTableViewCell.noteTextField.text
+    }
+    
     init(acLocation: ACLocation) {
         self.acLocation = acLocation
         super.init(nibName: nil, bundle: nil)
@@ -30,7 +73,7 @@ class ACLocationViewController: UIViewController {
     }
     
     private func updateUI() {
-        self.title = "Quote Summary"
+        self.title = "Summary"
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -44,6 +87,21 @@ class ACLocationViewController: UIViewController {
 
     private func setUpTableView() {
         tableView.register(UINib(nibName: "ACLocationTableViewCell", bundle: nil), forCellReuseIdentifier: "ACLocationTableViewCell")
+    }
+    
+    
+    private func updateACLocation() {
+        acLocation.name = location
+        acLocation.price = (estimatedPrice as NSString?)?.floatValue
+        
+        acLocation.wifi = wifi
+        acLocation.elZul = elZul
+        acLocation.uv = uv
+        acLocation.dachdecker = dachdecker
+        acLocation.dachdruchfuhrung = dachdruchführung
+        acLocation.kondensatpumpe = kondensatpumpe
+        
+        acLocation.notes = notes
     }
 
     @objc func didPressDiscard() {
@@ -101,6 +159,8 @@ extension ACLocationViewController: QuoteSummaryCellDelegate {
     }
     
     func userPressedSaveLocation() {
+        updateACLocation()
+        
         guard acLocation.isComplete() else {
             ErrorManager.showMissingFieldsForACLocationError(on: self)
             return
