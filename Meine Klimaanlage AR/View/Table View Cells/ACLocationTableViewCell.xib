@@ -240,7 +240,7 @@
                                                     <constraint firstAttribute="height" constant="35" id="tsB-oW-1Im"/>
                                                 </constraints>
                                                 <color key="tintColor" name="PrimaryTextLight"/>
-                                                <state key="normal" title="  Send Quote" image="envelope" catalog="system">
+                                                <state key="normal" title="Save" image="square.and.arrow.down" catalog="system">
                                                     <color key="titleColor" name="PrimaryTextLight"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -301,7 +301,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="envelope" catalog="system" width="128" height="93"/>
+        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <namedColor name="PrimaryBlue">
             <color red="0.396078431372549" green="0.63921568627450975" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
