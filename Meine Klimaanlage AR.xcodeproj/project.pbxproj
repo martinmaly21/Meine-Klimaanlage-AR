@@ -52,6 +52,7 @@
 		5BAF8D0E24B81B2E0022EC84 /* AppEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF8D0D24B81B2E0022EC84 /* AppEntryViewController.swift */; };
 		5BC6BBBB256F532000945523 /* WireCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6BBBA256F532000945523 /* WireCursor.swift */; };
 		5BCB3586263F0CA500532002 /* QuoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCB3585263F0CA500532002 /* QuoteManager.swift */; };
+		5BCB3589263F0E0800532002 /* ACLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCB3588263F0E0800532002 /* ACLocation.storyboard */; };
 		5BD4083A262A66D500D2FF74 /* HitTestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD40839262A66D500D2FF74 /* HitTestType.swift */; };
 		5BD54D2E263E046B009BFB92 /* QuoteInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD54D2C263E046B009BFB92 /* QuoteInformationTableViewCell.swift */; };
 		5BD54D2F263E046B009BFB92 /* QuoteInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BD54D2D263E046B009BFB92 /* QuoteInformationTableViewCell.xib */; };
@@ -135,6 +136,7 @@
 		5BAF8D0D24B81B2E0022EC84 /* AppEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntryViewController.swift; sourceTree = "<group>"; };
 		5BC6BBBA256F532000945523 /* WireCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireCursor.swift; sourceTree = "<group>"; };
 		5BCB3585263F0CA500532002 /* QuoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteManager.swift; sourceTree = "<group>"; };
+		5BCB3588263F0E0800532002 /* ACLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ACLocation.storyboard; sourceTree = "<group>"; };
 		5BD40839262A66D500D2FF74 /* HitTestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTestType.swift; sourceTree = "<group>"; };
 		5BD54D2C263E046B009BFB92 /* QuoteInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteInformationTableViewCell.swift; sourceTree = "<group>"; };
 		5BD54D2D263E046B009BFB92 /* QuoteInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteInformationTableViewCell.xib; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */,
 				5B69D0DE248D701F0072002A /* Onboarding.storyboard */,
 				5B2C5B0F248DB249001B6898 /* Root.storyboard */,
+				5BCB3588263F0E0800532002 /* ACLocation.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				5B69D0E2248D70200072002A /* Assets.xcassets in Resources */,
 				5BE20849262CF25A00F1D56B /* Tutorial2.gif in Resources */,
 				5B4CEC54263F04570081EBE2 /* QuoteSectionHeader.xib in Resources */,
+				5BCB3589263F0E0800532002 /* ACLocation.storyboard in Resources */,
 				5B4CEC45263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib in Resources */,
 				5BDD141024BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib in Resources */,
 				5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */,

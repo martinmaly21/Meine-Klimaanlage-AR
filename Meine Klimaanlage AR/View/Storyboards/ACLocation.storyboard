@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fwq-bV-A5Q">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="HYR-9o-glU">
+            <objects>
+                <navigationController id="Fwq-bV-A5Q" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZU3-AV-yb4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="63f-T2-ZHE" kind="relationship" relationship="rootViewController" id="2gB-js-eeo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwV-kk-Zxk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1917" y="-636"/>
+        </scene>
+        <!--Choose brand-->
+        <scene sceneID="V2k-up-1Hh">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VAp-YS-w54" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="63f-T2-ZHE" customClass="ChooseBrandViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Coi-KS-lHv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nBf-UX-Bk7">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" name="PrimaryWhiteBackground"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jZ8-He-BvL">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="63f-T2-ZHE" id="Db8-OJ-kG7"/>
+                                    <outlet property="delegate" destination="63f-T2-ZHE" id="CCf-pL-x0k"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xdw-Qr-seP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nBf-UX-Bk7" firstAttribute="leading" secondItem="Xdw-Qr-seP" secondAttribute="leading" id="464-BL-9aF"/>
+                            <constraint firstItem="nBf-UX-Bk7" firstAttribute="top" secondItem="Xdw-Qr-seP" secondAttribute="top" id="SU3-Fh-csm"/>
+                            <constraint firstAttribute="bottom" secondItem="nBf-UX-Bk7" secondAttribute="bottom" id="aVN-Uc-ejq"/>
+                            <constraint firstItem="Xdw-Qr-seP" firstAttribute="trailing" secondItem="nBf-UX-Bk7" secondAttribute="trailing" id="o4e-hT-YJL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Choose brand" id="PFt-Qw-MhT"/>
+                    <connections>
+                        <outlet property="collectionView" destination="nBf-UX-Bk7" id="JsL-xT-GaM"/>
+                        <segue destination="6AU-P0-Jpr" kind="show" identifier="ChooseUnitSegue" id="pxp-v5-v2g"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2719" y="-636"/>
+        </scene>
+        <!--ChooseAC Unit View Controller-->
+        <scene sceneID="HiO-5o-PRQ">
+            <objects>
+                <viewController id="6AU-P0-Jpr" customClass="ChooseACUnitViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IOx-db-mfA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BBm-J6-Tbf">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" name="PrimaryWhiteBackground"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6AU-P0-Jpr" id="2AT-qf-lMm"/>
+                                    <outlet property="delegate" destination="6AU-P0-Jpr" id="qRE-Qt-yaU"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7Jg-EJ-xt3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="BBm-J6-Tbf" secondAttribute="bottom" id="VId-2g-bsN"/>
+                            <constraint firstItem="BBm-J6-Tbf" firstAttribute="top" secondItem="7Jg-EJ-xt3" secondAttribute="top" id="kRQ-qQ-eAt"/>
+                            <constraint firstItem="BBm-J6-Tbf" firstAttribute="leading" secondItem="7Jg-EJ-xt3" secondAttribute="leading" id="qfq-UA-n3W"/>
+                            <constraint firstItem="7Jg-EJ-xt3" firstAttribute="trailing" secondItem="BBm-J6-Tbf" secondAttribute="trailing" id="wZN-BQ-gs9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="JaF-eI-PIS"/>
+                    <connections>
+                        <outlet property="tableView" destination="BBm-J6-Tbf" id="ZYU-Wg-T8r"/>
+                        <segue destination="j7v-qv-ji4" kind="show" identifier="ARSegue" id="XYk-UX-Kzt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5tD-Am-6VK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3619" y="-636"/>
+        </scene>
+        <!--Quote View Controller-->
+        <scene sceneID="B0Z-3o-Sg6">
+            <objects>
+                <viewController id="j7v-qv-ji4" customClass="ARQuoteViewController" customModule="Meine_Klimaanlage_AR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="egn-03-Mgz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xub-Hs-vMl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </arscnView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="osf-Vl-7hG">
+                                <rect key="frame" x="10" y="659" width="394" height="183"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2f-Wx-823">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PGv-xL-WMn">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zdr-n5-1d0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="q2R-o0-S2f">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag, rotate, or pinch the unit to reposition it. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epb-nF-4l1">
+                                                                <rect key="frame" x="10" y="10" width="374" height="108"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                <color key="textColor" name="PrimaryTextDark"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="epb-nF-4l1" secondAttribute="bottom" constant="10" id="7p7-UW-dOU"/>
+                                                            <constraint firstItem="epb-nF-4l1" firstAttribute="leading" secondItem="q2R-o0-S2f" secondAttribute="leading" constant="10" id="Mv6-tr-DNd"/>
+                                                            <constraint firstAttribute="trailing" secondItem="epb-nF-4l1" secondAttribute="trailing" constant="10" id="sx9-lN-8MO"/>
+                                                            <constraint firstItem="epb-nF-4l1" firstAttribute="top" secondItem="q2R-o0-S2f" secondAttribute="top" constant="10" id="uU9-7r-NfH"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <vibrancyEffect>
+                                                        <blurEffect style="regular"/>
+                                                    </vibrancyEffect>
+                                                </visualEffectView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Zdr-n5-1d0" secondAttribute="bottom" id="PkL-JU-mMo"/>
+                                                <constraint firstItem="Zdr-n5-1d0" firstAttribute="top" secondItem="PGv-xL-WMn" secondAttribute="top" id="Ska-Qa-Ch5"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zdr-n5-1d0" secondAttribute="trailing" id="gWF-n4-P5N"/>
+                                                <constraint firstItem="Zdr-n5-1d0" firstAttribute="leading" secondItem="PGv-xL-WMn" secondAttribute="leading" id="zJd-iV-Yhq"/>
+                                            </constraints>
+                                        </view>
+                                        <blurEffect style="regular"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </visualEffectView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqV-ZN-Joa">
+                                        <rect key="frame" x="107" y="143" width="180" height="40"/>
+                                        <color key="backgroundColor" name="PrimaryBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="NSU-ro-p74"/>
+                                            <constraint firstAttribute="width" constant="180" id="UvE-rm-yo4"/>
+                                        </constraints>
+                                        <color key="tintColor" name="PrimaryTextLight"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Confirm position" image="checkmark.circle" catalog="system">
+                                            <color key="titleColor" name="PrimaryTextLight"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="userPressedConfirmPosition" destination="j7v-qv-ji4" eventType="touchUpInside" id="z86-R1-zc6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mcl-Qb-6WZ">
+                                <rect key="frame" x="10" y="754" width="394" height="88"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3c-RB-AIt">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="40"/>
+                                        <color key="backgroundColor" name="PrimaryBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="OEA-SE-Dic"/>
+                                        </constraints>
+                                        <color key="tintColor" name="PrimaryTextLight"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Add wire" image="plus.circle" catalog="system">
+                                            <color key="titleColor" name="PrimaryTextLight"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="userPressedAddWire" destination="j7v-qv-ji4" eventType="touchUpInside" id="XKW-Mu-n58"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kI1-ER-1T0">
+                                        <rect key="frame" x="0.0" y="48" width="394" height="40"/>
+                                        <color key="backgroundColor" name="PrimaryTextLight"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="fSu-XS-4XI"/>
+                                        </constraints>
+                                        <color key="tintColor" name="PrimaryBlue"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Finish">
+                                            <color key="titleColor" name="PrimaryBlue"/>
+                                            <imageReference key="image" image="checkmark.seal" catalog="system" renderingMode="template"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="userPressedFinish" destination="j7v-qv-ji4" eventType="touchUpInside" id="Cb6-lR-y5g"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="psS-d4-W6l">
+                                <rect key="frame" x="10" y="659" width="394" height="183"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myi-yz-ReC">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LRB-gC-ZFH">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZT3-VZ-XkD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Bqe-ih-UCm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the 'Capture' button to take a picture of the AC unit and wire(s) in it's environment." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsu-f7-TO1">
+                                                                <rect key="frame" x="10" y="10" width="374" height="108"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                <color key="textColor" name="PrimaryTextDark"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="hsu-f7-TO1" firstAttribute="top" secondItem="Bqe-ih-UCm" secondAttribute="top" constant="10" id="4j0-gQ-ElO"/>
+                                                            <constraint firstAttribute="bottom" secondItem="hsu-f7-TO1" secondAttribute="bottom" constant="10" id="C0f-mB-58z"/>
+                                                            <constraint firstItem="hsu-f7-TO1" firstAttribute="leading" secondItem="Bqe-ih-UCm" secondAttribute="leading" constant="10" id="J0S-MT-Qvr"/>
+                                                            <constraint firstAttribute="trailing" secondItem="hsu-f7-TO1" secondAttribute="trailing" constant="10" id="lLY-wQ-o5w"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <vibrancyEffect>
+                                                        <blurEffect style="regular"/>
+                                                    </vibrancyEffect>
+                                                </visualEffectView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZT3-VZ-XkD" firstAttribute="leading" secondItem="LRB-gC-ZFH" secondAttribute="leading" id="0be-y7-Ggp"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZT3-VZ-XkD" secondAttribute="trailing" id="7Kg-3W-74p"/>
+                                                <constraint firstItem="ZT3-VZ-XkD" firstAttribute="top" secondItem="LRB-gC-ZFH" secondAttribute="top" id="Gwa-kh-ZKA"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZT3-VZ-XkD" secondAttribute="bottom" id="dzE-vx-qWa"/>
+                                            </constraints>
+                                        </view>
+                                        <blurEffect style="regular"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </visualEffectView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1l-6a-1Va">
+                                        <rect key="frame" x="107" y="143" width="180" height="40"/>
+                                        <color key="backgroundColor" name="PrimaryBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="OP7-cm-ixl"/>
+                                            <constraint firstAttribute="width" constant="180" id="XMn-b9-5qu"/>
+                                        </constraints>
+                                        <color key="tintColor" name="PrimaryTextLight"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="Capture" image="camera" catalog="system">
+                                            <color key="titleColor" name="PrimaryTextLight"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="userPressedCapture" destination="j7v-qv-ji4" eventType="touchUpInside" id="tb7-Q6-W3k"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3Ds-u7-rPG">
+                                <rect key="frame" x="10" y="659" width="394" height="183"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5e-M0-WWA">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Mz7-ap-tbL">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kd2-w3-ytZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Qml-CL-REY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on the 'Place wire' button to add the wire. Tap 'Done' when you're finished." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEa-fS-BpH">
+                                                                <rect key="frame" x="10" y="10" width="374" height="108"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                <color key="textColor" name="PrimaryTextDark"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="eEa-fS-BpH" secondAttribute="bottom" constant="10" id="7C9-Od-O2R"/>
+                                                            <constraint firstAttribute="trailing" secondItem="eEa-fS-BpH" secondAttribute="trailing" constant="10" id="8OP-tE-Hof"/>
+                                                            <constraint firstItem="eEa-fS-BpH" firstAttribute="leading" secondItem="Qml-CL-REY" secondAttribute="leading" constant="10" id="mRo-is-NGI"/>
+                                                            <constraint firstItem="eEa-fS-BpH" firstAttribute="top" secondItem="Qml-CL-REY" secondAttribute="top" constant="10" id="p7t-V3-xeB"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <vibrancyEffect>
+                                                        <blurEffect style="regular"/>
+                                                    </vibrancyEffect>
+                                                </visualEffectView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kd2-w3-ytZ" firstAttribute="leading" secondItem="Mz7-ap-tbL" secondAttribute="leading" id="Wba-ry-Lcb"/>
+                                                <constraint firstAttribute="trailing" secondItem="kd2-w3-ytZ" secondAttribute="trailing" id="iz3-Gd-qaM"/>
+                                                <constraint firstAttribute="bottom" secondItem="kd2-w3-ytZ" secondAttribute="bottom" id="nbh-gq-FX1"/>
+                                                <constraint firstItem="kd2-w3-ytZ" firstAttribute="top" secondItem="Mz7-ap-tbL" secondAttribute="top" id="sFj-Qx-Uej"/>
+                                            </constraints>
+                                        </view>
+                                        <blurEffect style="regular"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </visualEffectView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zUL-dU-PN7">
+                                        <rect key="frame" x="12" y="143" width="370" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M68-F7-Mtv">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="40"/>
+                                                <color key="backgroundColor" name="PrimaryBlue"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="Pqu-yf-Lz3"/>
+                                                    <constraint firstAttribute="height" constant="40" id="nVd-mN-5c4"/>
+                                                </constraints>
+                                                <color key="tintColor" name="PrimaryTextLight"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Place wire" image="plus.circle" catalog="system">
+                                                    <color key="titleColor" name="PrimaryTextLight"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="userPressedPlaceWire" destination="j7v-qv-ji4" eventType="touchUpInside" id="fch-6v-Nib"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cW1-WU-Rde">
+                                                <rect key="frame" x="190" y="0.0" width="180" height="40"/>
+                                                <color key="backgroundColor" name="PrimaryTextLight"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="3TL-wA-IgG"/>
+                                                    <constraint firstAttribute="height" constant="40" id="OD1-Rd-ulz"/>
+                                                </constraints>
+                                                <color key="tintColor" name="PrimaryBlue"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Done" image="checkmark.circle" catalog="system">
+                                                    <color key="titleColor" name="PrimaryBlue"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="userPressedDonePlacingWire" destination="j7v-qv-ji4" eventType="touchUpInside" id="yqz-5i-Yux"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7fb-wf-E8p"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="psS-d4-W6l" firstAttribute="leading" secondItem="7fb-wf-E8p" secondAttribute="leading" constant="10" id="30N-Ku-h7C"/>
+                            <constraint firstItem="7fb-wf-E8p" firstAttribute="bottom" secondItem="osf-Vl-7hG" secondAttribute="bottom" constant="20" id="7Ge-Bs-XZR"/>
+                            <constraint firstItem="7fb-wf-E8p" firstAttribute="trailing" secondItem="Mcl-Qb-6WZ" secondAttribute="trailing" constant="10" id="8JM-dy-B62"/>
+                            <constraint firstItem="7fb-wf-E8p" firstAttribute="trailing" secondItem="osf-Vl-7hG" secondAttribute="trailing" constant="10" id="R7s-rl-5eZ"/>
+                            <constraint firstItem="psS-d4-W6l" firstAttribute="trailing" secondItem="7fb-wf-E8p" secondAttribute="trailing" constant="-10" id="WzC-RL-hNr"/>
+                            <constraint firstItem="7fb-wf-E8p" firstAttribute="bottom" secondItem="Mcl-Qb-6WZ" secondAttribute="bottom" constant="20" id="b9c-Fw-B0O"/>
+                            <constraint firstItem="3Ds-u7-rPG" firstAttribute="leading" secondItem="7fb-wf-E8p" secondAttribute="leading" constant="10" id="hoK-Oo-nc9"/>
+                            <constraint firstItem="Mcl-Qb-6WZ" firstAttribute="leading" secondItem="7fb-wf-E8p" secondAttribute="leading" constant="10" id="hop-YM-0Rr"/>
+                            <constraint firstItem="3Ds-u7-rPG" firstAttribute="trailing" secondItem="7fb-wf-E8p" secondAttribute="trailing" constant="-10" id="hx4-2h-gJW"/>
+                            <constraint firstItem="osf-Vl-7hG" firstAttribute="leading" secondItem="7fb-wf-E8p" secondAttribute="leading" constant="10" id="mE1-s2-ZnO"/>
+                            <constraint firstItem="7fb-wf-E8p" firstAttribute="bottom" secondItem="psS-d4-W6l" secondAttribute="bottom" constant="20" id="mYQ-XB-LLG"/>
+                            <constraint firstItem="xub-Hs-vMl" firstAttribute="leading" secondItem="7fb-wf-E8p" secondAttribute="leading" id="oAt-IL-mlK"/>
+                            <constraint firstItem="7fb-wf-E8p" firstAttribute="bottom" secondItem="3Ds-u7-rPG" secondAttribute="bottom" constant="20" id="ve5-yz-SJ9"/>
+                            <constraint firstItem="7fb-wf-E8p" firstAttribute="trailing" secondItem="xub-Hs-vMl" secondAttribute="trailing" id="wBM-9A-gIB"/>
+                            <constraint firstItem="xub-Hs-vMl" firstAttribute="top" secondItem="egn-03-Mgz" secondAttribute="top" id="xIg-Ft-ogT"/>
+                            <constraint firstAttribute="bottom" secondItem="xub-Hs-vMl" secondAttribute="bottom" id="zaU-2n-7UT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aWN-fP-dhL">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="undo" id="Yyn-Pa-6N8">
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <connections>
+                                    <action selector="userPressedUndo" destination="j7v-qv-ji4" id="fpm-MX-8H4"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Reset" id="jgb-KJ-RUO">
+                                <color key="tintColor" name="PrimaryBlue"/>
+                                <connections>
+                                    <action selector="userPressedReset" destination="j7v-qv-ji4" id="vlM-uK-lxR"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addObjectOrFinishStackView" destination="Mcl-Qb-6WZ" id="iDz-SV-as6"/>
+                        <outlet property="captureStackView" destination="psS-d4-W6l" id="xIt-PZ-8nB"/>
+                        <outlet property="confirmPositionStackView" destination="osf-Vl-7hG" id="zDf-Yv-ZN3"/>
+                        <outlet property="placeWireStackView" destination="3Ds-u7-rPG" id="W2a-XL-N1o"/>
+                        <outlet property="resetButton" destination="jgb-KJ-RUO" id="VKO-E4-rQk"/>
+                        <outlet property="sceneView" destination="xub-Hs-vMl" id="AnS-LL-uUE"/>
+                        <outlet property="undoButton" destination="Yyn-Pa-6N8" id="qVd-OO-lwg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a9y-TO-hYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4461" y="-636"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera" catalog="system" width="128" height="94"/>
+        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="checkmark.seal" catalog="system" width="128" height="128"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="PrimaryBlue">
+            <color red="0.396078431372549" green="0.63921568627450975" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryTextDark">
+            <color red="0.29019607843137257" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryTextLight">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryWhiteBackground">
+            <color red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
