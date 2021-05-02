@@ -126,8 +126,12 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout {
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = availableWidth / itemsPerRow
         
-        //+ 30 is for label
-        return CGSize(width: widthPerItem, height: widthPerItem + 40)
+        if indexPath.row == 0 {
+            return CGSize(width: widthPerItem, height: widthPerItem)
+        } else {
+            //+ 70 is for label
+            return CGSize(width: widthPerItem, height: widthPerItem + 60)
+        }
     }
     
     func collectionView(

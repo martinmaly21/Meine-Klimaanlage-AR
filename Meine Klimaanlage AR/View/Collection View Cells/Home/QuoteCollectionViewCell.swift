@@ -9,8 +9,11 @@
 import UIKit
 
 class QuoteCollectionViewCell: UICollectionViewCell {
-
     @IBOutlet weak var containerView: UIView!
+    
+    @IBOutlet var images: [UIImageView]!
+    @IBOutlet weak var customerName: UILabel!
+    @IBOutlet weak var date: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
