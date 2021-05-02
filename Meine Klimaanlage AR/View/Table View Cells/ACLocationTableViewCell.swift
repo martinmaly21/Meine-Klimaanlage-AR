@@ -47,12 +47,13 @@ class ACLocationTableViewCell: UITableViewCell {
         setUpUI()
     }
     
-    
     private func setUpUI() {
         selectionStyle = .none
         
         screenshotsCollectionView.delegate = self
         screenshotsCollectionView.dataSource = self
+        
+        screenshotsCollectionView.showsHorizontalScrollIndicator = false
         
         screenshotsCollectionView.register(
             UINib(
@@ -71,9 +72,22 @@ class ACLocationTableViewCell: UITableViewCell {
     public func setUpCell(with location: ACLocation) {
         unitTitle.text = location.acUnit.displayName
         
-        self.screenshots = location.screenshots
+        locationTextField.text = location.name
+        estimatedPriceTextField.text = "\(String(describing: location.price))"
         
         addWires(with: location.wires)
+        
+        screenshots = location.screenshots
+        screenshotsCollectionView.reloadData()
+        
+        wifiSwitch.isOn = location.wifi
+        elZulSwitch.isOn = location.elZul
+        uvSwitch.isOn = location.uv
+        dachDeckerSwitch.isOn = location.dachdecker
+        dachdruchführungSwitch.isOn = location.dachdruchführung
+        kondensatpumpeSwitch.isOn = location.kondensatpumpe
+        
+        noteTextField.text = location.notes
     }
     
     private func addWires(with wires: [ACWire]) {

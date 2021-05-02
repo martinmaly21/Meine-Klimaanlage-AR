@@ -99,7 +99,7 @@ class ACLocationViewController: UIViewController {
         acLocation.elZul = elZul
         acLocation.uv = uv
         acLocation.dachdecker = dachdecker
-        acLocation.dachdruchfuhrung = dachdruchführung
+        acLocation.dachdruchführung = dachdruchführung
         acLocation.kondensatpumpe = kondensatpumpe
         
         acLocation.notes = notes
@@ -309,6 +309,15 @@ extension ACLocationViewController {
             present(imagePickerController, animated: true, completion: nil)
         }
     }
+    
+    private func updateCell(with newImage: UIImage) {
+        acLocation.screenshots.append(newImage)
+        
+        DispatchQueue.main.async {
+            self.updateACLocation()
+            self.tableView.reloadData()
+        }
+    }
 }
 
 extension ACLocationViewController: UINavigationControllerDelegate { }
@@ -327,8 +336,7 @@ extension ACLocationViewController: UIImagePickerControllerDelegate {
                 return
         }
         
-        acLocation.screenshots.append(returnedImage)
-        acLocationTableViewCell.screenshotsCollectionView.reloadData()
+        updateCell(with: returnedImage)
     }
 }
 
@@ -344,10 +352,7 @@ extension ACLocationViewController: PHPickerViewControllerDelegate {
         itemProvider.loadObject(ofClass: UIImage.self) { image, error in
             guard let returnedImage = image as? UIImage else { return }
             
-            self.acLocation.screenshots.append(returnedImage)
-            DispatchQueue.main.async {
-                self.acLocationTableViewCell.screenshotsCollectionView.reloadData()
-            }
+            self.updateCell(with: returnedImage)
         }
     }
 }

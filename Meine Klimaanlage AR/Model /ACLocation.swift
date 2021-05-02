@@ -23,7 +23,7 @@ class ACLocation {
     var elZul = false
     var uv = false
     var dachdecker = false
-    var dachdruchfuhrung = false
+    var dachdruchführung = false
     var kondensatpumpe = false
     
     var notes: String?
@@ -34,7 +34,7 @@ class ACLocation {
 
     func isComplete() -> Bool {
         guard let name = name, !name.isEmpty,
-              price != nil,
+              let price = price, price != 0,
               !screenshots.isEmpty else {
             return false
         }
