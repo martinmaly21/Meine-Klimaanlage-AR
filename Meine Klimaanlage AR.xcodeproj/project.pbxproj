@@ -29,6 +29,10 @@
 		5B4CEC2F263E17AD0081EBE2 /* ACLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4CEC2E263E17AD0081EBE2 /* ACLocation.swift */; };
 		5B4CEC38263E1C5C0081EBE2 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4CEC37263E1C5C0081EBE2 /* HomeNavigationController.swift */; };
 		5B4CEC3B263E1C900081EBE2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4CEC3A263E1C900081EBE2 /* HomeViewController.swift */; };
+		5B4CEC44263E253A0081EBE2 /* CreateQuoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4CEC42263E253A0081EBE2 /* CreateQuoteCollectionViewCell.swift */; };
+		5B4CEC45263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4CEC43263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib */; };
+		5B4CEC4A263E25470081EBE2 /* QuoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4CEC48263E25470081EBE2 /* QuoteCollectionViewCell.swift */; };
+		5B4CEC4B263E25470081EBE2 /* QuoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4CEC49263E25470081EBE2 /* QuoteCollectionViewCell.xib */; };
 		5B4FDFB8248D79160079B653 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4FDFB7248D79160079B653 /* .gitignore */; };
 		5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0D8248D701F0072002A /* AppDelegate.swift */; };
 		5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DA248D701F0072002A /* SceneDelegate.swift */; };
@@ -104,6 +108,10 @@
 		5B4CEC2E263E17AD0081EBE2 /* ACLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocation.swift; sourceTree = "<group>"; };
 		5B4CEC37263E1C5C0081EBE2 /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		5B4CEC3A263E1C900081EBE2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5B4CEC42263E253A0081EBE2 /* CreateQuoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuoteCollectionViewCell.swift; sourceTree = "<group>"; };
+		5B4CEC43263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateQuoteCollectionViewCell.xib; sourceTree = "<group>"; };
+		5B4CEC48263E25470081EBE2 /* QuoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCollectionViewCell.swift; sourceTree = "<group>"; };
+		5B4CEC49263E25470081EBE2 /* QuoteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCollectionViewCell.xib; sourceTree = "<group>"; };
 		5B4FDFB7248D79160079B653 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5B69D0D5248D701F0072002A /* Meine Klimaanlage AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meine Klimaanlage AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B69D0D8248D701F0072002A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -301,6 +309,17 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		5B4CEC41263E251A0081EBE2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5B4CEC42263E253A0081EBE2 /* CreateQuoteCollectionViewCell.swift */,
+				5B4CEC43263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib */,
+				5B4CEC48263E25470081EBE2 /* QuoteCollectionViewCell.swift */,
+				5B4CEC49263E25470081EBE2 /* QuoteCollectionViewCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		5B69D0CC248D701F0072002A = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +418,7 @@
 		5BDD140C24BBAB72003A3A98 /* Collection View Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5B4CEC41263E251A0081EBE2 /* Home */,
 				5BDD140D24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift */,
 				5BDD140E24BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib */,
 				5B0915792544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.swift */,
@@ -536,8 +556,10 @@
 				5BD54D3A263E04CA009BFB92 /* QuoteCreateANewLocationTableViewCell.xib in Resources */,
 				5B2C5B10248DB249001B6898 /* Root.storyboard in Resources */,
 				5BE20847262CF25A00F1D56B /* Tutorial0.gif in Resources */,
+				5B4CEC4B263E25470081EBE2 /* QuoteCollectionViewCell.xib in Resources */,
 				5B69D0E2248D70200072002A /* Assets.xcassets in Resources */,
 				5BE20849262CF25A00F1D56B /* Tutorial2.gif in Resources */,
+				5B4CEC45263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib in Resources */,
 				5BDD141024BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib in Resources */,
 				5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */,
 				5B7E6DEC24B6C87D0049CCB9 /* ACUnits.scnassets in Resources */,
@@ -626,6 +648,7 @@
 				5BDD77F9256B701000EACC68 /* ThresholdPanGesture.swift in Sources */,
 				5BDD140F24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift in Sources */,
 				5B09157B2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.swift in Sources */,
+				5B4CEC44263E253A0081EBE2 /* CreateQuoteCollectionViewCell.swift in Sources */,
 				5BDD140324BB7F8E003A3A98 /* ACLocationViewController.swift in Sources */,
 				5BDAEFF92630F0AF008560CC /* ARWire.swift in Sources */,
 				5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */,
@@ -639,6 +662,7 @@
 				5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */,
 				5BE2084C262CFED300F1D56B /* InfinitePlaneNode.swift in Sources */,
 				5B6DED482569CDC700FF66A5 /* ARQuoteViewController.swift in Sources */,
+				5B4CEC4A263E25470081EBE2 /* QuoteCollectionViewCell.swift in Sources */,
 				5B12389625410B2200A809D9 /* ShadowButton.swift in Sources */,
 				5B835C052627C5920031698A /* VerticalAnchorCoachingView.swift in Sources */,
 			);
