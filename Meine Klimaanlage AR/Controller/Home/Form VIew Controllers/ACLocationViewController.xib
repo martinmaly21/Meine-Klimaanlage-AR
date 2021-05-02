@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mbk-P1-8SW">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <color key="separatorColor" systemColor="systemGray2Color"/>
                     <connections>
@@ -35,7 +35,7 @@
             <constraints>
                 <constraint firstItem="Mbk-P1-8SW" firstAttribute="top" secondItem="Yzv-6S-9kc" secondAttribute="top" id="P5b-fE-QNa"/>
                 <constraint firstItem="Yzv-6S-9kc" firstAttribute="trailing" secondItem="Mbk-P1-8SW" secondAttribute="trailing" id="Ztw-x2-qXx"/>
-                <constraint firstItem="Yzv-6S-9kc" firstAttribute="bottom" secondItem="Mbk-P1-8SW" secondAttribute="bottom" id="qDV-7d-3FL"/>
+                <constraint firstAttribute="bottom" secondItem="Mbk-P1-8SW" secondAttribute="bottom" id="qDV-7d-3FL"/>
                 <constraint firstItem="Mbk-P1-8SW" firstAttribute="leading" secondItem="Yzv-6S-9kc" secondAttribute="leading" id="whx-U5-mcv"/>
             </constraints>
             <point key="canvasLocation" x="152" y="362"/>
