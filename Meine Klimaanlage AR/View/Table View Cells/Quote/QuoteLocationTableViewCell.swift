@@ -9,8 +9,11 @@
 import UIKit
 
 class QuoteLocationTableViewCell: UITableViewCell {
-    
+    @IBOutlet var imageViews: [UIImageView]!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var acUnitLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var wiresLabel: UILabel!
     
     public var acLocation: ACLocation?
     
@@ -19,7 +22,20 @@ class QuoteLocationTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    public func setUpCell(with locationName: String?) {
-        locationLabel.text = locationName
+    public func setUpCell(with acLocation: ACLocation?) {
+        self.acLocation = acLocation
+        
+        for (index, screenshot) in (acLocation?.screenshots ?? []).enumerated() {
+            imageViews[index].image = screenshot
+        }
+        
+        locationLabel.text = acLocation?.name
+        acUnitLabel.text = acLocation?.acUnit.displayName
+        
+        if let price = acLocation?.price {
+            priceLabel.text = "\(price) Euro"
+        }
+        
+        wiresLabel.text = "Wires: \(acLocation?.wires.count ?? 0)"
     }
 }

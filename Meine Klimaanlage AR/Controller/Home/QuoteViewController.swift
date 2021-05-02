@@ -250,8 +250,7 @@ extension QuoteViewController: UITableViewDataSource {
                 }
                 //the '-1' is to account for QuoteCreateANewLocationTableViewCell
                 let acLocation = QuoteManager.currentQuote.locations[indexPath.row - 1]
-                cell.acLocation = acLocation
-                cell.setUpCell(with: acLocation.name)
+                cell.setUpCell(with: acLocation)
                 return cell
             }
         }
