@@ -33,14 +33,19 @@ class ACLocationViewController: UIViewController {
         self.title = "Quote Summary"
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.setHidesBackButton(true, animated: true)
         navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        let discardButton = UIBarButtonItem(title: "Discard", style: .plain, target: self, action: #selector(didPressDiscard))
+        navigationItem.leftBarButtonItem = discardButton
     }
 
     private func setUpTableView() {
         tableView.register(UINib(nibName: "ACLocationTableViewCell", bundle: nil), forCellReuseIdentifier: "ACLocationTableViewCell")
     }
 
+    @objc func didPressDiscard() {
+        userPressedDiscardLocation()
+    }
 }
 
 extension ACLocationViewController: UITableViewDelegate, UITableViewDataSource {
@@ -61,10 +66,9 @@ extension ACLocationViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ACLocationViewController: QuoteSummaryCellDelegate {
-
-    func userPressedDiscardQuote() {
+    func userPressedDiscardLocation() {
         let actionSheet = UIAlertController(
-            title: "Are you sure you'd like to discard this quote?",
+            title: "Are you sure you'd like to discard this location?",
             message: "All your work will be lost.",
             preferredStyle: .actionSheet
         )
