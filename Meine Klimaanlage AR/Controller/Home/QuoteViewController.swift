@@ -137,6 +137,55 @@ extension QuoteViewController: UITableViewDelegate {
         }
         
         //show email
+        
+//
+//        let composeVC = MFMailComposeViewController()
+//
+//        composeVC.mailComposeDelegate = self
+//
+//        composeVC.setToRecipients([Constants.Quote.quoteEmail])
+//        composeVC.setSubject("AC Quote")
+//
+//        var wireInformation = ""
+//        for wire in quote.wires {
+//            let wireLength = String(format: "%.2f", Double(wire.wireLength))
+//            let wireName = String(describing: wire.wireDisplayName)
+//            wireInformation += "\(wireLength) meters of \(wireName).\n"
+//        }
+//
+//        var unitsInformation = ""
+//        for unit in quote.units {
+//            unitsInformation += "\(unit.displayName) (Quantity: \(unit.quantity))\n"
+//        }
+//
+//        let messageBody = """
+//        Customer's Name: \(quote.customerName ?? "")
+//        Employee's Name: \(quote.employeeName ?? "")
+//        Date of Appointment: \(quote.appointmentDate ?? "")
+//        Estimated Price: \(quote.price ?? "") Euro
+//
+//        Wire(s):
+//        \(wireInformation)
+//        AC Unit's:
+//        \(unitsInformation)
+//        Wifi: \(quote.wifi ? "Yes" : "No")
+//        El. Zul.: \(quote.elZul ? "Yes" : "No")
+//        UV: \(quote.uv ? "Yes" : "No")
+//        Dachdecker: \(quote.dachdecker ? "Yes" : "No")
+//        Dachdruchführung: \(quote.dachdruchfuhrung ? "Yes" : "No")
+//        Kondensatpumpe: \(quote.kondensatpumpe ? "Yes" : "No")
+//
+//        Notes:
+//        \(quote.notes ?? "")
+//        """
+//        composeVC.setMessageBody(messageBody, isHTML: false)
+//
+//        if let screenshot = quote.screenshots.first,
+//           let screenshotImageData = screenshot.pngData() {
+//            composeVC.addAttachmentData(screenshotImageData, mimeType: "image/png", fileName: "\(quote.units.first?.displayName ?? "Unit")_Screenshot")
+//        }
+//
+//        self.present(composeVC, animated: true, completion: nil)
     }
 }
 
