@@ -19,7 +19,7 @@ struct ACQuote {
         var totalPrice: Float = 0
         
         locations.forEach {
-            totalPrice += $0.price ?? 0
+            totalPrice += $0.price
         }
         
         return totalPrice
