@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import PhotosUI
 
 class ACLocationViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -175,6 +176,10 @@ extension ACLocationViewController: QuoteSummaryCellDelegate {
         imageTapped(with: image)
     }
     
+    func userPressedAddPhoto(from cell: UICollectionViewCell) {
+        presentImagePickerChoice(from: cell)
+    }
+    
     @IBAction func imageTapped(with image: UIImage) {
         let newImageView = UIImageView(image: image)
         newImageView.frame = UIScreen.main.bounds
@@ -231,6 +236,117 @@ extension ACLocationViewController: MFMailComposeViewControllerDelegate {
                 self.present(informationlert, animated: true, completion: nil)
             @unknown default:
                 fatalError()
+            }
+        }
+    }
+}
+
+extension ACLocationViewController {
+    private func presentImagePickerChoice(from cell: UICollectionViewCell) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        let takePhotoPickerAction = UIAlertAction(
+            title: "Take photo",
+            style: .default,
+            handler: { _ in
+                self.presentImagePicker(.camera)
+            }
+        )
+
+        let photoLibraryPickerAction = UIAlertAction(
+            title: "Choose photo",
+            style: .default,
+            handler: { _ in
+                self.presentImagePicker(.photoLibrary)
+            }
+        )
+        
+        let alignmentMode = CATextLayerAlignmentMode.left
+        let alignmentKey = "titleTextAlignment"
+        
+        takePhotoPickerAction.setValue(alignmentMode, forKey: alignmentKey)
+        photoLibraryPickerAction.setValue(alignmentMode, forKey: alignmentKey)
+        
+        takePhotoPickerAction.setValue(UIImage(systemName: "camera"), forKey: "image")
+        photoLibraryPickerAction.setValue(UIImage(systemName: "photo"), forKey: "image")
+
+        alert.addAction(takePhotoPickerAction)
+        alert.addAction(photoLibraryPickerAction)
+
+        alert.addAction(
+            UIAlertAction(
+                title: NSLocalizedString(
+                    "CANCEL",
+                    value: "Cancel",
+                    comment: "Generic 'Cancel' string"
+                ),
+                style: .cancel,
+                handler: nil
+            )
+        )
+
+        alert.popoverPresentationController?.sourceView = cell
+
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func presentImagePicker(_ sourceType: UIImagePickerController.SourceType) {
+        if #available(iOS 14.0, *), sourceType != .camera {
+            var configuration = PHPickerConfiguration()
+            configuration.selectionLimit = 1
+            configuration.filter = .images
+            let picker = PHPickerViewController(configuration: configuration)
+            picker.delegate = self
+            present(picker, animated: true)
+            return
+        }
+
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = sourceType
+            imagePickerController.allowsEditing = false
+            present(imagePickerController, animated: true, completion: nil)
+        }
+    }
+}
+
+extension ACLocationViewController: UINavigationControllerDelegate { }
+
+extension ACLocationViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+    ) {
+        guard let returnedImage = (
+            info[UIImagePickerController.InfoKey.editedImage] as? UIImage ??
+                info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+            ) else {
+
+                ErrorManager.showInvalidImage(on: self)
+                return
+        }
+        
+        acLocation.screenshots.append(returnedImage)
+        acLocationTableViewCell.screenshotsCollectionView.reloadData()
+    }
+}
+
+@available(iOS 14, *)
+extension ACLocationViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+
+        guard let itemProvider = results.first?.itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) else {
+            return
+        }
+
+        itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+            guard let returnedImage = image as? UIImage else { return }
+            
+            self.acLocation.screenshots.append(returnedImage)
+            DispatchQueue.main.async {
+                self.acLocationTableViewCell.screenshotsCollectionView.reloadData()
             }
         }
     }

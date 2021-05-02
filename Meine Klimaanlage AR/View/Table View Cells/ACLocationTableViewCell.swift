@@ -10,6 +10,7 @@ import UIKit
 
 
 protocol QuoteSummaryCellDelegate: class {
+    func userPressedAddPhoto(from cell: UICollectionViewCell)
     func userPressedPhoto(with image: UIImage)
     
     func userPressedSaveLocation()
@@ -57,6 +58,12 @@ class ACLocationTableViewCell: UITableViewCell {
             UINib(
                 nibName: "ScreenshotCollectionViewCell", bundle: nil
             ), forCellWithReuseIdentifier: "ScreenshotCollectionViewCell"
+        )
+        
+        screenshotsCollectionView.register(
+            UINib(
+                nibName: "AddPhotoCollectionViewCell", bundle: nil
+            ), forCellWithReuseIdentifier: "AddPhotoCollectionViewCell"
         )
     }
     
@@ -114,7 +121,8 @@ class ACLocationTableViewCell: UITableViewCell {
 
 extension ACLocationTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return screenshots.count
+        let numberOfAddPhotos = 1
+        return screenshots.count + numberOfAddPhotos
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -122,6 +130,15 @@ extension ACLocationTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard indexPath.row < screenshots.count else {
+            //show add screenshot cell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPhotoCollectionViewCell", for: indexPath) as? AddPhotoCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            return cell
+        }
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScreenshotCollectionViewCell", for: indexPath) as? ScreenshotCollectionViewCell else {
             return UICollectionViewCell()
         }
@@ -132,6 +149,14 @@ extension ACLocationTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.row < screenshots.count else {
+            guard let cell = collectionView.cellForItem(at: indexPath) else {
+                fatalError("Could not get cell")
+            }
+            quoteSummaryCellDelegate?.userPressedAddPhoto(from: cell)
+            return
+        }
+        
         quoteSummaryCellDelegate?.userPressedPhoto(with: screenshots[indexPath.row])
     }
 }

@@ -109,6 +109,19 @@ class ErrorManager {
         viewController.present(errorController, animated: true, completion: nil)
     }
     
+    static func showInvalidImage(on viewController: UIViewController) {
+        let errorController = UIAlertController(
+            title: "Error",
+            message: "Invalid image.",
+            preferredStyle: .alert
+        )
+        
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        errorController.addAction(okayAction)
+        
+        viewController.present(errorController, animated: true, completion: nil)
+    }
+    
     static func showGenericError(with genericError: Errors.GenericError, on viewController: UIViewController) {
         let errorText: String
         

@@ -55,6 +55,8 @@
 		5BCB3589263F0E0800532002 /* ACLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCB3588263F0E0800532002 /* ACLocation.storyboard */; };
 		5BCB358D263F1C4300532002 /* SendQuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCB358B263F1C4300532002 /* SendQuoteTableViewCell.swift */; };
 		5BCB358E263F1C4300532002 /* SendQuoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BCB358C263F1C4300532002 /* SendQuoteTableViewCell.xib */; };
+		5BCB3592263F213E00532002 /* AddPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCB3590263F213E00532002 /* AddPhotoCollectionViewCell.swift */; };
+		5BCB3593263F213E00532002 /* AddPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BCB3591263F213E00532002 /* AddPhotoCollectionViewCell.xib */; };
 		5BD4083A262A66D500D2FF74 /* HitTestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD40839262A66D500D2FF74 /* HitTestType.swift */; };
 		5BD54D2E263E046B009BFB92 /* QuoteInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD54D2C263E046B009BFB92 /* QuoteInformationTableViewCell.swift */; };
 		5BD54D2F263E046B009BFB92 /* QuoteInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BD54D2D263E046B009BFB92 /* QuoteInformationTableViewCell.xib */; };
@@ -141,6 +143,8 @@
 		5BCB3588263F0E0800532002 /* ACLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ACLocation.storyboard; sourceTree = "<group>"; };
 		5BCB358B263F1C4300532002 /* SendQuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendQuoteTableViewCell.swift; sourceTree = "<group>"; };
 		5BCB358C263F1C4300532002 /* SendQuoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendQuoteTableViewCell.xib; sourceTree = "<group>"; };
+		5BCB3590263F213E00532002 /* AddPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		5BCB3591263F213E00532002 /* AddPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		5BD40839262A66D500D2FF74 /* HitTestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTestType.swift; sourceTree = "<group>"; };
 		5BD54D2C263E046B009BFB92 /* QuoteInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteInformationTableViewCell.swift; sourceTree = "<group>"; };
 		5BD54D2D263E046B009BFB92 /* QuoteInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteInformationTableViewCell.xib; sourceTree = "<group>"; };
@@ -434,6 +438,8 @@
 			isa = PBXGroup;
 			children = (
 				5B4CEC41263E251A0081EBE2 /* Home */,
+				5BCB3590263F213E00532002 /* AddPhotoCollectionViewCell.swift */,
+				5BCB3591263F213E00532002 /* AddPhotoCollectionViewCell.xib */,
 				5BDD140D24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift */,
 				5BDD140E24BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib */,
 				5B0915792544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.swift */,
@@ -567,6 +573,7 @@
 				5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */,
 				5BE20848262CF25A00F1D56B /* Tutorial1.gif in Resources */,
 				5BD54D2F263E046B009BFB92 /* QuoteInformationTableViewCell.xib in Resources */,
+				5BCB3593263F213E00532002 /* AddPhotoCollectionViewCell.xib in Resources */,
 				5BE8199024BA2C0800C538FF /* ChooseTypeOfWireViewController.xib in Resources */,
 				5BD54D3A263E04CA009BFB92 /* QuoteCreateANewLocationTableViewCell.xib in Resources */,
 				5B2C5B10248DB249001B6898 /* Root.storyboard in Resources */,
@@ -655,6 +662,7 @@
 				5B69D0DD248D701F0072002A /* LogInOrCreateAccountViewController.swift in Sources */,
 				5B09158225451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.swift in Sources */,
 				5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */,
+				5BCB3592263F213E00532002 /* AddPhotoCollectionViewCell.swift in Sources */,
 				5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */,
 				5BD54D33263E0486009BFB92 /* QuoteLocationTableViewCell.swift in Sources */,
 				5B2C5B1A248DBB80001B6898 /* ChooseBrandViewController.swift in Sources */,
