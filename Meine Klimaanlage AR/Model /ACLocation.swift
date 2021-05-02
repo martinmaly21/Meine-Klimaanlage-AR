@@ -9,7 +9,7 @@
 import UIKit
 
 //Make this a class so that we don't have to pass in it's parent quote when modifying it
-class ACLocation {
+class ACLocation: Identifiable {
     var name: String?
     
     var price: Float = 0

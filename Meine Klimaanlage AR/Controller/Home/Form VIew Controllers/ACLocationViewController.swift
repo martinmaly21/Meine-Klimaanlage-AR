@@ -15,6 +15,10 @@ class ACLocationViewController: UIViewController {
     
     private let acLocation: ACLocation
     
+    private var indexOfACLocationInQuote: Int? {
+        return QuoteManager.currentQuote.locations.firstIndex(where: { return $0.id == acLocation.id })
+    }
+    
     private var acLocationTableViewCell: ACLocationTableViewCell {
         guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ACLocationTableViewCell else {
             fatalError("Could not get ACLocationTableViewCell")
@@ -143,7 +147,7 @@ extension ACLocationViewController: QuoteSummaryCellDelegate {
             title: "Discard",
             style: .destructive,
             handler: { _ in
-                self.dismiss(animated: true, completion: nil)
+                self.userConfirmedDiscard()
             }
         )
         
@@ -157,6 +161,12 @@ extension ACLocationViewController: QuoteSummaryCellDelegate {
         actionSheet.addAction(cancelAction)
         
         present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func userConfirmedDiscard() {
+        
+        
+        dismiss(animated: true, completion: nil)
     }
     
     func userPressedSaveLocation() {
