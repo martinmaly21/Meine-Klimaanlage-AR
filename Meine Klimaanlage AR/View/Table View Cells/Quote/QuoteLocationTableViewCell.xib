@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="D2K-sT-H3o">
-                        <rect key="frame" x="10" y="10" width="345" height="100"/>
+                        <rect key="frame" x="16.5" y="10" width="332" height="100"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Dpm-aq-FUv">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -90,23 +90,23 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mMd-uH-Cbh">
-                                <rect key="frame" x="110" y="0.0" width="235" height="100"/>
+                                <rect key="frame" x="110" y="0.0" width="222" height="100"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="eBh-bX-8mY">
-                                        <rect key="frame" x="0.0" y="0.0" width="232.5" height="51.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="222" height="51.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4K-Ba-2eM">
-                                                <rect key="frame" x="0.0" y="0.0" width="67" height="51.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="65.5" height="51.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <color key="textColor" name="PrimaryTextDark"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkD-hM-4t1">
-                                                <rect key="frame" x="67" y="0.0" width="114" height="51.5"/>
+                                                <rect key="frame" x="65.5" y="0.0" width="106" height="51.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Wires: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8J-17-LO7">
-                                                <rect key="frame" x="181" y="0.0" width="51.5" height="51.5"/>
+                                                <rect key="frame" x="171.5" y="0.0" width="50.5" height="51.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                 <color key="textColor" name="PrimaryTextDark"/>
                                                 <nil key="highlightedColor"/>
@@ -133,9 +133,9 @@
                 <constraints>
                     <constraint firstItem="D2K-sT-H3o" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="WKZ-Vt-S7u"/>
                     <constraint firstItem="D2K-sT-H3o" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZyE-df-El0"/>
-                    <constraint firstAttribute="trailing" secondItem="D2K-sT-H3o" secondAttribute="trailing" constant="10" id="l14-7I-hgk"/>
+                    <constraint firstAttribute="trailing" secondItem="D2K-sT-H3o" secondAttribute="trailing" constant="16.5" id="l14-7I-hgk"/>
                     <constraint firstAttribute="bottom" secondItem="D2K-sT-H3o" secondAttribute="bottom" constant="10" id="w2H-27-BF5"/>
-                    <constraint firstItem="D2K-sT-H3o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="yoV-5k-bEj"/>
+                    <constraint firstItem="D2K-sT-H3o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16.5" id="yoV-5k-bEj"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
