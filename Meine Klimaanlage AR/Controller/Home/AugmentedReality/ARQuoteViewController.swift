@@ -22,13 +22,7 @@ class ARQuoteViewController: UIViewController {
     //UI Elements
     private var coachingOverlay = ARCoachingOverlayView()
     
-    private var acLocation: ACLocation {
-        guard let acLocation = QuoteManager.currentQuote.locations.last else {
-            fatalError("Could not get most recent acLocation")
-        }
-        
-        return acLocation
-    }
+    public var acLocation: ACLocation!
     
     private var currentWire: ACWire {
         guard let currentWire = confirmedWires.last?.wire else {

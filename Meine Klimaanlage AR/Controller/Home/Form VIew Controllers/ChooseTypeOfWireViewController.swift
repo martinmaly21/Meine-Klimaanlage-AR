@@ -19,9 +19,8 @@ class ChooseTypeOfWireViewController: UIViewController {
     private var wireLocation = WireLocation.insideWall
     
     private var arViewController: ARQuoteViewController? {
-        guard let tabBarController = presentingViewController as? UITabBarController,
-              let navigationController = tabBarController.selectedViewController as? UINavigationController,
-              let arViewController = navigationController.topViewController as? ARQuoteViewController else {
+        guard let navBarController = presentingViewController as? UINavigationController,
+              let arViewController = navBarController.topViewController as? ARQuoteViewController else {
             return nil
         }
         return arViewController

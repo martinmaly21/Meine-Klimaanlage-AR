@@ -37,6 +37,9 @@ class ACLocationViewController: UIViewController {
         
         let discardButton = UIBarButtonItem(title: "Discard", style: .plain, target: self, action: #selector(didPressDiscard))
         navigationItem.leftBarButtonItem = discardButton
+        
+        let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(didPressSave))
+        navigationItem.rightBarButtonItem = saveButton
     }
 
     private func setUpTableView() {
@@ -45,6 +48,10 @@ class ACLocationViewController: UIViewController {
 
     @objc func didPressDiscard() {
         userPressedDiscardLocation()
+    }
+    
+    @objc func didPressSave() {
+        userPressedSaveLocation()
     }
 }
 
@@ -93,17 +100,18 @@ extension ACLocationViewController: QuoteSummaryCellDelegate {
         present(actionSheet, animated: true, completion: nil)
     }
     
-    func userPressedSubmitQuote() {
-        #warning("TODO")
-//        guard quote.isComplete() else {
-//            ErrorManager.showMissingFieldsForQuoteError(on: self)
-//            return
-//        }
-//
-//        guard MFMailComposeViewController.canSendMail() else {
-//            ErrorManager.showCannotOpenEmail(on: self)
-//            return
-//        }
+    func userPressedSaveLocation() {
+        guard acLocation.isComplete() else {
+            ErrorManager.showMissingFieldsForACLocationError(on: self)
+            return
+        }
+
+
+        QuoteManager.currentQuote.locations.append(acLocation)
+        
+        //TODO reload data upon dismiss?
+        dismiss(animated: true, completion: nil)
+        
 //
 //        let composeVC = MFMailComposeViewController()
 //

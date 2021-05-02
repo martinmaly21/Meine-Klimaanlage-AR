@@ -12,7 +12,7 @@ import UIKit
 protocol QuoteSummaryCellDelegate: class {
     func userPressedPhoto(with image: UIImage)
     
-    func userPressedSubmitQuote()
+    func userPressedSaveLocation()
     func userPressedDiscardLocation()
 }
 
@@ -102,8 +102,8 @@ class ACLocationTableViewCell: UITableViewCell {
     }
     
     
-    @IBAction func sendQuoteButton(_ sender: Any) {
-        quoteSummaryCellDelegate?.userPressedSubmitQuote()
+    @IBAction func saveButtonClicked(_ sender: Any) {
+        quoteSummaryCellDelegate?.userPressedSaveLocation()
     }
     
     @IBAction func discardButtonClicked(_ sender: Any) {

@@ -70,7 +70,7 @@ class ErrorManager {
     }
     
     //App errors
-    static func showMissingFieldsForQuoteError(on viewController: UIViewController) {
+    static func showMissingFieldsForACLocationError(on viewController: UIViewController) {
         let errorController = UIAlertController(
             title: "Error",
             message: "You must fill out all fields to proceed.",

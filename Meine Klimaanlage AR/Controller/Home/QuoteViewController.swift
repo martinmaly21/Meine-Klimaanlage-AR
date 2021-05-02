@@ -90,7 +90,7 @@ extension QuoteViewController: UITableViewDelegate {
         guard let customerName = self.customerName, !customerName.isEmpty,
               let employeeName = self.employeeName, !employeeName.isEmpty,
               let appointmentDate = self.appointmentDate, !appointmentDate.isEmpty else {
-            ErrorManager.showMissingFieldsForQuoteError(on: self)
+            ErrorManager.showMissingFieldsForACLocationError(on: self)
             return
         }
         guard let vc = UIStoryboard(name: "ACLocation", bundle: nil).instantiateInitialViewController() else {

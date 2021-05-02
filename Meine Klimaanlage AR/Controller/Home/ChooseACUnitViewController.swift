@@ -77,12 +77,19 @@ extension ChooseACUnitViewController: UITableViewDataSource, UITableViewDelegate
         
         if selectedUnit.displayName == "Wandgerät Baureihe TZ" {
             //update quote
-            let location = ACLocation(acUnit: selectedUnit)
-            QuoteManager.currentQuote.locations.append(location)
+            let acLocation = ACLocation(acUnit: selectedUnit)
             
-            performSegue(withIdentifier: "ARSegue", sender: nil)
+            performSegue(withIdentifier: "ARSegue", sender: acLocation)
         } else {
             ErrorManager.showFeatureNotSupported(on: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ARSegue",
+           let arViewController = segue.destination as? ARQuoteViewController,
+           let acLocation = sender as? ACLocation {
+            arViewController.acLocation = acLocation
         }
     }
 }
