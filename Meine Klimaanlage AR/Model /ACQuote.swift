@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ACQuote {
+struct ACQuote {
     var customerName: String?
     var employeeName: String?
     var appointmentDate: String?
