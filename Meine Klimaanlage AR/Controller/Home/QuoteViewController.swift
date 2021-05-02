@@ -93,8 +93,11 @@ extension QuoteViewController: UITableViewDelegate {
             ErrorManager.showMissingFieldsForQuoteError(on: self)
             return
         }
-        
-        performSegue(withIdentifier: "chooseBrandSegue", sender: nil)
+        guard let vc = UIStoryboard(name: "ACLocation", bundle: nil).instantiateInitialViewController() else {
+            fatalError("Couldn't get storyboard")
+        }
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
     
     private func userPressedQuoteLocationTableViewCell(with cell: QuoteLocationTableViewCell) {
