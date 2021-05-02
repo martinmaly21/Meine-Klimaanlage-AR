@@ -53,6 +53,8 @@
 		5BC6BBBB256F532000945523 /* WireCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6BBBA256F532000945523 /* WireCursor.swift */; };
 		5BCB3586263F0CA500532002 /* QuoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCB3585263F0CA500532002 /* QuoteManager.swift */; };
 		5BCB3589263F0E0800532002 /* ACLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BCB3588263F0E0800532002 /* ACLocation.storyboard */; };
+		5BCB358D263F1C4300532002 /* SendQuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCB358B263F1C4300532002 /* SendQuoteTableViewCell.swift */; };
+		5BCB358E263F1C4300532002 /* SendQuoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BCB358C263F1C4300532002 /* SendQuoteTableViewCell.xib */; };
 		5BD4083A262A66D500D2FF74 /* HitTestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD40839262A66D500D2FF74 /* HitTestType.swift */; };
 		5BD54D2E263E046B009BFB92 /* QuoteInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD54D2C263E046B009BFB92 /* QuoteInformationTableViewCell.swift */; };
 		5BD54D2F263E046B009BFB92 /* QuoteInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BD54D2D263E046B009BFB92 /* QuoteInformationTableViewCell.xib */; };
@@ -137,6 +139,8 @@
 		5BC6BBBA256F532000945523 /* WireCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireCursor.swift; sourceTree = "<group>"; };
 		5BCB3585263F0CA500532002 /* QuoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteManager.swift; sourceTree = "<group>"; };
 		5BCB3588263F0E0800532002 /* ACLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ACLocation.storyboard; sourceTree = "<group>"; };
+		5BCB358B263F1C4300532002 /* SendQuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendQuoteTableViewCell.swift; sourceTree = "<group>"; };
+		5BCB358C263F1C4300532002 /* SendQuoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendQuoteTableViewCell.xib; sourceTree = "<group>"; };
 		5BD40839262A66D500D2FF74 /* HitTestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTestType.swift; sourceTree = "<group>"; };
 		5BD54D2C263E046B009BFB92 /* QuoteInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteInformationTableViewCell.swift; sourceTree = "<group>"; };
 		5BD54D2D263E046B009BFB92 /* QuoteInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteInformationTableViewCell.xib; sourceTree = "<group>"; };
@@ -420,6 +424,8 @@
 				5BD54D32263E0486009BFB92 /* QuoteLocationTableViewCell.xib */,
 				5BD54D37263E04CA009BFB92 /* QuoteCreateANewLocationTableViewCell.swift */,
 				5BD54D38263E04CA009BFB92 /* QuoteCreateANewLocationTableViewCell.xib */,
+				5BCB358B263F1C4300532002 /* SendQuoteTableViewCell.swift */,
+				5BCB358C263F1C4300532002 /* SendQuoteTableViewCell.xib */,
 			);
 			path = Quote;
 			sourceTree = "<group>";
@@ -570,6 +576,7 @@
 				5BE20849262CF25A00F1D56B /* Tutorial2.gif in Resources */,
 				5B4CEC54263F04570081EBE2 /* QuoteSectionHeader.xib in Resources */,
 				5BCB3589263F0E0800532002 /* ACLocation.storyboard in Resources */,
+				5BCB358E263F1C4300532002 /* SendQuoteTableViewCell.xib in Resources */,
 				5B4CEC45263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib in Resources */,
 				5BDD141024BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib in Resources */,
 				5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */,
@@ -640,6 +647,7 @@
 				5B4CEC3B263E1C900081EBE2 /* HomeViewController.swift in Sources */,
 				5B2C5B1C248DBB8B001B6898 /* ProfileViewController.swift in Sources */,
 				5BDD77C8256B31BC00EACC68 /* VirtualObject.swift in Sources */,
+				5BCB358D263F1C4300532002 /* SendQuoteTableViewCell.swift in Sources */,
 				5BC6BBBB256F532000945523 /* WireCursor.swift in Sources */,
 				5B2C5B0E248D9D55001B6898 /* ForgotPasswordViewController.swift in Sources */,
 				5B00FACF2497214700215489 /* ACUnit.swift in Sources */,

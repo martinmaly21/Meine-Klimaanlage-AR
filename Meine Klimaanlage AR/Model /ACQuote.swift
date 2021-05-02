@@ -13,6 +13,7 @@ class ACQuote {
     var customerName: String?
     var employeeName: String?
     var appointmentDate: String?
+    var locations: [ACLocation] = []
     
     var totalPrice: Float {
         var totalPrice: Float = 0
@@ -22,18 +23,5 @@ class ACQuote {
         }
         
         return totalPrice
-    }
-    
-    var locations: [ACLocation] = []
-    
-    func isComplete() -> Bool {
-        guard let customerName = customerName, !customerName.isEmpty,
-            let employeeName = employeeName, !employeeName.isEmpty,
-            let appointmentDate = appointmentDate, !appointmentDate.isEmpty,
-            !locations.isEmpty else {
-                return false
-        }
-        
-        return true
     }
 }

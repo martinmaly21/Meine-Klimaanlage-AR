@@ -70,10 +70,23 @@ class ErrorManager {
     }
     
     //App errors
-    static func showMissingFieldsForACLocationError(on viewController: UIViewController) {
+    static func showMissingFieldsForQuoteError(on viewController: UIViewController) {
         let errorController = UIAlertController(
             title: "Error",
             message: "You must fill out all fields to proceed.",
+            preferredStyle: .alert
+        )
+        
+        let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        errorController.addAction(okayAction)
+        
+        viewController.present(errorController, animated: true, completion: nil)
+    }
+    
+    static func showMissingLocationError(on viewController: UIViewController) {
+        let errorController = UIAlertController(
+            title: "Error",
+            message: "You must add a location and AC unit to proceed.",
             preferredStyle: .alert
         )
         

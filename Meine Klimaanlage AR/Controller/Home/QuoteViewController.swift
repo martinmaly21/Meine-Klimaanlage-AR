@@ -60,6 +60,13 @@ class QuoteViewController: UIViewController {
             ),
             forCellReuseIdentifier: "QuoteLocationTableViewCell"
         )
+        tableView.register(
+            UINib(
+                nibName: "SendQuoteTableViewCell",
+                bundle: nil
+            ),
+            forCellReuseIdentifier: "SendQuoteTableViewCell"
+        )
         
         //register header
         tableView.register(
@@ -86,6 +93,8 @@ extension QuoteViewController: UITableViewDelegate {
             userPressedCreateANewLocationTableViewCell()
         case let cell as QuoteLocationTableViewCell:
             userPressedQuoteLocationTableViewCell(with: cell)
+        case is SendQuoteTableViewCell:
+            userPressedSendQuoteTableViewCell()
         default:
             fatalError("Unexpected cell type")
         }
@@ -94,12 +103,6 @@ extension QuoteViewController: UITableViewDelegate {
     }
     
     private func userPressedCreateANewLocationTableViewCell() {
-        guard let customerName = self.customerName, !customerName.isEmpty,
-              let employeeName = self.employeeName, !employeeName.isEmpty,
-              let appointmentDate = self.appointmentDate, !appointmentDate.isEmpty else {
-            ErrorManager.showMissingFieldsForACLocationError(on: self)
-            return
-        }
         guard let vc = UIStoryboard(name: "ACLocation", bundle: nil).instantiateInitialViewController() else {
             fatalError("Couldn't get storyboard")
         }
@@ -114,6 +117,26 @@ extension QuoteViewController: UITableViewDelegate {
         
         let acLocationViewController = ACLocationViewController(acLocation: acLocation)
         navigationController?.pushViewController(acLocationViewController, animated: true)
+    }
+    
+    private func userPressedSendQuoteTableViewCell() {
+        guard let customerName = self.customerName, !customerName.isEmpty,
+              let employeeName = self.employeeName, !employeeName.isEmpty,
+              let appointmentDate = self.appointmentDate, !appointmentDate.isEmpty else {
+            ErrorManager.showMissingFieldsForQuoteError(on: self)
+            return
+        }
+        
+        QuoteManager.currentQuote.customerName = customerName
+        QuoteManager.currentQuote.employeeName = employeeName
+        QuoteManager.currentQuote.appointmentDate = appointmentDate
+        
+        guard !QuoteManager.currentQuote.locations.isEmpty else {
+            ErrorManager.showMissingLocationError(on: self)
+            return
+        }
+        
+        //show email
     }
 }
 
@@ -141,7 +164,8 @@ extension QuoteViewController: UITableViewDataSource {
         } else {
             //section 1
             let numberOfCreateACLocationCells = 1
-            return numberOfCreateACLocationCells + QuoteManager.currentQuote.locations.count
+            let numberOfSendQuoteCells = 1
+            return numberOfCreateACLocationCells + QuoteManager.currentQuote.locations.count + numberOfSendQuoteCells
         }
     }
     
@@ -157,6 +181,12 @@ extension QuoteViewController: UITableViewDataSource {
             case 0:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCreateANewLocationTableViewCell") as? QuoteCreateANewLocationTableViewCell else {
                     fatalError("Could not create QuoteCreateANewLocationTableViewCell")
+                }
+                return cell
+            case QuoteManager.currentQuote.locations.count + 1:
+                //+1 is to account for QuoteCreateANewLocationTableViewCell
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "SendQuoteTableViewCell") as? SendQuoteTableViewCell else {
+                    fatalError("Could not create SendQuoteTableViewCell")
                 }
                 return cell
             default:
