@@ -12,8 +12,8 @@ import ARKit
 
 class ARQuoteViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
-    @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var undoButton: UIButton!
+    @IBOutlet weak var resetButton: UIBarButtonItem!
+    @IBOutlet weak var undoButton: UIBarButtonItem!
     @IBOutlet weak var confirmPositionStackView: UIStackView!
     @IBOutlet weak var addObjectOrFinishStackView: UIStackView!
     @IBOutlet weak var captureStackView: UIStackView!
@@ -77,7 +77,6 @@ class ARQuoteViewController: UIViewController {
     }
     
     private func setUpUI() {
-        navigationController?.setNavigationBarHidden(true, animated: true)
         tabBarController?.tabBar.isHidden = true
     }
     
@@ -133,8 +132,7 @@ class ARQuoteViewController: UIViewController {
     
     public func addVerticalAnchorCoachingView() {
         //hide reset button & undo buttton
-        resetButton.isHidden = true
-        undoButton.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
         
         //and hide the addObjecttOrFinishStackView (in case it's the second unit that's being added)
         addObjectOrFinishStackView.isHidden = true
@@ -212,8 +210,7 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         confirmPositionStackView.isHidden = false
         
         //show reset button & undo button
-        resetButton.isHidden = false
-        undoButton.isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     private func addGestureRecognizers() {
@@ -229,19 +226,17 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
     }
     
     private func hideAllUIElements() {
-        resetButton.isHidden = true
-        undoButton.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
         confirmPositionStackView.isHidden = true
         addObjectOrFinishStackView.isHidden = true
         captureStackView.isHidden = true
         placeWireStackView.isHidden = true
     }
     
-    private func showAddObjectOrFinishStackView() {
+    private func showAddWireOrFinishStackView() {
         hideAllUIElements()
         
-        resetButton.isHidden = false
-        undoButton.isHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
         
         addObjectOrFinishStackView.isHidden = false
     }
@@ -494,7 +489,7 @@ extension ARQuoteViewController {
                 recentlyAddedNode.removeFromParentNode()
                 wireCursor = nil
                 currentPlane = nil
-                showAddObjectOrFinishStackView()
+                showAddWireOrFinishStackView()
             }
     
             return
