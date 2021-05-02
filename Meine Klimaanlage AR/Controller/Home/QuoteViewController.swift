@@ -13,11 +13,19 @@ class QuoteViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     private var quote: ACQuote {
-        guard let homeNavigationController = navigationController as? HomeNavigationController,
-              let currentQuote = homeNavigationController.currentQuote else {
-            fatalError("Error retrieving quote")
+        guard let homeNavigationController = navigationController as? HomeNavigationController
+               else {
+            fatalError("Error retrieving homeNavigationController")
         }
-        return currentQuote
+        
+        guard let quote = homeNavigationController.currentQuote else {
+            //this will be run if user pressed create a new quote
+            let newQuote = ACQuote()
+            homeNavigationController.currentQuote = newQuote
+            return newQuote
+        }
+        
+        return quote
     }
     
     private var customerName: String? {
@@ -38,6 +46,12 @@ class QuoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTableViewCells()
+        
+        let isCreatingNewQuote = quote == nil
+        
+        if isCreatingNewQuote {
+            updateUIForCreatingNewQuote()
+        }
     }
     
     private func registerTableViewCells() {
@@ -62,6 +76,10 @@ class QuoteViewController: UIViewController {
             ),
             forCellReuseIdentifier: "QuoteLocationTableViewCell"
         )
+    }
+    
+    private func updateUIForCreatingNewQuote() {
+        
     }
 }
 

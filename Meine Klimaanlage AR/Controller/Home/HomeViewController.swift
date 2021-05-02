@@ -54,7 +54,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func didPullToRefresh() {
-        print("Reload")
+        #warning("TODO")
         collectionView.refreshControl?.endRefreshing()
     }
 }
@@ -91,12 +91,14 @@ extension HomeViewController: UICollectionViewDelegate {
         let selectedCell = collectionView.cellForItem(at: indexPath)
         
         switch selectedCell {
+        case let cell as QuoteCollectionViewCell:
+            (navigationController as? HomeNavigationController)?.currentQuote = cell.quote
         case is CreateQuoteCollectionViewCell: break
-            
-        case is QuoteCollectionViewCell: break //TODO
         default:
             fatalError("Unexpected cell type")
         }
+        
+        performSegue(withIdentifier: "QuoteSegue", sender: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {

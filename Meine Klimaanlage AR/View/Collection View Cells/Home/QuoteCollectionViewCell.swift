@@ -15,6 +15,8 @@ class QuoteCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var customerName: UILabel!
     @IBOutlet weak var date: UILabel!
     
+    public var quote: ACQuote?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
