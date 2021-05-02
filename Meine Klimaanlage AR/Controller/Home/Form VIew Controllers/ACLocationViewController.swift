@@ -164,7 +164,10 @@ extension ACLocationViewController: QuoteSummaryCellDelegate {
     }
     
     func userConfirmedDiscard() {
-        
+        if let indexOfACLocationInQuote = indexOfACLocationInQuote {
+            //remove discarded location
+            QuoteManager.currentQuote.locations.remove(at: indexOfACLocationInQuote)
+        }
         
         dismiss(animated: true, completion: nil)
     }
@@ -176,8 +179,11 @@ extension ACLocationViewController: QuoteSummaryCellDelegate {
             ErrorManager.showMissingFieldsForQuoteError(on: self)
             return
         }
-
-        QuoteManager.currentQuote.locations.insert(acLocation, at: 0)
+        
+        //only add acLocation if it's nil
+        if indexOfACLocationInQuote == nil {
+            QuoteManager.currentQuote.locations.insert(acLocation, at: 0)
+        }
         
         dismiss(animated: true, completion: nil)
     }

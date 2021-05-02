@@ -115,9 +115,10 @@ extension QuoteViewController: UITableViewDelegate {
         guard let acLocation = cell.acLocation else {
             fatalError("Error getting acLocation")
         }
-        
         let acLocationViewController = ACLocationViewController(acLocation: acLocation)
-        navigationController?.pushViewController(acLocationViewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: acLocationViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
     }
     
     private func userPressedSendQuoteTableViewCell() {
