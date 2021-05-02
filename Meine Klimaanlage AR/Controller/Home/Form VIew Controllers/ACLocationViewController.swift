@@ -93,7 +93,7 @@ class ACLocationViewController: UIViewController {
     
     private func updateACLocation() {
         acLocation.name = location
-        acLocation.price = (estimatedPrice as NSString?)?.floatValue
+        acLocation.price = (estimatedPrice as NSString?)?.floatValue ?? 0
         
         acLocation.wifi = wifi
         acLocation.elZul = elZul
@@ -335,6 +335,7 @@ extension ACLocationViewController: UIImagePickerControllerDelegate {
                 ErrorManager.showInvalidImage(on: self)
                 return
         }
+        picker.dismiss(animated: true, completion: nil)
         
         updateCell(with: returnedImage)
     }

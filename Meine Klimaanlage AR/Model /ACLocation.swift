@@ -12,7 +12,7 @@ import UIKit
 class ACLocation {
     var name: String?
     
-    var price: Float?
+    var price: Float = 0
     
     var acUnit: ACUnit
     var wires: [ACWire]  = []
@@ -34,7 +34,7 @@ class ACLocation {
 
     func isComplete() -> Bool {
         guard let name = name, !name.isEmpty,
-              let price = price, price != 0,
+              price != 0,
               !screenshots.isEmpty else {
             return false
         }
