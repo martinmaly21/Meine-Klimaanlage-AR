@@ -57,6 +57,10 @@
                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="OeL-2o-uyx" id="ppe-c9-IAv"/>
+                                    <outlet property="delegate" destination="OeL-2o-uyx" id="SKW-hL-8lx"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ysK-aa-eIn"/>
@@ -70,6 +74,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Chf-wq-kx0"/>
                     <connections>
+                        <outlet property="collectionView" destination="tjj-MA-dsH" id="KOw-5I-uHL"/>
                         <segue destination="4vn-Kk-ge8" kind="show" identifier="QuoteSegue" id="kOS-ou-Bg9"/>
                     </connections>
                 </viewController>
@@ -321,6 +326,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ApE-bl-91m">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="4vn-Kk-ge8" id="w8d-x4-FFM"/>
+                                    <outlet property="delegate" destination="4vn-Kk-ge8" id="ig9-gO-VDY"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vQh-uO-hCE"/>
