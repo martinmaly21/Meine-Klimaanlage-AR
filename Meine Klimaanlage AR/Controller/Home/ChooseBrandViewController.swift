@@ -30,7 +30,11 @@ class ChooseBrandViewController: UIViewController {
     private func setUpUI() {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Choose brand"
-
+        
+        //add cancel button
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(userPressedCancel))
+        navigationItem.leftBarButtonItem = cancelButton
+        
         registerCollectionViewCells()
     }
     
@@ -49,6 +53,10 @@ class ChooseBrandViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView.reloadData()
+    }
+    
+    @objc func userPressedCancel() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
