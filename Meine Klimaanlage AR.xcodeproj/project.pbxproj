@@ -59,7 +59,7 @@
 		5BD54D3A263E04CA009BFB92 /* QuoteCreateANewLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BD54D38263E04CA009BFB92 /* QuoteCreateANewLocationTableViewCell.xib */; };
 		5BDAEFF92630F0AF008560CC /* ARWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDAEFF82630F0AF008560CC /* ARWire.swift */; };
 		5BDD140324BB7F8E003A3A98 /* ACLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD140124BB7F8E003A3A98 /* ACLocationViewController.swift */; };
-		5BDD140424BB7F8E003A3A98 /* QuoteSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140224BB7F8E003A3A98 /* QuoteSummaryViewController.xib */; };
+		5BDD140424BB7F8E003A3A98 /* ACLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140224BB7F8E003A3A98 /* ACLocationViewController.xib */; };
 		5BDD140724BB8414003A3A98 /* ACLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD140524BB8414003A3A98 /* ACLocationTableViewCell.swift */; };
 		5BDD140824BB8414003A3A98 /* ACLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD140624BB8414003A3A98 /* ACLocationTableViewCell.xib */; };
 		5BDD140F24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDD140D24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift */; };
@@ -140,7 +140,7 @@
 		5BD54D38263E04CA009BFB92 /* QuoteCreateANewLocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCreateANewLocationTableViewCell.xib; sourceTree = "<group>"; };
 		5BDAEFF82630F0AF008560CC /* ARWire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARWire.swift; sourceTree = "<group>"; };
 		5BDD140124BB7F8E003A3A98 /* ACLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocationViewController.swift; sourceTree = "<group>"; };
-		5BDD140224BB7F8E003A3A98 /* QuoteSummaryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteSummaryViewController.xib; sourceTree = "<group>"; };
+		5BDD140224BB7F8E003A3A98 /* ACLocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACLocationViewController.xib; sourceTree = "<group>"; };
 		5BDD140524BB8414003A3A98 /* ACLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocationTableViewCell.swift; sourceTree = "<group>"; };
 		5BDD140624BB8414003A3A98 /* ACLocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACLocationTableViewCell.xib; sourceTree = "<group>"; };
 		5BDD140D24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -452,7 +452,7 @@
 				5BE8198D24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift */,
 				5BE8198E24BA2C0800C538FF /* ChooseTypeOfWireViewController.xib */,
 				5BDD140124BB7F8E003A3A98 /* ACLocationViewController.swift */,
-				5BDD140224BB7F8E003A3A98 /* QuoteSummaryViewController.xib */,
+				5BDD140224BB7F8E003A3A98 /* ACLocationViewController.xib */,
 			);
 			path = "Form VIew Controllers";
 			sourceTree = "<group>";
@@ -547,7 +547,7 @@
 				5B0A8A36248D840700CA4141 /* GoogleService-Info.plist in Resources */,
 				5BDD140824BB8414003A3A98 /* ACLocationTableViewCell.xib in Resources */,
 				5B09158325451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.xib in Resources */,
-				5BDD140424BB7F8E003A3A98 /* QuoteSummaryViewController.xib in Resources */,
+				5BDD140424BB7F8E003A3A98 /* ACLocationViewController.xib in Resources */,
 				5BD54D34263E0486009BFB92 /* QuoteLocationTableViewCell.xib in Resources */,
 				5B0A8A38248D88A900CA4141 /* Colors.xcassets in Resources */,
 				5BE20848262CF25A00F1D56B /* Tutorial1.gif in Resources */,
