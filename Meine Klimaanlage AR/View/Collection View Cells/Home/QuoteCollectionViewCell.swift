@@ -14,6 +14,15 @@ class QuoteCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        containerView.layer.cornerRadius = 10
+        containerView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
+        containerView.layer.borderWidth = 1
+        
+        containerView.layer.shadowColor = Constants.Color.border.cgColor
+        containerView.layer.shadowRadius = 2
+        containerView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        containerView.layer.shadowOpacity = 0.3
     }
 
     public func highlightCell() {
