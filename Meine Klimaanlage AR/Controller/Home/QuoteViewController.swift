@@ -33,6 +33,11 @@ class QuoteViewController: UIViewController {
         setUpUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+    
     private func registerTableViewCells() {
         tableView.register(
             UINib(
@@ -84,6 +89,8 @@ extension QuoteViewController: UITableViewDelegate {
         default:
             fatalError("Unexpected cell type")
         }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     private func userPressedCreateANewLocationTableViewCell() {
