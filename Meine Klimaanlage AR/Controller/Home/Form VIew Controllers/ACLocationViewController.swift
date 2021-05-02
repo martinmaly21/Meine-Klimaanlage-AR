@@ -77,8 +77,7 @@ extension ACLocationViewController: QuoteSummaryCellDelegate {
             title: "Discard",
             style: .destructive,
             handler: { _ in
-                self.tabBarController?.tabBar.isHidden = false
-                self.navigationController?.popToRootViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
             }
         )
         
