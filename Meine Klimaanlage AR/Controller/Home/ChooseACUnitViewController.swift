@@ -13,14 +13,6 @@ class ChooseACUnitViewController: UIViewController {
     public var brand: ACBrand!
     private var currentACUnitEnvironmentType = ACUnitEnvironmentType.interior
     
-    private var quote: ACQuote {
-        guard let homeNavigationController = navigationController as? HomeNavigationController,
-              let currentQuote = homeNavigationController.currentQuote else {
-            fatalError("Error retrieving quote")
-        }
-        return currentQuote
-    }
-    
     private var units = [ACUnit]()
     
     override func viewDidLoad() {
@@ -86,7 +78,7 @@ extension ChooseACUnitViewController: UITableViewDataSource, UITableViewDelegate
         if selectedUnit.displayName == "Wandgerät Baureihe TZ" {
             //update quote
             let location = ACLocation(acUnit: selectedUnit)
-            quote.locations.append(location)
+            QuoteManager.currentQuote.locations.append(location)
             
             performSegue(withIdentifier: "ARSegue", sender: nil)
         } else {

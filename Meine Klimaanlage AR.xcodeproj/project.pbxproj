@@ -27,7 +27,6 @@
 		5B2C5B24248DBD9A001B6898 /* ACUnitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */; };
 		5B2C5B2A248DC768001B6898 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C5B29248DC768001B6898 /* ErrorManager.swift */; };
 		5B4CEC2F263E17AD0081EBE2 /* ACLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4CEC2E263E17AD0081EBE2 /* ACLocation.swift */; };
-		5B4CEC38263E1C5C0081EBE2 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4CEC37263E1C5C0081EBE2 /* HomeNavigationController.swift */; };
 		5B4CEC3B263E1C900081EBE2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4CEC3A263E1C900081EBE2 /* HomeViewController.swift */; };
 		5B4CEC44263E253A0081EBE2 /* CreateQuoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4CEC42263E253A0081EBE2 /* CreateQuoteCollectionViewCell.swift */; };
 		5B4CEC45263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4CEC43263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib */; };
@@ -52,6 +51,7 @@
 		5BAF8D0924B81A8D0022EC84 /* AppEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */; };
 		5BAF8D0E24B81B2E0022EC84 /* AppEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF8D0D24B81B2E0022EC84 /* AppEntryViewController.swift */; };
 		5BC6BBBB256F532000945523 /* WireCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6BBBA256F532000945523 /* WireCursor.swift */; };
+		5BCB3586263F0CA500532002 /* QuoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCB3585263F0CA500532002 /* QuoteManager.swift */; };
 		5BD4083A262A66D500D2FF74 /* HitTestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD40839262A66D500D2FF74 /* HitTestType.swift */; };
 		5BD54D2E263E046B009BFB92 /* QuoteInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD54D2C263E046B009BFB92 /* QuoteInformationTableViewCell.swift */; };
 		5BD54D2F263E046B009BFB92 /* QuoteInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BD54D2D263E046B009BFB92 /* QuoteInformationTableViewCell.xib */; };
@@ -108,7 +108,6 @@
 		5B2C5B22248DBD9A001B6898 /* ACUnitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ACUnitTableViewCell.xib; sourceTree = "<group>"; };
 		5B2C5B29248DC768001B6898 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		5B4CEC2E263E17AD0081EBE2 /* ACLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACLocation.swift; sourceTree = "<group>"; };
-		5B4CEC37263E1C5C0081EBE2 /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		5B4CEC3A263E1C900081EBE2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5B4CEC42263E253A0081EBE2 /* CreateQuoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B4CEC43263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateQuoteCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -135,6 +134,7 @@
 		5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppEntry.storyboard; sourceTree = "<group>"; };
 		5BAF8D0D24B81B2E0022EC84 /* AppEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntryViewController.swift; sourceTree = "<group>"; };
 		5BC6BBBA256F532000945523 /* WireCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireCursor.swift; sourceTree = "<group>"; };
+		5BCB3585263F0CA500532002 /* QuoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteManager.swift; sourceTree = "<group>"; };
 		5BD40839262A66D500D2FF74 /* HitTestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTestType.swift; sourceTree = "<group>"; };
 		5BD54D2C263E046B009BFB92 /* QuoteInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteInformationTableViewCell.swift; sourceTree = "<group>"; };
 		5BD54D2D263E046B009BFB92 /* QuoteInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteInformationTableViewCell.xib; sourceTree = "<group>"; };
@@ -296,7 +296,6 @@
 		5B2C5B17248DBB41001B6898 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				5B4CEC37263E1C5C0081EBE2 /* HomeNavigationController.swift */,
 				5B4CEC3A263E1C900081EBE2 /* HomeViewController.swift */,
 				5B2C5B19248DBB80001B6898 /* ChooseBrandViewController.swift */,
 				5B00FAC824970CE300215489 /* ChooseACUnitViewController.swift */,
@@ -396,6 +395,7 @@
 				5B2C5B29248DC768001B6898 /* ErrorManager.swift */,
 				5B00FACC24970F2100215489 /* ExtensionManager.swift */,
 				5BDD141124BC07B4003A3A98 /* ConstantsManager.swift */,
+				5BCB3585263F0CA500532002 /* QuoteManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -664,7 +664,6 @@
 				5BE20872262D1A0D00F1D56B /* WireSegment.swift in Sources */,
 				5B00FACD24970F2100215489 /* ExtensionManager.swift in Sources */,
 				5BDD141224BC07B4003A3A98 /* ConstantsManager.swift in Sources */,
-				5B4CEC38263E1C5C0081EBE2 /* HomeNavigationController.swift in Sources */,
 				5BDD77AF256ABBD700EACC68 /* AppState.swift in Sources */,
 				5BE8198F24BA2C0800C538FF /* ChooseTypeOfWireViewController.swift in Sources */,
 				5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */,
@@ -673,6 +672,7 @@
 				5B4CEC4A263E25470081EBE2 /* QuoteCollectionViewCell.swift in Sources */,
 				5B12389625410B2200A809D9 /* ShadowButton.swift in Sources */,
 				5B835C052627C5920031698A /* VerticalAnchorCoachingView.swift in Sources */,
+				5BCB3586263F0CA500532002 /* QuoteManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

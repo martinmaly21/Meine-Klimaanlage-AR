@@ -22,17 +22,8 @@ class ARQuoteViewController: UIViewController {
     //UI Elements
     private var coachingOverlay = ARCoachingOverlayView()
     
-    //data that is passed in
-    private var quote: ACQuote {
-        guard let homeNavigationController = navigationController as? HomeNavigationController,
-              let currentQuote = homeNavigationController.currentQuote else {
-            fatalError("Error retrieving quote")
-        }
-        return currentQuote
-    }
-    
     private var acLocation: ACLocation {
-        guard let acLocation = quote.locations.last else {
+        guard let acLocation = QuoteManager.currentQuote.locations.last else {
             fatalError("Could not get most recent acLocation")
         }
         

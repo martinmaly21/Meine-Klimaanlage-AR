@@ -11,22 +11,6 @@ import Firebase
 
 class QuoteViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-
-    private var quote: ACQuote {
-        guard let homeNavigationController = navigationController as? HomeNavigationController
-               else {
-            fatalError("Error retrieving homeNavigationController")
-        }
-        
-        guard let quote = homeNavigationController.currentQuote else {
-            //this will be run if user pressed create a new quote
-            let newQuote = ACQuote()
-            homeNavigationController.currentQuote = newQuote
-            return newQuote
-        }
-        
-        return quote
-    }
     
     private var customerName: String? {
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? QuoteInformationTableViewCell
@@ -147,7 +131,7 @@ extension QuoteViewController: UITableViewDataSource {
         } else {
             //section 1
             let numberOfCreateACLocationCells = 1
-            return numberOfCreateACLocationCells + quote.locations.count
+            return numberOfCreateACLocationCells + QuoteManager.currentQuote.locations.count
         }
     }
     
@@ -170,7 +154,7 @@ extension QuoteViewController: UITableViewDataSource {
                     fatalError("Could not create QuoteLocationTableViewCell")
                 }
                 //the '-1' is to account for QuoteCreateANewLocationTableViewCell
-                let acLocation = quote.locations[indexPath.row - 1]
+                let acLocation = QuoteManager.currentQuote.locations[indexPath.row - 1]
                 cell.acLocation = acLocation
                 cell.setUpCell(with: acLocation.name)
                 return cell

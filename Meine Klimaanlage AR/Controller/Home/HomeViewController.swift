@@ -90,13 +90,20 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCell = collectionView.cellForItem(at: indexPath)
         
+        let quote: ACQuote
         switch selectedCell {
         case let cell as QuoteCollectionViewCell:
-            (navigationController as? HomeNavigationController)?.currentQuote = cell.quote
-        case is CreateQuoteCollectionViewCell: break
+            guard let savedQuote = cell.quote else {
+                fatalError("Could not retrieve quote")
+            }
+            quote = savedQuote
+        case is CreateQuoteCollectionViewCell:
+            quote = ACQuote()
         default:
             fatalError("Unexpected cell type")
         }
+        
+        QuoteManager.currentQuote = quote
         
         performSegue(withIdentifier: "QuoteSegue", sender: nil)
     }
