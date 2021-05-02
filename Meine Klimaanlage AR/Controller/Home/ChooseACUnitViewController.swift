@@ -1,5 +1,5 @@
 //
-//  ACUnitListViewController.swift
+//  ChooseACUnitViewController.swift
 //  Meine Klimaanlage AR
 //
 //  Created by Martin Maly on 2020-06-14.
@@ -8,10 +8,18 @@
 
 import UIKit
 
-class ACUnitListViewController: UIViewController {
+class ChooseACUnitViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     public var brand: ACBrand!
     private var currentACUnitEnvironmentType = ACUnitEnvironmentType.interior
+    
+    private var quote: ACQuote {
+        guard let homeNavigationController = navigationController as? HomeNavigationController,
+              let currentQuote = homeNavigationController.currentQuote else {
+            fatalError("Error retrieving quote")
+        }
+        return currentQuote
+    }
     
     private var arViewController: ARQuoteViewController? {
         guard let tabBarController = presentingViewController as? UITabBarController,
@@ -64,7 +72,7 @@ class ACUnitListViewController: UIViewController {
     }
 }
 
-extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
+extension ChooseACUnitViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numberOfHeaders = 1
         return numberOfHeaders + units.count
@@ -101,35 +109,20 @@ extension ACUnitListViewController: UITableViewDataSource, UITableViewDelegate {
         //+ 1 to offset header
         
         let selectedUnit = units[indexPath.row - 1]
+        
         if selectedUnit.displayName == "Wandgerät Baureihe TZ" {
+            //update quote
+            let location = ACLocation(acUnit: selectedUnit)
+            quote.locations.append(location)
             
-            if let arQuoteViewController = arViewController {
-                //user is selecting a second/third or fourth unit!
-                arQuoteViewController.quote.units.append(selectedUnit)
-                
-                dismiss(
-                    animated: true,
-                    completion: {
-                        arQuoteViewController.addVerticalAnchorCoachingView()
-                    }
-                )
-            } else {
-                performSegue(withIdentifier: "newQuoteSegue", sender: selectedUnit)
-            }
+            performSegue(withIdentifier: "ARSegue", sender: nil)
         } else {
             ErrorManager.showFeatureNotSupported(on: self)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        guard let beginQuoteViewController = segue.destination as? BeginQuoteViewController, let ACUnit = sender as? ACUnit else { return }
-        
-        beginQuoteViewController.quote = ACQuote(units: [ACUnit])
-    }
 }
 
-extension ACUnitListViewController: ACUnitDetailPageTableHeaderViewDelegate {
+extension ChooseACUnitViewController: ACUnitDetailPageTableHeaderViewDelegate {
     func userChangedACUnitEnvironmentType(with newType: ACUnitEnvironmentType) {
         self.currentACUnitEnvironmentType = newType
         getUnits()

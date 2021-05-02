@@ -9,32 +9,28 @@
 import Foundation
 import UIKit
 
-struct ACQuote {
+class ACQuote {
     var customerName: String?
     var employeeName: String?
     var appointmentDate: String?
-    var price: String?
     
-    var wires: [ACWire]  = []
-    var units: [ACUnit]
-    var screenshots: [UIImage] = []
+    var totalPrice: Float {
+        var totalPrice: Float = 0
+        
+        locations.forEach {
+            totalPrice += $0.price ?? 0
+        }
+        
+        return totalPrice
+    }
     
-    var wifi = false
-    var elZul = false
-    var uv = false
-    var dachdecker = false
-    var dachdruchfuhrung = false
-    var kondensatpumpe = false
-    
-    var notes: String?
+    var locations: [ACLocation] = []
     
     func isComplete() -> Bool {
         guard let customerName = customerName, !customerName.isEmpty,
             let employeeName = employeeName, !employeeName.isEmpty,
             let appointmentDate = appointmentDate, !appointmentDate.isEmpty,
-            let price = price, !price.isEmpty,
-            !units.isEmpty,
-            !screenshots.isEmpty else {
+            !locations.isEmpty else {
                 return false
         }
         

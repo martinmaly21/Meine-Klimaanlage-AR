@@ -17,20 +17,26 @@ class ARQuoteViewController: UIViewController {
     @IBOutlet weak var confirmPositionStackView: UIStackView!
     @IBOutlet weak var addObjectOrFinishStackView: UIStackView!
     @IBOutlet weak var captureStackView: UIStackView!
-    @IBOutlet weak var tapOnUnitToPlaceWireStackView: UIStackView!
     @IBOutlet weak var placeWireStackView: UIStackView!
     
     //UI Elements
     private var coachingOverlay = ARCoachingOverlayView()
     
     //data that is passed in
-    public var quote: ACQuote!
-    
-    private var currentACUnit: ACUnit {
-        guard let currentACUnit = quote.units.last else {
-            fatalError("Error creating currentACUnit")
+    private var quote: ACQuote {
+        guard let homeNavigationController = navigationController as? HomeNavigationController,
+              let currentQuote = homeNavigationController.currentQuote else {
+            fatalError("Error retrieving quote")
         }
-        return currentACUnit
+        return currentQuote
+    }
+    
+    private var acLocation: ACLocation {
+        guard let acLocation = quote.locations.last else {
+            fatalError("Could not get most recent acLocation")
+        }
+        
+        return acLocation
     }
     
     private var currentWire: ACWire {
@@ -44,11 +50,7 @@ class ARQuoteViewController: UIViewController {
     //they were added. Used to undo addition of node.
     private var loadedNodes: [SCNNode] = []
     
-    private var loadedACUnitNodes: [SCNNode] = []
-    
-    private var currentACUnitNode: SCNNode? {
-        return loadedACUnitNodes.last
-    }
+    private var currentACUnitNode: SCNNode?
     
     private var currentPlane: InfinitePlaneNode?
     
@@ -117,7 +119,7 @@ class ARQuoteViewController: UIViewController {
         configuration.worldAlignment = .gravity
         //detect both horizontal and vertical planes
         
-        if currentACUnit.environmentType == .exterior {
+        if acLocation.acUnit.environmentType == .exterior {
             configuration.planeDetection = .horizontal
         } else {
             //no plane detection for vertical (as we use the phone on the wall method)
@@ -152,12 +154,11 @@ class ARQuoteViewController: UIViewController {
     }
     
     public func userChoseWire() {
-        tapOnUnitToPlaceWireStackView.isHidden = false
         addObjectOrFinishStackView.isHidden = true
+        placeWireStackView.isHidden = false
         
-        //add tap gesture to determine which unit the user tapped?
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(userPressedScreen(tapGesture:)))
-        sceneView.addGestureRecognizer(tapGestureRecognizer)
+        #warning("is this okay?")
+        currentPlane = currentACUnitNode?.parent as? InfinitePlaneNode
     }
 }
 
@@ -177,7 +178,7 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         //add gesutre recognizers so user can pan unit
         addGestureRecognizers()
         
-        guard let filePath = Bundle.main.path(forResource: currentACUnit.fileName, ofType: "scn", inDirectory: "ACUnits.scnassets") else {
+        guard let filePath = Bundle.main.path(forResource: acLocation.acUnit.fileName, ofType: "scn", inDirectory: "ACUnits.scnassets") else {
             fatalError("Could not get AC Uni from filet")
         }
         let referenceURL = URL(fileURLWithPath: filePath)
@@ -187,8 +188,6 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
             fatalError("Could not get currentFrame or pointOfView")
         }
         acUnit.load()
-        
-        loadedACUnitNodes.append(acUnit.loadedNode)
         
         //set bit mask so it can be located in hit test
         acUnit.loadedNode.categoryBitMask = HitTestType.acUnit.rawValue
@@ -228,28 +227,12 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         sceneView.addGestureRecognizer(rotateGestureRecognizer)
     }
     
-    private func userPressedChooseWire()  {
-        let chooseWireVC = ChooseTypeOfWireViewController()
-        let navigationController = UINavigationController(rootViewController: chooseWireVC)
-        
-        present(navigationController, animated: true, completion: nil)
-    }
-    
-    private func userPressedChooseACUnit()  {
-        guard let viewControllerToPresent = storyboard?.instantiateViewController(identifier: "ChooseUnitNavigationController") else {
-            fatalError("could not get viewControllerToPresent")
-        }
-        
-        present(viewControllerToPresent, animated: true, completion: nil)
-    }
-
     private func hideAllUIElements() {
         resetButton.isHidden = true
         undoButton.isHidden = true
         confirmPositionStackView.isHidden = true
         addObjectOrFinishStackView.isHidden = true
         captureStackView.isHidden = true
-        tapOnUnitToPlaceWireStackView.isHidden = true
         placeWireStackView.isHidden = true
     }
     
@@ -383,32 +366,6 @@ extension ARQuoteViewController {
         }
     }
     
-    //handling user choosing which AC unit to add wires onto!
-    @objc func userPressedScreen(tapGesture: UITapGestureRecognizer) {
-        //check if user tappedUnit
-        let location = tapGesture.location(in: sceneView)
-        
-        let acUnitBitMask = HitTestType.acUnit.rawValue
-        
-        if let hitTestResult = sceneView.hitTest(
-            location,
-            options: [
-                SCNHitTestOption.categoryBitMask : acUnitBitMask
-            ]
-        ).first,
-        let acUnitNode = hitTestResult.node.parent,
-        loadedACUnitNodes.contains(acUnitNode),
-        let infinitePlaneNode = acUnitNode.grandParent as? InfinitePlaneNode {
-            //update UI for plane being found
-            tapOnUnitToPlaceWireStackView.isHidden = true
-            placeWireStackView.isHidden = false
-            
-            self.currentPlane = infinitePlaneNode
-            
-            removeGestureRecognizersFromView()
-        }
-    }
-    
     private func removeGestureRecognizersFromView() {
         //call when user has finished placing AC unit
         for gestureRecognizer in sceneView.gestureRecognizers ?? [] {
@@ -495,13 +452,7 @@ extension ARQuoteViewController: ARSessionDelegate {
 //MARK: -  Button actions
 extension ARQuoteViewController {
     @IBAction func userPressedReset() {
-        //reset quote back to it's initial state
-        //remove all units (except first, since there must exist at least one)
-        guard let firstUnit = self.quote.units.first else {
-            fatalError("Couldn't get AC unit")
-        }
-        
-        self.quote.units = [firstUnit]
+        //reset location back to it's initial state
         
         //remove all nodes
         sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
@@ -510,7 +461,6 @@ extension ARQuoteViewController {
         
         //set all properties to nil, and empty all arrays
         loadedNodes.removeAll()
-        loadedACUnitNodes.removeAll()
         currentPlane = nil
         wireCursor = nil
         confirmedWires.removeAll()
@@ -554,18 +504,10 @@ extension ARQuoteViewController {
             recentlyAddedNode.removeFromParentNode()
             
             if recentlyAddedNode is InfinitePlaneNode {
-                //remove ac unit from loadedACUnitNodes as well
-                _ = loadedACUnitNodes.popLast()
+                //user has removed all nodes using undo button
+                //show coaching
+                userPressedReset()
                 
-                if loadedACUnitNodes.isEmpty {
-                    //user has removed all nodes using undo button
-                    //show coaching
-                    userPressedReset()
-                } else {
-                    _ = quote.units.popLast()
-                    //there still exists some units, so add the add object view
-                    showAddObjectOrFinishStackView()
-                }
             } else if recentlyAddedNode is WireSegment {
                 let removedSegment = confirmedWires.last?.segments.popLast()
                 
@@ -587,42 +529,11 @@ extension ARQuoteViewController {
         addObjectOrFinishStackView.isHidden = false
     }
     
-    @IBAction func userPressedAddObject() {
-        let actionSheet = UIAlertController(
-            title: "Add object",
-            message: "Choose object to add",
-            preferredStyle: .actionSheet
-        )
+    @IBAction func userPressedAddWire() {
+        let chooseWireVC = ChooseTypeOfWireViewController()
+        let navigationController = UINavigationController(rootViewController: chooseWireVC)
         
-        let wireAction = UIAlertAction(
-            title: "Wire",
-            style: .default,
-            handler: { _ in
-                self.userPressedChooseWire()
-            }
-        )
-        
-        let acUnitAction = UIAlertAction(
-            title: "AC Unit",
-            style: .default,
-            handler: { _ in
-                self.userPressedChooseACUnit()
-            }
-        )
-        
-        let cancelAction = UIAlertAction(
-            title: "Cancel",
-            style: .cancel,
-            handler: nil
-        )
-        
-        actionSheet.addAction(wireAction)
-        actionSheet.addAction(acUnitAction)
-        actionSheet.addAction(cancelAction)
-        
-        actionSheet.popoverPresentationController?.sourceView = addObjectOrFinishStackView
-        
-        present(actionSheet, animated: true, completion: nil)
+        present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func userPressedPlaceWire() {
@@ -666,7 +577,7 @@ extension ARQuoteViewController {
     
     @IBAction func userPressedCapture() {
         //add wires
-        quote.wires = confirmedWires.compactMap {
+        acLocation.wires = confirmedWires.compactMap {
             guard $0.length != 0 else {
                 return nil
             }
@@ -676,11 +587,10 @@ extension ARQuoteViewController {
         
         //take a screenshot and move to quote view controller
         let capture = sceneView.snapshot()
-        quote.screenshots.append(capture)
+        acLocation.screenshots.append(capture)
         
         //show quote view controller
-        let vc = QuoteSummaryViewController()
-        vc.quote = quote
+        let vc = ACLocationViewController(acLocation: acLocation)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

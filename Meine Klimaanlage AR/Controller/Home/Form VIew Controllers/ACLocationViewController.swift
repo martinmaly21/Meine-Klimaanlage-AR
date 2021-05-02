@@ -1,5 +1,5 @@
 //
-//  QuoteSummaryViewController.swift
+//  ACLocationViewController.swift
 //  Meine Klimaanlage AR
 //
 //  Created by Martin Maly on 2020-07-12.
@@ -9,10 +9,19 @@
 import UIKit
 import MessageUI
 
-class QuoteSummaryViewController: UIViewController {
+class ACLocationViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    public var quote: ACQuote!
+    private let acLocation: ACLocation
+    
+    init(acLocation: ACLocation) {
+        self.acLocation = acLocation
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,29 +38,29 @@ class QuoteSummaryViewController: UIViewController {
     }
 
     private func setUpTableView() {
-        tableView.register(UINib(nibName: "QuoteSummaryTableViewCell", bundle: nil), forCellReuseIdentifier: "QuoteSummaryTableViewCell")
+        tableView.register(UINib(nibName: "ACLocationTableViewCell", bundle: nil), forCellReuseIdentifier: "ACLocationTableViewCell")
     }
 
 }
 
-extension QuoteSummaryViewController: UITableViewDelegate, UITableViewDataSource {
+extension ACLocationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteSummaryTableViewCell") as? QuoteSummaryTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ACLocationTableViewCell") as? ACLocationTableViewCell else {
             return UITableViewCell()
         }
         
-        cell.setUpCell(with: quote)
+        cell.setUpCell(with: acLocation)
         cell.quoteSummaryCellDelegate = self
         
         return cell
     }
 }
 
-extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
+extension ACLocationViewController: QuoteSummaryCellDelegate {
 
     func userPressedDiscardQuote() {
         let actionSheet = UIAlertController(
@@ -82,107 +91,64 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
     }
     
     func userPressedSubmitQuote() {
-        guard quote.isComplete() else {
-            ErrorManager.showMissingFieldsForQuoteError(on: self)
-            return
-        }
-        
-        guard MFMailComposeViewController.canSendMail() else {
-            ErrorManager.showCannotOpenEmail(on: self)
-            return
-        }
-        
-        let composeVC = MFMailComposeViewController()
-        
-        composeVC.mailComposeDelegate = self
-    
-        composeVC.setToRecipients([Constants.Quote.quoteEmail])
-        composeVC.setSubject("AC Quote")
-        
-        var wireInformation = ""
-        for wire in quote.wires {
-            let wireLength = String(format: "%.2f", Double(wire.wireLength))
-            let wireName = String(describing: wire.wireDisplayName)
-            wireInformation += "\(wireLength) meters of \(wireName).\n"
-        }
-        
-        var unitsInformation = ""
-        for unit in quote.units {
-            unitsInformation += "\(unit.displayName) (Quantity: \(unit.quantity))\n"
-        }
-        
-        let messageBody = """
-        Customer's Name: \(quote.customerName ?? "")
-        Employee's Name: \(quote.employeeName ?? "")
-        Date of Appointment: \(quote.appointmentDate ?? "")
-        Estimated Price: \(quote.price ?? "") Euro
-        
-        Wire(s):
-        \(wireInformation)
-        AC Unit's:
-        \(unitsInformation)
-        Wifi: \(quote.wifi ? "Yes" : "No")
-        El. Zul.: \(quote.elZul ? "Yes" : "No")
-        UV: \(quote.uv ? "Yes" : "No")
-        Dachdecker: \(quote.dachdecker ? "Yes" : "No")
-        Dachdruchführung: \(quote.dachdruchfuhrung ? "Yes" : "No")
-        Kondensatpumpe: \(quote.kondensatpumpe ? "Yes" : "No")
-        
-        Notes:
-        \(quote.notes ?? "")
-        """
-        composeVC.setMessageBody(messageBody, isHTML: false)
-        
-        if let screenshot = quote.screenshots.first,
-           let screenshotImageData = screenshot.pngData() {
-            composeVC.addAttachmentData(screenshotImageData, mimeType: "image/png", fileName: "\(quote.units.first?.displayName ?? "Unit")_Screenshot")
-        }
-        
-        self.present(composeVC, animated: true, completion: nil)
-    }
-    
-    func customerNameUpdated(with customerName: String) {
-        quote.customerName = customerName
-    }
-    
-    func employeeNameUpdated(with employeeName: String) {
-        quote.employeeName = employeeName
-    }
-    
-    func appointmentDateUpdated(with appointmentDate: String) {
-        quote.appointmentDate = appointmentDate
-    }
-    
-    func estimatedPriceUpdated(with estimatedPrice: String) {
-        quote.price = estimatedPrice
-    }
-    
-    func noteUpdated(with note: String) {
-        quote.notes = note
-    }
-    
-    func wifiUpdated() {
-        quote.wifi.toggle()
-    }
-    
-    func elZulUpdated() {
-        quote.elZul.toggle()
-    }
-    
-    func uvUpdated() {
-        quote.uv.toggle()
-    }
-    
-    func dachdeckerUpdated() {
-        quote.dachdecker.toggle()
-    }
-    
-    func dachdruchführungUpdated() {
-        quote.dachdruchfuhrung.toggle()
-    }
-    
-    func kondensatpumpeUpdated() {
-        quote.kondensatpumpe.toggle()
+        #warning("TODO")
+//        guard quote.isComplete() else {
+//            ErrorManager.showMissingFieldsForQuoteError(on: self)
+//            return
+//        }
+//
+//        guard MFMailComposeViewController.canSendMail() else {
+//            ErrorManager.showCannotOpenEmail(on: self)
+//            return
+//        }
+//
+//        let composeVC = MFMailComposeViewController()
+//
+//        composeVC.mailComposeDelegate = self
+//
+//        composeVC.setToRecipients([Constants.Quote.quoteEmail])
+//        composeVC.setSubject("AC Quote")
+//
+//        var wireInformation = ""
+//        for wire in quote.wires {
+//            let wireLength = String(format: "%.2f", Double(wire.wireLength))
+//            let wireName = String(describing: wire.wireDisplayName)
+//            wireInformation += "\(wireLength) meters of \(wireName).\n"
+//        }
+//
+//        var unitsInformation = ""
+//        for unit in quote.units {
+//            unitsInformation += "\(unit.displayName) (Quantity: \(unit.quantity))\n"
+//        }
+//
+//        let messageBody = """
+//        Customer's Name: \(quote.customerName ?? "")
+//        Employee's Name: \(quote.employeeName ?? "")
+//        Date of Appointment: \(quote.appointmentDate ?? "")
+//        Estimated Price: \(quote.price ?? "") Euro
+//
+//        Wire(s):
+//        \(wireInformation)
+//        AC Unit's:
+//        \(unitsInformation)
+//        Wifi: \(quote.wifi ? "Yes" : "No")
+//        El. Zul.: \(quote.elZul ? "Yes" : "No")
+//        UV: \(quote.uv ? "Yes" : "No")
+//        Dachdecker: \(quote.dachdecker ? "Yes" : "No")
+//        Dachdruchführung: \(quote.dachdruchfuhrung ? "Yes" : "No")
+//        Kondensatpumpe: \(quote.kondensatpumpe ? "Yes" : "No")
+//
+//        Notes:
+//        \(quote.notes ?? "")
+//        """
+//        composeVC.setMessageBody(messageBody, isHTML: false)
+//
+//        if let screenshot = quote.screenshots.first,
+//           let screenshotImageData = screenshot.pngData() {
+//            composeVC.addAttachmentData(screenshotImageData, mimeType: "image/png", fileName: "\(quote.units.first?.displayName ?? "Unit")_Screenshot")
+//        }
+//
+//        self.present(composeVC, animated: true, completion: nil)
     }
     
     func userPressedPhoto(with image: UIImage) {
@@ -211,7 +177,7 @@ extension QuoteSummaryViewController: QuoteSummaryCellDelegate {
     }
 }
 
-extension QuoteSummaryViewController: MFMailComposeViewControllerDelegate {
+extension ACLocationViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(
         _ controller: MFMailComposeViewController,
         didFinishWith result: MFMailComposeResult,

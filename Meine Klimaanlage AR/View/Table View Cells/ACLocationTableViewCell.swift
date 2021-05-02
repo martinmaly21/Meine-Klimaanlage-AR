@@ -12,37 +12,22 @@ import UIKit
 protocol QuoteSummaryCellDelegate: class {
     func userPressedPhoto(with image: UIImage)
     
-    func customerNameUpdated(with customerName: String)
-    func employeeNameUpdated(with employeeName: String)
-    func appointmentDateUpdated(with appointmentDate: String)
-    func estimatedPriceUpdated(with estimatedPrice: String)
-    func noteUpdated(with note: String)
-    
-    func wifiUpdated()
-    func elZulUpdated()
-    func uvUpdated()
-    func dachdeckerUpdated()
-    func dachdruchführungUpdated()
-    func kondensatpumpeUpdated()
-    
     func userPressedSubmitQuote()
     func userPressedDiscardQuote()
 }
 
-class QuoteSummaryTableViewCell: UITableViewCell {
+class ACLocationTableViewCell: UITableViewCell {
    
     public var screenshots: [UIImage]!
     
     public weak var quoteSummaryCellDelegate: QuoteSummaryCellDelegate?
     //MARK: - IBOutlets
     
-    @IBOutlet weak var customerNameTextField: UITextField!
-    @IBOutlet weak var employeeNameTextField: UITextField!
-    @IBOutlet weak var appointmentDateTextField: UITextField!
+    @IBOutlet weak var unitTitle: UILabel!
+    
     @IBOutlet weak var estimatedPriceTextField: UITextField!
     
     @IBOutlet weak var wiresStackView: UIStackView!
-    @IBOutlet weak var unitsStackView: UIStackView!
     
     @IBOutlet weak var screenshotsCollectionView: UICollectionView!
     
@@ -58,13 +43,6 @@ class QuoteSummaryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpUI()
-        
-        customerNameTextField.delegate = self
-        employeeNameTextField.delegate = self
-        appointmentDateTextField.delegate = self
-        estimatedPriceTextField.delegate = self
-        
-        noteTextField.delegate = self
     }
     
     
@@ -82,18 +60,20 @@ class QuoteSummaryTableViewCell: UITableViewCell {
     }
     
     
-    public func setUpCell(with quote: ACQuote) {
-        self.screenshots = quote.screenshots
+    public func setUpCell(with location: ACLocation) {
+        unitTitle.text = location.acUnit.displayName
         
-        customerNameTextField.text = quote.customerName
-        employeeNameTextField.text = quote.employeeName
-        appointmentDateTextField.text = quote.appointmentDate
+        self.screenshots = location.screenshots
         
-        addWires(with:quote.wires)
-        addUnits(with: quote.units)
+        addWires(with: location.wires)
     }
     
     private func addWires(with wires: [ACWire]) {
+        guard !wires.isEmpty else {
+            wiresStackView.isHidden = true
+            return
+        }
+        
         for wire in wires {
             let stackView = UIStackView()
             stackView.axis = .horizontal
@@ -121,50 +101,6 @@ class QuoteSummaryTableViewCell: UITableViewCell {
         }
     }
     
-    private func addUnits(with units: [ACUnit]) {
-        for unit in units {
-            let stackView = UIStackView()
-            stackView.axis = .horizontal
-            stackView.distribution = .fillProportionally
-            
-            let unitLabel = UILabel()
-            unitLabel.font = UIFont.systemFont(ofSize: 17)
-            unitLabel.textColor = UIColor(named: "PrimaryTextDark")
-            unitLabel.text = unit.displayName
-            stackView.addArrangedSubview(unitLabel)
-            
-            let quantityTextField = UILabel()
-            quantityTextField.font = UIFont.systemFont(ofSize: 17)
-            quantityTextField.textColor = UIColor(named: "PrimaryBlue")
-            quantityTextField.textAlignment = .right
-            stackView.addArrangedSubview(quantityTextField)
-        
-            #warning("handle multiple units here (i.e. picking the same unit twice)")
-            quantityTextField.text = "1"
-            
-            unitsStackView.addArrangedSubview(stackView)
-        }
-    }
-    
-    @IBAction func otherButtonClicked(_ sender: UISwitch) {
-        switch sender {
-        case wifiSwitch:
-            quoteSummaryCellDelegate?.wifiUpdated()
-        case elZulSwitch:
-            quoteSummaryCellDelegate?.elZulUpdated()
-        case uvSwitch:
-            quoteSummaryCellDelegate?.uvUpdated()
-        case dachDeckerSwitch:
-            quoteSummaryCellDelegate?.dachdeckerUpdated()
-        case dachdruchführungSwitch:
-            quoteSummaryCellDelegate?.dachdruchführungUpdated()
-        case kondensatpumpeSwitch:
-            quoteSummaryCellDelegate?.kondensatpumpeUpdated()
-        default:
-            assertionFailure()
-        }
-    }
-    
     
     @IBAction func sendQuoteButton(_ sender: Any) {
         quoteSummaryCellDelegate?.userPressedSubmitQuote()
@@ -175,7 +111,7 @@ class QuoteSummaryTableViewCell: UITableViewCell {
     }
 }
 
-extension QuoteSummaryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ACLocationTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return screenshots.count
     }
@@ -199,22 +135,3 @@ extension QuoteSummaryTableViewCell: UICollectionViewDelegate, UICollectionViewD
     }
 }
 
-extension QuoteSummaryTableViewCell: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let textFieldText = textField.text else { return }
-        switch textField {
-        case customerNameTextField:
-            quoteSummaryCellDelegate?.customerNameUpdated(with: textFieldText)
-        case employeeNameTextField:
-            quoteSummaryCellDelegate?.employeeNameUpdated(with: textFieldText)
-        case appointmentDateTextField:
-            quoteSummaryCellDelegate?.appointmentDateUpdated(with: textFieldText)
-        case estimatedPriceTextField:
-            quoteSummaryCellDelegate?.estimatedPriceUpdated(with: textFieldText)
-        case noteTextField:
-            quoteSummaryCellDelegate?.noteUpdated(with: textFieldText)
-        default:
-            assertionFailure()
-        }
-    }
-}
