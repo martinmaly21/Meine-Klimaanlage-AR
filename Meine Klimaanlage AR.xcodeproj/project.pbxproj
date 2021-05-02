@@ -33,6 +33,8 @@
 		5B4CEC45263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4CEC43263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib */; };
 		5B4CEC4A263E25470081EBE2 /* QuoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4CEC48263E25470081EBE2 /* QuoteCollectionViewCell.swift */; };
 		5B4CEC4B263E25470081EBE2 /* QuoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4CEC49263E25470081EBE2 /* QuoteCollectionViewCell.xib */; };
+		5B4CEC50263F044C0081EBE2 /* QuoteSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4CEC4F263F044C0081EBE2 /* QuoteSectionHeader.swift */; };
+		5B4CEC54263F04570081EBE2 /* QuoteSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B4CEC53263F04570081EBE2 /* QuoteSectionHeader.xib */; };
 		5B4FDFB8248D79160079B653 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4FDFB7248D79160079B653 /* .gitignore */; };
 		5B69D0D9248D701F0072002A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0D8248D701F0072002A /* AppDelegate.swift */; };
 		5B69D0DB248D701F0072002A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69D0DA248D701F0072002A /* SceneDelegate.swift */; };
@@ -112,6 +114,8 @@
 		5B4CEC43263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateQuoteCollectionViewCell.xib; sourceTree = "<group>"; };
 		5B4CEC48263E25470081EBE2 /* QuoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B4CEC49263E25470081EBE2 /* QuoteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCollectionViewCell.xib; sourceTree = "<group>"; };
+		5B4CEC4F263F044C0081EBE2 /* QuoteSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteSectionHeader.swift; sourceTree = "<group>"; };
+		5B4CEC53263F04570081EBE2 /* QuoteSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteSectionHeader.xib; sourceTree = "<group>"; };
 		5B4FDFB7248D79160079B653 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5B69D0D5248D701F0072002A /* Meine Klimaanlage AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meine Klimaanlage AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B69D0D8248D701F0072002A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 			children = (
 				5B09158025451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.swift */,
 				5B09158125451BB1008249D7 /* ACUnitDetailHeaderTableViewCell.xib */,
+				5B4CEC4F263F044C0081EBE2 /* QuoteSectionHeader.swift */,
+				5B4CEC53263F04570081EBE2 /* QuoteSectionHeader.xib */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -559,6 +565,7 @@
 				5B4CEC4B263E25470081EBE2 /* QuoteCollectionViewCell.xib in Resources */,
 				5B69D0E2248D70200072002A /* Assets.xcassets in Resources */,
 				5BE20849262CF25A00F1D56B /* Tutorial2.gif in Resources */,
+				5B4CEC54263F04570081EBE2 /* QuoteSectionHeader.xib in Resources */,
 				5B4CEC45263E253A0081EBE2 /* CreateQuoteCollectionViewCell.xib in Resources */,
 				5BDD141024BBAB94003A3A98 /* ScreenshotCollectionViewCell.xib in Resources */,
 				5B69D0E0248D701F0072002A /* Onboarding.storyboard in Resources */,
@@ -645,6 +652,7 @@
 				5B00FAC0249703C600215489 /* ACBrand.swift in Sources */,
 				5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */,
 				5BD54D2E263E046B009BFB92 /* QuoteInformationTableViewCell.swift in Sources */,
+				5B4CEC50263F044C0081EBE2 /* QuoteSectionHeader.swift in Sources */,
 				5BDD77F9256B701000EACC68 /* ThresholdPanGesture.swift in Sources */,
 				5BDD140F24BBAB94003A3A98 /* ScreenshotCollectionViewCell.swift in Sources */,
 				5B09157B2544E0BA008249D7 /* ACUnitBrandsCollectionViewCell.swift in Sources */,

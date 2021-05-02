@@ -71,6 +71,15 @@ class QuoteViewController: UIViewController {
             ),
             forCellReuseIdentifier: "QuoteLocationTableViewCell"
         )
+        
+        //register header
+        tableView.register(
+            UINib(
+                nibName: "QuoteSectionHeader",
+                bundle: nil
+            ),
+            forHeaderFooterViewReuseIdentifier: "QuoteSectionHeader"
+        )
     }
     
     private func setUpUI() {
@@ -115,34 +124,57 @@ extension QuoteViewController: UITableViewDelegate {
 }
 
 extension QuoteViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "QuoteSectionHeader") as? QuoteSectionHeader
+        
+        header?.titleLabel.text = section == 0 ? "Information" : "Locations"
+        
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfQuoteInformationCells = 1
-        let numberOfCreateACLocationCells = 1
-        return numberOfQuoteInformationCells + numberOfCreateACLocationCells + quote.locations.count
+        if section == 0 {
+            let numberOfQuoteInformationCells = 1
+            return numberOfQuoteInformationCells
+        } else {
+            //section 1
+            let numberOfCreateACLocationCells = 1
+            return numberOfCreateACLocationCells + quote.locations.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
+        if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteInformationTableViewCell") as? QuoteInformationTableViewCell else {
                 fatalError("Could not create QuoteInformationTableViewCell")
             }
             cell.setUpUI()
             return cell
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCreateANewLocationTableViewCell") as? QuoteCreateANewLocationTableViewCell else {
-                fatalError("Could not create QuoteCreateANewLocationTableViewCell")
+        } else {
+            switch indexPath.row {
+            case 0:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCreateANewLocationTableViewCell") as? QuoteCreateANewLocationTableViewCell else {
+                    fatalError("Could not create QuoteCreateANewLocationTableViewCell")
+                }
+                return cell
+            default:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteLocationTableViewCell") as? QuoteLocationTableViewCell else {
+                    fatalError("Could not create QuoteLocationTableViewCell")
+                }
+                //the '-1' is to account for QuoteCreateANewLocationTableViewCell
+                let acLocation = quote.locations[indexPath.row - 1]
+                cell.acLocation = acLocation
+                cell.setUpCell(with: acLocation.name)
+                return cell
             }
-            return cell
-        default:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteLocationTableViewCell") as? QuoteLocationTableViewCell else {
-                fatalError("Could not create QuoteLocationTableViewCell")
-            }
-            //the '-2' is to account for QuoteInformationTableViewCell and QuoteCreateANewLocationTableViewCell
-            let acLocation = quote.locations[indexPath.row - 2]
-            cell.acLocation = acLocation
-            cell.setUpCell(with: acLocation.name)
-            return cell
         }
     }
 }

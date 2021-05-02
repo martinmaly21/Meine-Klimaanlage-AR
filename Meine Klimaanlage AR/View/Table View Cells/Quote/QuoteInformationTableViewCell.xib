@@ -11,18 +11,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="228" id="NUy-Ph-wiG" customClass="QuoteInformationTableViewCell" customModule="Meine_Klimaanlage_AR" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="228"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="315" id="NUy-Ph-wiG" customClass="QuoteInformationTableViewCell" customModule="Meine_Klimaanlage_AR" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="315"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NUy-Ph-wiG" id="N6m-yy-V3W">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="228"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="315"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lDf-g3-Mwj">
-                        <rect key="frame" x="16.5" y="8" width="287" height="212"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lDf-g3-Mwj">
+                        <rect key="frame" x="16.5" y="8" width="287" height="299"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JDt-At-AyK">
-                                <rect key="frame" x="0.0" y="0.0" width="287" height="70.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JDt-At-AyK">
+                                <rect key="frame" x="0.0" y="0.0" width="287" height="65.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hul-3Q-Z3A">
                                         <rect key="frame" x="0.0" y="0.0" width="287" height="20.5"/>
@@ -31,7 +31,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qVZ-LO-uG8">
-                                        <rect key="frame" x="0.0" y="30.5" width="287" height="40"/>
+                                        <rect key="frame" x="0.0" y="25.5" width="287" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="BFc-xD-UxE"/>
                                         </constraints>
@@ -40,8 +40,8 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vQS-4H-qWR">
-                                <rect key="frame" x="0.0" y="70.5" width="287" height="70.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vQS-4H-qWR">
+                                <rect key="frame" x="0.0" y="75.5" width="287" height="65.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Employee Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dv-u9-3bc">
                                         <rect key="frame" x="0.0" y="0.0" width="287" height="20.5"/>
@@ -50,7 +50,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gvj-dh-SxA">
-                                        <rect key="frame" x="0.0" y="30.5" width="287" height="40"/>
+                                        <rect key="frame" x="0.0" y="25.5" width="287" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="qet-hk-Dna"/>
                                         </constraints>
@@ -59,8 +59,8 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TpH-TT-CJf">
-                                <rect key="frame" x="0.0" y="141" width="287" height="71"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TpH-TT-CJf">
+                                <rect key="frame" x="0.0" y="151" width="287" height="148"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Appointment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvY-bE-LYl">
                                         <rect key="frame" x="0.0" y="0.0" width="287" height="20.5"/>
@@ -69,7 +69,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ca7-ck-Jg6">
-                                        <rect key="frame" x="0.0" y="30.5" width="287" height="40.5"/>
+                                        <rect key="frame" x="0.0" y="25.5" width="287" height="122.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
@@ -91,7 +91,7 @@
                 <outlet property="customerNameTextField" destination="qVZ-LO-uG8" id="dYg-eB-bRU"/>
                 <outlet property="employeeNameTextField" destination="Gvj-dh-SxA" id="OOl-jq-mdX"/>
             </connections>
-            <point key="canvasLocation" x="15.942028985507248" y="183.48214285714286"/>
+            <point key="canvasLocation" x="15.942028985507248" y="212.61160714285714"/>
         </tableViewCell>
     </objects>
     <resources>
