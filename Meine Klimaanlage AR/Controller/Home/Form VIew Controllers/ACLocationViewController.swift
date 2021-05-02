@@ -167,7 +167,7 @@ extension ACLocationViewController: QuoteSummaryCellDelegate {
         }
 
 
-        QuoteManager.currentQuote.locations.append(acLocation)
+        QuoteManager.currentQuote.locations.insert(acLocation, at: 0)
         
         //TODO reload data upon dismiss?
         dismiss(animated: true, completion: nil)
