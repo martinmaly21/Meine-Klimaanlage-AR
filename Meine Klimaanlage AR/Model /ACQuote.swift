@@ -14,14 +14,4 @@ struct ACQuote {
     var employeeName: String?
     var appointmentDate: String?
     var locations: [ACLocation] = []
-    
-    var totalPrice: Float {
-        var totalPrice: Float = 0
-        
-        locations.forEach {
-            totalPrice += $0.price
-        }
-        
-        return totalPrice
-    }
 }

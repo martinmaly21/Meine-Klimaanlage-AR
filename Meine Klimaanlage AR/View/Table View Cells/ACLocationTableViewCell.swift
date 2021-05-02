@@ -73,7 +73,7 @@ class ACLocationTableViewCell: UITableViewCell {
         unitTitle.text = location.acUnit.displayName
         
         locationTextField.text = location.name
-        estimatedPriceTextField.text = "\(String(describing: location.price))"
+        estimatedPriceTextField.text = location.price
         
         addWires(with: location.wires)
         

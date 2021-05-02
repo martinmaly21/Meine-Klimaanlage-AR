@@ -97,7 +97,7 @@ class ACLocationViewController: UIViewController {
     
     private func updateACLocation() {
         acLocation.name = location
-        acLocation.price = (estimatedPrice as NSString?)?.floatValue ?? 0
+        acLocation.price = estimatedPrice
         
         acLocation.wifi = wifi
         acLocation.elZul = elZul
