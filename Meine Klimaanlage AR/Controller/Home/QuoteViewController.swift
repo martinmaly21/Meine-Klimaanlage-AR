@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import MessageUI
 
 class QuoteViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -137,6 +138,10 @@ extension QuoteViewController: UITableViewDelegate {
         }
         
         //show email
+        guard MFMailComposeViewController.canSendMail() else {
+            ErrorManager.showCannotOpenEmail(on: self)
+            return
+        }
         
 //
 //        let composeVC = MFMailComposeViewController()
