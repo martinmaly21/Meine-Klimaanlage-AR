@@ -22,18 +22,19 @@
                         <rect key="frame" x="16.5" y="10" width="287" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4L-f5-wik">
-                                <rect key="frame" x="0.0" y="15" width="257" height="20.5"/>
+                                <rect key="frame" x="0.0" y="15" width="264.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" name="PrimaryBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rVf-g2-f2B">
-                                <rect key="frame" x="257" y="10.5" width="30" height="29"/>
+                                <rect key="frame" x="264.5" y="14" width="22.5" height="22"/>
                                 <color key="tintColor" name="PrimaryBlue"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="XSs-gX-Cgg"/>
+                                    <constraint firstAttribute="width" constant="22.5" id="XSs-gX-Cgg"/>
                                     <constraint firstAttribute="width" secondItem="rVf-g2-f2B" secondAttribute="height" multiplier="1:1" id="ztg-X7-lOh"/>
                                 </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
                             </imageView>
                         </subviews>
                     </stackView>
