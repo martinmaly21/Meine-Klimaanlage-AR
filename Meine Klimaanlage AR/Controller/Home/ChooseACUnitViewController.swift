@@ -21,19 +21,6 @@ class ChooseACUnitViewController: UIViewController {
         return currentQuote
     }
     
-    private var arViewController: ARQuoteViewController? {
-        guard let tabBarController = presentingViewController as? UITabBarController,
-              let navigationController = tabBarController.selectedViewController as? UINavigationController,
-              let arViewController = navigationController.topViewController as? ARQuoteViewController else {
-            return nil
-        }
-        return arViewController
-    }
-    
-    private var presentedOverARSession: Bool {
-        return arViewController != nil
-    }
-    
     private var units = [ACUnit]()
     
     override func viewDidLoad() {
@@ -56,15 +43,6 @@ class ChooseACUnitViewController: UIViewController {
         tableView.separatorStyle = .none
         
         registerTableViewCells()
-        
-        if presentedOverARSession {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(
-                title: "Cancel",
-                style: .plain,
-                target: self,
-                action: #selector(didPressCancel)
-            )
-        }
     }
     
     @objc func didPressCancel() {
@@ -98,8 +76,7 @@ extension ChooseACUnitViewController: UITableViewDataSource, UITableViewDelegate
         }
         //+ 1 to offset header
         cell.setUpCell(
-            with: units[indexPath.row - 1],
-            shouldAddChevron: !presentedOverARSession
+            with: units[indexPath.row - 1]
         )
         return cell
     }

@@ -22,15 +22,6 @@ class ChooseBrandViewController: UIViewController {
         return CGFloat(items)
     }
     
-    private var presentedOverARSession: Bool {
-        guard let tabBarController = presentingViewController as? UITabBarController,
-              let navigationController = tabBarController.selectedViewController as? UINavigationController,
-              let _ = navigationController.topViewController as? ARQuoteViewController else {
-            return false
-        }
-        return true
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -39,15 +30,6 @@ class ChooseBrandViewController: UIViewController {
     private func setUpUI() {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Meine Klimaanlage"
-        
-        if presentedOverARSession {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(
-                title: "Cancel",
-                style: .plain,
-                target: self,
-                action: #selector(didPressCancel)
-            )
-        }
         
         registerCollectionViewCells()
     }

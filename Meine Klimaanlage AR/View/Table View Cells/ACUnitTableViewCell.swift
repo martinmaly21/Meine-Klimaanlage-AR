@@ -38,13 +38,11 @@ class ACUnitTableViewCell: UITableViewCell {
     }
 
     public func setUpCell(
-        with unit: ACUnit,
-        shouldAddChevron: Bool
+        with unit: ACUnit
     ) {
         self.unit = unit
         
         ACUnitBrandLabel.text = unit.displayName
-        accessoryType = shouldAddChevron ? .disclosureIndicator : .none
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
