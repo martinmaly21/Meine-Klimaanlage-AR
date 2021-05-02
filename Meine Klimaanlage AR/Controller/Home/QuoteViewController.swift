@@ -46,12 +46,7 @@ class QuoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTableViewCells()
-        
-        let isCreatingNewQuote = quote == nil
-        
-        if isCreatingNewQuote {
-            updateUIForCreatingNewQuote()
-        }
+        setUpUI()
     }
     
     private func registerTableViewCells() {
@@ -78,8 +73,8 @@ class QuoteViewController: UIViewController {
         )
     }
     
-    private func updateUIForCreatingNewQuote() {
-        
+    private func setUpUI() {
+        tableView.tableFooterView = UIView()
     }
 }
 
