@@ -91,10 +91,21 @@ class ACLocationTableViewCell: UITableViewCell {
     }
     
     private func addWires(with wires: [ACWire]) {
+        for arrangedSubview in wiresStackView.arrangedSubviews {
+            arrangedSubview.removeFromSuperview()
+        }
+        
         guard !wires.isEmpty else {
             wiresStackView.isHidden = true
             return
         }
+        
+        let titleLabel = UILabel()
+        titleLabel.text = "Wire Info"
+        titleLabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        titleLabel.textColor = Constants.Color.primaryTextDark
+        
+        wiresStackView.addArrangedSubview(titleLabel)
         
         for wire in wires {
             let stackView = UIStackView()

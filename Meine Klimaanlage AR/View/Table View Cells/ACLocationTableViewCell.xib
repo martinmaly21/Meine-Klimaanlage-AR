@@ -65,18 +65,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Nkc-6y-gTT">
-                                        <rect key="frame" x="0.0" y="217" width="290" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wire Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKN-WZ-OQH">
-                                                <rect key="frame" x="0.0" y="0.0" width="290" height="30"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                <color key="textColor" name="PrimaryTextDark"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
+                                        <rect key="frame" x="0.0" y="217" width="290" height="275"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7ij-qJ-Ylk">
-                                        <rect key="frame" x="0.0" y="265" width="290" height="935"/>
+                                        <rect key="frame" x="0.0" y="510" width="290" height="690"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screenshots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYI-GB-yxF">
                                                 <rect key="frame" x="0.0" y="0.0" width="290" height="30"/>
@@ -253,7 +245,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svP-bN-6EN">
-                                                <rect key="frame" x="0.0" y="660" width="290" height="275"/>
+                                                <rect key="frame" x="0.0" y="660" width="290" height="30"/>
                                                 <state key="normal" title="Discard">
                                                     <color key="titleColor" name="PrimaryRed"/>
                                                 </state>
