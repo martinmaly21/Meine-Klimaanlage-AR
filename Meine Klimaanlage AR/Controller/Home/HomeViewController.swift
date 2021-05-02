@@ -81,7 +81,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let numberOfCreateQuoteCells = 4
+        let numberOfCreateQuoteCells = 1
         return numberOfCreateQuoteCells
     }
 }
