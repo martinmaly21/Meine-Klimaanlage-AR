@@ -44,10 +44,6 @@ class ChooseACUnitViewController: UIViewController {
         
         registerTableViewCells()
     }
-    
-    @objc func didPressCancel() {
-        dismiss(animated: true, completion: nil)
-    }
 }
 
 extension ChooseACUnitViewController: UITableViewDataSource, UITableViewDelegate {

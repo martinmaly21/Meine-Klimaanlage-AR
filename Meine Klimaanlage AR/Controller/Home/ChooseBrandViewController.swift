@@ -29,8 +29,8 @@ class ChooseBrandViewController: UIViewController {
     
     private func setUpUI() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Meine Klimaanlage"
-        
+        title = "Choose brand"
+
         registerCollectionViewCells()
     }
     
@@ -49,10 +49,6 @@ class ChooseBrandViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView.reloadData()
-    }
-    
-    @objc func didPressCancel() {
-        dismiss(animated: true, completion: nil)
     }
 }
 
