@@ -14,6 +14,7 @@ class CreateQuoteCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        clipsToBounds = false
         containerView.layer.cornerRadius = 10
         containerView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
         containerView.layer.borderWidth = 1
