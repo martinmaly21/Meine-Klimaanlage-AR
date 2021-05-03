@@ -110,6 +110,8 @@ class QuoteViewController: UIViewController {
         actionSheet.addAction(discardAction)
         actionSheet.addAction(cancelAction)
         
+        actionSheet.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
+        
         present(actionSheet, animated: true, completion: nil)
     }
     

@@ -110,7 +110,7 @@ class ACLocationViewController: UIViewController {
     }
 
     @objc func didPressDiscard() {
-        userPressedDiscardLocation()
+        userPressedDiscardLocation(from: nil)
     }
     
     @objc func didPressSave() {
@@ -136,7 +136,7 @@ extension ACLocationViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ACLocationViewController: QuoteSummaryCellDelegate {
-    func userPressedDiscardLocation() {
+    func userPressedDiscardLocation(from view: UIView?) {
         let actionSheet = UIAlertController(
             title: "Are you sure you'd like to discard this location?",
             message: "All your work will be lost.",
@@ -159,6 +159,12 @@ extension ACLocationViewController: QuoteSummaryCellDelegate {
         
         actionSheet.addAction(discardAction)
         actionSheet.addAction(cancelAction)
+        
+        if let sender = view {
+            actionSheet.popoverPresentationController?.sourceView = sender
+        } else {
+            actionSheet.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
+        }
         
         present(actionSheet, animated: true, completion: nil)
     }

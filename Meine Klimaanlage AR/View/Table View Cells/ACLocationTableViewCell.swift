@@ -14,7 +14,7 @@ protocol QuoteSummaryCellDelegate: class {
     func userPressedPhoto(with image: UIImage)
     
     func userPressedSaveLocation()
-    func userPressedDiscardLocation()
+    func userPressedDiscardLocation(from view: UIView?)
 }
 
 class ACLocationTableViewCell: UITableViewCell {
@@ -139,8 +139,8 @@ class ACLocationTableViewCell: UITableViewCell {
         quoteSummaryCellDelegate?.userPressedSaveLocation()
     }
     
-    @IBAction func discardButtonClicked(_ sender: Any) {
-        quoteSummaryCellDelegate?.userPressedDiscardLocation()
+    @IBAction func discardButtonClicked(_ sender: UIButton) {
+        quoteSummaryCellDelegate?.userPressedDiscardLocation(from: sender)
     }
 }
 
