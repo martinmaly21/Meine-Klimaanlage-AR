@@ -218,45 +218,6 @@ extension ACLocationViewController: QuoteSummaryCellDelegate {
     }
 }
 
-extension ACLocationViewController: MFMailComposeViewControllerDelegate {
-    func mailComposeController(
-        _ controller: MFMailComposeViewController,
-        didFinishWith result: MFMailComposeResult,
-        error: Error?
-    ) {
-        self.dismiss(animated: true) {
-            switch result {
-            case .sent:
-                let successAlert = UIAlertController(
-                    title: "Success!",
-                    message: "Your quote was successfully sent.",
-                    preferredStyle: .alert
-                )
-                
-                let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
-                successAlert.addAction(okayAction)
-                
-                self.navigationController?.popToRootViewController(animated: true)
-                self.tabBarController?.tabBar.isHidden = false
-                self.tabBarController?.present(successAlert, animated: true, completion: nil)
-            case .failed, .saved, .cancelled:
-                let informationlert = UIAlertController(
-                    title: "Error",
-                    message: "Your quote was not sent.",
-                    preferredStyle: .alert
-                )
-                
-                let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
-                informationlert.addAction(okayAction)
-                
-                self.present(informationlert, animated: true, completion: nil)
-            @unknown default:
-                fatalError()
-            }
-        }
-    }
-}
-
 extension ACLocationViewController {
     private func presentImagePickerChoice(from cell: UICollectionViewCell) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

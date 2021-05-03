@@ -11,6 +11,5 @@ import Foundation
 struct ACUnit {
     let displayName: String
     let fileName: String
-    let environmentType: ACUnitEnvironmentType 
-    let quantity: Int = 1
+    let environmentType: ACUnitEnvironmentType
 }

@@ -143,55 +143,66 @@ extension QuoteViewController: UITableViewDelegate {
             ErrorManager.showCannotOpenEmail(on: self)
             return
         }
+
+        let composeVC = MFMailComposeViewController()
+
+        composeVC.mailComposeDelegate = self
+        composeVC.setToRecipients([Constants.Quote.quoteEmail])
+        composeVC.setSubject("AC Quote")
         
-//
-//        let composeVC = MFMailComposeViewController()
-//
-//        composeVC.mailComposeDelegate = self
-//
-//        composeVC.setToRecipients([Constants.Quote.quoteEmail])
-//        composeVC.setSubject("AC Quote")
-//
-//        var wireInformation = ""
-//        for wire in quote.wires {
-//            let wireLength = String(format: "%.2f", Double(wire.wireLength))
-//            let wireName = String(describing: wire.wireDisplayName)
-//            wireInformation += "\(wireLength) meters of \(wireName).\n"
-//        }
-//
-//        var unitsInformation = ""
-//        for unit in quote.units {
-//            unitsInformation += "\(unit.displayName) (Quantity: \(unit.quantity))\n"
-//        }
-//
-//        let messageBody = """
-//        Customer's Name: \(quote.customerName ?? "")
-//        Employee's Name: \(quote.employeeName ?? "")
-//        Date of Appointment: \(quote.appointmentDate ?? "")
-//        Estimated Price: \(quote.price ?? "") Euro
-//
-//        Wire(s):
-//        \(wireInformation)
-//        AC Unit's:
-//        \(unitsInformation)
-//        Wifi: \(quote.wifi ? "Yes" : "No")
-//        El. Zul.: \(quote.elZul ? "Yes" : "No")
-//        UV: \(quote.uv ? "Yes" : "No")
-//        Dachdecker: \(quote.dachdecker ? "Yes" : "No")
-//        Dachdruchführung: \(quote.dachdruchfuhrung ? "Yes" : "No")
-//        Kondensatpumpe: \(quote.kondensatpumpe ? "Yes" : "No")
-//
-//        Notes:
-//        \(quote.notes ?? "")
-//        """
-//        composeVC.setMessageBody(messageBody, isHTML: false)
-//
-//        if let screenshot = quote.screenshots.first,
-//           let screenshotImageData = screenshot.pngData() {
-//            composeVC.addAttachmentData(screenshotImageData, mimeType: "image/png", fileName: "\(quote.units.first?.displayName ?? "Unit")_Screenshot")
-//        }
-//
-//        self.present(composeVC, animated: true, completion: nil)
+        guard let quote = QuoteManager.currentQuote else {
+            fatalError("Could not get quote")
+        }
+
+        var messageBody = """
+        Customer's Name: \(quote.customerName ?? "")
+        Employee's Name: \(quote.employeeName ?? "")
+        Date of Appointment: \(quote.appointmentDate ?? "")
+        """
+        
+        for location in quote.locations {
+            var wireInformation = ""
+            for wire in location.wires {
+                let wireLength = String(format: "%.2f", Double(wire.wireLength))
+                let wireName = String(describing: wire.wireDisplayName)
+                wireInformation += "\(wireLength) meters of \(wireName).\n"
+            }
+            
+            messageBody += """
+
+            ************************************************************************************
+            Location: \(location.name ?? "Not provided")
+            AC Unit: \(location.acUnit.displayName)
+            Estimated price: \(String(describing: location.price)) Euro
+
+            Wire(s):
+            \(wireInformation)
+
+            Wifi: \(location.wifi ? "Yes" : "No")
+            El. Zul.: \(location.elZul ? "Yes" : "No")
+            UV: \(location.uv ? "Yes" : "No")
+            Dachdecker: \(location.dachdecker ? "Yes" : "No")
+            Dachdruchführung: \(location.dachdruchführung ? "Yes" : "No")
+            Kondensatpumpe: \(location.kondensatpumpe ? "Yes" : "No")
+
+            Notes:
+            \(location.notes ?? "None provided")
+            """
+        }
+        
+        composeVC.setMessageBody(messageBody, isHTML: false)
+        
+        let screenshotsData = quote.locations.flatMap { $0.screenshots.compactMap { $0.pngData() } }
+
+        for (index, screenshotData) in screenshotsData.enumerated() {
+            composeVC.addAttachmentData(
+                screenshotData,
+                mimeType: "image/png",
+                fileName: "Screenshot_\(index)"
+            )
+        }
+
+        self.present(composeVC, animated: true, completion: nil)
     }
 }
 
@@ -252,6 +263,44 @@ extension QuoteViewController: UITableViewDataSource {
                 let acLocation = QuoteManager.currentQuote.locations[indexPath.row - 1]
                 cell.setUpCell(with: acLocation)
                 return cell
+            }
+        }
+    }
+}
+
+extension QuoteViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(
+        _ controller: MFMailComposeViewController,
+        didFinishWith result: MFMailComposeResult,
+        error: Error?
+    ) {
+        self.dismiss(animated: true) {
+            switch result {
+            case .sent:
+                let successAlert = UIAlertController(
+                    title: "Success!",
+                    message: "Your quote was successfully sent.",
+                    preferredStyle: .alert
+                )
+                
+                let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                successAlert.addAction(okayAction)
+                
+                self.navigationController?.popToRootViewController(animated: true)
+                self.tabBarController?.present(successAlert, animated: true, completion: nil)
+            case .failed, .saved, .cancelled:
+                let informationlert = UIAlertController(
+                    title: "Error",
+                    message: "Your quote was not sent.",
+                    preferredStyle: .alert
+                )
+                
+                let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                informationlert.addAction(okayAction)
+                
+                self.present(informationlert, animated: true, completion: nil)
+            @unknown default:
+                fatalError()
             }
         }
     }
