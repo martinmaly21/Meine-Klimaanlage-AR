@@ -171,12 +171,12 @@ extension QuoteViewController: UITableViewDelegate {
             messageBody += """
 
             ************************************************************************************
-            Location: \(location.name ?? "Not provided")
+            Location: \(location.name?.isEmpty ?? true ? "Not provided" : "\(String(describing: location.name))")
             AC Unit: \(location.acUnit.displayName)
             Estimated price: \(location.price ?? "0") Euro
 
             Wire(s):
-            \(wireInformation)
+            \(wireInformation.isEmpty ? "None provided" : "\(wireInformation)")
 
             Wifi: \(location.wifi ? "Yes" : "No")
             El. Zul.: \(location.elZul ? "Yes" : "No")
@@ -186,7 +186,7 @@ extension QuoteViewController: UITableViewDelegate {
             Kondensatpumpe: \(location.kondensatpumpe ? "Yes" : "No")
 
             Notes:
-            \(location.notes ?? "None provided")
+            \(location.notes?.isEmpty ?? true ? "None provided" : "\(String(describing: location.notes))")
             """
         }
         
