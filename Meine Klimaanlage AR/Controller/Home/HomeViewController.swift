@@ -46,16 +46,6 @@ class HomeViewController: UIViewController {
     private func setUpUI() {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Meine Klimaanlage"
-        
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
-        
-        collectionView.refreshControl = refreshControl
-    }
-    
-    @objc func didPullToRefresh() {
-        #warning("TODO")
-        collectionView.refreshControl?.endRefreshing()
     }
 }
 
