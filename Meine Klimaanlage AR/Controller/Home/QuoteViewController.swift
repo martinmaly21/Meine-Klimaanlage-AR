@@ -81,6 +81,40 @@ class QuoteViewController: UIViewController {
     
     private func setUpUI() {
         tableView.tableFooterView = UIView()
+        
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(userPressedCancel))
+        navigationItem.leftBarButtonItem = cancelButton
+    }
+    
+    @objc func userPressedCancel() {
+        let actionSheet = UIAlertController(
+            title: "Are you sure you'd like to discard this quote?",
+            message: "All your work will be lost.",
+            preferredStyle: .actionSheet
+        )
+        
+        let discardAction = UIAlertAction(
+            title: "Discard",
+            style: .destructive,
+            handler: { _ in
+                self.userConfirmedDiscard()
+            }
+        )
+        
+        let cancelAction = UIAlertAction(
+            title: "Cancel",
+            style: .default,
+            handler: nil
+        )
+        
+        actionSheet.addAction(discardAction)
+        actionSheet.addAction(cancelAction)
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    private func userConfirmedDiscard() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
