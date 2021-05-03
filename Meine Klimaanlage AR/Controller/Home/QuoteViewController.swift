@@ -121,26 +121,6 @@ class QuoteViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false
         navigationController?.popViewController(animated: true)
     }
-}
-
-extension QuoteViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        
-        switch cell {
-        case is QuoteInformationTableViewCell: break
-        case is QuoteCreateANewLocationTableViewCell:
-            userPressedCreateANewLocationTableViewCell()
-        case let cell as QuoteLocationTableViewCell:
-            userPressedQuoteLocationTableViewCell(with: cell)
-        case is SendQuoteTableViewCell:
-            userPressedSendQuoteTableViewCell()
-        default:
-            fatalError("Unexpected cell type")
-        }
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
     
     private func userPressedCreateANewLocationTableViewCell() {
         guard let vc = UIStoryboard(name: "ACLocation", bundle: nil).instantiateInitialViewController() else {
@@ -242,6 +222,38 @@ extension QuoteViewController: UITableViewDelegate {
         }
 
         self.present(composeVC, animated: true, completion: nil)
+    }
+}
+
+extension QuoteViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        switch cell {
+        case is QuoteInformationTableViewCell: break
+        case is QuoteCreateANewLocationTableViewCell:
+            userPressedCreateANewLocationTableViewCell()
+        case let cell as QuoteLocationTableViewCell:
+            userPressedQuoteLocationTableViewCell(with: cell)
+        case is SendQuoteTableViewCell:
+            userPressedSendQuoteTableViewCell()
+        default:
+            fatalError("Unexpected cell type")
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return tableView.cellForRow(at: indexPath) is QuoteLocationTableViewCell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            let addLocationOffset = 1
+            QuoteManager.currentQuote.locations.remove(at: indexPath.row - addLocationOffset)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }
 
