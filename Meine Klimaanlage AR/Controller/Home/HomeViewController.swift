@@ -13,8 +13,9 @@ class HomeViewController: UIViewController {
     
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     private var itemsPerRow: CGFloat {
-        let items = Int(view.frame.width / 250)
-        return CGFloat(items)
+//        let items = Int(view.frame.width / 250)
+//        return CGFloat(items)
+        return 1
     }
 
     override func viewDidLoad() {
