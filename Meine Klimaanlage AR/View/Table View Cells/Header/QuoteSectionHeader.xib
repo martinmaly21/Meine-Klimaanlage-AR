@@ -17,6 +17,7 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90m-q1-a0a">
                     <rect key="frame" x="16.5" y="77.5" width="105" height="27.5"/>
+                    <color key="tintColor" name="PrimaryWhiteBackground"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                     <color key="textColor" name="PrimaryTextDark"/>
                     <nil key="highlightedColor"/>
@@ -24,7 +25,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="T0O-2e-Vch"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="90m-q1-a0a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16.5" id="ZQF-36-gmh"/>
                 <constraint firstItem="90m-q1-a0a" firstAttribute="centerY" secondItem="T0O-2e-Vch" secondAttribute="centerY" id="c8L-NP-kAA"/>
@@ -39,6 +40,9 @@
     <resources>
         <namedColor name="PrimaryTextDark">
             <color red="0.29019607843137257" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryWhiteBackground">
+            <color red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
