@@ -173,7 +173,7 @@ extension QuoteViewController: UITableViewDelegate {
             ************************************************************************************
             Location: \(location.name ?? "Not provided")
             AC Unit: \(location.acUnit.displayName)
-            Estimated price: \(String(describing: location.price)) Euro
+            Estimated price: \(location.price ?? "0") Euro
 
             Wire(s):
             \(wireInformation)
