@@ -84,6 +84,8 @@ class QuoteViewController: UIViewController {
         
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(userPressedCancel))
         navigationItem.leftBarButtonItem = cancelButton
+        
+        tabBarController?.tabBar.isHidden = true
     }
     
     @objc func userPressedCancel() {
@@ -116,6 +118,7 @@ class QuoteViewController: UIViewController {
     }
     
     private func userConfirmedDiscard() {
+        tabBarController?.tabBar.isHidden = false
         navigationController?.popViewController(animated: true)
     }
 }
@@ -322,6 +325,7 @@ extension QuoteViewController: MFMailComposeViewControllerDelegate {
                 let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
                 successAlert.addAction(okayAction)
                 
+                self.tabBarController?.tabBar.isHidden = false
                 self.navigationController?.popToRootViewController(animated: true)
                 self.tabBarController?.present(successAlert, animated: true, completion: nil)
             case .failed, .saved, .cancelled:
