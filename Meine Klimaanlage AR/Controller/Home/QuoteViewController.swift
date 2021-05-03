@@ -85,7 +85,14 @@ class QuoteViewController: UIViewController {
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(userPressedCancel))
         navigationItem.leftBarButtonItem = cancelButton
         
+        navigationItem.rightBarButtonItem = editButtonItem
+        
         tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
     }
     
     @objc func userPressedCancel() {
