@@ -235,14 +235,12 @@ extension ARQuoteViewController {
         
         switch panGesture.state {
         case .began:
-            if let hitTestResult = sceneView.hitTest(
+            if sceneView.hitTest(
                 location,
                 options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-            ).first,
-            let acUnit = hitTestResult.node.parent,
-            acUnit.isEqual(currentACUnitNode) {
+            ).first != nil {
                 //user is panning AC unit
-                trackedObject = acUnit
+                trackedObject = currentACUnitNode
                 
                 previousPanCoordinateX = Float(location.x)
                 previousPanCoordinateY = Float(location.y)
