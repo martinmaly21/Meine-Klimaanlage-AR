@@ -14,6 +14,10 @@ class NetworkManager {
     
     public static func getUnits(for brand: ACBrand, with unitType: ACUnitEnvironmentType) -> [ACUnit] {
         switch brand {
+        case .daikin:
+            return []
+        case .mitsubishiMotors:
+            return []
         case .panasonic:
             if unitType == .exterior {
                 return []
@@ -32,7 +36,25 @@ class NetworkManager {
                 
                 return [wandgeratLowEnergy, wandgeratHighEnergy]
             }
-        default:
+        case .lg:
+            if unitType == .exterior {
+                return []
+            } else {
+                //exterior
+                let wandgeratLowEnergy = ACUnit(
+                    displayName: "LG Inside Unit 2.5kW",
+                    fileName: "LG_Inside_Unit",
+                    environmentType: .interior
+                )
+                let wandgeratHighEnergy = ACUnit(
+                    displayName: "LG Inside Unit 3.5kW",
+                    fileName: "LG_Inside_Unit",
+                    environmentType: .interior
+                )
+                
+                return [wandgeratLowEnergy, wandgeratHighEnergy]
+            }
+        case .samsung:
             return []
         }
     }
