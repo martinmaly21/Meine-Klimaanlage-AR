@@ -22,7 +22,7 @@ class ChooseACUnitViewController: UIViewController {
     }
     
     private func getUnits() {
-        units = NetworkManager.getUnits(for: brand, with: currentACUnitEnvironmentType)
+        units = UnitManager.getUnits(for: brand, with: currentACUnitEnvironmentType)
         tableView.reloadData()
     }
     

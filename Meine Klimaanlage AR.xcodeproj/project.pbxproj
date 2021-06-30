@@ -45,7 +45,7 @@
 		5B7E6DCE24B6ABF90049CCB9 /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */; };
 		5B7E6DEC24B6C87D0049CCB9 /* ACUnits.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B7E6DEB24B6C87D0049CCB9 /* ACUnits.scnassets */; };
 		5B835C052627C5920031698A /* VerticalAnchorCoachingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B835C042627C5920031698A /* VerticalAnchorCoachingView.swift */; };
-		5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667CF248D900D003A3B5D /* NetworkManager.swift */; };
+		5B8667D0248D900D003A3B5D /* UnitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667CF248D900D003A3B5D /* UnitManager.swift */; };
 		5B8667D2248D9662003A3B5D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D1248D9662003A3B5D /* LogInViewController.swift */; };
 		5B8667D4248D966F003A3B5D /* CreateAnAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */; };
 		5BAF8D0924B81A8D0022EC84 /* AppEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */; };
@@ -133,7 +133,7 @@
 		5B7E6DCD24B6ABF90049CCB9 /* FocusSquareSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
 		5B7E6DEB24B6C87D0049CCB9 /* ACUnits.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = ACUnits.scnassets; sourceTree = "<group>"; };
 		5B835C042627C5920031698A /* VerticalAnchorCoachingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAnchorCoachingView.swift; sourceTree = "<group>"; };
-		5B8667CF248D900D003A3B5D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5B8667CF248D900D003A3B5D /* UnitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitManager.swift; sourceTree = "<group>"; };
 		5B8667D1248D9662003A3B5D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		5B8667D3248D966F003A3B5D /* CreateAnAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnAccountViewController.swift; sourceTree = "<group>"; };
 		5BAF8D0824B81A8D0022EC84 /* AppEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppEntry.storyboard; sourceTree = "<group>"; };
@@ -402,7 +402,7 @@
 		5B8667CE248D8FF7003A3B5D /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				5B8667CF248D900D003A3B5D /* NetworkManager.swift */,
+				5B8667CF248D900D003A3B5D /* UnitManager.swift */,
 				5B2C5B29248DC768001B6898 /* ErrorManager.swift */,
 				5B00FACC24970F2100215489 /* ExtensionManager.swift */,
 				5BDD141124BC07B4003A3A98 /* ConstantsManager.swift */,
@@ -647,7 +647,7 @@
 				5BDD77CF256B511300EACC68 /* VirtualObjectLoader.swift in Sources */,
 				5BAF8D0E24B81B2E0022EC84 /* AppEntryViewController.swift in Sources */,
 				5B4CEC2F263E17AD0081EBE2 /* ACLocation.swift in Sources */,
-				5B8667D0248D900D003A3B5D /* NetworkManager.swift in Sources */,
+				5B8667D0248D900D003A3B5D /* UnitManager.swift in Sources */,
 				5BE8198724BA1E3000C538FF /* ACQuote.swift in Sources */,
 				5B00FAC724970B7B00215489 /* ACUnitEnvironmentType.swift in Sources */,
 				5B00FACA24970CE300215489 /* ChooseACUnitViewController.swift in Sources */,

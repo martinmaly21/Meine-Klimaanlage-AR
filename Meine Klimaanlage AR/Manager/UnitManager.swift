@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  UnitManager.swift
 //  Meine Klimaanlage AR
 //
 //  Created by Martin Maly on 2020-06-07.
@@ -9,8 +9,8 @@
 import Foundation
 
 
-class NetworkManager {
-    public static var shared = NetworkManager()
+class UnitManager {
+    public static var shared = UnitManager()
     
     public static func getUnits(for brand: ACBrand, with unitType: ACUnitEnvironmentType) -> [ACUnit] {
         switch brand {
