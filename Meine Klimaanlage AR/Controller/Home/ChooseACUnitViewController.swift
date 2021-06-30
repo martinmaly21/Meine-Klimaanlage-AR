@@ -75,15 +75,10 @@ extension ChooseACUnitViewController: UITableViewDataSource, UITableViewDelegate
         
         let selectedUnit = units[indexPath.row - 1]
         
-        if selectedUnit.displayName == "Wandgerät Baureihe TZ 2.5kW" ||
-            selectedUnit.displayName == "Wandgerät Baureihe TZ 3.5kW" {
-            //update quote
-            let acLocation = ACLocation(acUnit: selectedUnit)
-            
-            performSegue(withIdentifier: "ARSegue", sender: acLocation)
-        } else {
-            ErrorManager.showFeatureNotSupported(on: self)
-        }
+        //update quote
+        let acLocation = ACLocation(acUnit: selectedUnit)
+        
+        performSegue(withIdentifier: "ARSegue", sender: acLocation)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
