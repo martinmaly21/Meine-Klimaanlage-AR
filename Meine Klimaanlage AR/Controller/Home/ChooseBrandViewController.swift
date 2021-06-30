@@ -14,7 +14,7 @@ class ChooseBrandViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
      //MARK: - Data
-    let brands: [ACBrand] = [.daikin, .mitsubishiMotors, .panasonic]
+    let brands: [ACBrand] = [.daikin, .mitsubishiMotors, .panasonic, .lg, .samsung]
     
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     private var itemsPerRow: CGFloat {

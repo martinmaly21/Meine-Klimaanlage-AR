@@ -13,6 +13,8 @@ enum ACBrand: String {
     case daikin = "Daikin"
     case mitsubishiMotors = "Mitsubishi Motors"
     case panasonic = "Panasonic"
+    case lg = "LG"
+    case samsung = "Samsung"
     
     func getLogoImage() -> UIImage? {
         let parsedBrand = rawValue.replacingOccurrences(of: " ", with: "_").lowercased()
