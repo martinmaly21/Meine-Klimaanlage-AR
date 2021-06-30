@@ -79,11 +79,7 @@ extension ChooseBrandViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let selectedCell = collectionView.cellForItem(at: indexPath) as? ACUnitBrandsCollectionViewCell else { return }
         
-        if brands[indexPath.row] == .panasonic {
-            performSegue(withIdentifier: "ChooseUnitSegue", sender: selectedCell)
-        } else {
-            ErrorManager.showFeatureNotSupported(on: self)
-        }
+        performSegue(withIdentifier: "ChooseUnitSegue", sender: selectedCell)
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
