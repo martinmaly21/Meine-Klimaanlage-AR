@@ -282,23 +282,19 @@ extension ARQuoteViewController {
         
         switch pinchGesture.state {
         case .began:
-            if let hitTestResult = sceneView.hitTest(
+            if sceneView.hitTest(
                 location,
                 options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-            ).first,
-            let acUnit = hitTestResult.node.parent,
-            acUnit.isEqual(currentACUnitNode) {
+            ).first != nil {
                 //user is pinching AC unit
-                trackedObject = acUnit
+                trackedObject = currentACUnitNode
             }
         case .changed:
             if let trackedObject = trackedObject,
-               let hitTestResult = sceneView.hitTest(
+               sceneView.hitTest(
                 location,
                 options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-               ).first,
-               let acUnit = hitTestResult.node.parent,
-               acUnit.isEqual(trackedObject) {
+               ).first != nil {
                 let pinchScaleX = pinchGesture.scale * CGFloat((trackedObject.scale.x))
                 let pinchScaleY = pinchGesture.scale * CGFloat((trackedObject.scale.y))
                 let pinchScaleZ = pinchGesture.scale * CGFloat((trackedObject.scale.z))
@@ -318,23 +314,19 @@ extension ARQuoteViewController {
         
         switch rotateGesture.state {
         case .began:
-            if let hitTestResult = sceneView.hitTest(
+            if sceneView.hitTest(
                 location,
                 options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-            ).first,
-            let acUnit = hitTestResult.node.parent,
-            acUnit.isEqual(currentACUnitNode) {
-                //user is pinching AC unit
-                trackedObject = acUnit
+            ).first != nil {
+                //user is rotating AC unit
+                trackedObject = currentACUnitNode
             }
         case .changed:
             if let trackedObject = trackedObject,
-               let hitTestResult = sceneView.hitTest(
+               sceneView.hitTest(
                 location,
                 options: [SCNHitTestOption.categoryBitMask : acUnitBitMask]
-               ).first,
-               let acUnit = hitTestResult.node.parent,
-               acUnit.isEqual(trackedObject) {
+               ).first != nil {
                 trackedObject.eulerAngles.z =  -(currentAngleZ + Float(rotateGesture.rotation))
             }
         case .ended:
