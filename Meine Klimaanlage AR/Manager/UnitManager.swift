@@ -71,7 +71,23 @@ class UnitManager {
                 return [wandgeratLowEnergy, wandgeratHighEnergy]
             }
         case .samsung:
-            return []
+            if unitType == .exterior {
+                return []
+            } else {
+                //exterior
+                let samsungLowEnergy = ACUnit(
+                    displayName: "Samsung Inside Unit 2.5kW",
+                    fileName: "Samsung_Inside_Unit",
+                    environmentType: .interior
+                )
+                let samsungHighEnergy = ACUnit(
+                    displayName: "Samsung Inside Unit 3.5kW",
+                    fileName: "Samsung_Inside_Unit",
+                    environmentType: .interior
+                )
+                
+                return [samsungLowEnergy, samsungHighEnergy]
+            }
         }
     }
 }
