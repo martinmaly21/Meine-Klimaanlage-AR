@@ -15,7 +15,23 @@ class UnitManager {
     public static func getUnits(for brand: ACBrand, with unitType: ACUnitEnvironmentType) -> [ACUnit] {
         switch brand {
         case .daikin:
-            return []
+            if unitType == .exterior {
+                return []
+            } else {
+                //exterior
+                let daikinLowEnergy = ACUnit(
+                    displayName: "Daikin Inside Unit 2.5kW",
+                    fileName: "Daikin_Inside_Unit",
+                    environmentType: .interior
+                )
+                let daikinHighEnergy = ACUnit(
+                    displayName: "Daikin Inside Unit 3.5kW",
+                    fileName: "Daikin_Inside_Unit",
+                    environmentType: .interior
+                )
+                
+                return [daikinLowEnergy, daikinHighEnergy]
+            }
         case .mitsubishiMotors:
             return []
         case .panasonic:
