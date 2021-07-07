@@ -33,7 +33,23 @@ class UnitManager {
                 return [daikinLowEnergy, daikinHighEnergy]
             }
         case .mitsubishiMotors:
-            return []
+            if unitType == .exterior {
+                return []
+            } else {
+                //exterior
+                let wandgeratLowEnergy = ACUnit(
+                    displayName: "Mitsubishi Inside Unit 2.5kW",
+                    fileName: "Mitsubishi_Inside_Unit",
+                    environmentType: .interior
+                )
+                let wandgeratHighEnergy = ACUnit(
+                    displayName: "Mitsubishi Inside Unit 3.5kW",
+                    fileName: "Mitsubishi_Inside_Unit",
+                    environmentType: .interior
+                )
+                
+                return [wandgeratLowEnergy, wandgeratHighEnergy]
+            }
         case .panasonic:
             if unitType == .exterior {
                 return []
