@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50EAA2EB2BE83E0800BC1936 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 50EAA2EA2BE83E0800BC1936 /* IQKeyboardManagerSwift */; };
 		5B00FAC0249703C600215489 /* ACBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FABF249703C600215489 /* ACBrand.swift */; };
 		5B00FAC724970B7B00215489 /* ACUnitEnvironmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FAC624970B7B00215489 /* ACUnitEnvironmentType.swift */; };
 		5B00FACA24970CE300215489 /* ChooseACUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B00FAC824970CE300215489 /* ChooseACUnitViewController.swift */; };
@@ -186,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5BDCB9A0FD47B151970EB4E /* Pods_Meine_Klimaanlage_AR.framework in Frameworks */,
+				50EAA2EB2BE83E0800BC1936 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +520,9 @@
 			dependencies = (
 			);
 			name = "Meine Klimaanlage AR";
+			packageProductDependencies = (
+				50EAA2EA2BE83E0800BC1936 /* IQKeyboardManagerSwift */,
+			);
 			productName = "Meine Klimaanlage AR";
 			productReference = 5B69D0D5248D701F0072002A /* Meine Klimaanlage AR.app */;
 			productType = "com.apple.product-type.application";
@@ -546,6 +551,9 @@
 				Base,
 			);
 			mainGroup = 5B69D0CC248D701F0072002A;
+			packageReferences = (
+				50EAA2E92BE83E0800BC1936 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 5B69D0D6248D701F0072002A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -900,6 +908,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		50EAA2E92BE83E0800BC1936 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		50EAA2EA2BE83E0800BC1936 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50EAA2E92BE83E0800BC1936 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5B69D0CD248D701F0072002A /* Project object */;
 }

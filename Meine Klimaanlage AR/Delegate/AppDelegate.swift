@@ -36,8 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setUpIQKeyboardManager() {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = true
-        IQKeyboardManager.shared.toolbarTintColor = Constants.Color.primaryBlue
-        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.toolbarConfiguration.tintColor = Constants.Color.primaryBlue
+        IQKeyboardManager.shared.resignOnTouchOutside = true
     }
 
     // MARK: UISceneSession Lifecycle

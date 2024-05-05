@@ -3,8 +3,6 @@ target 'Meine Klimaanlage AR' do
   
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
-  
-  pod 'IQKeyboardManagerSwift'
 
   pod 'FLAnimatedImage', '~> 1.0'
 
