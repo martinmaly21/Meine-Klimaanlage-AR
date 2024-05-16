@@ -27,10 +27,27 @@ class InfinitePlaneNode: SCNNode {
         
         plane.firstMaterial?.diffuse.contents = UIColor.clear
         plane.firstMaterial?.isDoubleSided = true
+        
+        //add shadow plane
+        let shadowPlane = SCNPlane(
+            width: Constants.AR.assumedInfinitePlaneDimension,
+            height: Constants.AR.assumedInfinitePlaneDimension
+        )
+        let worldGroundPlane = SCNNode()
+        let worldGroundMaterial = SCNMaterial()
+        
+        worldGroundMaterial.lightingModel = .constant
+        worldGroundMaterial.writesToDepthBuffer = true
+        worldGroundMaterial.colorBufferWriteMask = []
+        worldGroundMaterial.isDoubleSided = true
+        worldGroundMaterial.diffuse.contents = UIColor.white.withAlphaComponent(1)  // Slightly visible to see the shadows
+        shadowPlane.materials = [worldGroundMaterial]
+        worldGroundPlane.geometry = shadowPlane
+        addChildNode(worldGroundPlane)
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

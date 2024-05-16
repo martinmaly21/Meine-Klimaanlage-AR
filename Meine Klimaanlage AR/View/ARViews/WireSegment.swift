@@ -91,6 +91,8 @@ class WireSegment: SCNNode {
             cyl.firstMaterial?.diffuse.contents = color
         }
         
+        castsShadow = false
+        
         self.geometry = cyl
         
         //original vector of cylinder above 0,0,0

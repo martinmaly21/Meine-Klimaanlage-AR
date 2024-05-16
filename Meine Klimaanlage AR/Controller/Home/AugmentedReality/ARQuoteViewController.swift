@@ -69,7 +69,6 @@ class ARQuoteViewController: UIViewController {
         sceneView.delegate = self
         sceneView.session.delegate = self
         sceneView.antialiasingMode = .multisampling2X
-        sceneView.autoenablesDefaultLighting = true
         
         // Prevent the screen from being dimmed to avoid interuppting the AR experience.
         UIApplication.shared.isIdleTimerDisabled = true
@@ -108,8 +107,6 @@ class ARQuoteViewController: UIViewController {
         } else {
             //no plane detection for vertical (as we use the phone on the wall method)
         }
-        
-        configuration.isLightEstimationEnabled = true
         
         // Run the view's session
         sceneView.session.run(configuration)
@@ -171,6 +168,8 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         }
         acUnit.load()
         
+        acUnit.geometry?.firstMaterial?.lightingModel = .blinn
+        
         //set bit mask so it can be located in hit test
         acUnit.loadedNode.categoryBitMask = HitTestType.acUnit.rawValue
         
@@ -190,6 +189,25 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         //prefer to add infinitePlaneNode, rather than the AC Unit node itself becuse removing
         //the plane node, will also remove the ac unit.
         loadedNodes.append(infinitePlaneNode)
+
+           // Create a directional light node with shadow
+        let directionalNode = SCNNode()
+        directionalNode.light = SCNLight()
+        directionalNode.light?.type = SCNLight.LightType.directional
+        directionalNode.light?.color = UIColor.white
+        directionalNode.light?.intensity = 250
+        directionalNode.light?.castsShadow = true
+        directionalNode.light?.automaticallyAdjustsShadowProjection = true
+        directionalNode.light?.shadowSampleCount = 64
+        directionalNode.light?.shadowRadius = 16
+        directionalNode.light?.shadowMode = .deferred
+        directionalNode.light?.shadowMapSize = CGSize(width: 2048, height: 2048)
+        directionalNode.light?.shadowColor = UIColor.black.withAlphaComponent(0.4)
+        directionalNode.position = SCNVector3(x: 0,y: 1.5,z: 1)
+        directionalNode.eulerAngles = SCNVector3(-Float.pi / 4, 0, 0)
+        
+        sceneView.scene.rootNode.addChildNode(directionalNode)
+        
         
         //give user option to confirm the position after they've manipulated it
         confirmPositionStackView.isHidden = false
