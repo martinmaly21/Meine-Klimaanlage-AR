@@ -148,6 +148,8 @@ class FocusSquare: SCNNode {
         
         addChildNode(positioningNode)
         
+        castsShadow = false
+        
         // Start the focus square as a billboard.
         displayAsBillboard()
     }

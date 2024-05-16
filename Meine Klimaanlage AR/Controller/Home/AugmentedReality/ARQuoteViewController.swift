@@ -172,6 +172,8 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         
         //set bit mask so it can be located in hit test
         acUnit.loadedNode.categoryBitMask = HitTestType.acUnit.rawValue
+        acUnit.renderingOrder = -1
+        acUnit.geometry?.firstMaterial?.writesToDepthBuffer = true
         
         currentACUnitNode = acUnit.loadedNode
         
@@ -195,15 +197,15 @@ extension ARQuoteViewController: ARCoachingOverlayViewDelegate {
         directionalNode.light = SCNLight()
         directionalNode.light?.type = SCNLight.LightType.directional
         directionalNode.light?.color = UIColor.white
-        directionalNode.light?.intensity = 250
+        directionalNode.light?.intensity = 375
         directionalNode.light?.castsShadow = true
         directionalNode.light?.automaticallyAdjustsShadowProjection = true
         directionalNode.light?.shadowSampleCount = 64
-        directionalNode.light?.shadowRadius = 16
+        directionalNode.light?.shadowRadius = 1
         directionalNode.light?.shadowMode = .deferred
         directionalNode.light?.shadowMapSize = CGSize(width: 2048, height: 2048)
-        directionalNode.light?.shadowColor = UIColor.black.withAlphaComponent(0.4)
-        directionalNode.position = SCNVector3(x: 0,y: 1.5,z: 1)
+        directionalNode.light?.shadowColor = UIColor.black.withAlphaComponent(0.125)
+        directionalNode.position = SCNVector3(x: -1.5,y: 1.5,z: 1)
         directionalNode.eulerAngles = SCNVector3(-Float.pi / 4, 0, 0)
         
         sceneView.scene.rootNode.addChildNode(directionalNode)
@@ -395,7 +397,7 @@ extension ARQuoteViewController: ARSCNViewDelegate {
                             let wireSegment = WireSegment(
                                 from: currentWireAnchorPoint,
                                 to: wireCursor.position,
-                                radius: 0.015,
+                                radius: 0.010,
                                 color: self.currentWire.getWireColor(),
                                 dottedLine: self.currentWire.wireLocation == .insideWall
                             )

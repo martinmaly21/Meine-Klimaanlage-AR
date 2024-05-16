@@ -22,6 +22,8 @@ class WireCursor: SCNNode {
         geometry?.firstMaterial?.diffuse.contents = Constants.Color.primaryBlue
         
         categoryBitMask = HitTestType.wireCursor.rawValue
+        
+        castsShadow = false
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -93,6 +93,8 @@ class WireSegment: SCNNode {
         
         castsShadow = false
         
+        cyl.firstMaterial?.lightingModel = .constant
+        
         self.geometry = cyl
         
         //original vector of cylinder above 0,0,0
